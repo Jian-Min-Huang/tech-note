@@ -1,3 +1,3 @@
 # tech-book
 
-> This is a gitbook consist of my personal development note. 
+# This is a gitbook consist of my personal development note. 
