@@ -5,7 +5,7 @@ root: ./pages/
 # Files to use as SUMMARY/README.
 # (Relative to <root> directory)
 structure:
-  summary: SUMMARY.md
+  summary: summary.md
 
 # Redirect urls to specific files (relative to the <root> directory)
 #redirects:
