@@ -9,7 +9,7 @@
     * [敏捷開發](agile.md)
     * [DevOps](devops.md)
 * [單元測試與自動化測試](unit-automate-test.md)
-* [Spring Boot專案基底](spring-boot-project-base.md)
+* [專案基底](project-base.md)
 * [負載平衡伺服器](load-balance-server.md)
 * [微服務系統架構設計](micro-service-architecture.md)
 * [Dubbo 與 Spring Cloud 的比較](dubbo-spring-cloud.md)
