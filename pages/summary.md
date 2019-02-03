@@ -3,6 +3,8 @@
 * [前端後端協作的演進](frontend-backend.md)
 * [進程線程協程](process-thread-routine.md)
 * [Java 8 三神器](java-8-four-artifact.md)
+* [Kotlin 之美](kotlin-beautiful-part.md)
+* [Spring Kotlin](spring-kotlin.md)
 * [部署方式的演進](deploy-method-evolution.md)
 * [持續整合與提交](ci-cd.md)
 * [敏捷開發與DevOps](agile-devops.md)

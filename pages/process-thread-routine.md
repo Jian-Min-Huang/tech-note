@@ -6,4 +6,4 @@
 
 ### Thread Pool
 
-### Routine, Fiber, Reactive Streams, Actor
+### go routine, Coroutine, Fiber, Reactor, rx, Actor
