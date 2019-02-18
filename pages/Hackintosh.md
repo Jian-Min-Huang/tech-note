@@ -1,0 +1,23 @@
+# 工欲善其事必先利其器 Hackintosh
+
+### Spec
+|||
+|---|---|
+|CPU|Intel i7-8700|
+|MB|ASUS ROG STRIX H370-F GAMING|
+|VGA|MSI RX570 ARMOR 8G OC|
+|RAM|G.SKILL TZ RGB DDR4 3000 CL16 16G * 4|
+|SSD|Samsung 970 PRO 512GB|
+|PSU|CORSAIR RM550X|
+|CASE|Anidees AI CRYSTAL CUBE AR|
+|AIO WATER COOLER|CORSAIR Hydro Series™ H115i RGB PLATINUM|
+|FAN|CORSAIR LL140 * 2|
+|FAN|CORSAIR LL120 * 1|
+|PCIE ACC.|BCM943602CS|
+|USB ACC.|TP-Link TL-WN725N|
+|USB ACC.|aibo Bluetooth V4.0 微型藍芽傳輸器|
+|KEYBOARD|CORSAIR K70 RGB MK.2 Mechanical Gaming Keyboard — CHERRY® MX Brown|
+|MOUSE|Apple Magic Mouse 2 - Space Gray|
+|LCD|LG 29UM58-P|
+
+### 
