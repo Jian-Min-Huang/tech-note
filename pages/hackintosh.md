@@ -47,7 +47,7 @@
 - [x] ethernet
 - [x] wifi
 - [x] bluetooth
-- [ ] Right Frequency
+- [ ] Right Frequency ?
 - [ ] iMessage ?
 - [ ] FaceTime ?
 - [ ] iCloud ?
