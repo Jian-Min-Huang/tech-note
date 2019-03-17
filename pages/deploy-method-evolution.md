@@ -10,7 +10,7 @@
 ### Docker Compose
 ### Docker Swarm
 
-### PAAS, IAAS
+### PAAS, IAAS with SAAS (AWS EC2 and other service)
 ### CAAS
 ### Kubernates
 
