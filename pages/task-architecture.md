@@ -7,8 +7,9 @@
 * Schedule or Quartz with Single Thread
 * Kafka
 * Akka
-* Reactor
-* Cloud Pub/Sub
+* Reactor Pub/Sub, Web Flux, WebClient
+  * This model in GoLang, JS
+* Google Cloud Pub/Sub
 
 # 開獎中心
 * multi-thread
