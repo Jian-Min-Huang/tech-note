@@ -59,3 +59,9 @@
 * 4PIN插頭
 * 3PIN插頭
 * USB910插頭
+
+### Reference
+* Tonymacx86
+* InsanelyMac
+* Reddit Hackintosh
+* 遠景論壇
