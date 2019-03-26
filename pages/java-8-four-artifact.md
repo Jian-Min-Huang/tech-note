@@ -1,6 +1,7 @@
 # Java 8 四神器
 
 ### Lambda
+http://itarchitect.hk/2014/05/21/java-lambda-stream-教學-part-2/
 
 ### Streams
 peek Intermediate vs. Terminal Operations https://www.baeldung.com/java-streams-peek-api
