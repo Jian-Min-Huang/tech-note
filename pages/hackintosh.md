@@ -13,13 +13,13 @@
 |FAN|CORSAIR LL140 * 2|
 |FAN|CORSAIR LL120 * 1|
 |CASE|Anidees AI CRYSTAL CUBE AR|
-|PCIE ACC.|BCM943602CS|
-|USB ACC.|TP-Link TL-WN725N|
-|USB ACC.|aibo Bluetooth V4.0 微型藍芽傳輸器|
 |KEYBOARD|CORSAIR K70 RGB MK.2 Mechanical Gaming Keyboard — CHERRY® MX Brown|
 |MOUSE|Apple Magic Mouse 2 - Space Gray|
 |TRACKPAD|Apple Magic Trackpad 2 - Space Gray|
 |LCD|LG 29UM58-P|
+|ACCESSORIES|BCM943602CS|
+|ACCESSORIES|TP-Link TL-WN725N|
+|ACCESSORIES|aibo Bluetooth V4.0 微型藍芽傳輸器|
 
 ### Tools
 * Install macOS Mojave.app
