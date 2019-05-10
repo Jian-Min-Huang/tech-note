@@ -12,7 +12,7 @@
 |RADIATOR|CORSAIR Hydro Series™ H115i RGB PLATINUM|
 |CASE|CORSAIR Crystal Series 680X RGB ATX High Airflow Tempered Glass Smart Case|
 |FAN|CORSAIR LL140 * 2|
-|FAN|CORSAIR LL120 * 1|
+|FAN|CORSAIR LL120 * 4|
 |LED|CORSAIR iCUE Lighting Node PRO RGB Lighting Controller|
 |HEADSET STAND|CORSAIR ST100 RGB Premium Headset Stand with 7.1 Surround Sound|
 |KEYBOARD|CORSAIR K70 RGB MK.2 Mechanical Gaming Keyboard — CHERRY® MX Brown|
