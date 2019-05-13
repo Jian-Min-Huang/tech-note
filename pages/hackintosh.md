@@ -1,29 +1,29 @@
 # 工欲善其事必先利其器 Hackintosh
 
 ### Spec
-|||
-|---|---|
-|CPU|Intel i7-8700|
-|MB|ASUS ROG STRIX H370-F GAMING|
-|VGA|MSI RX570 ARMOR 8G OC|
-|SSD|Samsung 970 PRO 512GB|
-|RAM|CORSAIR Vengeance RGB PRO D4-3000M C15 16G * 4|
-|PSU|CORSAIR RM550X|
-|RADIATOR|CORSAIR Hydro Series™ H115i RGB PLATINUM|
-|CASE|CORSAIR Crystal Series 680X RGB ATX High Airflow Tempered Glass Smart Case|
-|FAN|CORSAIR LL140 * 2|
-|FAN|CORSAIR LL120 * 4|
-|LED|CORSAIR iCUE Lighting Node PRO RGB Lighting Controller|
-|HEADSET STAND|CORSAIR ST100 RGB Premium Headset Stand with 7.1 Surround Sound|
-|KEYBOARD|CORSAIR K70 RGB MK.2 Mechanical Gaming Keyboard — CHERRY® MX Brown|
-|MOUSEPAD|CORSAIR MM800 RGB POLARIS Gaming Mouse Pad|
-|MOUSE|Apple Magic Mouse 2 - Space Gray|
-|TRACKPAD|Apple Magic Trackpad 2 - Space Gray|
-|LCD|LG 29UM58-P|
-|LCD|EIZO FlexScan EV2450|
-|ACCESSORIES|BCM943602CS|
-|ACCESSORIES|TP-Link TL-WN725N|
-|ACCESSORIES|aibo Bluetooth V4.0 微型藍芽傳輸器|
+||||
+|---|---|---|
+|CPU|Intel|i7-8700|
+|MB|ASUS|ROG STRIX H370-F GAMING|
+|VGA|MSI|RX570 ARMOR 8G OC|
+|SSD|Samsung|970 PRO 512GB|
+|RAM|CORSAIR|Vengeance RGB PRO D4-3000M C15 16G * 4|
+|PSU|CORSAIR|RM550X|
+|RADIATOR|CORSAIR|Hydro Series™ H115i RGB PLATINUM|
+|CASE|CORSAIR|Crystal Series 680X RGB ATX High Airflow Tempered Glass Smart Case|
+|FAN|CORSAIR|LL140 * 2|
+|FAN|CORSAIR|LL120 * 4|
+|LED|CORSAIR|iCUE Lighting Node PRO RGB Lighting Controller|
+|HEADSET STAND|CORSAIR|ST100 RGB Premium Headset Stand with 7.1 Surround Sound|
+|KEYBOARD|CORSAIR|K70 RGB MK.2 Mechanical Gaming Keyboard — CHERRY® MX Brown|
+|MOUSEPAD|CORSAIR|MM800 RGB POLARIS Gaming Mouse Pad|
+|MOUSE|Apple|Magic Mouse 2 - Space Gray|
+|TRACKPAD|Apple|Magic Trackpad 2 - Space Gray|
+|LCD|LG|29UM58-P|
+|LCD|EIZO|FlexScan EV2450|
+|ACCESSORIES|Broadcom|BCM943602CS|
+|ACCESSORIES|TP-Link|TL-WN725N|
+|ACCESSORIES|aibo|Bluetooth V4.0 微型藍芽傳輸器|
 
 ### Tools
 * Install macOS Mojave.app
