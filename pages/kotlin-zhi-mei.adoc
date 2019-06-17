@@ -1,0 +1,11 @@
+== extensions
+
+replace util in java
+
+== scope functions
+
+more functional programming
+
+== null check
+
+try to solve npe
