@@ -11,7 +11,7 @@
 * [持續整合與提交](chi-xu-zheng-he-yu-ti-jiao.md)
 * [敏捷開發與DevOps](min-jie-kai-fa-yu-devops/README.md)
   * [敏捷開發](min-jie-kai-fa-yu-devops/min-jie-kai-fa.md)
-  * [DevOps](min-jie-kai-fa-yu-devops/devops.md)
+  * [DevOps](devops.md)
 * [單元測試與自動化測試](dan-yuan-ce-shi-yu-zi-dong-hua-ce-shi.md)
 * [專案基底](project-base.md)
 * [負載平衡伺服器](fu-zai-ping-heng-si-fu-qi.md)

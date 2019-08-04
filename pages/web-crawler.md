@@ -1,4 +1,9 @@
-# 網路爬蟲
+##### web crawler
+* get, regular
+* jsonp
+* json
+* selenium
+
 
 ## 大型系統
 
