@@ -1,3 +1,1 @@
-# tech-note 📔
-
-* https://github.com/Jian-Min-Huang/tech-note/wiki
+📔https://github.com/Jian-Min-Huang/tech-note/wiki
