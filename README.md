@@ -8,5 +8,3 @@
 * [My Career Chronology](https://github.com/Jian-Min-Huang/tech-note/wiki/My-Career-Chronology)
 * [My Book List](https://github.com/Jian-Min-Huang/tech-note/wiki/My-Book-List)
 * [Session List](https://github.com/Jian-Min-Huang/tech-note/wiki/Session-List)
-* [Brief Introduce Java 7 8 9](https://github.com/Jian-Min-Huang/tech-note/wiki/brief-introduce-java-7-8-9)
-* [Brief Introduce Java 10 11 12](https://github.com/Jian-Min-Huang/tech-note/wiki/brief-introduce-java-10-11-12)
