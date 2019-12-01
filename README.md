@@ -1,4 +1,4 @@
-# Jian-Min Huang Blog
+# Jian-Min Huang's Blog
 
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/Avatar-176.png)](.)
 
