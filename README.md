@@ -9,4 +9,4 @@
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/wordpress-32.png)](https://github.com/Jian-Min-Huang/tech-note/blob/master/README.md)
 
 # 2019/12
-* to be written
+* [JCConf 2019 / Spring to Kubernetes Easier and Faster／Ray Tsang](https://github.com/Jian-Min-Huang/tech-note/issues/1)
