@@ -1,6 +1,6 @@
 # Jian-Min Huang's Blog
 
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/Avatar-176.png)](.)
+[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/Avatar-176.png)](../..)
 
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/github-32.png)](https://github.com/Jian-Min-Huang)
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/linkedin-32.png)](https://tw.linkedin.com/in/jian-min-huang-14731410b)
