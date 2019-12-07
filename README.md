@@ -9,4 +9,5 @@
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/img/wordpress-32.png)](https://github.com/Jian-Min-Huang/tech-note/blob/master/README.md)
 
 # 2019/12
-* [JCConf 2019 / Spring to Kubernetes Easier and Faster／Ray Tsang](https://github.com/Jian-Min-Huang/tech-note/issues/1)
+* [JCConf 2019 / Spring to Kubernetes Easier and Faster ／ Ray Tsang](https://github.com/Jian-Min-Huang/tech-note/issues/1)
+* [JCConf 2019 / Monitoring and Visualizing Your Microservices ／ Shin Tanimoto](https://github.com/Jian-Min-Huang/tech-note/issues/2)
