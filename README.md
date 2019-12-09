@@ -11,3 +11,4 @@
 # 2019/12
 * [Note of JCConf 2019 / Spring to Kubernetes Easier and Faster ／ Ray Tsang](https://github.com/Jian-Min-Huang/tech-note/issues/1)
 * [Note of JCConf 2019 / Monitoring and Visualizing Your Microservices ／ Shin Tanimoto](https://github.com/Jian-Min-Huang/tech-note/issues/2)
+* [CDN and Proxy is evil](https://github.com/Jian-Min-Huang/tech-note/issues/6)
