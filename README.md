@@ -14,6 +14,7 @@
 * [CDN and Proxy is evil](https://github.com/Jian-Min-Huang/tech-note/issues/6)
 * [Core Component of Netflix Solution](https://github.com/Jian-Min-Huang/tech-note/issues/8)
 * [Can Kubernetes Replace Spring Cloud ?](https://github.com/Jian-Min-Huang/tech-note/issues/9)
+* [Thread Safety](https://github.com/Jian-Min-Huang/tech-note/issues/22)
 * [GPS](https://github.com/Jian-Min-Huang/tech-note/issues/28)
 * [AWS EC2 Ubuntu 18.04 Setup](https://github.com/Jian-Min-Huang/tech-note/issues/29)
 * [why jib ?](https://github.com/Jian-Min-Huang/tech-note/issues/32)
