@@ -1,12 +1,15 @@
 # Jian-Min Huang's Blog
 
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/Avatar%20and%20Bio.png?raw=true)](../..)
+[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/Avatar%20and%20Bio.png)](../..)
 
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/linkedin-32.png)](https://tw.linkedin.com/in/jian-min-huang-14731410b)
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/github-32.png)](https://github.com/Jian-Min-Huang)
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/twitter-32.png)](https://twitter.com/JianMin_V_Huang)
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/notes-32.png)](https://github.com/Jian-Min-Huang/tech-note/wiki)
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/wordpress-32.png)](https://github.com/Jian-Min-Huang/tech-note/blob/master/README.md)
+
+# 2019
+* [2019 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/38)
 
 # 2019/12
 * [Note of JCConf 2019 / Spring to Kubernetes Easier and Faster / Ray Tsang](https://github.com/Jian-Min-Huang/tech-note/issues/1)
@@ -18,3 +21,9 @@
 * [GPS](https://github.com/Jian-Min-Huang/tech-note/issues/28)
 * [AWS EC2 Ubuntu 18.04 Setup](https://github.com/Jian-Min-Huang/tech-note/issues/29)
 * [why jib ?](https://github.com/Jian-Min-Huang/tech-note/issues/32)
+
+# 2020/01
+* [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
+* [seasaw left right left right](https://github.com/Jian-Min-Huang/tech-note/issues/10)
+* [Downgrade Version Solve Everything !](https://github.com/Jian-Min-Huang/tech-note/issues/45)
+* [Not even Doug Lea can get it right !](https://github.com/Jian-Min-Huang/tech-note/issues/54)
