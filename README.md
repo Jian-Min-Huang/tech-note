@@ -8,6 +8,9 @@
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/notes-32.png)](https://github.com/Jian-Min-Huang/tech-note/wiki)
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/wordpress-32.png)](https://github.com/Jian-Min-Huang/tech-note/blob/master/README.md)
 
+# 2020
+* [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
+
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
 * [seasaw left right left right](https://github.com/Jian-Min-Huang/tech-note/issues/10)
