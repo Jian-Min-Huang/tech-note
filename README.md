@@ -14,8 +14,16 @@
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
 * [seasaw left right left right](https://github.com/Jian-Min-Huang/tech-note/issues/10)
+* [Forward and Downward Compatibility](https://github.com/Jian-Min-Huang/tech-note/issues/35)
 * [Downgrade Version Solve Everything !](https://github.com/Jian-Min-Huang/tech-note/issues/45)
+* [Dependency Hell](https://github.com/Jian-Min-Huang/tech-note/issues/51)
 * [Not even Doug Lea can get it right !](https://github.com/Jian-Min-Huang/tech-note/issues/54)
+* [The Diamond Problem](https://github.com/Jian-Min-Huang/tech-note/issues/55)
+* [4 level of load balance and slb](https://github.com/Jian-Min-Huang/tech-note/issues/57)
+* [Branch Development Strategies](https://github.com/Jian-Min-Huang/tech-note/issues/60)
+* [remove all packages installed by pip](https://github.com/Jian-Min-Huang/tech-note/issues/62)
+* [Field injection is evil](https://github.com/Jian-Min-Huang/tech-note/issues/63)
+* [ETL](https://github.com/Jian-Min-Huang/tech-note/issues/67)
 
 # 2019
 * [2019 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/38)
