@@ -11,6 +11,19 @@
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
+# 2020/02
+* [Message Delivery Guarantees](https://github.com/Jian-Min-Huang/tech-note/issues/16)
+* [Agile is not meant to make everything easier, better, and faster !](https://github.com/Jian-Min-Huang/tech-note/issues/61)
+* [Fira Code vs JetBrains Mono ?](https://github.com/Jian-Min-Huang/tech-note/issues/64)
+* [Monkey Patch](https://github.com/Jian-Min-Huang/tech-note/issues/71)
+* [Test 3A](https://github.com/Jian-Min-Huang/tech-note/issues/73)
+* [BATJ](https://github.com/Jian-Min-Huang/tech-note/issues/75)
+* [The seven rules of a great Git commit message](https://github.com/Jian-Min-Huang/tech-note/issues/76)
+* [Providing useful tool is better than forcing rule !](https://github.com/Jian-Min-Huang/tech-note/issues/77)
+* [Lean Software Development](https://github.com/Jian-Min-Huang/tech-note/issues/81)
+* [Premature optimization is the root of all evil.](https://github.com/Jian-Min-Huang/tech-note/issues/82)
+* [There are only two hard problems in distributed systems: 1. Guaranteed order of messages 2. Exactly-once delivery](https://github.com/Jian-Min-Huang/tech-note/issues/84)
+
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
 * [seasaw left right left right](https://github.com/Jian-Min-Huang/tech-note/issues/10)
