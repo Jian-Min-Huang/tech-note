@@ -13,6 +13,11 @@
 
 # 2020/02
 * [Message Delivery Guarantees](https://github.com/Jian-Min-Huang/tech-note/issues/16)
+* [The Art of Logs](https://github.com/Jian-Min-Huang/tech-note/issues/40)
+* [Deployment Strategies](https://github.com/Jian-Min-Huang/tech-note/issues/42)
+* [Elastic Stack vs Prometheus Monitoring Stack](https://github.com/Jian-Min-Huang/tech-note/issues/46)
+* [Callback Hell](https://github.com/Jian-Min-Huang/tech-note/issues/50)
+* [The Twelve-Factor App](https://github.com/Jian-Min-Huang/tech-note/issues/52)
 * [Agile is not meant to make everything easier, better, and faster !](https://github.com/Jian-Min-Huang/tech-note/issues/61)
 * [Fira Code vs JetBrains Mono ?](https://github.com/Jian-Min-Huang/tech-note/issues/64)
 * [Monkey Patch](https://github.com/Jian-Min-Huang/tech-note/issues/71)
@@ -23,6 +28,10 @@
 * [Lean Software Development](https://github.com/Jian-Min-Huang/tech-note/issues/81)
 * [Premature optimization is the root of all evil.](https://github.com/Jian-Min-Huang/tech-note/issues/82)
 * [There are only two hard problems in distributed systems: 1. Guaranteed order of messages 2. Exactly-once delivery](https://github.com/Jian-Min-Huang/tech-note/issues/84)
+* [_aaS](https://github.com/Jian-Min-Huang/tech-note/issues/85)
+* [_Ops](https://github.com/Jian-Min-Huang/tech-note/issues/86)
+* [70. Climbing Stairs](https://github.com/Jian-Min-Huang/tech-note/issues/88)
+* [62. Unique Paths](https://github.com/Jian-Min-Huang/tech-note/issues/90)
 
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
