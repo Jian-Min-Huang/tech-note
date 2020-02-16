@@ -12,7 +12,9 @@
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
 # 2020/02
+* [Continuous Delivery vs Continuous Deployment](https://github.com/Jian-Min-Huang/tech-note/issues/12)
 * [Message Delivery Guarantees](https://github.com/Jian-Min-Huang/tech-note/issues/16)
+* [Taiwan Gambling Company Safety ?](https://github.com/Jian-Min-Huang/tech-note/issues/36)
 * [The Art of Logs](https://github.com/Jian-Min-Huang/tech-note/issues/40)
 * [Deployment Strategies](https://github.com/Jian-Min-Huang/tech-note/issues/42)
 * [Elastic Stack vs Prometheus Monitoring Stack](https://github.com/Jian-Min-Huang/tech-note/issues/46)
@@ -32,6 +34,8 @@
 * [_Ops](https://github.com/Jian-Min-Huang/tech-note/issues/86)
 * [70. Climbing Stairs](https://github.com/Jian-Min-Huang/tech-note/issues/88)
 * [62. Unique Paths](https://github.com/Jian-Min-Huang/tech-note/issues/90)
+* [134. Gas Station](https://github.com/Jian-Min-Huang/tech-note/issues/93)
+* [75. Sort Colors](https://github.com/Jian-Min-Huang/tech-note/issues/94)
 
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
