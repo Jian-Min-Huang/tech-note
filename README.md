@@ -14,6 +14,7 @@
 # 2020/02
 * [Continuous Delivery vs Continuous Deployment](https://github.com/Jian-Min-Huang/tech-note/issues/12)
 * [Message Delivery Guarantees](https://github.com/Jian-Min-Huang/tech-note/issues/16)
+* [peek operation in Stream not work](https://github.com/Jian-Min-Huang/tech-note/issues/31)
 * [Taiwan Gambling Company Safety ?](https://github.com/Jian-Min-Huang/tech-note/issues/36)
 * [The Art of Logs](https://github.com/Jian-Min-Huang/tech-note/issues/40)
 * [Deployment Strategies](https://github.com/Jian-Min-Huang/tech-note/issues/42)
@@ -36,6 +37,7 @@
 * [62. Unique Paths](https://github.com/Jian-Min-Huang/tech-note/issues/90)
 * [134. Gas Station](https://github.com/Jian-Min-Huang/tech-note/issues/93)
 * [75. Sort Colors](https://github.com/Jian-Min-Huang/tech-note/issues/94)
+* [148. Sort List](https://github.com/Jian-Min-Huang/tech-note/issues/97)
 
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
