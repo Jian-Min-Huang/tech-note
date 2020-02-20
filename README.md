@@ -38,6 +38,8 @@
 * [134. Gas Station](https://github.com/Jian-Min-Huang/tech-note/issues/93)
 * [75. Sort Colors](https://github.com/Jian-Min-Huang/tech-note/issues/94)
 * [148. Sort List](https://github.com/Jian-Min-Huang/tech-note/issues/97)
+* [5W2H](https://github.com/Jian-Min-Huang/tech-note/issues/99)
+* [Six Main Subject of Computer Science and Information Engineering](https://github.com/Jian-Min-Huang/tech-note/issues/101)
 
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
