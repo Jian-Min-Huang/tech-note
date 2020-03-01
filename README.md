@@ -40,6 +40,7 @@
 * [148. Sort List](https://github.com/Jian-Min-Huang/tech-note/issues/97)
 * [5W2H](https://github.com/Jian-Min-Huang/tech-note/issues/99)
 * [Six Main Subject of Computer Science and Information Engineering](https://github.com/Jian-Min-Huang/tech-note/issues/101)
+* [1. Two Sum](https://github.com/Jian-Min-Huang/tech-note/issues/102)
 
 # 2020/01
 * [Client Side and Server Side](https://github.com/Jian-Min-Huang/tech-note/issues/7)
