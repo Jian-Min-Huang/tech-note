@@ -1,4 +1,4 @@
-# Jian-Min Huang's Blog
+# Jian-Min Huang's Blog ![GitHub issues](https://img.shields.io/github/issues-raw/Jian-Min-Huang/tech-note?style=flat-square) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Jian-Min-Huang/tech-note?style=flat-square)
 
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/Avatar%20and%20Bio.png)](../..)
 
