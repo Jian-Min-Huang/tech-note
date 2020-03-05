@@ -25,7 +25,7 @@
 * [Fira Code vs JetBrains Mono ?](https://github.com/Jian-Min-Huang/tech-note/issues/64)
 * [Monkey Patch](https://github.com/Jian-Min-Huang/tech-note/issues/71)
 * [Test 3A](https://github.com/Jian-Min-Huang/tech-note/issues/73)
-* [BATJ](https://github.com/Jian-Min-Huang/tech-note/issues/75)
+* [FANG+BATJ](https://github.com/Jian-Min-Huang/tech-note/issues/75)
 * [The seven rules of a great Git commit message](https://github.com/Jian-Min-Huang/tech-note/issues/76)
 * [Providing useful tool is better than forcing rule !](https://github.com/Jian-Min-Huang/tech-note/issues/77)
 * [Lean Software Development](https://github.com/Jian-Min-Huang/tech-note/issues/81)
