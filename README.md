@@ -9,7 +9,7 @@
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/wordpress-32.png)](https://github.com/Jian-Min-Huang/tech-note/blob/master/README.md)
 
 # 2020
-* [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/40)
+* [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
 # 2020/02
 * [Continuous Delivery vs Continuous Deployment](https://github.com/Jian-Min-Huang/tech-note/issues/12)
