@@ -2,12 +2,6 @@
 
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/Avatar%20and%20Bio.png)](../..)
 
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/linkedin-32.png)](https://tw.linkedin.com/in/jian-min-huang-14731410b)
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/github-32.png)](https://github.com/Jian-Min-Huang)
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/twitter-32.png)](https://twitter.com/JianMin_V_Huang)
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/notes-32.png)](https://github.com/Jian-Min-Huang/tech-note/wiki)
-[![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/wordpress-32.png)](https://github.com/Jian-Min-Huang/tech-note/blob/master/README.md)
-
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
