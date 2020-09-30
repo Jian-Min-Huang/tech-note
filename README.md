@@ -5,6 +5,10 @@
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
+# 2020/09
+* [Service Avalanche](https://github.com/Jian-Min-Huang/tech-note/issues/133)
+* [TwoHardThings](https://github.com/Jian-Min-Huang/tech-note/issues/137)
+
 # 2020/06
 * [RCA](https://github.com/Jian-Min-Huang/tech-note/issues/130)
 * [P0,P1,P2,P3](https://github.com/Jian-Min-Huang/tech-note/issues/131)
