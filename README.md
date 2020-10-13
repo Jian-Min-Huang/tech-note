@@ -2,7 +2,7 @@
 
 [![](https://github.com/Jian-Min-Huang/tech-note/blob/master/images/Avatar%20and%20Bio.png)](../..)
 
-# [Public Speaking](https://github.com/Jian-Min-Huang/tech-note/wikis)
+# 👨‍🏫 [Public Speaking](https://github.com/Jian-Min-Huang/tech-note/wikis) 🎤
 
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
