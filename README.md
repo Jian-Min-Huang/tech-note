@@ -5,6 +5,28 @@
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
+# 2020/10
+* [Consistent Hashing & DHT](https://github.com/Jian-Min-Huang/tech-note/issues/4)
+* [4 stage](https://github.com/Jian-Min-Huang/tech-note/issues/24)
+* [Old Wine in New Bottle](https://github.com/Jian-Min-Huang/tech-note/issues/27)
+* [oh my zsh kubectl plugin](https://github.com/Jian-Min-Huang/tech-note/issues/33)
+* [N + 1 Problem](https://github.com/Jian-Min-Huang/tech-note/issues/98)
+* [taiwan famous guy](https://github.com/Jian-Min-Huang/tech-note/issues/108)
+* [RDB Table Common Design Field](https://github.com/Jian-Min-Huang/tech-note/issues/119)
+* [ConditionalOnXXX](https://github.com/Jian-Min-Huang/tech-note/issues/125)
+* [O(1), O(N), O(N^2), O(LOGN), O(NLOGN)](https://github.com/Jian-Min-Huang/tech-note/issues/127)
+* [scope function](https://github.com/Jian-Min-Huang/tech-note/issues/129)
+* [Microservice](https://github.com/Jian-Min-Huang/tech-note/issues/138)
+* [42 IntelliJ IDEA Tips and Tricks](https://github.com/Jian-Min-Huang/tech-note/issues/142)
+* [Core Calculation](https://github.com/Jian-Min-Huang/tech-note/issues/143)
+* [Specification by Example](https://github.com/Jian-Min-Huang/tech-note/issues/144)
+* [Jackson Afterburner](https://github.com/Jian-Min-Huang/tech-note/issues/153)
+* [@DirtiesContext](https://github.com/Jian-Min-Huang/tech-note/issues/156)
+* [Dunning-Kruger effect](https://github.com/Jian-Min-Huang/tech-note/issues/159)
+* [VPS](https://github.com/Jian-Min-Huang/tech-note/issues/162)
+* [RESTFul Version Control Type](https://github.com/Jian-Min-Huang/tech-note/issues/163)
+* [The Beauty Of Kotlin](https://github.com/Jian-Min-Huang/tech-note/issues/164)
+
 # 2020/09
 * [Service Avalanche](https://github.com/Jian-Min-Huang/tech-note/issues/133)
 * [TwoHardThings](https://github.com/Jian-Min-Huang/tech-note/issues/137)
