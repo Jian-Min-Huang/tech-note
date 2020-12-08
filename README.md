@@ -5,6 +5,12 @@
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
+# 2020/11
+* [Note of JCConf 2019 / Spring Cloud Eureka & OpenFeign的實務應用經驗 / Rhys Chang](https://github.com/Jian-Min-Huang/tech-note/issues/3)
+* [RDB and MongoDB Concept Transform](https://github.com/Jian-Min-Huang/tech-note/issues/168)
+* [SLA](https://github.com/Jian-Min-Huang/tech-note/issues/170)
+* [Rubber Duck Debugging](https://github.com/Jian-Min-Huang/tech-note/issues/173)
+
 # 2020/10
 * [Consistent Hashing & DHT](https://github.com/Jian-Min-Huang/tech-note/issues/4)
 * [4 stage](https://github.com/Jian-Min-Huang/tech-note/issues/24)
