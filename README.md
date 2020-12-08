@@ -2,6 +2,9 @@
 
 # 👨‍🏫 [Public Speaking](https://github.com/Jian-Min-Huang/tech-note/wikis) 🎤
 
+# 2021
+* [2021 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/141)
+
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
