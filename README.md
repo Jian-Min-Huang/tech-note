@@ -8,6 +8,13 @@
 # 2020
 * [2020 Goals](https://github.com/Jian-Min-Huang/tech-note/issues/39)
 
+# 2020/12
+* [Why we need wsgi ?](https://github.com/Jian-Min-Huang/tech-note/issues/65)
+* [Lorem Ipsum](https://github.com/Jian-Min-Huang/tech-note/issues/174)
+* [Calling a @Bean annotated method in Spring java configuration](https://github.com/Jian-Min-Huang/tech-note/issues/175)
+* [Rainbow Table](https://github.com/Jian-Min-Huang/tech-note/issues/177)
+* [i18n Time Issue](https://github.com/Jian-Min-Huang/tech-note/issues/182)
+
 # 2020/11
 * [Note of JCConf 2019 / Spring Cloud Eureka & OpenFeign的實務應用經驗 / Rhys Chang](https://github.com/Jian-Min-Huang/tech-note/issues/3)
 * [RDB and MongoDB Concept Transform](https://github.com/Jian-Min-Huang/tech-note/issues/168)
