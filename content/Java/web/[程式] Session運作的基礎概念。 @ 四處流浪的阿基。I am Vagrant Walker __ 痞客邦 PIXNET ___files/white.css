@@ -1,0 +1,65 @@
+body{   margin:0;       padding:0;      position: relative ;    overflow: hidden ;      width: 170px;   font-size: .75em ; background-color: transparent;}
+a{ text-decoration: none ; }
+img {   border:1px solid #eee;  -moz-box-shadow: 0px 0px 5px #555;      -webkit-box-shadow: 0px 0px 5px #555;   box-shadow: 0px 0px 5px #555;}
+
+#photostream {  height: 105px;  z-index: 5 ;    position: relative ;}
+#photostream div {      float:left ;    overflow: hidden ;      padding: 5px 5px 5px 5px ;      position: absolute ;    }
+#photostream a { vertical-align: bottom ; }
+#photostream img { vertical-align: bottom ;  }
+
+#img-0 { left: 0px ; bottom: 13px ; }
+#img-2 { left: 34px ; bottom: 3px ; }
+#img-1 { left: 0px ; bottom: 13px ; }
+#img-3 { left: 85px; bottom: 13px ; }
+div.hidden {  z-index:0; }
+div.focus {width: 90px ;  z-index:5;}
+div.left { margin: 0 0px 0px 5px ; z-index:1;}
+div.right { z-index:1;}
+div.left , div.right ,div.hidden{width: 70px ; margin-top: 10px  ; position: relative ; }
+
+
+#dashboard {    width: 170px ;  height: 83px;   position: relative ;    top: -20px ;    padding : 17px 0 0 0px ;        background: url('//s.pixfs.net/blog/plugins/albumshow/white-bg.png') no-repeat left top ;
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#', sizingMethod='scale');  _background: none ;}
+#dashboard a {  display: block ;        float:left ;    overflow: hidden ;      margin-right: 8px ;     background: url('//s.pixfs.net/blog/plugins/albumshow/white-button.jpg') ;      }
+#dashboard a:hover {    background: url('//s.pixfs.net/blog/plugins/albumshow/white-hover.jpg') ;       }
+#dashboard span {       display: none ; }
+	
+#dashboard a.play , #dashboard a.pause {        height: 30px ;  width: 30px;    }
+#dashboard a.play {     margin-bottom: 5px ;    background-position: -35px -2px ;       }
+#dashboard a.play:hover {       background-position: -35px -2px ;}
+#dashboard a.pause {    margin-bottom: 5px ;    background-position: -100px -2px ;      }
+#dashboard a.pause:hover {      background-position: -100px -2px ;}
+	
+#dashboard a.left, #dashboard a.right { width: 22px;    height: 22px ;  margin-top: 4px;        }
+#dashboard a.left {     margin-left: 40px ;     _margin-left: 20px ;    background-position: -6px -6px ;        }
+#dashboard a.left:hover  {      background-position:  -6px -6px ;}
+#dashboard a.right {    background-position: -72px -6px ;       }
+#dashboard a.right:hover {      background-position: -72px -6px ;}
+	
+#dashboard a.title {
+        color:#333 ;
+	          background: none ;  float: none ;
+			          margin: 0 auto ;    text-align:center ;
+					      width: 150px ;      height: 1.4em ; line-height: 200% ;
+						         padding: 0px 5px 8px 5px ;  padding: 2px 5px 8px 5px \9;
+}
+#dashboard a.title:hover {      color:#888 ;    background: none ;      }
+
+#warning {
+    background: #fffaec;
+    border: 1px solid #f6e6b2;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #ac8c4d;
+    display: none;
+    font-size: 13px;
+    width: 170px;
+    height: 40px;
+    line-height: 1.5em;
+    padding: 5px 0;
+    position: absolute;
+    text-align: center;
+    top: 60px;
+    z-index: 99;
+}

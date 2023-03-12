@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+  zkka-node1:
+    image: jianminhuang/jre8_zk3.4.12_kafka1.1.0:1.0.0
+    container_name: zkka-node1
+    ports:
+      - "9092:9092"
+    environment:
+      - TZ=Asia/Taipei
+      - SERVER_ID=1
+      - HOST=zkka-node1
+      - SERVER1=zkka-node1
+      - SERVER2=zkka-node2
+      - SERVER3=zkka-node3
+      - ADDITIONAL_ZOOKEEPER_1=server.1=zkka-node1:2888:3888
+      - ADDITIONAL_ZOOKEEPER_2=server.2=zkka-node2:2888:3888
+      - ADDITIONAL_ZOOKEEPER_3=server.3=zkka-node3:2888:3888
+    networks:
+      - inner
+  zkka-node2:
+    image: jianminhuang/jre8_zk3.4.12_kafka1.1.0:1.0.0
+    container_name: zkka-node2
+    ports:
+      - "9093:9092"
+    environment:
+      - TZ=Asia/Taipei
+      - SERVER_ID=2
+      - HOST=zkka-node2
+      - SERVER1=zkka-node1
+      - SERVER2=zkka-node2
+      - SERVER3=zkka-node3
+      - ADDITIONAL_ZOOKEEPER_1=server.1=zkka-node1:2888:3888
+      - ADDITIONAL_ZOOKEEPER_2=server.2=zkka-node2:2888:3888
+      - ADDITIONAL_ZOOKEEPER_3=server.3=zkka-node3:2888:3888
+    networks:
+      - inner
+  zkka-node3:
+    image: jianminhuang/jre8_zk3.4.12_kafka1.1.0:1.0.0
+    container_name: zkka-node3
+    ports:
+      - "9094:9092"
+    environment:
+      - TZ=Asia/Taipei
+      - SERVER_ID=3
+      - HOST=zkka-node3
+      - SERVER1=zkka-node1
+      - SERVER2=zkka-node2
+      - SERVER3=zkka-node3
+      - ADDITIONAL_ZOOKEEPER_1=server.1=zkka-node1:2888:3888
+      - ADDITIONAL_ZOOKEEPER_2=server.2=zkka-node2:2888:3888
+      - ADDITIONAL_ZOOKEEPER_3=server.3=zkka-node3:2888:3888
+    networks:
+      - inner
+
+networks:
+  inner:

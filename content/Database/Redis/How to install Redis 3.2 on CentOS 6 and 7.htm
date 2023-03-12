@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://www.hugeserver.com/kb/install-redis-centos/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="pingback" href="https://www.hugeserver.com/kb/xmlrpc.php">
+		<link rel="icon" type="image/png" href="https://www.hugeserver.com/images/favicon.png">
+
+	
+<!-- This site is optimized with the Yoast SEO plugin v4.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>How to install Redis 3.2 on CentOS 6 and 7</title>
+<link rel="canonical" href="https://www.hugeserver.com/kb/install-redis-centos/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to install Redis 3.2 on CentOS 6 and 7">
+<meta property="og:description" content="What is Redis? Redis is a flexible open-source, key value data store, used as a database, cache and message broker. Redis allows the user to store vast amounts of data without the limits of a relational database. In order to achieve its outstanding performance, Redis works with an in-memory dataset. Depending on your use case, … Continue reading How to install Redis 3.2 on CentOS 6 and 7 →">
+<meta property="og:url" content="https://www.hugeserver.com/kb/install-redis-centos/">
+<meta property="og:site_name" content="HugeServer Knowledgebase">
+<meta property="article:publisher" content="https://www.facebook.com/hugeserver">
+<meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="CentOS6">
+<meta property="article:tag" content="CentOS7">
+<meta property="article:tag" content="install">
+<meta property="article:tag" content="redis">
+<meta property="article:tag" content="redis-server">
+<meta property="article:tag" content="redis3">
+<meta property="article:tag" content="tutorial">
+<meta property="article:section" content="CentOS">
+<meta property="article:published_time" content="2017-03-12T09:48:30+00:00">
+<meta property="article:modified_time" content="2017-10-29T09:02:05+00:00">
+<meta property="og:updated_time" content="2017-10-29T09:02:05+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="What is Redis? Redis is a flexible open-source, key value data store, used as a database, cache and message broker. Redis allows the user to store vast amounts of data without the limits of a relational database. In order to achieve its outstanding performance, Redis works with an in-memory dataset. Depending on your use case, … Continue reading How to install Redis 3.2 on CentOS 6 and 7 →">
+<meta name="twitter:title" content="How to install Redis 3.2 on CentOS 6 and 7">
+<meta name="twitter:site" content="@HugeServer">
+<meta name="twitter:creator" content="@HugeServer">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="HugeServer Knowledgebase » Feed" href="https://www.hugeserver.com/kb/feed/">
+<link rel="alternate" type="application/rss+xml" title="HugeServer Knowledgebase » Comments Feed" href="https://www.hugeserver.com/kb/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="HugeServer Knowledgebase » How to install Redis 3.2 on CentOS 6 and 7 Comments Feed" href="https://www.hugeserver.com/kb/install-redis-centos/feed/">
+		<script type="text/javascript" async="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/tracking.js"></script><script type="text/javascript" async="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/analytics.js"></script><script async="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/gtm.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.hugeserver.com\/kb\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="thumbs_rating_styles-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="slicknavCss-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/slicknav.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfourteen-lato-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfourteen-style-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfourteen-ie-css'  href='https://www.hugeserver.com/kb/wp-content/themes/hugeserver-kb/css/ie.css?ver=20131205' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="wordpress-popular-posts-css" href="./How to install Redis 3.2 on CentOS 6 and 7_files/wpp.css" type="text/css" media="all">
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/jquery.js"></script>
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var thumbs_rating_ajax = {"ajax_url":"https:\/\/www.hugeserver.com\/kb\/wp-admin\/admin-ajax.php","nonce":"ee81ec5640"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/general.js"></script>
+<link rel="https://api.w.org/" href="https://www.hugeserver.com/kb/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.hugeserver.com/kb/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.hugeserver.com/kb/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.7.2">
+<link rel="shortlink" href="https://www.hugeserver.com/kb/?p=350">
+<link rel="alternate" type="application/json+oembed" href="https://www.hugeserver.com/kb/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.hugeserver.com%2Fkb%2Finstall-redis-centos%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.hugeserver.com/kb/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.hugeserver.com%2Fkb%2Finstall-redis-centos%2F&amp;format=xml">
+				<!-- WordPress Popular Posts v3.3.4 -->
+				<script type="text/javascript">
+
+					var sampling_active = 0;
+					var sampling_rate   = 100;
+					var do_request = false;
+
+					if ( !sampling_active ) {
+						do_request = true;
+					} else {
+						var num = Math.floor(Math.random() * sampling_rate) + 1;
+						do_request = ( 1 === num );
+					}
+
+					if ( do_request ) {
+
+						/* Create XMLHttpRequest object and set variables */
+						var xhr = ( window.XMLHttpRequest )
+						  ? new XMLHttpRequest()
+						  : new ActiveXObject( "Microsoft.XMLHTTP" ),
+						url = 'https://www.hugeserver.com/kb/wp-admin/admin-ajax.php',
+						params = 'action=update_views_ajax&token=4d4fb2413c&wpp_id=350';
+						/* Set request method and target URL */
+						xhr.open( "POST", url, true );
+						/* Set request header */
+						xhr.setRequestHeader( "Content-type", "application/x-www-form-urlencoded" );
+						/* Hook into onreadystatechange */
+						xhr.onreadystatechange = function() {
+							if ( 4 === xhr.readyState && 200 === xhr.status ) {
+								if ( window.console && window.console.log ) {
+									window.console.log( xhr.responseText );
+								}
+							}
+						};
+						/* Send request */
+						xhr.send( params );
+
+					}
+
+				</script>
+				<!-- End WordPress Popular Posts v3.3.4 -->
+				<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-GXKD');</script>
+<!-- End Google Tag Manager -->
+
+<script async="true" type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/roundtrip.js"></script><script async="true" type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/JG3SE657EVGIZOOOF4G6UJ"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/out">
+<img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/out(1)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/out(2)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/out(3)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/out(4)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/out(5)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/saved_resource">
+</div></head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-GXKD"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<header><div class="slicknav_menu"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" aria-haspopup="true" tabindex="0" class="slicknav_btn slicknav_collapsed"><span class="slicknav_menutxt"></span><span class="slicknav_icon slicknav_no-text"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+					<li><a href="https://www.hugeserver.com/" role="menuitem" tabindex="-1">Home</a></li>
+					<li class="new-design slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row">
+						<a href="https://www.hugeserver.com/kb/install-redis-centos/#" tabindex="-1">Dedicated Hosting</a>
+						<span class="slicknav_arrow">►</span></a><ul role="menu" class="slicknav_hidden" aria-hidden="true" style="display: none;">
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Dedicated Servers</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/dedicated-servers/" role="menuitem" tabindex="-1">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/pricing/" role="menuitem" tabindex="-1">Pricing</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/los-angeles/" role="menuitem" tabindex="-1">Los Angeles</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/jacksonville/" role="menuitem" tabindex="-1">Jacksonville</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/meppel/" role="menuitem" tabindex="-1">Meppel</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Colocation</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/colocation/" role="menuitem" tabindex="-1">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/quote/?colocation" role="menuitem" tabindex="-1">Custom Quote</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_txtnode"> </li>
+							<li>
+								<div class="special-title">Special Promotion</div>
+								<a href="https://www.hugeserver.com/promotions/" class="btn btn-default" role="menuitem" tabindex="-1">Save more!</a>
+							</li>
+						</ul>
+					</li>
+					<li class="new-design slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" tabindex="-1">Virtual Hosting</a>
+						<span class="slicknav_arrow">►</span></a><ul role="menu" class="slicknav_hidden" aria-hidden="true" style="display: none;">
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Virtual Servers</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/virtual-servers/" role="menuitem" tabindex="-1">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/virtual-servers/pricing/" role="menuitem" tabindex="-1">Pricing</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Hybrid Servers</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/hybrid-servers/" role="menuitem" tabindex="-1">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/hybrid-servers/pricing/" role="menuitem" tabindex="-1">Pricing</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_txtnode"> </li>
+							<li>
+								<div class="special-title">Virtualization</div>
+								<a href="https://www.hugeserver.com/solutions/virtualization/" class="btn btn-default" role="menuitem" tabindex="-1">Custom solutions!</a>
+							</li>
+						</ul>
+					</li>
+					<li class="different-design slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> <a href="https://www.hugeserver.com/kb/install-redis-centos/#" tabindex="-1">Solutions</a>
+						<span class="slicknav_arrow">►</span></a><ul role="menu" class="slicknav_hidden" aria-hidden="true" style="display: none;">
+							<li>
+								<a href="https://www.hugeserver.com/solutions/virtualization/" role="menuitem" tabindex="-1">
+									<span></span>
+									<div class="title">Virtualization</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/hardware/" role="menuitem" tabindex="-1">
+									<span></span>
+									<div class="title">Hardware Solutions</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/software/" role="menuitem" tabindex="-1">
+									<span></span>
+									<div class="title">Software Solutions</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/administration/" role="menuitem" tabindex="-1">
+									<span></span>
+									<div class="title">Administration</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="to-left slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" tabindex="-1">Company</a>
+						<span class="slicknav_arrow">►</span></a><ul role="menu" class="slicknav_hidden" aria-hidden="true" style="display: none;">
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">About Us</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/about/" role="menuitem" tabindex="-1">Company Overview</a></li>
+									<li><a href="https://www.hugeserver.com/about/our-team/" role="menuitem" tabindex="-1">Our Team</a></li>
+									<li><a href="https://www.hugeserver.com/about/carriers/" role="menuitem" tabindex="-1">Carriers</a></li>
+									<li><a href="https://www.hugeserver.com/blog/" role="menuitem" tabindex="-1">Blog</a></li>
+									<li><a href="https://www.hugeserver.com/about/contact-us/" role="menuitem" tabindex="-1">Contact</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Partner Programs</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/partner-programs/reseller/" role="menuitem" tabindex="-1">Reseller Program</a></li>
+									<li><a href="https://www.hugeserver.com/partner-programs/referral/" role="menuitem" tabindex="-1">Referral</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Datacenters</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/datacenters/" role="menuitem" tabindex="-1">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/datacenters/los-angeles/" role="menuitem" tabindex="-1">Los Angeles Datacenter</a></li>
+									<li><a href="https://www.hugeserver.com/datacenters/jacksonville/" role="menuitem" tabindex="-1">Jacksonville Datacenter</a></li>
+									<li><a href="https://www.hugeserver.com/datacenters/meppel/" role="menuitem" tabindex="-1">Meppel Datacenter</a></li>
+								</ul>
+							</li>
+							<li class="slicknav_collapsed slicknav_parent"><a href="https://www.hugeserver.com/kb/install-redis-centos/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"> 
+								<div class="title">Why HugeServer</div>
+								<span class="slicknav_arrow">►</span></a><ul role="menu" aria-hidden="true" class="slicknav_hidden" style="display: none;">
+									<li><a href="https://www.hugeserver.com/about/ion/" role="menuitem" tabindex="-1">ION Platform</a></li>
+									<li><a href="https://www.hugeserver.com/about/sla/" role="menuitem" tabindex="-1">SLA Plus</a></li>
+									<li><a href="https://www.hugeserver.com/about/testimonial/" role="menuitem" tabindex="-1">Testimonials</a></li>
+									<li><a href="https://www.hugeserver.com/about/network/" role="menuitem" tabindex="-1">Optimized Network</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				<li><a href="https://www.hugeserver.com/kb/" role="menuitem" tabindex="-1">Knowledgebase</a></li>
+				</ul></div>
+	<div class="top-bar-wrapper container">
+		<div class="top-bar col-md-12">
+			<div class="top-login">
+				<a id="loadmore-post" href="https://www.hugeserver.com/kb/install-redis-centos/#"><span class="login">ION LOGIN</span></a>
+				<div class="login-form-wrapper">
+					<form action="https://ion.hugeserver.com/" target="_blank" method="POST">
+						<label>USERNAME</label>
+						<input class="col-xs-12 col-sm-12" placeholder="example@email.com" type="text" name="user" required="">
+						<label>PASSWORD</label>
+						<input class="col-xs-12 col-sm-12" placeholder="**********" type="password" name="pass" required="">
+						<input class="col-xs-12 col-sm-12 btn btn-primary" type="submit" value="LOGIN">
+					</form>
+				</div>
+			</div>
+			<a href="https://www.hugeserver.com/">
+			<figure class="logo-wrapper"></figure>
+			</a>
+			<div class="info-wrapper">
+				<ul>
+					<li class="phone"><span></span>Tel: 1.888.842.8570</li>
+					<li class="email"><span></span><a href="mailto:sales@hugeserver.com">E-mail</a></li>
+					<li class="chat"><span></span><a href="javascript:LC_API.open_chat_window();">Live Chat</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="top-menu-wrapper">
+		<nav class="container">
+			<div class="col-md-12">
+				<ul class="main-menu">
+					<li><a href="https://www.hugeserver.com/">Home</a></li>
+					<li class="new-design">
+						<a href="https://www.hugeserver.com/kb/install-redis-centos/#">Dedicated Hosting</a>
+						<ul>
+							<li> 
+								<div class="title">Dedicated Servers</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/pricing/">Pricing</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/los-angeles/">Los Angeles</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/jacksonville/">Jacksonville</a></li>
+									<li><a href="https://www.hugeserver.com/dedicated-servers/meppel/">Meppel</a></li>
+								</ul>
+							</li>
+							<li> 
+								<div class="title">Colocation</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/colocation/">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/quote/?colocation">Custom Quote</a></li>
+								</ul>
+							</li>
+							<li> </li>
+							<li>
+								<div class="special-title">Special Promotion</div>
+								<a href="https://www.hugeserver.com/promotions/" class="btn btn-default">Save more!</a>
+							</li>
+						</ul>
+					</li>
+					<li class="new-design"><a href="https://www.hugeserver.com/kb/install-redis-centos/#">Virtual Hosting</a>
+						<ul>
+							<li> 
+								<div class="title">Virtual Servers</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/virtual-servers/">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/virtual-servers/pricing/">Pricing</a></li>
+								</ul>
+							</li>
+							<li> 
+								<div class="title">Hybrid Servers</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/hybrid-servers/">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/hybrid-servers/pricing/">Pricing</a></li>
+								</ul>
+							</li>
+							<li> </li>
+							<li>
+								<div class="special-title">Virtualization</div>
+								<a href="https://www.hugeserver.com/solutions/virtualization/" class="btn btn-default">Custom solutions!</a>
+							</li>
+						</ul>
+					</li>
+					<li class="different-design"> <a href="https://www.hugeserver.com/kb/install-redis-centos/#">Solutions</a>
+						<ul>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/virtualization/">
+									<span></span>
+									<div class="title">Virtualization</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/hardware/">
+									<span></span>
+									<div class="title">Hardware Solutions</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/software/">
+									<span></span>
+									<div class="title">Software Solutions</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.hugeserver.com/solutions/administration/">
+									<span></span>
+									<div class="title">Administration</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="to-left"><a href="https://www.hugeserver.com/kb/install-redis-centos/#">Company</a>
+						<ul>
+							<li> 
+								<div class="title">About Us</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/about/">Company Overview</a></li>
+									<li><a href="https://www.hugeserver.com/about/our-team/">Our Team</a></li>
+									<li><a href="https://www.hugeserver.com/about/carriers/">Carriers</a></li>
+									<li><a href="https://www.hugeserver.com/blog/">Blog</a></li>
+									<li><a href="https://www.hugeserver.com/about/contact-us/">Contact</a></li>
+								</ul>
+							</li>
+							<li> 
+								<div class="title">Partner Programs</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/partner-programs/reseller/">Reseller Program</a></li>
+									<li><a href="https://www.hugeserver.com/partner-programs/referral/">Referral</a></li>
+								</ul>
+							</li>
+							<li> 
+								<div class="title">Datacenters</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/datacenters/">Overview</a></li>
+									<li><a href="https://www.hugeserver.com/datacenters/los-angeles/">Los Angeles Datacenter</a></li>
+									<li><a href="https://www.hugeserver.com/datacenters/jacksonville/">Jacksonville Datacenter</a></li>
+									<li><a href="https://www.hugeserver.com/datacenters/meppel/">Meppel Datacenter</a></li>
+								</ul>
+							</li>
+							<li> 
+								<div class="title">Why HugeServer</div>
+								<ul>
+									<li><a href="https://www.hugeserver.com/about/ion/">ION Platform</a></li>
+									<li><a href="https://www.hugeserver.com/about/sla/">SLA Plus</a></li>
+									<li><a href="https://www.hugeserver.com/about/testimonial/">Testimonials</a></li>
+									<li><a href="https://www.hugeserver.com/about/network/">Optimized Network</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				<li><a href="https://www.hugeserver.com/kb/">Knowledgebase</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<main>
+
+	<div class="page-banner page-banner-blog">
+		<div class="container">
+			<div class="col-md-12">
+				<h3><!--<a class="blog-title" href="/blog">-->HugeServer Knowledgebase<!--</a>--></h3>
+							</div>
+		</div>
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="col-md-12">
+					<div typeof="BreadcrumbList" vocab="http://schema.org/">
+						<!-- Breadcrumb NavXT 5.6.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to HugeServer Knowledgebase." href="https://www.hugeserver.com/kb" class="home"><span property="name">HugeServer Knowledgebase</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the Linux category archives." href="https://www.hugeserver.com/kb?category=1" class="taxonomy category"><span property="name">Linux</span></a><meta property="position" content="2"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the CentOS category archives." href="https://www.hugeserver.com/kb?category=3" class="taxonomy category"><span property="name">CentOS</span></a><meta property="position" content="3"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">How to install Redis 3.2 on CentOS 6 and 7</span><meta property="position" content="4"></span>					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+        
+        <section class="blog-wrapper">
+            <div class="container">
+                <div class="col-md-12">
+					
+<article id="post-350" class="post-350 post type-post status-publish format-standard hentry category-centos category-linux tag-centos tag-centos6 tag-centos7 tag-install tag-redis tag-redis-server tag-redis3 tag-tutorial">
+		<div class="entry-header">
+				<h1 class="entry-title">How to install Redis 3.2 on CentOS 6 and 7</h1>		<div class="entry-meta">
+			<span class="entry-date">on <a href="https://www.hugeserver.com/kb/install-redis-centos/" rel="bookmark"><time class="entry-date" datetime="2017-03-12T09:48:30+00:00">March 12, 2017</time></a></span> <span class="byline">by <span class="author vcard">Amir Alamani</span></span>									<span class="comments-link pull-right">
+			<a href="https://www.hugeserver.com/kb/install-redis-centos/#comments">1 Comment</a>			</span>
+					</div>
+		<!-- .entry-meta --> 
+	</div>
+	<!-- .entry-header -->
+	
+		<div class="entry-content">
+		<h2>What is Redis?</h2>
+<p>Redis is a flexible open-source, key value data store, used as a database, cache and message broker. Redis allows the user to store vast amounts of data without the limits of a relational database.<br>
+In order to achieve its outstanding performance, Redis works with an in-memory dataset. Depending on your use case, you can persist it either by dumping the dataset to disk every once in a while, or by appending each command to a log. Persistence can be optionally disabled, if you just need a feature-rich, networked, in-memory cache.</p>
+<p>We are assuming that you have root permission, otherwise, you may start commands with “sudo”.</p>
+<h2>Install necessary&nbsp;packages</h2>
+<p>On CentOS 6:</p>
+<pre><code class="prefixed">yum install wget&nbsp;make gcc tcl</code></pre>
+<p>On CentOS 7</p>
+<pre><code class="prefixed">yum install wget make gcc</code></pre>
+<h2>Install Redis 3.2</h2>
+<p>For installing Redis 3.2 you have to download the source file and compile it&nbsp;because Redis 3.2 is not available in any repository yet.</p>
+<p>On CentOS 6 and CentOS 7</p>
+<pre><code class="prefixed">wget&nbsp;http://download.redis.io/releases/redis-3.2.8.tar.gz</code></pre>
+<p>Now you have to extract the file that you just downloaded by typing:</p>
+<pre><code class="prefixed">tar -xvzf&nbsp;redis-3.2.8.tar.gz</code></pre>
+<p>Change directory with the command below:</p>
+<pre><code class="prefixed">cd&nbsp;redis-3.2.8</code></pre>
+<p>It’s time to compile your Redis step by step:</p>
+<pre><code class="prefixed">cd deps</code>
+<code class="prefixed">make hiredis lua jemalloc linenoise</code>
+<code class="prefixed">make geohash-int</code></pre>
+<p>Now run below command to get back to the parent directory and run the next command:</p>
+<pre><code class="prefixed">cd ../</code>
+<code class="prefixed">make</code>
+<code class="prefixed">make install</code></pre>
+<p>And for getting sure running a test:</p>
+<pre><code class="prefixed">make test</code></pre>
+<p>It’s going to take a few minutes, you can check that everything is ok.</p>
+<h2>Install init script</h2>
+<p>In this section, we are going to install “init script” to manage the process of Redis.</p>
+<pre><code class="prefixed">cd utils</code>
+
+<code class="prefixed">./install_server.sh</code></pre>
+<p>You will be prompt for some configuration you can hit “Enter” to accept all the default values or you can set yours.</p>
+<p>Finally, your Redis server is installed and you can start the service by the command below:</p>
+<p>For CentOS 6</p>
+<pre><code class="prefixed">service redis_6379 start</code></pre>
+<p>For CentOS 7</p>
+<pre><code class="prefixed">systemctl&nbsp;start redis_6379</code></pre>
+<p>If you want to test your Redis server you can easily use the instruction below:</p>
+<pre><code class="prefixed">redis-cli</code>
+&gt; set test "HugeServer"
+&gt; get test</pre>
+<p>The answer should be “HugeServer”</p>
+<p>If you need a control panel for your Redis Server you may use <a href="https://www.hugeserver.com/kb/install-phpredmin-centos-7/" rel="nofollow" target="blank">Phpredmin</a>&nbsp;or <a href="https://www.hugeserver.com/kb/install-redmon-redis-server-control-panel/" rel="nofollow" target="blank">Redmon</a></p>
+	</div>
+	<!-- .entry-content -->
+		</article>
+<!-- #post-## -->
+
+<h4>Was this tutorial helpful?</h4>
+<div class="thumbs-rating-container" id="thumbs-rating-350" data-content-id="350"><span class="thumbs-rating-up thumbs-rating-voted" onclick="thumbs_rating_vote(350, 1);" data-text=""></span> <span class="thumbs-rating-down thumbs-rating-voted" onclick="thumbs_rating_vote(350, 2);" data-text=""></span><span class="thumbs-rating-new-message thumbs-up">Thank you for your vote.</span><span class="thumbs-rating-new-message thumbs-down">Thank you for your vote.</span><span class="thumbs-rating-already-voted" data-text="You already voted!"></span></div>
+<h3>Similar Posts</h3>
+<ul class="similar-posts">
+					<li><a href="https://www.hugeserver.com/kb/how-install-nginx-libmodsecurity-owasp-centos7/" rel="bookmark" title="Permanent Link to How to Install Nginx with libModSecurity and OWASP core rule set on CentOS 7">
+				How to Install Nginx with libModSecurity and OWASP core rule set on CentOS 7				</a></li>
+								<li><a href="https://www.hugeserver.com/kb/how-install-laravel-5-5-php-7-apache-centos-7/" rel="bookmark" title="Permanent Link to How to install Laravel 5.5 + PHP 7.1 with Apache on CentOS 7">
+				How to install Laravel 5.5 + PHP 7.1 with Apache on CentOS 7				</a></li>
+								<li><a href="https://www.hugeserver.com/kb/secure-ssh-two-factor-authentication-centos-7/" rel="bookmark" title="Permanent Link to How to Secure SSH with Two-Factor Authentication on CentOS 7">
+				How to Secure SSH with Two-Factor Authentication on CentOS 7				</a></li>
+								<li><a href="https://www.hugeserver.com/kb/install-orientdb-centos7/" rel="bookmark" title="Permanent Link to How to install OrientDB on CentOS 7">
+				How to install OrientDB on CentOS 7				</a></li>
+								<li><a href="https://www.hugeserver.com/kb/install-lapp-stack-centos7/" rel="bookmark" title="Permanent Link to How to install LAPP Stack (Apache 2.4, PostgreSQL 9.2, PHP 7.0) on CentOS 7">
+				How to install LAPP Stack (Apache 2.4, PostgreSQL 9.2, PHP 7.0) on CentOS 7				</a></li>
+				</ul>
+
+<div id="comments" class="comments-area">
+
+	
+	<h3 class="comments-title">
+		One thought on “How to install Redis 3.2 on CentOS 6 and 7”	</h3>
+
+	
+	<ol class="comment-list">
+				<li id="comment-658" class="comment even thread-even depth-1">
+			<article id="div-comment-658" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./How to install Redis 3.2 on CentOS 6 and 7_files/fc9956564b73765fdb7869727ca589a7" srcset="https://secure.gravatar.com/avatar/fc9956564b73765fdb7869727ca589a7?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34">						<b class="fn">varinder singh</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://www.hugeserver.com/kb/install-redis-centos/#comment-658">
+							<time datetime="2017-08-02T08:55:01+00:00">
+								August 2, 2017 at 8:55 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for this valuable document.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.hugeserver.com/kb/install-redis-centos/?replytocom=658#respond" onclick="return addComment.moveForm( &quot;div-comment-658&quot;, &quot;658&quot;, &quot;respond&quot;, &quot;350&quot; )" aria-label="Reply to varinder singh">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+	</ol><!-- .comment-list -->
+
+	
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.hugeserver.com/kb/install-redis-centos/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.hugeserver.com/kb/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><div class="row"><div class="col-md-6 col-xs-12 pull-right"><p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p></div><div class="col-md-6 col-xs-12"><p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p></div></div>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="350" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="7a57946bed"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1517484245015"></form>
+			</div><!-- #respond -->
+	
+</div><!-- #comments -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    
+    <footer>
+    	<div class="container widget-wrapper">
+        
+        	<div class="widget col-sm-3 col-md-3">
+            	<div class="title">Services</div>
+                <ul class="footer-menu">
+                	<li><a href="https://www.hugeserver.com/dedicated-servers/">Dedicated Server</a></li>
+                	<li><a href="https://www.hugeserver.com/colocation/">Colocation</a></li>
+                	<li><a href="https://www.hugeserver.com/hybrid-servers/">Hybrid Server</a></li>
+                	<li><a href="https://www.hugeserver.com/virtual-servers/">Virtual Server</a></li>
+                	<li><a href="https://www.hugeserver.com/about/faq/">FAQ</a></li>
+                	</ul>
+            </div>
+        	<div class="widget col-sm-3 col-md-3">
+            	<div class="title">Solutions</div>
+                <ul class="footer-menu">
+                	<li><a href="https://www.hugeserver.com/solutions/virtualization/">Virtualization</a></li>
+                	<li><a href="https://www.hugeserver.com/solutions/hardware/">Hardware Solutions</a></li>
+					<li><a href="https://www.hugeserver.com/solutions/software/">Software Solutions</a></li>
+					<li><a href="https://www.hugeserver.com/solutions/administration/">Administration</a></li>
+                </ul>
+            </div>
+        	<div class="widget col-sm-3 col-md-3">
+            	<div class="title">Company</div>
+                <ul class="footer-menu">
+                	<li><a href="https://www.hugeserver.com/about/">About HugeServer</a></li>
+                	<li><a href="https://www.hugeserver.com/about/ion/">ION Platform</a></li>
+                	<li><a href="https://www.hugeserver.com/datacenters/">Datacenters</a></li>
+                	<li><a href="https://www.hugeserver.com/about/network/">Network</a></li>
+                	<!--<li><a href="/about/knowledge-base/">Knowledge Base</a></li>-->
+                	<li><a href="https://www.hugeserver.com/about/contact-us/">Contact us</a></li>
+                </ul>
+            </div>
+        	<div class="widget col-sm-3 col-md-3">
+            	<div class="social-wrapper">
+                	<a target="_blank" class="item twitter" href="https://twitter.com/HugeServer"></a>
+                	<a target="_blank" class="item facebook" href="https://www.facebook.com/HugeServer"></a>
+                	<a target="_blank" class="item linkedin" href="https://www.linkedin.com/company/2534297"></a>
+                	<a target="_blank" class="item google" href="https://plus.google.com/+Hugeserver"></a>
+                </div>
+                <div class="footer-information-wrapper">
+                    <span class="email"><a href="mailto:sales@hugeserver.com">E-mail</a></span>
+                    <span class="chat"><a href="javascript:LC_API.open_chat_window();">Live Chat</a></span>
+                    <span class="phone">1.888.842.8570</span>
+                </div>
+            </div>
+            
+        </div><!-- .widget-wrapper -->
+        
+        <div class="copyright">
+        
+        	<div class="container">
+                <div class="col-md-6 copyright-menu">
+                    <ul>
+                        <li><a href="https://www.hugeserver.com/legal/privacy/">Privacy</a></li>
+                        <li><a href="https://www.hugeserver.com/legal/aup/">AUP</a></li>
+                        <li><a href="https://www.hugeserver.com/legal/tos/">TOS</a></li>
+                        <li><a href="https://www.hugeserver.com/legal/dmca/">DMCA</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 copyright-text">
+                    Copyright © HugeServer, All Rights Reserved
+                    <img class="footer-logo" src="./How to install Redis 3.2 on CentOS 6 and 7_files/footer-logo.png" alt="HugeServer Logo">
+                </div>
+            </div>
+            
+        </div><!-- .copyright -->
+    </footer>
+
+
+	<script>
+		jQuery(document).ready(function() {
+
+			// Get all thumbs containers
+			jQuery( ".thumbs-rating-container" ).each(function( index ) {
+
+			 	// Get data attribute
+			 	 var content_id = jQuery(this).data('content-id');
+
+			 	 var itemName = "thumbsrating"+content_id;
+
+			 	      // Check if this content has localstorage
+			 	 	if (localStorage.getItem(itemName)){
+
+						// Check if it's Up or Down vote
+						if ( localStorage.getItem("thumbsrating" + content_id + "-1") ){
+							jQuery(this).find('.thumbs-rating-up').addClass('thumbs-rating-voted');
+						}
+						if ( localStorage.getItem("thumbsrating" + content_id + "-0") ){
+							jQuery(this).find('.thumbs-rating-down').addClass('thumbs-rating-voted');
+						}
+					}
+			});
+		});
+	</script>
+
+	<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/form.js"></script>
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/functions.js"></script>
+<script type="text/javascript" id="">window.__lc=window.__lc||{};window.__lc.license=1607521;(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://":"http://")+"cdn.livechatinc.com/tracking.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+
+
+<script type="text/javascript" id="">adroll_adv_id="YTP5PP6G25CSLH7AKTOB47";adroll_pix_id="JG3SE657EVGIZOOOF4G6UJ";(function(){var b=window.onload;window.onload=function(){__adroll_loaded=!0;var a=document.createElement("script"),c="https:"==document.location.protocol?"https://s.adroll.com":"http://a.adroll.com";a.setAttribute("async","true");a.type="text/javascript";a.src=c+"/j/roundtrip.js";((document.getElementsByTagName("head")||[null])[0]||document.getElementsByTagName("script")[0].parentNode).appendChild(a);b&&b()}})();</script>
+
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/jquery.slicknav.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var the_ajax_script = {"ajaxurl":"https:\/\/www.hugeserver.com\/kb\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/custom.js"></script>
+<script type="text/javascript" src="./How to install Redis 3.2 on CentOS 6 and 7_files/wp-embed.min.js"></script>
+
+
+<script src="./How to install Redis 3.2 on CentOS 6 and 7_files/get_dynamic_config.js"></script><script id="wappalyzer" src="chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/inject.js"></script><script src="./How to install Redis 3.2 on CentOS 6 and 7_files/get_static_config.0.1884.4.5.214.20.14.6.5.5.4.3.3.js"></script><script src="./How to install Redis 3.2 on CentOS 6 and 7_files/localization.en.0.4ec2213f29dbb1471ee20c8055440790_24e9bbf1c8af7e00994c98b799c79849.js"></script><div id="livechat-compact-container" style="position: fixed; bottom: 0px; right: 15px; width: 250px; height: 53px; overflow: hidden; visibility: visible; z-index: 2147483639; background: transparent; border: 0px; transition: transform 0.2s ease-in-out; backface-visibility: hidden; opacity: 1; transform: translateY(0%);"><iframe src="./How to install Redis 3.2 on CentOS 6 and 7_files/saved_resource.html" id="livechat-compact-view" style="position: relative;top: 20px;left: 0;width: 100%;border: 0;padding: 0;margin: 0;float: none;background: none" scrolling="no" frameborder="0" allowtransparency="true" title="LiveChat Minimized Widget"></iframe><a id="livechat-badge" href="https://www.hugeserver.com/kb/install-redis-centos/#" onclick="LC_API.show_full_view({source:&#39;minimized click&#39;});return false" style="position: absolute;display: block;visibility: hidden;height: 16px;padding: 0 4px;line-height: 16px;background: #f00;color: #fff;font-size: 10px;text-decoration: none;font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, Arial, Verdana, sans-serif;border-radius: 3px;box-shadow: 0 -1px 0px #f00, -1px 0 0px #f00, 1px 0 0px #f00, 0 1px 0px #f00, 0 0 2px #000;border-top: 1px solid #f99;width: 16px;border-radius: 50%;box-shadow: none;border-top: 0;padding: 0;text-align: center;font-family: &#39;Lato&#39;, sans-serif;top: 12px;left: 20px"></a></div><div id="livechat-eye-catcher" onmouseover="var els = this.getElementsByTagName(&quot;a&quot;); if (els.length) els[0].style.display = &quot;block&quot;;" onmouseout="var els = this.getElementsByTagName(&quot;a&quot;); if (els.length) els[0].style.display = &quot;none&quot;;" style="position: fixed; right: 15px; bottom: 40px; visibility: visible; z-index: 2147483639; background: transparent; border: 0px; padding: 10px 10px 0px 0px; float: left; margin-right: -10px; backface-visibility: hidden; opacity: 1;">		<a href="https://www.hugeserver.com/kb/install-redis-centos/#" onclick="LC_API.hide_eye_catcher();return false" style="position:absolute;display:none;top:-5px;right:-5px;padding:2px 7px;text-decoration:none;color:#000;font-size:20px;font-family:Arial,sans-serif" onmouseover="this.style.color=&#39;#666&#39;" onmouseout="this.style.color=&#39;#000&#39;">×</a>		<a href="https://www.hugeserver.com/kb/install-redis-centos/#" onclick="LC_API.open_chat_window({source:&#39;eye catcher&#39;});return false" style="display:block" id="livechat-eye-catcher-img"><img src="./How to install Redis 3.2 on CentOS 6 and 7_files/saved_resource(1)" style="border:0;display:block;" alt="" onload="this.width/=2;this.onload=null;" width="200"></a></div><div id="livechat-full" style="position: fixed; bottom: 0px; right: 15px; width: 400px; height: 450px; overflow: hidden; visibility: hidden; z-index: -1; background: transparent; border: 0px; transition: transform 0.2s ease-in-out; backface-visibility: hidden; transform: translateY(100%); opacity: 0;"><iframe src="./How to install Redis 3.2 on CentOS 6 and 7_files/open_chat.html" id="livechat-full-view" name="livechat-full-view" title="LiveChat Widget" scrolling="no" frameborder="0" allowtransparency="true" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%; border: 0px; padding: 0px; margin: 0px; float: none; background: none;"></iframe></div><div id="lc_invite_layer" style="text-align: left; display: none; z-index: 16777261;"></div><div id="lc_overlay_layer" style="background-color: rgb(0, 0, 0); position: fixed; left: 0px; top: 0px; z-index: 16777260; display: none; width: 100%; height: 100%;"></div><script id="livechat-ping" src="./How to install Redis 3.2 on CentOS 6 and 7_files/ping"></script></body></html>

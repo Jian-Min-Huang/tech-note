@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>java - @Resource vs @Autowired - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="@Resource vs @Autowired">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Which annotation, @Resource (jsr250) or @Autowired (Spring specific) should I be using when using DI?
+
+I have successfully used both in the past, @Resource(name=&quot;blah&quot;) and @Autowired @Qualifier(&quot;b...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/4093504/resource-vs-autowired">
+    <link rel="canonical" href="http://stackoverflow.com/questions/4093504/resource-vs-autowired">
+
+    
+    
+    <script type="text/javascript" async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/ados"></script><script src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/rules-p-c1rF4kxgLUzNc.js"></script><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/quant.js"></script><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/beacon.js"></script><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/ados.js"></script><script src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/jquery.js"></script>
+    <script src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question '@Resource vs @Autowired'" href="http://stackoverflow.com/feeds/question/4093504">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/4093504/resource-vs-autowired">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/4093504/resource-vs-autowired">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/4093504/resource-vs-autowired">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:4093504});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '4093504');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1495010113,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"http"},"user":{"fkey":"dc5032dccf4aa03d114c6e1deb6cbf3b","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"c278b9567eb3","js/moderator.en.js":"05ca8b673347","js/full-anon.en.js":"ade523c381a4","js/full.en.js":"c64361a801b6","js/wmd.en.js":"145a05ddcd31","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"ba2685451c38","js/help.en.js":"a56fdf9b9ff2","js/tageditor.en.js":"7968c1573954","js/tageditornew.en.js":"7c54c4587bfc","js/inline-tag-editing.en.js":"2ddfa79492e7","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"a71c5643f048","js/tagsuggestions.en.js":"ddb0e41afe26","js/post-validation.en.js":"3687f7f389b0","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"2ac5bcc10fb1","js/keyboard-shortcuts.en.js":"47f3ffdae1a5","js/external-editor.en.js":"e574ed908cf3","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"e574ed908cf3","js/snippet-javascript.en.js":"10f15957f0ad","js/snippet-javascript-codemirror.en.js":"a6999b8aba29"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css"><style type="text/css">body,.so-header{margin-top:1.9em}</style></noscript>
+<script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/full-anon.js"></script><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/snippet-javascript.js"></script><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/post-validation.js"></script><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/prettify-full.js"></script><script type="text/javascript" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/adFeedback.css"><link rel="stylesheet" href="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/jobs-multi.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="http://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="http://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="http://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="http://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="http://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                    <input name="q" placeholder="Search..." tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field" type="text">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="http://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4093504%2fresource-vs-autowired" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M9 0a9 9 0 1 0 .001 18.001A9 9 0 0 0 9 0zm.812 13.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 167 Stack Exchange sites">
+            <svg viewBox="0 0 18 19" width="18" height="19" role="icon"><path fill-rule="evenodd" d="M0 14a2 2 0 0 0 2 2h10v3l3-3h1a2 2 0 0 0 2-2v-2H0v2zM16 0H2a2 2 0 0 0-2 2v2h18V2a2 2 0 0 0-2-2zM0 6h18v4H0V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4093504%2fresource-vs-autowired" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.1 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/4093504/resource-vs-autowired" class="question-hyperlink">@Resource vs @Autowired</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="http://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="4093504" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk562545898",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk562545898"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjM4OTkwLCJkaSI6IjUzOTdiM2QzOGU5MDQwODViOWJjZGFlNmEwMTdjZjVlIiwiZG0iOjEsImZjIjoxOTQzNDQ0LCJmbCI6MjE0MjMxMiwiaXAiOiIxMjMuMTkyLjIwNy4zOCIsImt3IjoiamF2YSxzcHJpbmcsZGVwZW5kZW5jeS1pbmplY3Rpb24sYW5ub3RhdGlvbnMsYXV0b3dpcmVkIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLnR3LyIsInNiIjoiaS0wYzM1ODkyMWRmZWY4OGU4YyIsInNwIjoyNTQyLCJzdCI6ODI3NywidWsiOiJ1ZTEtZWI1ODZkM2NmMmMxNDdmOWI4ZWE2ODY2ZTlhYWY3YzkiLCJ6biI6NDMsInRzIjoxNDk1MDEwMTE1OTUzLCJiZiI6dHJ1ZSwicG4iOiJhZHplcms1NjI1NDU4OTgiLCJ1ciI6Imh0dHA6Ly9zdGFja292ZXJmbG93LmNvbS9qb2JzP3V0bV9zb3VyY2U9d2Vic2l0ZSZ1dG1fbWVkaXVtPWJhbm5lciZ1dG1fY29udGVudD1sZWFkZXJib2FyZF85JnV0bV9jYW1wYWlnbj1ob3VzZV9hZHNfaG91c2VfYWRzX1JPU19TTyJ9&amp;s=rX0BKrO7b0-I2VNGCuPB_BHyd3I" rel="nofollow" target="_blank" title=""><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/054331674d33424abacccb7e6fa6956e.png" title="" alt="" width="728" border="0" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/i.gif" width="0px" border="0" height="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="4093504" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">221</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>108</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>Which annotation, <strong>@Resource</strong> (<a href="http://jcp.org/en/jsr/detail?id=250" rel="noreferrer">jsr250</a>) or <strong>@Autowired</strong> (Spring specific) should I be using when using DI?</p>
+
+<p>I have successfully used both in the past, <code>@Resource(name="blah")</code> and <code>@Autowired @Qualifier("blah")</code></p>
+
+<p>My instinct is to stick with the <code>@Resource</code> tag since it's been ratified by the jsr people.  Anyone have strong thoughts on this?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/java" class="post-tag js-gps-track" title="show questions tagged 'java'" rel="tag">java</a> <a href="http://stackoverflow.com/questions/tagged/spring" class="post-tag js-gps-track" title="show questions tagged 'spring'" rel="tag">spring</a> <a href="http://stackoverflow.com/questions/tagged/dependency-injection" class="post-tag js-gps-track" title="show questions tagged 'dependency-injection'" rel="tag">dependency-injection</a> <a href="http://stackoverflow.com/questions/tagged/annotations" class="post-tag js-gps-track" title="show questions tagged 'annotations'" rel="tag">annotations</a> <a href="http://stackoverflow.com/questions/tagged/autowired" class="post-tag js-gps-track" title="show questions tagged 'autowired'" rel="tag">autowired</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/4093504" title="short permalink to this question" class="short-link" id="link-post-4093504">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4093504/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/4093504/revisions" title="show all edits to this post">edited <span title="2016-10-10 10:55:41Z" class="relativetime">Oct 10 '16 at 10:55</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4922375/andrew-tobilko"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/LrIUl.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4922375/andrew-tobilko">Andrew Tobilko</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,764</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="49 bronze badges"><span class="badge3"></span><span class="badgecount">49</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2010-11-04 02:50:58Z" class="relativetime">Nov 4 '10 at 2:50</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/178808/mlo55"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/39365999823f3455bcf1ac8b6aae8603.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/178808/mlo55">mlo55</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,708</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4093504" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-50267704" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">FYI - I removed the 'update',
+ it should have been asked as a separate question. As per this rejected 
+comment, "This edit deviates from the original intent of the post. Even 
+edits that must make drastic changes should strive to preserve the goals
+ of the post's owner"</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/178808/mlo55" title="1,708 reputation" class="comment-user owner">mlo55</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment50267704_4093504"><span title="2015-06-30 00:36:51Z" class="relativetime-clean">Jun 30 '15 at 0:36</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4093504" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								9 Answers
+                                <span style="display:none;" itemprop="answerCount">9</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/4093504/resource-vs-autowired?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://stackoverflow.com/questions/4093504/resource-vs-autowired?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/4093504/resource-vs-autowired?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="4095239"></a>
+<div id="answer-4095239" class="answer accepted-answer" data-answerid="4095239" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="4095239" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">120</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In spring pre-3.0 it doesn't matter which one.</p>
+
+<p>In spring 3.0 there's support for the standard (<a href="http://www.jcp.org/en/jsr/detail?id=330">JSR-330</a>) annotation <code>@javax.inject.Inject</code> - use it, with a combination of <code>@Qualifier</code>. Note that spring now also supports the <code>@javax.inject.Qualifier</code> meta-annotation:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@Qualifier</span><span class="pln">
+</span><span class="lit">@Retention</span><span class="pun">(</span><span class="pln">RUNTIME</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="lit">@interface</span><span class="pln"> </span><span class="typ">YourQualifier</span><span class="pln"> </span><span class="pun">{}</span></code></pre>
+
+<p>So you can have</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="pun">&lt;</span><span class="pln">bean </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"com.pkg.SomeBean"</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">qualifier type</span><span class="pun">=</span><span class="str">"YourQualifier"</span><span class="pun">/&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">bean</span><span class="pun">&gt;</span></code></pre>
+
+<p>or</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@YourQualifier</span><span class="pln">
+</span><span class="lit">@Component</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SomeBean</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Foo</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">..</span><span class="pln"> </span><span class="pun">}</span></code></pre>
+
+<p>And then:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@Inject</span><span class="pln"> </span><span class="lit">@YourQualifier</span><span class="pln"> </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Foo</span><span class="pln"> foo</span><span class="pun">;</span></code></pre>
+
+<p>This makes less use of String-names, which can be misspelled and are harder to maintain.</p>
+
+<hr>
+
+<p>As for the original question: both, without specifying any attributes
+ of the annotation, perform injection by type. The difference is:</p>
+
+<ul>
+<li><code>@Resource</code> allows you to specify a name of the injected bean</li>
+<li><code>@Autowired</code> allows you to mark it as non-mandatory.</li>
+</ul>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/4095239" title="short permalink to this answer" class="short-link" id="link-post-4095239">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4095239/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/4095239/revisions" title="show all edits to this post">edited <span title="2012-09-01 09:45:57Z" class="relativetime">Sep 1 '12 at 9:45</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2010-11-04 09:21:16Z" class="relativetime">Nov 4 '10 at 9:21</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/203907/bozho"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/8de038497b6b8b67bc82eeaaef1a0b6b.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/203907/bozho">Bozho</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 413,429" dir="ltr">413k</span><span title="91 gold badges"><span class="badge1"></span><span class="badgecount">91</span></span><span title="824 silver badges"><span class="badge2"></span><span class="badgecount">824</span></span><span title="985 bronze badges"><span class="badge3"></span><span class="badgecount">985</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4095239" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="3" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-4410351" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">+1 for the Spring 3 new features. I hope you wouldn't mind my corrections to the post.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/42769/adeel-ansari" title="30,914 reputation" class="comment-user">Adeel Ansari</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment4410351_4095239"><span title="2010-11-04 15:49:29Z" class="relativetime-clean">Nov 4 '10 at 15:49</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-4440782" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@mlo55 note that you are invited to mark the best answer according to you, as accepted (tick below the vote counter)</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/203907/bozho" title="413,429 reputation" class="comment-user">Bozho</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment4440782_4095239"><span title="2010-11-08 06:27:48Z" class="relativetime-clean">Nov 8 '10 at 6:27</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-10776617" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This might see like a silly question, but when you use this style of injection, do you need a public setter for <code>foo</code> or a constructor in <code>SomeBean</code> with a <code>Foo</code> param?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/378151/snekse" title="7,396 reputation" class="comment-user">Snekse</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment10776617_4095239"><span title="2011-12-29 16:28:25Z" class="relativetime-clean">Dec 29 '11 at 16:28</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-10776752" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Snekse - Got my answer: <a href="http://stackoverflow.com/questions/3536674/how-does-spring-autowired-work" title="how does spring autowired work">stackoverflow.com/questions/3536674/…</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/378151/snekse" title="7,396 reputation" class="comment-user">Snekse</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment10776752_4095239"><span title="2011-12-29 16:35:53Z" class="relativetime-clean">Dec 29 '11 at 16:35</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-16382967" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">yes. In fact I sometimes 
+answer questions by providing a better alternative to the approach. But I
+ included the answer to the original question below, for completeness</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/203907/bozho" title="413,429 reputation" class="comment-user">Bozho</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment16382967_4095239"><span title="2012-09-01 09:46:32Z" class="relativetime-clean">Sep 1 '12 at 9:46</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4095239" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>3</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk595615617",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk595615617"></div>
+  
+<a name="10916767"></a>
+<div id="answer-10916767" class="answer" data-answerid="10916767" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="10916767" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">296</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Both <code>@Autowired</code> (or <code>@Inject</code>) and <code>@Resource</code> work equally well. But there is a conceptual difference or a difference in the meaning</p>
+
+<ul>
+<li><code>@Resource</code> means get me a <strong>known resource by name</strong>. The name is extracted from the name of the annotated setter or field, or it is taken from the name-Parameter.</li>
+<li><code>@Inject</code> or <code>@Autowired</code> try to wire in a <strong>suitable other component by type</strong>.</li>
+</ul>
+
+<p>So, basically these are two quite distinct concepts. Unfortunately the Spring-Implementation of <code>@Resource</code> has a built-in fallback, which kicks in when resolution by-name fails. In this case, it falls back to the <code>@Autowired</code>-kind
+ resolution by-type. While this fallback is convenient, IMHO it causes a
+ lot of confusion, because people are unaware of the conceptual 
+difference and tend to use <code>@Resource</code> for type-based autowiring.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/10916767" title="short permalink to this answer" class="short-link" id="link-post-10916767">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/10916767/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/10916767/revisions" title="show all edits to this post">edited <span title="2016-10-10 10:58:35Z" class="relativetime">Oct 10 '16 at 10:58</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4922375/andrew-tobilko"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/LrIUl.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4922375/andrew-tobilko">Andrew Tobilko</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,764</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="49 bronze badges"><span class="badge3"></span><span class="badgecount">49</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-06-06 14:54:38Z" class="relativetime">Jun 6 '12 at 14:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/444796/ichthyo"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/7f0c33445ef45506e339d70a36d57dc1.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/444796/ichthyo">Ichthyo</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,955</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="19 bronze badges"><span class="badge3"></span><span class="badgecount">19</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-10916767" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-16377677" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="supernova">39</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yes, this is what should be an accepted answer. For example if you have a <code>@Resource</code> annotated field, and field name matches the id of a bean in container then Spring will throw  <code>org.springframework.beans.factory.BeanNotOfRequiredTypeExcep‌​tion</code> if their types differ - this is because beans are first matched by name in <code>@Resource</code> annotation, not by type. But if name of the property doesn't match the name of the bean, then Spring will wire them by type.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/241986/boris-treukhov" title="10,344 reputation" class="comment-user">Boris Treukhov</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment16377677_10916767"><span title="2012-08-31 22:48:10Z" class="relativetime-clean">Aug 31 '12 at 22:48</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-27464871" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You can refer the other post that tells the difference between this two when you try to use a simple MAP. <a href="http://stackoverflow.com/questions/13913752/spring-cant-autowire-map-bean" title="spring cant autowire map bean">stackoverflow.com/questions/13913752/…</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/790839/anver-sadhat" title="1,728 reputation" class="comment-user">Anver Sadhat</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment27464871_10916767"><span title="2013-09-06 07:13:42Z" class="relativetime-clean">Sep 6 '13 at 7:13</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-34770066" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">+1 for actually answering the
+ question rather than simply recommending an entirely different "best 
+practice" as the accepted answer does.  I also found this blog post, 
+which shows results of several common scenarios with all three 
+annotation styles, helpful: <a href="http://blogs.sourceallies.com/2011/08/spring-injection-with-resource-and-autowired/" rel="nofollow noreferrer">blogs.sourceallies.com/2011/08/…</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/441899/jules" title="7,829 reputation" class="comment-user">Jules</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment34770066_10916767"><span title="2014-04-02 04:11:20Z" class="relativetime-clean">Apr 2 '14 at 4:11</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-36775013" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">For the reader, please find a summary of the article pointed by @Jules here: <a href="http://stackoverflow.com/a/23887596/363573">stackoverflow.com/a/23887596/363573</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/363573/stephan" title="22,583 reputation" class="comment-user">Stephan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment36775013_10916767"><span title="2014-05-27 10:58:22Z" class="relativetime-clean">May 27 '14 at 10:58</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-48708014" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">One implication of this: When you want to inject a Map/List bean, <code>@Autowire</code> can't and won't work. You will have to use <code>@Resource</code> in that case.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2348375/ricardo-van-den-broek" title="352 reputation" class="comment-user">Ricardo van den Broek</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment48708014_10916767"><span title="2015-05-18 14:49:14Z" class="relativetime-clean">May 18 '15 at 14:49</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-10916767" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="4093719"></a>
+<div id="answer-4093719" class="answer" data-answerid="4093719" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="4093719" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">52</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The primary difference is, <code>@Autowired</code> is a spring annotation. Whereas <code>@Resource</code> is specified by the JSR-250, as you pointed out yourself. So the latter is part of Java whereas the former is Spring specific.</p>
+
+<p>Hence, you are right in suggesting that, in a sense. I found folks use <code>@Autowired</code> with <code>@Qualifier</code>
+ because it is more powerful. Moving from some framework to some other 
+is considered very unlikely, if not myth, especially in the case of 
+Spring.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/4093719" title="short permalink to this answer" class="short-link" id="link-post-4093719">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4093719/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2010-11-04 03:39:51Z" class="relativetime">Nov 4 '10 at 3:39</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/42769/adeel-ansari"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/92cb80ae99475273147202fe67407662.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/42769/adeel-ansari">Adeel Ansari</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 30,914" dir="ltr">30.9k</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="67 silver badges"><span class="badge2"></span><span class="badgecount">67</span></span><span title="115 bronze badges"><span class="badge3"></span><span class="badgecount">115</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4093719" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-20383178" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="hot">19</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">+1 for "if not myth"!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/716834/udo" title="1,066 reputation" class="comment-user">Udo</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20383178_4093719"><span title="2013-01-30 08:52:37Z" class="relativetime-clean">Jan 30 '13 at 8:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-26868858" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">+1, because <code>@Autowired</code> with <code>@Qualifier</code> really <i>is</i> more powerful than the JSR standard <code>@Resource</code> annotation (think of optional dependencies for instance with <code>@Autowired(required=false)</code>. You can't do that with <code>@Resource</code>)</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/287138/stefan-haberl" title="2,831 reputation" class="comment-user">Stefan Haberl</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment26868858_4093719"><span title="2013-08-19 09:40:06Z" class="relativetime-clean">Aug 19 '13 at 9:40</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4093719" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="23887596"></a>
+<div id="answer-23887596" class="answer" data-answerid="23887596" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="23887596" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">38</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I would like to emphasize one comment from <a href="http://stackoverflow.com/users/441899/jules">@Jules</a> on <a href="http://stackoverflow.com/a/10916767/363573">this answer</a> to this question. The comment brings a useful link: <a href="http://blogs.sourceallies.com/2011/08/spring-injection-with-resource-and-autowired/">Spring Injection with @Resource, @Autowired and @Inject</a>. I encourage you to read it entirely, however here is a quick summary of its usefulness:</p>
+
+<h3>How annotations select the right implementation?</h3>
+
+<p><code>@Autowired</code> and <code>@Inject</code></p>
+
+<ol>
+<li>Matches by Type</li>
+<li>Restricts by Qualifiers</li>
+<li>Matches by Name</li>
+</ol>
+
+<p><code>@Resource</code></p>
+
+<ol>
+<li>Matches by Name</li>
+<li>Matches by Type</li>
+<li>Restricts by Qualifiers (ignored if match is found by name)</li>
+</ol>
+
+<h3>Which annotations (or combination of) should I use for injecting my beans?</h3>
+
+<ol>
+<li><p>Explicitly name your component [@Component("beanName")]</p></li>
+<li><p>Use <code>@Resource</code> with the <code>name</code> attribute [@Resource(name="beanName")]</p></li>
+</ol>
+
+<h3>Why should I not use <code>@Qualifier</code>?</h3>
+
+<p>Avoid <code>@Qualifier</code> annotations unless you want to create a list of similar beans. For example you may want to mark a set of rules with a specific <code>@Qualifier</code> annotation. This approach makes it simple to inject a group of rule classes into a list that can be used for processing data.</p>
+
+<h3>Does bean injection slow my program?</h3>
+
+<p>Scan specific packages for components <code>[context:component-scan base-package="com.sourceallies.person"]</code>. While this will result in more <code>component-scan</code> configurations it reduces the chance that you’ll add unnecessary components to your Spring context.</p>
+
+<hr>
+
+<p><strong><em>Reference:</em></strong> <a href="http://blogs.sourceallies.com/2011/08/spring-injection-with-resource-and-autowired/">Spring Injection with @Resource, @Autowired and @Inject</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/23887596" title="short permalink to this answer" class="short-link" id="link-post-23887596">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/23887596/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-05-27 10:56:43Z" class="relativetime">May 27 '14 at 10:56</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/363573/stephan"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/e14a13f1a3b0f11a39496f47c0606cf9.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/363573/stephan">Stephan</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 22,583" dir="ltr">22.6k</span><span title="27 gold badges"><span class="badge1"></span><span class="badgecount">27</span></span><span title="118 silver badges"><span class="badge2"></span><span class="badgecount">118</span></span><span title="183 bronze badges"><span class="badge3"></span><span class="badgecount">183</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-23887596" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-23887596" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="18977688"></a>
+<div id="answer-18977688" class="answer" data-answerid="18977688" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="18977688" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">30</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>This is what I got from the <a href="http://docs.spring.io/spring/docs/3.0.0.M4/spring-framework-reference/html/ch03s09.html">Spring 3.0.x Reference Manual</a> :-</p>
+
+<blockquote>
+  <p>Tip </p>
+  
+  <p>If you intend to express annotation-driven injection by name, do
+  not primarily use @Autowired, even if is technically capable of
+  referring to a bean name through @Qualifier values. Instead, use the
+  JSR-250 @Resource annotation, which is semantically defined to
+  identify a specific target component by its unique name, with the
+  declared type being irrelevant for the matching process.</p>
+  
+  <p>As a specific consequence of this semantic difference, beans that are
+  themselves defined as a collection or map type cannot be injected
+  through @Autowired, because type matching is not properly applicable
+  to them. Use @Resource for such beans, referring to the specific
+  collection or map bean by unique name.</p>
+  
+  <p>@Autowired applies to fields, constructors, and multi-argument
+  methods, allowing for narrowing through qualifier annotations at the
+  parameter level. By contrast, @Resource is supported only for fields
+  and bean property setter methods with a single argument. As a
+  consequence, stick with qualifiers if your injection target is a
+  constructor or a multi-argument method.</p>
+</blockquote>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/18977688" title="short permalink to this answer" class="short-link" id="link-post-18977688">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18977688/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/18977688/revisions" title="show all edits to this post">edited <span title="2014-10-17 10:38:32Z" class="relativetime">Oct 17 '14 at 10:38</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/199148/kartoch"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/e72dd22059b36d67f70a4913b8c85e52.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/199148/kartoch">Kartoch</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,345</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="29 silver badges"><span class="badge2"></span><span class="badgecount">29</span></span><span title="60 bronze badges"><span class="badge3"></span><span class="badgecount">60</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-09-24 09:26:49Z" class="relativetime">Sep 24 '13 at 9:26</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2810415/kartik"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/84955c224b2761d59745cdc3706f3658.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2810415/kartik">Kartik</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">311</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18977688" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-18977688" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="4093536"></a>
+<div id="answer-4093536" class="answer" data-answerid="4093536" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="4093536" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">14</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Both of them are equally good. The advantage of using Resource is in 
+future if you want to another DI framework other than spring, your code 
+changes will be much simpler. Using Autowired your code is tightly 
+coupled with springs DI.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/4093536" title="short permalink to this answer" class="short-link" id="link-post-4093536">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4093536/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2010-11-04 02:59:27Z" class="relativetime">Nov 4 '10 at 2:59</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/112222/teja-kantamneni"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/5d555c04f1b80fbe575c122979fd25e3.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/112222/teja-kantamneni">Teja Kantamneni</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 11,550" dir="ltr">11.6k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="45 silver badges"><span class="badge2"></span><span class="badgecount">45</span></span><span title="79 bronze badges"><span class="badge3"></span><span class="badgecount">79</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4093536" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-55659952" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Never gonna happen. And even if it did - doing a find/replace on annotation names is going to be the least of your problems.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/34553/daniel-alexiuc" title="7,278 reputation" class="comment-user">Daniel Alexiuc</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment55659952_4093536"><span title="2015-11-27 05:25:50Z" class="relativetime-clean">Nov 27 '15 at 5:25</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4093536" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="29270848"></a>
+<div id="answer-29270848" class="answer" data-answerid="29270848" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="29270848" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">12</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>@Autowired + @Qualifier will work only with spring DI, if you want to use some other DI in future @Resource is good option.</p>
+
+<p>other difference which I found very significant is @Qualifier does 
+not support dynamic bean wiring, as @Qualifier does not support 
+placeholder, while @Resource does it very well.</p>
+
+<p>For example:
+if you have an interface with multiple implementations like this</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="kwd">interface</span><span class="pln"> parent </span><span class="pun">{</span><span class="pln">
+
+</span><span class="pun">}</span><span class="pln">
+</span><span class="lit">@Service</span><span class="pun">(</span><span class="str">"actualService"</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ActualService</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> parent</span><span class="pun">{</span><span class="pln">
+
+</span><span class="pun">}</span><span class="pln">
+</span><span class="lit">@Service</span><span class="pun">(</span><span class="str">"stubbedService"</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SubbedService</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> parent</span><span class="pun">{</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre>
+
+<p>with @Autowired &amp; @Qualifier you need to set specific child implementation 
+like </p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@Autowired</span><span class="pln">
+</span><span class="lit">@Qualifier</span><span class="pun">(</span><span class="str">"actualService"</span><span class="pun">)</span><span class="pln"> or 
+</span><span class="lit">@Qualifier</span><span class="pun">(</span><span class="str">"stubbedService"</span><span class="pun">)</span><span class="pln"> 
+</span><span class="typ">Parent</span><span class="pln"> object</span><span class="pun">;</span></code></pre>
+
+<p>which does not provide placeholder while with @Resource you can put 
+placeholder and use property file to inject specific child 
+implementation like</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@Resource</span><span class="pun">(</span><span class="pln">name</span><span class="pun">=</span><span class="str">"${service.name}"</span><span class="pun">)</span><span class="pln">
+</span><span class="typ">Parent</span><span class="pln"> object</span><span class="pun">;</span><span class="pln">  </span></code></pre>
+
+<p>where service.name is set in property file as  </p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="pun">#</span><span class="pln">service</span><span class="pun">.</span><span class="pln">name</span><span class="pun">=</span><span class="pln">actualService
+ service</span><span class="pun">.</span><span class="pln">name</span><span class="pun">=</span><span class="pln">stubbedService</span></code></pre>
+
+<p>Hope that helps someone :)</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/29270848" title="short permalink to this answer" class="short-link" id="link-post-29270848">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/29270848/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/29270848/revisions" title="show all edits to this post">edited <span title="2015-03-26 04:08:42Z" class="relativetime">Mar 26 '15 at 4:08</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-03-26 03:55:19Z" class="relativetime">Mar 26 '15 at 3:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/747661/ali"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/bgEJ3.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/747661/ali">Ali</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">428</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="22 bronze badges"><span class="badge3"></span><span class="badgecount">22</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-29270848" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-29270848" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="22257498"></a>
+<div id="answer-22257498" class="answer" data-answerid="22257498" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="22257498" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><code>@Resource</code> is often used by high-level objects, defined via JNDI. <code>@Autowired</code> or <code>@Inject</code> will be used by more common beans.</p>
+
+<p>As far as I know, it's not a specification, nor even a convention. 
+It's more the logical way standard code will use these annotations.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/22257498" title="short permalink to this answer" class="short-link" id="link-post-22257498">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/22257498/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-03-07 18:06:05Z" class="relativetime">Mar 7 '14 at 18:06</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/968988/nicolas-zozol"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/0073b7f7a38dd1bce045793606c7a403.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/968988/nicolas-zozol">Nicolas Zozol</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,399</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="26 silver badges"><span class="badge2"></span><span class="badgecount">26</span></span><span title="51 bronze badges"><span class="badge3"></span><span class="badgecount">51</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-22257498" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-22257498" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="17153098"></a>
+<div id="answer-17153098" class="answer" data-answerid="17153098" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="17153098" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>As a note here:
+<code>SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext</code> and <code>SpringBeanAutowiringSupport.processInjectionBasedOnServletContext</code> <strong>DOES NOT</strong> work with <code>@Resource</code>  annotation. So, there are difference.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/17153098" title="short permalink to this answer" class="short-link" id="link-post-17153098">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/17153098/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-06-17 17:12:02Z" class="relativetime">Jun 17 '13 at 17:12</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/449553/msangel"><div class="gravatar-wrapper-32"><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/CChOK.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/449553/msangel">msangel</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,592</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="26 silver badges"><span class="badge2"></span><span class="badgecount">26</span></span><span title="44 bronze badges"><span class="badge3"></span><span class="badgecount">44</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-17153098" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-17153098" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+				    <div class="question-status">
+        <h2>                    <b>protected</b> by <a href="http://stackoverflow.com/users/2396539/aniket-thakur">Aniket Thakur</a> <span dir="ltr"><span title="2015-11-01 07:34:59Z" class="relativetime">Nov 1 '15 at 7:34</span></span>
+</h2>
+        <p>
+Thank you for your interest in this question. 
+Because it has attracted low-quality or spam answers that had to be removed, posting an answer now requires 10 <a href="http://stackoverflow.com/help/whats-reputation">reputation</a> on this site (the <a href="http://stackoverflow.com/help/privileges/new-user">association bonus does not count</a>).
+<br><br>
+Would you like to answer one of these <a href="http://stackoverflow.com/unanswered?fromProtectedNotice=true">unanswered questions</a> instead?
+</p>
+    </div>
+
+
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/java" class="post-tag" title="show questions tagged 'java'" rel="tag">java</a> <a href="http://stackoverflow.com/questions/tagged/spring" class="post-tag" title="show questions tagged 'spring'" rel="tag">spring</a> <a href="http://stackoverflow.com/questions/tagged/dependency-injection" class="post-tag" title="show questions tagged 'dependency-injection'" rel="tag">dependency-injection</a> <a href="http://stackoverflow.com/questions/tagged/annotations" class="post-tag" title="show questions tagged 'annotations'" rel="tag">annotations</a> <a href="http://stackoverflow.com/questions/tagged/autowired" class="post-tag" title="show questions tagged 'autowired'" rel="tag">autowired</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2010-11-04 02:50:58Z"><b>6 years, 6 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>137365 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/4093504/resource-vs-autowired?lastactivity" class="lastactivity-link" title="2016-10-10 10:58:35Z">7 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/05/16/exploring-state-mobile-development-stack-overflow-trends/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/05/16/exploring-state-mobile-development-stack-overflow-trends/?cb=1" class="question-hyperlink">Exploring the State of Mobile Development with Stack Overflow Trends</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/05/16/stack-overflow-official-app-launches-ios-android/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/05/16/stack-overflow-official-app-launches-ios-android/?cb=1" class="question-hyperlink">Stack Overflow Official App launches on both iOS and Android</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk940396361",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk940396361"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/i_002.gif" width="0px" border="0" height="0px"></div>
+            <div id="hireme" class="tag-themed java tagged tex2jax_ignore clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%3Fmed=clc&amp;sig=mOh8nRJjq3PWEQ"><span>Want a <span class="header-tag">java</span> job?</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Java Software Architect - $60k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/129485/java-software-architect-60k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=17264&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F129485%2Fjava-software-architect-60k-crossover%3Fmed=clc&amp;sig=UKEY8pzIMnu8mA"><div class="title">Java Software Architect - $60k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">cloud</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=17264&amp;ct=-1&amp;sig=dy9brUvYayebQg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="DevFactory Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/135512/devfactory-technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=237678&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F135512%2Fdevfactory-technical-product-manager-100k-crossover%3Fmed=clc&amp;sig=F70Q1-1jePR5BQ"><div class="title">DevFactory Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">tdd</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=237678&amp;ct=-1&amp;sig=kXVSHsO5ZIZV8g" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Backend Engineer, Golang at Statement Campus. Click to learn more." href="https://stackoverflow.com/jobs/138924/backend-engineer-golang-statement-campus" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=254602&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F138924%2Fbackend-engineer-golang-statement-campus%3Fmed=clc&amp;sig=sQVEoOosMFvKSA"><div class="title">Backend Engineer, Golang</div><div><span class="company">Statement Campus</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">python</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=254602&amp;ct=-1&amp;sig=ch0ExqMg8s4w9g" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Backend Engineer, Java at Statement Campus. Click to learn more." href="https://stackoverflow.com/jobs/138915/backend-engineer-java-statement-campus" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=254572&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F138915%2Fbackend-engineer-java-statement-campus%3Fmed=clc&amp;sig=OIBvsdwIHoIK0A"><div class="title">Backend Engineer, Java</div><div><span class="company">Statement Campus</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">python</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zJTf7Dk_5wrHqo1TeEhTEwsB978ZDSsCWuwinhims340e92wPFABk6Gng0MDA32jIwMLLOZHhRvaGD80MbIwsmQcuAg80pLF0tOe0aWrMSyxNlMhzrYT23leHeAjxUkm-i20vLdAoTs93nsTRc5uo7yM4FkzTYvsLz75LsdTPbNPPbPFzjeHOFnBslu-bvQUkD6D1RWyYjlgSUDAxezEaPTEUYwXX4eSDNpMOaAaGYNRkk_SZsy4RiuNc8B&amp;cr=254572&amp;ct=-1&amp;sig=s8o0kkpuk7kw3w" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 'At1OP6P_nNQIAAAAAEB2PgACAAAAAgAAAAA4AAAAfGphdmF8c3ByaW5nfGRlcGVuZGVuY3ktaW5qZWN0aW9ufGFubm90YXRpb25zfGF1dG93aXJlZHwATEMGFx9l2WAZVQ';;(function(n){var u={log:window.console.log.bind(window.console,"[clc]"),error:window.console.error.bind(window.console,"[clc]")},f,e,t,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(f=n.allowed,!f)return;if(e=new RegExp(n.allowed),!e.test(location.hostname)){u.error("Invalid host: "+location.hostname);return}if(t=window,t.clc=t.clc||{},t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return n.load()}),t.clc.options){for(r in t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(o){u.error("[clc] Error in loader:",o)}}).call(null, {"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=e966546d8727","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$"});        </script>
+			<div style="margin-bottom: 10px;">
+        
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.newsletterAd.init();
+    });
+</script>
+
+<div id="newsletter-ad">
+        <p id="newsletter-ad-header">Get the <b>weekly newsletter!</b> In it, you'll get:</p>
+        <ul>
+            <li>The week's top questions and answers</li>
+            <li>Important community announcements</li>
+            <li>Questions that need answers</li>
+        </ul>
+    <div id="newsletter-signup-container"><input id="newsletter-signup" value="Sign up for the newsletter" type="button"></div>
+    <p id="newsletter-preview-container">see an <a href="https://stackexchange.com/newsletters/newsletter?site=stackoverflow.com" id="newsletter-preview">example newsletter</a></p>
+    <div class="dno">
+        
+<p class="privacy-policy-agreement">
+By subscribing, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">
+    </div>
+</div>
+
+    </div>
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/12511681?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/12511681/resource-not-working-with-scope-prototype?noredirect=1&amp;lq=1" class="question-hyperlink">Resource not working with scope prototype?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/36556446?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/36556446/resource-vs-property-argument-in-xml?noredirect=1&amp;lq=1" class="question-hyperlink">@Resource vs Property argument in xml</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/38361738?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/38361738/how-did-spring-hook-up-my-service-without-specifying-it?noredirect=1&amp;lq=1" class="question-hyperlink">How did Spring hook up my @Service without specifying it?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/13913752?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">45</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/13913752/spring-cant-autowire-map-bean?noredirect=1&amp;lq=1" class="question-hyperlink">Spring can't autowire Map bean</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/20450902?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">37</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/20450902/inject-and-resource-and-autowired-annotations?noredirect=1&amp;lq=1" class="question-hyperlink">Inject and Resource and Autowired annotations</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/3536674?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">33</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/3536674/how-does-spring-autowired-work?noredirect=1&amp;lq=1" class="question-hyperlink">How does Spring @Autowired work</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/9106416?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">20</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/9106416/difference-between-qualifier-and-resource?noredirect=1&amp;lq=1" class="question-hyperlink">Difference between @Qualifier and @Resource</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/17629761?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">8</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17629761/strategy-pattern-with-spring-beans?noredirect=1&amp;lq=1" class="question-hyperlink">Strategy pattern with spring beans</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/18711924?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">6</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/18711924/required-multiple-beans-of-same-type-in-spring?noredirect=1&amp;lq=1" class="question-hyperlink">Required Multiple beans of same type in Spring</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/4104631?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">7</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/4104631/spring-autowired-resource-and-property?noredirect=1&amp;lq=1" class="question-hyperlink">Spring, @Autowired, @Resource and &lt;property&gt;</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/4093504?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/633158?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">196</div></a><a href="http://stackoverflow.com/questions/633158/spring-autowired-usage?rq=1" class="question-hyperlink">Spring @Autowired usage</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/7142622?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">406</div></a><a href="http://stackoverflow.com/questions/7142622/what-is-the-difference-between-inject-and-autowired-in-spring-framework-which?rq=1" class="question-hyperlink">What is the difference between @Inject and @Autowired in Spring Framework? Which one to use under what condition?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/10534053?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">77</div></a><a href="http://stackoverflow.com/questions/10534053/autowiring-two-beans-implementing-same-interface-how-to-set-default-bean-to-au?rq=1" class="question-hyperlink">Autowiring two beans implementing same interface - how to set default bean to autowire?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/19896870?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">294</div></a><a href="http://stackoverflow.com/questions/19896870/why-is-my-spring-autowired-field-null?rq=1" class="question-hyperlink">Why is my Spring @Autowired field null?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/20450902?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">37</div></a><a href="http://stackoverflow.com/questions/20450902/inject-and-resource-and-autowired-annotations?rq=1" class="question-hyperlink">Inject and Resource and Autowired annotations</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/21116561?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="http://stackoverflow.com/questions/21116561/fine-grained-spring-autowiring-not-working-autowired-with-additional-custom-an?rq=1" class="question-hyperlink">Fine grained Spring autowiring not working (@Autowired with additional custom annotation)</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/32762830?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="http://stackoverflow.com/questions/32762830/spring-autowired-on-all-setter-in-a-class?rq=1" class="question-hyperlink">Spring @Autowired on all setter in a class</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/34406306?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="http://stackoverflow.com/questions/34406306/is-it-possible-to-autowire-method-arguments-at-runtime-in-spring?rq=1" class="question-hyperlink">Is it possible to autowire method arguments at runtime in Spring</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/40620000?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://stackoverflow.com/questions/40620000/spring-autowire-on-properties-vs-constructor?rq=1" class="question-hyperlink">Spring @Autowire on Properties vs Constructor</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/41659494?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/41659494/spring-autowire-by-type-with-optional-value?rq=1" class="question-hyperlink">Spring autowire by type with optional value</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-biology" title="Biology Stack Exchange"></div><a href="https://biology.stackexchange.com/questions/59617/what-is-the-name-of-this-red-plant" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:375 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the name of this red plant?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/89612/what-happens-if-someone-publishes-a-paper-on-your-current-phd-thesis" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens if someone publishes a paper on your current PhD thesis
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="https://puzzling.stackexchange.com/questions/51818/add-parentheses-to-make-this-true" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Add parentheses to make this true
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/81016/why-dont-future-civilizations-develop-their-a-i-to-integrate-with-biology-so-t" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't future civilizations develop their A.I. to
+ integrate with biology so they can make a sustainable world?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/79810/buying-from-an-aggressive-salesperson" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Buying from an aggressive salesperson
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/89599/popular-software-used-in-research-is-incorrectly-reporting-solution-is-optimal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Popular software used in research is incorrectly reporting solution is optimal: what to do?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/93419/dual-citizen-causa-travelling-to-states-for-non-academic-school-do-i-need-a-s" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Dual Citizen: CA+USA Travelling to States for non academic school, do I need a student visa?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/159615/why-did-the-rebel-fleet-not-bombard-the-shield-generator-on-endor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did the Rebel fleet not bombard the Shield Generator on Endor?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/915968/process-wildcards-in-bash-scripts" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    process wildcards in bash scripts
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/269893/who-first-proved-ergodicity-of-irrational-rotations-of-the-circle" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Who first proved ergodicity of irrational rotations of the circle?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/120897/how-long-is-my-number" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How long is my number?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2284422/are-all-symmetric-matrices-with-positive-eigenvalues-a-product-of-a-matrix-and-i" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are all symmetric matrices with positive eigenvalues a product of a matrix and its transpose?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="https://serverfault.com/questions/850587/how-to-certify-a-self-signed-imap-email-server" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to certify a self-signed imap email server
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/365355/why-is-ext4-only-recommended-up-to-16-tb" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is ext4 only recommended up to 16 TB?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="https://chemistry.stackexchange.com/questions/74664/is-zero-point-vibrational-energy-an-intensive-or-extensive-property" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is zero-point vibrational energy an intensive or extensive property?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/365436/choose-interpreter-after-script-start-e-g-if-else-inside-hashbang" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Choose interpreter after script start e.g. if/else inside hashbang
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/120796/infinitely-print-zenos-dichotomy-paradox-1-2n" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Infinitely Print Zeno's Dichotomy Paradox (1/(2^n))
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/915973/how-to-grep-same-strings-by-comparing-two-files" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to grep same strings by comparing two files
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-japanese" title="Japanese Language Stack Exchange"></div><a href="https://japanese.stackexchange.com/questions/47497/confirm-meaning-of-%e6%b0%b4%e3%82%92%e5%bc%b5%e3%81%a3%e3%81%9f%e5%a4%a7%e3%81%8d%e3%81%aa%e7%ae%b1" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:257 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Confirm meaning of 水を張った大きな箱
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-photo" title="Photography Stack Exchange"></div><a href="https://photo.stackexchange.com/questions/89452/why-focus-on-the-eye-closest-to-the-camera-instead-of-the-eye-in-the-middle" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:61 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why focus on the eye closest to the camera instead of the eye in the middle?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-matheducators" title="Mathematics Educators Stack Exchange"></div><a href="https://matheducators.stackexchange.com/questions/12298/what-is-the-mathematical-value-of-children-learning-and-being-tested-on-roman-nu" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:548 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the mathematical value of children learning and being tested on Roman numerals?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/333025/why-does-a-yellow-object-turn-white-under-a-yellow-light-shouldnt-it-turn-yell" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does a yellow object turn white under a yellow light? Shouldn't it turn yellow instead?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/89511/i-prepared-a-course-but-cancelled-it-due-to-lack-of-participants-how-to-descri" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I prepared a course, but cancelled it due to lack of participants. How to describe in CV?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/19034/when-was-the-last-time-that-19-republican-senators-cross-the-aisle-with-a-unifie" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When was the last time that 19 Republican senators 
+cross-the-aisle with a unified Democratic party on anything not 
+bipartisan?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/4093504" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/4093504/ivc/beb3');});
+</script>
+<noscript>
+    <div><img src="/posts/4093504/ivc/beb3" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-java</div></div>
+
+
+        </div>
+    </div><script async="" src="java%20-%20@Resource%20vs%20@Autowired%20-%20Stack%20Overflow_files/clc.js"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="https://data.stackexchange.com/">data</a>
+                    <a href="https://stackexchange.com/legal">legal</a>
+                    <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a href="http://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="http://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="http://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="http://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="http://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="http://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="http://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="http://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="http://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="http://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="http://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="http://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.5.16.25927
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with 
+JavaScript enabled<img 
+src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" 
+class="dno"></div>
+    </noscript>
+<script>var 
+z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var
+ 
+s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('java,spring,dependency-injection,annotations,autowired');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || 
+function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new
+ Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = 
+g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 
+'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', 
+sampleRate: 5 });
+                ga('set', 'dimension2', 
+'|java|spring|dependency-injection|annotations|autowired|');
+                ga('pageData.set', 'dimension2', 
+'|java|spring|dependency-injection|annotations|autowired|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + 
+'.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + 
+'.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = 
+newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i)
+ || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') 
+service =  2;
+                                    else if (service === 'Place') 
+service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', 
+function() {
+                                        
+StackExchange.gps.track('google_maps_places_api.call', { service: 
+service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+</body></html>

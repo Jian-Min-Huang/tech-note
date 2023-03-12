@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>java - What is the difference between thread per connection vs thread per request? - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="What is the difference between thread per connection vs thread per request?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Can you please explain the two methodologies which has been implemented in various servlet implementations:
+Thread per connection
+Thread per request
+Which of the above two strategies scales bette...">
+    <meta property="og:url" content="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request">
+    <link rel="canonical" href="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request">
+
+    
+    
+    <script type="text/javascript" async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/ados"></script><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/quant.js"></script><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/beacon.js"></script><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/ados.js"></script><script src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/jquery.js"></script>
+    <script src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'What is the difference between thread per connection vs thread per request?'" href="https://stackoverflow.com/feeds/question/15217524">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:15217524});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '15217524');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1495545814,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"0ad4dc2e652e950527c4c6085683b2fb","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"d77d0bbf07d9","js/moderator.en.js":"2c0576ff6fe7","js/full-anon.en.js":"0357ca4011ae","js/full.en.js":"9cb486c5d58b","js/wmd.en.js":"94c079895728","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"cd655e38a168","js/help.en.js":"118cb359bcc6","js/tageditor.en.js":"1d7bf306a848","js/tageditornew.en.js":"2765ddac6694","js/inline-tag-editing.en.js":"3e63a01fd39b","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"47a8675e1f09","js/tagsuggestions.en.js":"2a9fc67ea337","js/post-validation.en.js":"aaabe441ad5d","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"94ea2574d95d","js/keyboard-shortcuts.en.js":"14e1c1a5d31d","js/external-editor.en.js":"cb487078c372","js/adops.en.js":"22a9bd59b1e9","js/external-editor.en.js":"cb487078c372","js/snippet-javascript.en.js":"3af2caa9765a","js/snippet-javascript-codemirror.en.js":"08fc16ba3455"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css"><style type="text/css">body,.so-header{margin-top:1.9em}</style></noscript>
+<script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/full-anon.js"></script><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/snippet-javascript.js"></script><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/post-validation.js"></script><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/external-editor.js"></script><script type="text/javascript" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/adFeedback.css"><link rel="stylesheet" href="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/jobs-multi.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="https://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="https://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg role="icon" class="svg-icon" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    <input name="q" placeholder="Search..." tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field" type="text">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg role="icon" class="svg-icon" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f15217524%2fwhat-is-the-difference-between-thread-per-connection-vs-thread-per-request" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg role="icon" class="svg-icon" width="18" height="18" viewBox="0 0 18 18"><path d="M9 0a9 9 0 1 0 .001 18.001A9 9 0 0 0 9 0zm.812 13.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 167 Stack Exchange sites">
+            <svg role="icon" class="svg-icon" width="18" height="18" viewBox="0 0 18 18"><path d="M0 14a2 2 0 0 0 2 2h10v3l3-3h1a2 2 0 0 0 2-2v-2H0v2zM16 0H2a2 2 0 0 0-2 2v2h18V2a2 2 0 0 0-2-2zM0 6h18v4H0V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f15217524%2fwhat-is-the-difference-between-thread-per-connection-vs-thread-per-request" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.2 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request" class="question-hyperlink">What is the difference between thread per connection vs thread per request?</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="15217524" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk2106235987",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk2106235987"><a href="https://engine.adzerk.net/r?e=eyJhdiI6NDIxMCwiYXQiOjQsImJ0IjowLCJjbSI6NTU0MDQ4LCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MjIzOTY0NywiZGkiOiIwNjliY2RiZjZiMmY0YmI4YjljMDYyYTlhZTFiNjMyNSIsImRtIjoxLCJmYyI6Mjc3MDc5NSwiZmwiOjMwNDg0NzQsImlwIjoiMTIzLjE5NS4xNzEuMTgzIiwia3ciOiJqYXZhLG11bHRpdGhyZWFkaW5nLGh0dHAsc2VydmxldHMiLCJtayI6Im11bHRpdGhyZWFkaW5nIiwibnciOjIyLCJwYyI6Ny42LCJlYyI6Ny42LCJwciI6NzY1LCJydCI6MiwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLnR3LyIsInNiIjoiaS0wYTc4NDg4NDhlYWFmYWY0ZCIsInNwIjoyODE1LCJzdCI6ODI3NywidWsiOiJ1ZTEtZWI1ODZkM2NmMmMxNDdmOWI4ZWE2ODY2ZTlhYWY3YzkiLCJ6biI6NDMsInRzIjoxNDk1NTQ1ODE2MTI0LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsyMTA2MjM1OTg3IiwidXIiOiJodHRwczovL3NvZnR3YXJlLmludGVsLmNvbS9tb2Rlcm4tY29kZS90cmFpbmluZy9zaG9ydC12aWRlby1zZXJpZXM_dXRtX3NvdXJjZT1TdGFja19PdmVyZmxvdyZ1dG1fbWVkaXVtPWJhbm5lciZ1dG1fY29udGVudD1IUENfRGV2ZWxvcGVycyZ1dG1fY2FtcGFpZ249RFJEXzE3XzM2In0&amp;s=ysf50_HLETdFMY6QxbBeTcwJGFk" rel="nofollow" target="_blank" title=""><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/ee1831bb11784db392045ee89b53884b.jpg" title="" alt="" width="728" border="0" height="90"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/i.gif" width="0px" border="0" height="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="15217524" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">14</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>8</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>Can you please explain the two methodologies which has been implemented in various servlet implementations:</p>
+
+<ol>
+<li>Thread per connection</li>
+<li>Thread per request</li>
+</ol>
+
+<p>Which of the above two strategies scales better and why?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag js-gps-track" title="show questions tagged 'java'" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/multithreading" class="post-tag js-gps-track" title="show questions tagged 'multithreading'" rel="tag">multithreading</a> <a href="https://stackoverflow.com/questions/tagged/http" class="post-tag js-gps-track" title="show questions tagged 'http'" rel="tag">http</a> <a href="https://stackoverflow.com/questions/tagged/servlets" class="post-tag js-gps-track" title="show questions tagged 'servlets'" rel="tag">servlets</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/15217524" title="short permalink to this question" class="short-link" id="link-post-15217524">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/15217524/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/15217524/revisions" title="show all edits to this post">edited <span title="2013-03-05 10:17:39Z" class="relativetime">Mar 5 '13 at 10:17</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2013-03-05 06:50:06Z" class="relativetime">Mar 5 '13 at 6:50</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1527084/geek"><div class="gravatar-wrapper-32"><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/3c93245c8f90bb4256781ab91e212821.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1527084/geek">Geek</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">7,686</span><span title="23 gold badges"><span class="badge1"></span><span class="badgecount">23</span></span><span title="85 silver badges"><span class="badge2"></span><span class="badgecount">85</span></span><span title="160 bronze badges"><span class="badge3"></span><span class="badgecount">160</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15217524" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-21455429" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy"><a href="http://stackoverflow.com/questions/7457190/how-threads-allocated-to-handle-servlet-request" title="how threads allocated to handle servlet request">stackoverflow.com/questions/7457190/…</a> - duplicate?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2031799/mikhail" title="3,476 reputation" class="comment-user">Mikhail</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21455429_15217524"><span title="2013-03-05 10:38:37Z" class="relativetime-clean">Mar 5 '13 at 10:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-15217524" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								5 Answers
+                                <span style="display:none;" itemprop="answerCount">5</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="15223098"></a>
+<div id="answer-15223098" class="answer accepted-answer" data-answerid="15223098" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="15223098" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">13</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<blockquote>
+  <p>Which of the above two strategies scales better and why?</p>
+</blockquote>
+
+<p>Thread-per-request scales better than thread-per-connection.</p>
+
+<p>Java threads are rather expensive, typically using a 1Mb memory 
+segment each, whether they are active or idle.  If you give each 
+connection its own thread, the thread will typically sit idle between 
+successive requests on the connection.  Ultimately the framework needs 
+to either stop accepting new connections ('cos it can't create any more 
+threads) or start disconnecting old connections (which leads to 
+connection churn if / when the user wakes up).</p>
+
+<p>HTTP connection requires significantly less resources than a thread 
+stack, although there is a limit of 64K open connections per IP address,
+ due to the way that TCP/IP works.</p>
+
+<p>By contrast, in the thread-per-request model, the thread is only 
+associated while a request is being processed.  That usually means that 
+the service needs fewer threads to handle the same number of users.  And
+ since threads use significant resources, that means that the service 
+will be more scalable.</p>
+
+<p>(And note that thread-per-request does not mean that the framework has to close the HTTP connection after each request ...)</p>
+
+<hr>
+
+<p>Having said that, the thread-per-request model is not ideal when 
+there are long pauses during the processing of each request.  (And it is
+ especially non-ideal when the service uses the <a href="http://en.wikipedia.org/wiki/Comet_%28programming%29">comet</a>
+ approach which involves keeping the reply stream open for a long time.)
+  To support this, the Servlet 3.0 spec provides an "asynchronous 
+servlet" mechanism which allows a servlet's request method to suspend 
+its association with the current request thread.  This releases the 
+thread to go and process another request.</p>
+
+<p>If the web application can be designed to use the "asynchronous" 
+mechanism, it is likely to be more scalable than either 
+thread-per-request or thread-per-connection.</p>
+
+<hr>
+
+<p><strong>FOLLOWUP</strong></p>
+
+<blockquote>
+  <p>Let's assume a single webpage with 1000 images. This results in 
+1001 HTTP requests. Further let's assume HTTP persistent connections is 
+used. With the TPR strategy, this will result in 1001 thread pool 
+management operations (TPMO). With the TPC strategy, this will result in
+ 1 TPMO... Now depending on the actual costs for a single TPMO, I can 
+imagine scenarios where TPC may scale better then TPR.</p>
+</blockquote>
+
+<p>I think there are some things you haven't considered:</p>
+
+<ul>
+<li><p>The web browser faced with lots of URLs to fetch to complete a page may well open multiple connections.</p></li>
+<li><p>With TPC and persistent connections, the thread has to wait for 
+the client to receive the response and send the next request.  This wait
+ time could be significant if the network latency is high. </p></li>
+<li><p>The server has no way of knowing when a given (persistent) 
+connection can be closed.  If the browser doesn't close it, it could 
+"linger", tying down the TPC thread until the server times out the 
+connection.</p></li>
+<li><p>The TPMO overheads are not huge, especially when you separate the
+ pool overheads from the context switch overheads.  (You need to do 
+that, since TPC is going to incur context switches on a persistent 
+connections; see above.)</p></li>
+</ul>
+
+<p>My feeling is that these factors are likely to outweigh the TPMO saving of having one thread dedicated to each connection.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/15223098" title="short permalink to this answer" class="short-link" id="link-post-15223098">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/15223098/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/15223098/revisions" title="show all edits to this post">edited <span title="2013-07-23 13:35:26Z" class="relativetime">Jul 23 '13 at 13:35</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-03-05 11:52:11Z" class="relativetime">Mar 5 '13 at 11:52</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/139985/stephen-c"><div class="gravatar-wrapper-32"><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/147c5a9cc1feec049c50da791ac7d144.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/139985/stephen-c">Stephen C</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 425,727" dir="ltr">426k</span><span title="54 gold badges"><span class="badge1"></span><span class="badgecount">54</span></span><span title="452 silver badges"><span class="badge2"></span><span class="badgecount">452</span></span><span title="791 bronze badges"><span class="badge3"></span><span class="badgecount">791</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15223098" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="3" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-21471174" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You wrote "(And note that 
+thread-per-request does not mean that the framework has to close the 
+HTTP connection after each request ...)" .So when the connection is 
+reused later,does the same thread get attached to it or is it a 
+different thread?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1527084/geek" title="7,686 reputation" class="comment-user owner">Geek</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21471174_15223098"><span title="2013-03-05 17:34:28Z" class="relativetime-clean">Mar 5 '13 at 17:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-21482799" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It is typically a different thread.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/139985/stephen-c" title="425,727 reputation" class="comment-user">Stephen C</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21482799_15223098"><span title="2013-03-06 00:14:38Z" class="relativetime-clean">Mar 6 '13 at 0:14</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-25968240" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">"<i>Thread-per-request scales better than thread-per-connection.</i>" ...   What about the scenario where there is a <b>significant number</b> of HTTP requests served in a <b>single</b>
+ HTTP connection?  For this scenario, I can imagine that the 
+thread-per-request strategy causes a lot of server load due to thread 
+pool management overhead, while the connection-per-request strategy 
+wouldn't have this overhead.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/923560/abdull" title="8,598 reputation" class="comment-user">Abdull</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment25968240_15223098"><span title="2013-07-22 23:27:55Z" class="relativetime-clean">Jul 22 '13 at 23:27</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-25969780" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I don't understand what you 
+are saying.  This question is about thread-per-request versus 
+thread-per-connection.  If you make the restriction that a connection 
+can make only one request (i.e.  non-persistent connections) then 
+thread-per-request and thread-per-connection have the same 
+characteristics.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/139985/stephen-c" title="425,727 reputation" class="comment-user">Stephen C</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment25969780_15223098"><span title="2013-07-23 01:23:18Z" class="relativetime-clean">Jul 23 '13 at 1:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-25981367" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@StephenC Let's assume a single webpage with 1000 images. This results in 1001 HTTP requests. Further let's assume <i>HTTP persistent connections</i> is used. With the <i>TPR</i> strategy, this will result in 1001 thread pool management operations (<i>TPMO</i>). With the <i>TPC</i>
+ strategy, this will result in 1 TPMO... Now depending on the actual 
+costs for a single TPMO, I can imagine scenarios where TPC may scale 
+better then TPR. But maybe I am missing a point?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/923560/abdull" title="8,598 reputation" class="comment-user">Abdull</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment25981367_15223098"><span title="2013-07-23 09:53:10Z" class="relativetime-clean">Jul 23 '13 at 9:53</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-15223098" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>3</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk785625093",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk785625093"><a href="https://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjI3NzcxLCJkaSI6ImYzM2UxMzllYjcyYzRjNTRiYzNjZmFiMmFiNzM3YzVkIiwiZG0iOjEsImZjIjoxOTI0NDUwLCJmbCI6MjE0MjMxMiwiaXAiOiIxMjMuMTk1LjE3MS4xODMiLCJrdyI6ImphdmEsbXVsdGl0aHJlYWRpbmcsaHR0cCxzZXJ2bGV0cyIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS50dy8iLCJzYiI6ImktMGE3ODQ4ODQ4ZWFhZmFmNGQiLCJzcCI6MjgxNSwic3QiOjgyNzcsInVrIjoidWUxLWViNTg2ZDNjZjJjMTQ3ZjliOGVhNjg2NmU5YWFmN2M5Iiwiem4iOjQ0LCJ0cyI6MTQ5NTU0NTgxNjEyOCwiYmYiOnRydWUsInBuIjoiYWR6ZXJrNzg1NjI1MDkzIiwidXIiOiJodHRwOi8vc3RhY2tvdmVyZmxvdy5jb20vam9icy9yZW1vdGU_dXRtX3NvdXJjZT13ZWJzaXRlJnV0bV9tZWRpdW09YmFubmVyJnV0bV9jb250ZW50PWxlYWRlcmJvYXJkXzUmdXRtX2NhbXBhaWduPWhvdXNlX2Fkc19ST1NfU08ifQ&amp;s=J8jcW9pRWAtZcYqdE7GM2zVJONY" rel="nofollow" target="_blank" title=""><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/f380ecc42410414693b467ac7a97901b.png" title="" alt="" width="728" border="0" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/i_003.gif" width="0px" border="0" height="0px"></div>
+  
+<a name="15217693"></a>
+<div id="answer-15217693" class="answer" data-answerid="15217693" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="15217693" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><code>HTTP 1.1</code> - Has support for <strong>persistent connections</strong> which means more than one request/response can be received/sent using the same HTTP connection.
+So to run those requests received using the same connection in parallel a new <code>Thread</code> is created for each request.</p>
+
+<p><code>HTTP 1.0</code> - In this version only one request was received
+ using the connection and the connection was closed after sending the 
+response. So only one thread was created for one connection.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/15217693" title="short permalink to this answer" class="short-link" id="link-post-15217693">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/15217693/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-03-05 07:01:37Z" class="relativetime">Mar 5 '13 at 7:01</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1719067/narendra-pathai"><div class="gravatar-wrapper-32"><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/c1be932bbc82f9808ccd623e58a7a4a1.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1719067/narendra-pathai">Narendra Pathai</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 19,892" dir="ltr">19.9k</span><span title="13 gold badges"><span class="badge1"></span><span class="badgecount">13</span></span><span title="57 silver badges"><span class="badge2"></span><span class="badgecount">57</span></span><span title="93 bronze badges"><span class="badge3"></span><span class="badgecount">93</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15217693" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-15217693" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="15221300"></a>
+<div id="answer-15221300" class="answer" data-answerid="15221300" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="15221300" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><code>Thread per connection</code> is  the Concept of reusing the same <code>HTTP Connection</code> from <code>multiple requests</code>(<a href="http://en.wikipedia.org/wiki/HTTP_persistent_connection" rel="nofollow">keep-alive</a>).</p>
+
+<p><code>Thread per request</code>will create a thread for <code>each request</code> from a <code>client</code>.Server can create a number of <code>threads</code> as per <code>request</code>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/15221300" title="short permalink to this answer" class="short-link" id="link-post-15221300">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/15221300/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-03-05 10:20:55Z" class="relativetime">Mar 5 '13 at 10:20</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1927832/suresh-atta"><div class="gravatar-wrapper-32"><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/0LXs5.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1927832/suresh-atta">Suresh Atta</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 82,282" dir="ltr">82.3k</span><span title="16 gold badges"><span class="badge1"></span><span class="badgecount">16</span></span><span title="97 silver badges"><span class="badge2"></span><span class="badgecount">97</span></span><span title="176 bronze badges"><span class="badge3"></span><span class="badgecount">176</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15221300" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-50189811" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Just to clarify for others, 
+keep-alive will not necessarily allocate a thread for the entire 
+connection, for instance when made against a servlet container.  That's 
+the difference between Keep-Alive and TPC.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/405130/tunesmith" title="301 reputation" class="comment-user">tunesmith</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment50189811_15221300"><span title="2015-06-27 07:29:33Z" class="relativetime-clean">Jun 27 '15 at 7:29</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-15221300" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="15221858"></a>
+<div id="answer-15221858" class="answer" data-answerid="15221858" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="15221858" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><strong>Thread per request</strong> will create a thread for each HTTP Request the server receives .</p>
+
+<p><strong>Thread per connection</strong> will reuse the same HTTP Connection from multiple requests(keep-alive) .AKA <a href="http://en.wikipedia.org/wiki/HTTP_persistent_connection" rel="nofollow">HTTP persistent connection</a>
+but please note that this supported only from <code>HTTP 1.1</code></p>
+
+<p>Thread Per Request is faster as most web container use Thread Pooling.</p>
+
+<p>The number of maximum parallel connections you should set on the number of cores on your server. 
+More cores  =&gt; more parallel threads .</p>
+
+<p>See here how to configure...
+Tomcat 6: <a href="http://tomcat.apache.org/tomcat-6.0-doc/config/executor.html" rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/config/executor.html</a></p>
+
+<p>Tomcat 7: <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/executor.html" rel="nofollow">http://tomcat.apache.org/tomcat-7.0-doc/config/executor.html</a></p>
+
+<p>Example </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/15221858" title="short permalink to this answer" class="short-link" id="link-post-15221858">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/15221858/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/15221858/revisions" title="show all edits to this post">edited <span title="2013-03-05 10:54:57Z" class="relativetime">Mar 5 '13 at 10:54</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-03-05 10:49:13Z" class="relativetime">Mar 5 '13 at 10:49</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/354495/sudhakar"><div class="gravatar-wrapper-32"><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/034ddefdbde23863006c25d6bf8c55b2.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/354495/sudhakar">Sudhakar</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,407</span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="36 bronze badges"><span class="badge3"></span><span class="badgecount">36</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15221858" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-15221858" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="15221732"></a>
+<div id="answer-15221732" class="answer" data-answerid="15221732" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="15221732" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Thread per request should be better, because it reuses threads, while
+ some client may be idle. If you have a lot of concurrent users, they 
+could be served with a less number of threads and having equal number of
+ thread would be more expensive. There is also one more consideration - 
+we do not know if user is still working with application, so we cant 
+know when to destroy a thread. With a thread per request mechanism, we 
+just use a thread pool.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/15221732" title="short permalink to this answer" class="short-link" id="link-post-15221732">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/15221732/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-03-05 10:42:57Z" class="relativetime">Mar 5 '13 at 10:42</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2031799/mikhail"><div class="gravatar-wrapper-32"><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/1ea85a75d7587cd1a72606102e859ef8.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/2031799/mikhail">Mikhail</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,476</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="25 bronze badges"><span class="badge3"></span><span class="badgecount">25</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15221732" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-21455642" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Does it use thread pool or spawns new threads and joins the old ones?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1827457/ltworf" title="3,631 reputation" class="comment-user">LtWorf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21455642_15221732"><span title="2013-03-05 10:45:42Z" class="relativetime-clean">Mar 5 '13 at 10:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-21455822" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Spawning a new thread is very expensive operation. I assume that any adequate implementation reuses threads through pool.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2031799/mikhail" title="3,476 reputation" class="comment-user">Mikhail</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21455822_15221732"><span title="2013-03-05 10:51:41Z" class="relativetime-clean">Mar 5 '13 at 10:51</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-21456172" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I know it's expensive, that's
+ why I asked. Without thread pool using one thread per request is much 
+more expensive than using one thread per connection. And assumptions are
+ bad, that's why I asked.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1827457/ltworf" title="3,631 reputation" class="comment-user">LtWorf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21456172_15221732"><span title="2013-03-05 11:01:50Z" class="relativetime-clean">Mar 5 '13 at 11:01</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-21456616" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Which exact implementation 
+you are talking about, javax.servlet.* is just an API, it does not 
+specify the way requests are served.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2031799/mikhail" title="3,476 reputation" class="comment-user">Mikhail</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21456616_15221732"><span title="2013-03-05 11:15:20Z" class="relativetime-clean">Mar 5 '13 at 11:15</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-21459229" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yup, but usually API are implemented by some software.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1827457/ltworf" title="3,631 reputation" class="comment-user">LtWorf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment21459229_15221732"><span title="2013-03-05 12:28:22Z" class="relativetime-clean">Mar 5 '13 at 12:28</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-15221732" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/15217524/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="15217524" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.com.tw/" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="0ad4dc2e652e950527c4c6085683b2fb" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f15217524%2fwhat-is-the-difference-between-thread-per-connection-vs-thread-per-request%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        
+StackExchange.openid.initPostLogin('.new-post-login', 
+'https%3a%2f%2fstackoverflow.com%2fquestions%2f15217524%2fwhat-is-the-difference-between-thread-per-connection-vs-thread-per-request%23new-answer',
+ 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" 
+type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" 
+size="30" maxlength="100" value="" tabindex="106" placeholder="required,
+ but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag" title="show questions tagged 'java'" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/multithreading" class="post-tag" title="show questions tagged 'multithreading'" rel="tag">multithreading</a> <a href="https://stackoverflow.com/questions/tagged/http" class="post-tag" title="show questions tagged 'http'" rel="tag">http</a> <a href="https://stackoverflow.com/questions/tagged/servlets" class="post-tag" title="show questions tagged 'servlets'" rel="tag">servlets</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2013-03-05 06:50:06Z"><b>4 years, 2 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>12357 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="https://stackoverflow.com/questions/15217524/what-is-the-difference-between-thread-per-connection-vs-thread-per-request?lastactivity" class="lastactivity-link" title="2013-07-23 13:35:26Z">3 years, 10 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/05/22/stack-overflow-flipped-switch-https/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/05/22/stack-overflow-flipped-switch-https/?cb=1" class="question-hyperlink">How Stack Overflow Flipped the Switch on HTTPS</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/05/20/stack-overflow-en-espanol-graduated/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/05/20/stack-overflow-en-espanol-graduated/?cb=1" class="question-hyperlink">Stack Overflow en Español has Graduated!</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk814020213",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk814020213"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/i_002.gif" width="0px" border="0" height="0px"></div>
+            <div id="hireme" class="tag-themed java tagged tex2jax_ignore clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%3Fmed=clc&amp;sig=QgCSgwvCU89uFw"><span>Want a <span class="header-tag">java</span> job?</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="DevFactory Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/135512/devfactory-technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=237678&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F135512%2Fdevfactory-technical-product-manager-100k-crossover%3Fmed=clc&amp;sig=OGGUXtenIVHO4g"><div class="title">DevFactory Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">spring</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=237678&amp;ct=-1&amp;sig=0F7FEQY2D38D9w" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/137729/technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=252209&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F137729%2Ftechnical-product-manager-100k-crossover%3Fmed=clc&amp;sig=rp6TNVMgxLIjBA"><div class="title">Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">spring</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=252209&amp;ct=-1&amp;sig=H6TryagsEuXonA" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Senior Java Developer at Wallethub. Click to learn more." href="https://stackoverflow.com/jobs/138251/senior-java-developer-wallethub" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=253217&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F138251%2Fsenior-java-developer-wallethub%3Fmed=clc&amp;sig=tHpC0hD198OteA"><div class="title">Senior Java Developer</div><div><span class="company">Wallethub</span><span class="location">Washington, DC</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">mysql</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=253217&amp;ct=-1&amp;sig=JmAW58QrX2msJQ" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Java Software Architect - $60k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/129485/java-software-architect-60k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=17264&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F129485%2Fjava-software-architect-60k-crossover%3Fmed=clc&amp;sig=FDmO3eqBmNHc_w"><div class="title">Java Software Architect - $60k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">cloud</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=46p3N3l9b-EVD1XzY-EhTEwsX54tYH-sPEHqjP1X02zGj363A44HMnAy9GxgYGiwZ2RkYJnNdKiD_dRWjncH-IQ4GVIOHF612TLcX9KekSUrsSxxNtPU6eyHjnNs3MTPg0322Cz2g6c5Fu7iZwTJnp26wXLiQRG47IPiDQ2MH9oY-UCS72dstNzoJAaVVDJicTrCyMDFZsQ49TSQZjVidDsLpBmNGB9YMoD5r2cenrHs1r5lOzsA&amp;cr=17264&amp;ct=-1&amp;sig=bD5oolRahY2JAg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 
+'AhA9qOneodQIAAAAAHQz6AACAAAAAgAAAAAjAAAAfGphdmF8bXVsdGl0aHJlYWRpbmd8aHR0cHxzZXJ2bGV0c3wAKMLlT_Ervj7uqQ';;(function(n){var
+ 
+u={log:window.console.log.bind(window.console,"[clc]"),error:window.console.error.bind(window.console,"[clc]")},f,e,t,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(f=n.allowed,!f)return;if(e=new
+ RegExp(n.allowed),!e.test(location.hostname)){u.error("Invalid host: 
+"+location.hostname);return}if(t=window,t.clc=t.clc||{},t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return
+ n.load()}),t.clc.options){for(r in 
+t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else 
+t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(o){u.error("[clc]
+ Error in loader:",o)}}).call(null, 
+{"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=e966546d8727","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$"});
+        </script>
+			<div class="module" id="chat-feature">
+
+    <h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="134 users active in 63 rooms the last 60 minutes">134 People Chatting</a></h4>
+    <div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript. Not Java Script or Java Scripting.. JavaScript!"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript. Not Java Script or Java Scripting.. JavaScript!</a></span></h3><span title="2017-05-23 10:29:13Z" class="ad502-last-message">2 hours ago - <a href="http://chat.stackoverflow.com/users/259953">Oliver Salzburg</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/259953"><img title="Oliver Salzburg: 2 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/qY01K.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/4982809"><img title="Zhengquan Bai: 2 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/yiUhZ.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/2412895"><img title="KarelG: 2 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/p3J02.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/3161092"><img title="towc: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/oVs5E.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/1386886"><img title="jAndy: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/ItXE6.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/809950"><img title="GNi33: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/mIOhV.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/1839506"><img title="Caprica Six: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/Sej2t.jpg" width="23" height="23"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="PHP"><a href="http://chat.stackoverflow.com/rooms/11">PHP</a></span></h3><span title="2017-05-23 10:27:27Z" class="ad502-last-message">2 hours ago - <a href="http://chat.stackoverflow.com/users/411023">Vamsi</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/411023"><img title="Vamsi: 2 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/a48a3004b8716d756d8ad65cecd5afb7.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/4781925"><img title="JayIsTooCommon: 2 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/T9qYr.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/508666"><img title="PeeHaa: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/cv2rE.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/889949"><img title="DaveRandom: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/8609c7056e725f9e8c03c594b831353e.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/5764893"><img title="Jeeves: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/aMuw2.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/3589092"><img title="rottenoats: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/7ROkk.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/4251625"><img title="Wes: 3 hours ago" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/JCjDM.jpg" width="23" height="23"></a></div></div></div>
+    <script>
+    // <!--
+        StackExchange.ready(
+        function () {
+            var options = {
+                chatUrl: 'http://chat.stackoverflow.com',
+                reloadUrl: '/api/recent-chat',
+                preloadData: 
+{"activeUsers":134,"activeRooms":63,"rooms":[{"name":"JavaScript. Not 
+Java Script or Java Scripting.. 
+JavaScript!","id":17,"lastPost":1495535353,"posts":3996506,"users":[{"name":"Oliver
+ 
+Salzburg","id":259953,"emailhash":"!https://i.stack.imgur.com/qY01K.png?s=128\u0026g=1","lastPost":1495535352},{"name":"Zhengquan
+ 
+Bai","id":4982809,"emailhash":"!https://i.stack.imgur.com/yiUhZ.jpg?s=128\u0026g=1","lastPost":1495535336},{"name":"KarelG","id":2412895,"emailhash":"!https://i.stack.imgur.com/p3J02.jpg?s=128\u0026g=1","lastPost":1495535267},{"name":"towc","id":3161092,"emailhash":"!https://i.stack.imgur.com/oVs5E.png?s=128\u0026g=1","lastPost":1495534694},{"name":"jAndy","id":1386886,"emailhash":"!https://i.stack.imgur.com/ItXE6.jpg?s=128\u0026g=1","lastPost":1495534676},{"name":"GNi33","id":809950,"emailhash":"!https://i.stack.imgur.com/mIOhV.jpg?s=128\u0026g=1","lastPost":1495534583},{"name":"Caprica
+ 
+Six","id":1839506,"emailhash":"!https://i.stack.imgur.com/Sej2t.jpg?s=128\u0026g=1","lastPost":1495534540}],"messages":[{"date":1495535353,"user":"Oliver
+ 
+Salzburg","userid":259953}],"singleImage":false,"tags":["ecmascript","ecmascript-6","hypescript","javascript","nodejs"]},{"name":"PHP","id":11,"lastPost":1495535247,"posts":2761104,"users":[{"name":"Vamsi","id":411023,"emailhash":"a48a3004b8716d756d8ad65cecd5afb7","lastPost":1495535247},{"name":"JayIsTooCommon","id":4781925,"emailhash":"!https://i.stack.imgur.com/T9qYr.png?s=128\u0026g=1","lastPost":1495535195},{"name":"PeeHaa","id":508666,"emailhash":"!https://i.stack.imgur.com/cv2rE.png?s=128\u0026g=1","lastPost":1495534201},{"name":"DaveRandom","id":889949,"emailhash":"8609c7056e725f9e8c03c594b831353e","lastPost":1495534194},{"name":"Jeeves","id":5764893,"emailhash":"!https://i.stack.imgur.com/aMuw2.jpg?s=128\u0026g=1","lastPost":1495534143},{"name":"rottenoats","id":3589092,"emailhash":"!https://i.stack.imgur.com/7ROkk.jpg?s=128\u0026g=1","lastPost":1495533664},{"name":"Wes","id":4251625,"emailhash":"!https://i.stack.imgur.com/JCjDM.jpg?s=128\u0026g=1","lastPost":1495533076}],"messages":[{"date":1495535247,"user":"Vamsi","userid":411023}],"singleImage":false,"tags":["php"]}]}
+ 
+            };
+
+            StackExchange.chatAd.init(options);
+        });
+    // -->
+    </script>
+
+</div>
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/7457190?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">30</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/7457190/how-are-threads-allocated-to-handle-servlet-request?noredirect=1&amp;lq=1" class="question-hyperlink">How are Threads allocated to handle Servlet request?</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/35755477?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/35755477/why-is-this-servlet-using-multiple-threads-in-its-thread-per-connection-policy?noredirect=1&amp;lq=1" class="question-hyperlink">Why is this servlet using multiple threads in its “Thread Per Connection” policy?</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/40471?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2584</div></a><a href="https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable?rq=1" class="question-hyperlink">Differences between HashMap and Hashtable?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/176264?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">3056</div></a><a href="https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn?rq=1" class="question-hyperlink">What is the difference between a URI, a URL and a URN?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/200469?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">887</div></a><a href="https://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread?rq=1" class="question-hyperlink">What is the difference between a process and a thread?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/417142?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">3472</div></a><a href="https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers?rq=1" class="question-hyperlink">What is the maximum length of a URL in different browsers?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1036754?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">824</div></a><a href="https://stackoverflow.com/questions/1036754/difference-between-wait-and-sleep?rq=1" class="question-hyperlink">Difference between wait() and sleep()</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/2095397?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">629</div></a><a href="https://stackoverflow.com/questions/2095397/what-is-the-difference-between-jsf-servlet-and-jsp?rq=1" class="question-hyperlink">What is the difference between JSF, Servlet and JSP?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/7457190?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">30</div></a><a href="https://stackoverflow.com/questions/7457190/how-are-threads-allocated-to-handle-servlet-request?rq=1" class="question-hyperlink">How are Threads allocated to handle Servlet request?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/16522171?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/16522171/prioritze-between-http-requests-with-tomcat?rq=1" class="question-hyperlink">Prioritze between http requests with tomcat</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/19578920?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/19578920/more-threads-less-requests-per-second?rq=1" class="question-hyperlink">More threads = Less requests per second?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/35755477?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/35755477/why-is-this-servlet-using-multiple-threads-in-its-thread-per-connection-policy?rq=1" class="question-hyperlink">Why is this servlet using multiple threads in its “Thread Per Connection” policy?</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/81461/effectiveness-of-nuclear-fire-in-space" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Effectiveness of Nuclear Fire in Space
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/390545/is-i-ve-boughten-many-vinyls-correct-in-its-use-of-boughten" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is “I’ve boughten many vinyls” correct in its use of “boughten”?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/306919/diode-not-behaving-as-short-circuit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Diode not behaving as short circuit
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/371197/how-to-draw-spring-damper-system-in-tikz" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to draw spring damper system in TikZ?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/160060/a-family-who-travels-through-time-and-space-to-rescue-their-dad" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A family who travels through time and space to rescue their dad
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="https://gamedev.stackexchange.com/questions/141399/why-is-it-so-bad-to-optimize-too-early" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is it so bad to optimize too early?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/100239/what-happens-to-the-contents-of-leomunds-secret-chest-when-the-caster-dies" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens to the contents of Leomund's Secret Chest when the caster dies?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/89885/how-common-is-it-in-papers-to-contain-copied-paragraphs-from-previous-papers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How common is it in papers to contain copied paragraphs from previous papers?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2293191/dividing-a-curve-into-chords-of-equal-length" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Dividing a curve into chords of equal length
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-graphicdesign" title="Graphic Design Stack Exchange"></div><a href="https://graphicdesign.stackexchange.com/questions/91931/what-would-happen-if-i-made-something-cmyk-100" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:174 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What would happen if I made something - CMYK 100
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/121849/show-me-the-nearest-demon" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Show me the nearest demon
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/38302/what-can-trigger-the-elt-on-ga-aircrafts" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What can trigger the ELT on GA aircrafts?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gis" title="Geographic Information Systems Stack Exchange"></div><a href="https://gis.stackexchange.com/questions/241369/st-delaunaytriangles-polygon-with-holes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:79 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    St_delaunaytriangles polygon with holes
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="https://crypto.stackexchange.com/questions/47646/understanding-the-definition-of-polynomially-cpa-ind-cpa-security" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Understanding the definition of polynomially CPA (IND-CPA) security
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/160097/what-happens-if-you-run-wannacry-after-installing-the-necessary-patches" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens if you run WannaCry after installing the necessary patches?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/366716/delete-lines-containing-the-pattern-and-the-line-before" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Delete lines containing the pattern and the line before
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-german" title="German Language Stack Exchange"></div><a href="https://german.stackexchange.com/questions/36849/whats-the-german-equivalent-for-noob" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:253 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the German equivalent for “noob”?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/79948/why-is-half-of-your-ira-confiscated-if-you-do-not-make-minumum-withdrawals-by-70" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is half of your IRA confiscated if you do not make minumum withdrawals by 70.5 years of age?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="https://salesforce.stackexchange.com/questions/175594/app-exchange-lightning-ready-concept" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    App Exchange Lightning ready concept
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/349451/in-code-reviews-should-the-reviewer-always-present-a-solution-for-issues" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In code reviews, should the reviewer always present a solution for issues?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/89767/as-a-phd-student-how-do-i-benefit-from-reviewing-a-book-my-adviser-is-writing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    As a PhD student, how do I benefit from reviewing a book my adviser is writing?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/44120947/this-is-sparta-or-is-it" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    this is Sparta, or is it?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/349336/how-to-develop-excellent-software-with-agile-methods" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to develop excellent software with agile methods?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-astronomy" title="Astronomy Stack Exchange"></div><a href="https://astronomy.stackexchange.com/questions/21070/how-do-planets-retain-momentum" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:514 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do planets retain momentum?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/15217524" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/15217524/ivc/8000');});
+</script>
+<noscript>
+    <div><img src="/posts/15217524/ivc/8000" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-java</div></div>
+
+
+        </div>
+    </div><script async="" src="java%20-%20What%20is%20the%20difference%20between%20thread%20per%20connection%20vs%20thread%20per%20request%20%20-%20Stack%20Overflow_files/clc.js"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="https://stackoverflow.com/company/about">about us</a>
+                        <a href="https://stackoverflow.com/tour">tour</a>
+                    <a href="https://stackoverflow.com/help">help</a>
+                    <a href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="https://data.stackexchange.com/">data</a>
+                    <a href="https://stackexchange.com/legal">legal</a>
+                    <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="https://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a href="https://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="https://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="https://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="https://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="https://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="https://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="https://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="https://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="https://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="https://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="https://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                        <li><a href="https://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="https://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="https://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="https://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="https://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="https://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="https://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="https://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="https://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="https://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="https://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="https://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="https://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="https://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="https://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="https://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="https://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="https://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="https://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="https://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="https://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="https://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="https://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="https://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="https://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="https://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="https://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="https://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="https://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="https://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="https://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="https://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="https://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="https://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="https://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="https://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="https://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="https://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="https://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="https://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="https://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="https://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="https://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="https://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="https://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="https://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="https://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.5.23.26006
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with 
+JavaScript enabled<img 
+src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" 
+class="dno"></div>
+    </noscript>
+<script>var 
+z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var
+ 
+s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('java,multithreading,http,servlets');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || 
+function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new
+ Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = 
+g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 
+'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', 
+sampleRate: 5 });
+                ga('set', 'dimension2', 
+'|java|multithreading|http|servlets|');
+                ga('pageData.set', 'dimension2', 
+'|java|multithreading|http|servlets|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + 
+'.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + 
+'.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = 
+newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i)
+ || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') 
+service =  2;
+                                    else if (service === 'Place') 
+service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', 
+function() {
+                                        
+StackExchange.gps.track('google_maps_places_api.call', { service: 
+service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+</body></html>

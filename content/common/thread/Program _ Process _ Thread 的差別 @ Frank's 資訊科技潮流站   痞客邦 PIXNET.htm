@@ -1,0 +1,1505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html itemscope="" itemtype="http://schema.org/Blog" lang="zh-TW"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/analytics.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/analytics.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/ca-pub-6865528665029394.js"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/async-ads.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/analytics.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/cse.js" async="" type="text/javascript"></script><script async="" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/cbgapi.loaded_1"></script><script async="" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/cbgapi.loaded_0"></script><script gapi_processed="true" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plusone.js" async="" type="text/javascript"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/analytics.js" async="" type="text/javascript"></script><script gapi_processed="true" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plusone_002.js" async="" type="text/javascript"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/pi.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/gtm.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/gtm_002.js" async=""></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/ga.js" async="" type="text/javascript"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/mixpanel-2.js" async="" type="text/javascript"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/analytics.js" async=""></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta property="og:site_name" content="Frank's 資訊科技潮流站">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="http://finalfrank.pixnet.net/blog/post/27781751">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Program / Process / Thread 的差別 @ Frank's 資訊科技潮流站 :: 痞客邦 PIXNET ::">
+<meta property="og:description" content="Program：放在二次儲存裝置中，尚沒有被Load到記憶體的一堆Code         稱之為「程式」。  (也就是還是死的)Process：已經被Load到記憶體中，任何一行Code隨時會被CP">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="twitter:card" content="summary">
+<meta name="description" content="Program：放在二次儲存裝置中，尚沒有被Load到記憶體的一堆Code         稱之為「程式」。  (也就是還是死的)Process：已經被Load到記憶體中，任何一行Code隨時會被CP">
+<meta name="twitter:description" content="Program：放在二次儲存裝置中，尚沒有被Load到記憶體的一堆Code         稱之為「程式」。  (也就是還是死的)Process：已經被Load到記憶體中，任何一行Code隨時會被CP">
+<meta name="twitter:site" content="@pixnet">
+<meta name="author" content="finalfrank (finalfrank)">
+<meta name="author-avatar-20" content="http://s9.pimg.tw/avatar/finalfrank/0/0/zoomcrop/20x20.png?v=1454511216">
+<meta name="static-version" content="0cdb0724e2256988a0bbfee205e6bba2">
+<meta name="generator" content="PChoc">
+<meta name="keywords" content="程式設計,網頁設計,RPG Maker,數位生活,Program / Process / Thread 的差別">
+<link rel="canonical" href="http://finalfrank.pixnet.net/blog/post/27781751-program---process---thread-%e7%9a%84%e5%b7%ae%e5%88%a5">
+<meta name="twitter:url" content="http://finalfrank.pixnet.net/blog/post/27781751">
+<meta name="cover_image" content="">
+<meta name="twitter:image" content="">
+<link rel="prev" href="http://finalfrank.pixnet.net/blog/post/27781737">
+<link rel="next" href="http://finalfrank.pixnet.net/blog/post/25837894">
+<link rel="alternate" type="application/json+oembed" href="http://api.pixnet.cc/oembed?url=http%3A%2F%2Ffinalfrank.pixnet.net%2Fblog%2Fpost%2F27781751&amp;format=json" title="PIXNET oEmbed Profile">
+<link rel="alternate" type="text/xml+oembed" href="http://api.pixnet.cc/oembed?url=http%3A%2F%2Ffinalfrank.pixnet.net%2Fblog%2Fpost%2F27781751&amp;format=xml" title="PIXNET oEmbed Profile">
+<link rel="search" type="application/opensearchdescription+xml" href="http://finalfrank.pixnet.net/blog/opensearch" title="Frank's 資訊科技潮流站">
+<title>Program / Process / Thread 的差別 @ Frank's 資訊科技潮流站 :: 痞客邦 PIXNET ::</title>
+<meta name="twitter:title" content="Program / Process / Thread 的差別 @ Frank's 資訊科技潮流站 :: 痞客邦 PIXNET ::">
+<!-- base href="http://finalfrank.pixnet.net/blog/post/27781751" -->
+<style type="text/css">
+#links-row-1 .c3706a1-Mib-ad-sidebar-v2-c3706a1 {display: block !important; min-width: 160px !important; min-height: 270px !important; margin-top: 0; z-index:100;}
+.c3706a1-Mib-ad-sidebar-v2-c3706a1 * { padding: 0 ; margin: 0 ; border: 0; vertical-align: baseline; display: block; line-height: 1; }
+.c3706a1-Mib-ad-sidebar-v2-c3706a1 .box-text { overflow:hidden; padding:0; margin:0; }
+.c3706a1-Mib-border-c3706a1 { padding: 0; min-width: 180px; min-height: 280px; margin: 12px auto; overflow: hidden; text-align:center; }
+.c3706a1-Mib-border-c3706a1 img, .c3706a1-Mib-border-c3706a1 div { margin:0 auto; display:inline-block; min-width:160px; min-height:240px; }
+.c3706a1-Mib-border-c3706a1_1080 {padding: 0; width: 180px; height: 280px; margin: 12px auto; overflow: hidden;}
+.c3706a1-Mib-border-c3706a1 div {position: relative;}
+</style>
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/lang-css.css" type="text/css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/iframe-popup.css" type="text/css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plugins.css" type="text/css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/openid-comment.css" type="text/css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/style.css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/blogtopbar.css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/normal.css" type="text/css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/falcon-ad.css">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/iframe-popup.css" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feed.pixnet.net/blog/posts/rss/finalfrank">
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="http://feed.pixnet.net/blog/posts/atom/finalfrank">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://api.pixnet.cc/blog/xmlrpc?rsd=finalfrank">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://api.pixnet.cc/static/blog/wlwmanifest.xml">
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/atrk.js" async="" type="text/javascript"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/checklogin.js"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/analytics.js" async=""></script><script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/jquery.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/jquery_002.js"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/json2.js" type="text/javascript"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/angular.js" crossorigin="anonymous"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/spin.js" type="text/javascript"></script><style type="text/css"></style>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/angular-spinner.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+var pix = pix || {};
+pix.panelsite = 'panel.pixnet.cc';
+pix.apisite = 'api.pixnet.cc';
+pix.login_name = '10341a7fc22c2890536702bf3ad6048e';
+pix.visitor = "ZmJhZmNiMzI4NTdmZjBhODFlYmYwMjlhMTVkY2U0ODQ=";
+pix.openid = "ZmJhZmNiMzI4NTdmZjBhODFlYmYwMjlhMTVkY2U0ODQ=";
+pix.owner = 'finalfrank';
+pix.is_owner = false;
+pix.server_name = 'finalfrank.pixnet.net';
+pix.sToken = "c3b660478ac4900d87eedc4109e4119b";
+pix.pixfssite = 's.pixfs.net';
+pix.falconsite = 'falcon.pixanalytics.com';
+pix.checklogin_version = 2;
+// timezone: null;
+//-->
+</script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/checklogin.php" type="text/javascript"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/checklogin_002.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+var pix = pix || {};
+pix.ab_testing_seed = 2911523159;
+dataLayer = window.dataLayer || [];
+//-->
+</script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/zh_TW.js" type="text/javascript"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/pix.js" type="text/javascript" crossorigin="anonymous"></script><script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/tools.js"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/pix-addon.js" crossorigin="anonymous"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/all.js" type="text/javascript" crossorigin="anonymous"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/blog.js" type="text/javascript" crossorigin="anonymous"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/search_selection.js" type="text/javascript"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/ad-full-page.js" type="text/javascript" crossorigin="anonymous"></script>
+<meta itemprop="name" content="Program / Process / Thread 的差別 @ Frank's 資訊科技潮流站 :: 痞客邦 PIXNET ::">
+<meta itemprop="description" content="Program：放在二次儲存裝置中，尚沒有被Load到記憶體的一堆Code         稱之為「程式」。  (也就是還是死的)Process：已經被Load到記憶體中，任何一行Code隨時會被CP">
+
+<script type="text/javascript">
+<!--
+var pix = pix || {};
+pix.js_error_type = pix.js_error_type || 'frontblog';
+//-->
+</script>
+<script async="" type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/pixlogger.js"></script>
+<script type="text/javascript">
+<!--
+(function(){
+    if (window.size().height > 10 && window.size().width > 10) {
+        var i = new Image(1,1);
+        i.src = '//counter.pixplug.in/count.php?timestamp=1458050558&random=3384277146&check=2460394126&data[blog]=%7B%22blogid%22%3A%22128549%22%7D&data[blogarticle]=%7B%22blogid%22%3A%22128549%22%2C%22articleid%22%3A%2227781751%22%7D&height=' + window.size().height + '&width=' + window.size().width + '&referer=' + encodeURI(document.referrer);
+        i.onload = function() { return; }
+    }
+})();
+//-->
+</script>
+<!-- Head Modified: 1458050558 -->
+<!-- async script -->
+<script type="text/javascript">
+<!--
+jQuery(document).ready(function () {
+    jQuery.ajaxSetup({ cache: true });
+    jQuery.getScript("//js.pixplug.in/addon/11/production.js?v=1455607293", function(data, textStatus) { jQuery.ajaxSetup({cache: true});jQuery.pixAddonRelatedArticle({"blog_relatedarticleshow":"post","blog_relatedarticle":"site","blog_relatedtemplate":"system","addon_username":"finalfrank","addon_expired_at":0,"addon_ismobile":false,"ab_testing_seed":2911523159});jQuery.ajaxSetup({cache: false}); });
+    jQuery.ajaxSetup({ cache: false });
+});
+//-->
+</script>
+
+<!-- load sync script -->
+
+<!-- execute sync addon -->
+<script type="text/javascript">
+<!--
+var pix = pix || {};
+pix.visitor_url = "http://finalfrank.pixnet.net/blog";
+pix.visitor_timestamp = "1458050558";
+pix.visitor_nonce = "1959015211";
+pix.visitor_public = "LumrRMVHhADdttHSeUhMM8S3";
+pix.visitor_sig = "12a766e04736482cdee52041e4b77ee8";
+pix.user_name = null;
+pix.avatar_version = 0;
+(function() {
+    var js = document.createElement('script');
+    js.src = "\/\/s.pixfs.net\/visitor.pixplug.in\/checklogin.min.js?v=0cdb0724e2256988a0bbfee205e6bba2";
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(js, s);
+})();
+//-->
+</script>
+    <script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/checkloop.js"></script>
+<script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/swfobject.js"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/mib_falcon.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/ada"></script><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/getdata.php"></script><link href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/desktop.css" type="text/css" rel="stylesheet"><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/checklogin"></script><script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/jsapi"></script><link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/defaultzh_TW.css" type="text/css"><link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/default.css" type="text/css"><script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/defaultzh_TW.js" type="text/javascript"></script><script async="" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/rta_003.js" type="text/javascript"></script><style type="text/css">
+</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-moz-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><script async="" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/rta.js" type="text/javascript"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:25px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:15px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:19px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:13px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:13px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:17px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script async="" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/rta_002.js" type="text/javascript"></script></head>
+
+<body id="article-main" data-showing-advertisement="yep" data-adsense-state="" data-blog-site-category-id="15" data-dfp-slot-id="" data-mobile-mode="none" data-article-id="27781751" class="category_0 article_27781751">
+
+
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"H00Mh1aIE700wg", domain:"pixnet.net",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=H00Mh1aIE700wg" style="display:none" height="1" width="1" alt="" /></noscript>
+
+
+<style>
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -220px;
+    bottom: 0;
+    float: left;
+    width: 220px;
+    font-family: Arial;
+    font-weight: 100;
+    background: #e6e6e6;
+    overflow: hidden;
+}
+
+@media (min-width: 1280px) {
+    .sidebar {
+        position: relative;
+    }
+}
+
+/* 顯示 sidebar */
+.show-sidebar .sidebar { left: 0; }
+.show-sidebar .main-container { margin-left: 220px; }
+.show-sidebar .topbar--fixed { left: 220px; }
+
+/* fixed 的狀態 */
+.sidebar--fixed {
+    position: fixed;
+}
+
+.sidebar--fixed > .keyword-articles-container,
+.sidebar--fixed .keyword-articles {
+    position: absolute;
+}
+
+.keyword-header {
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background: #3161dd;
+}
+
+.keyword-tags {
+    box-sizing: border-box;
+    padding: 5px 10px 10px;
+    background: #f3f3f3;
+}
+
+.keyword-tag {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 7px;
+    border: 1px solid #3161dd;
+    padding: 5px 15px 3px 7px;
+    color: #3161dd;
+    font-size: 12px;
+    line-height: 15px;
+    background: #fff url('//front.pixfs.net/images/icon-arrow--blue.png') no-repeat right 6px top 8px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.keyword-tag.active {
+    color: #fff;
+    background-color: #3161dd;
+    background-image: url('//front.pixfs.net/images/icon-arrow--white.png');
+}
+
+.keyword-articles-container {
+    top: 120px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+    white-space: nowrap;
+}
+
+.keyword-articles {
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    white-space: normal;
+    overflow: scroll;
+}
+
+.keyword-articles:nth-of-type(2) { left: 220px; }
+.keyword-articles:nth-of-type(3) { left: 440px; }
+
+.keyword-article {
+    display: block;
+    margin: 5px 10px;
+    border-left: 3px solid transparent;
+    padding: 8px 10px 8px 7px;
+    background: #fff;
+}
+
+.keyword-article-min70 {
+    min-height: 70px;
+}
+
+.keyword-article:hover {
+    text-decoration: none;
+}
+
+.keyword-article:visited {
+    background: #eee;
+}
+
+.keyword-article.active,
+.keyword-article:hover {
+    border-color: #3161dd;
+    background: #fff;
+}
+
+.keyword-article__title {
+    color: #333;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.keyword-article:hover > .keyword-article__title {
+    color: #3161dd;
+    text-decoration: underline;
+}
+
+.keyword-article__desc {
+    margin-top: 10px;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.keyword-article span {
+    color: #f00;
+}
+
+.keyword-article:not(.active):visited span {
+    color: currentColor;
+}
+
+.keyword-article:visited:hover span {
+    color: #f00;
+}
+
+.keyword-article + iframe {
+    margin-bottom: -14px;
+    min-height: 15px;
+}
+</style>
+
+<div class="sidebar sidebar--fixed" data-obstruct="" data-search="search" data-type="1">
+    <div class="keyword-header">依據 Google 關鍵字搜尋結果</div>
+    <div class="keyword-tags"></div>
+    <div class="keyword-articles-container"></div>
+</div>
+
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/ypa-resize-pixnet.js"></script>
+
+<div class="main-container">
+
+            <div class="topbar-placeholder" data-in-test="">
+        
+<div id="topbar" class="topbar  cssanimations borderradius boxshadow cssgradients">
+    <h2 class="topbar__logo"><a href="http://www.pixnet.net/" title="痞客邦 PIXNET">痞客邦 PIXNET</a></h2>
+
+            <form class="topbar__search" id="topbar__search" action="//www.pixnet.net/searcharticle" target="_search">
+        <input name="q" class="topbar__search__input" id="topbar__search__input" placeholder="哈囉～你今天想搜尋什麼關鍵字呢？" maxlength="32" tabindex="1" autocomplete="off" type="text">
+        <button type="reset" class="topbar__search__reset">×</button>
+
+        <div class="topbar__search__btns">
+            <button class="topbar__search__submit" name="search" type="submit" title="找文章" value="searcharticle" tabindex="2" data-counterlink="//counter.pixplug.in/count.php?timestamp=1458050558&amp;random=1037818387&amp;check=1232831767&amp;no_timeout=1&amp;data[counter]=%7B%22tag_id%22%3A30%2C%22id%22%3A%22search-articles-click%22%2C%22no_timeout%22%3Atrue%7D">找文章</button>
+            <button class="topbar__search__submit" name="search" type="submit" title="找部落客" value="searchblog" tabindex="3" data-counterlink="//counter.pixplug.in/count.php?timestamp=1458050558&amp;random=3006205826&amp;check=3351057248&amp;no_timeout=1&amp;data[counter]=%7B%22tag_id%22%3A30%2C%22id%22%3A%22search-bloggers-click%22%2C%22no_timeout%22%3Atrue%7D">找部落客</button>
+        </div>
+
+        <ul class="topbar__search__suggestion"></ul>
+    </form>
+
+    <div class="topbar__announce">
+        <a href="http://admin.pixnet.net/blog/post/43345138-%5b%e5%85%ac%e5%91%8a%5d-%e7%97%9e%e5%ae%a2%e9%82%a6-pixnet-mib-%28money-in-blog%29-%e9%83%a8%e8%90%bd%e6%a0%bc%e5%bb%a3" class="topbar__announce__item" title="[公告] 痞客邦 PIXNET MIB (MONEY IN BLOG) 部落格廣告分潤計劃新增／調整" target="_announce" tabindex="-1">[公告] 痞客邦 PIXNET MIB (MONEY IN BLOG) 部落格廣告分潤計劃新增／調整</a><a href="http://admin.pixnet.net/blog/post/43342759-%5b%e5%85%ac%e5%91%8a%5d-2016%e5%b9%b4%e5%ba%a6%e8%be%b2%e6%9b%86%e6%98%a5%e7%af%80%e6%9c%9f%e9%96%93%e6%9c%8d%e5%8b%99%e5%85%ac%e5%91%8a" class="topbar__announce__item topbar__announce__item--hide" title="[公告] 2016年度農曆春節期間服務公告" target="_announce" tabindex="-1">[公告] 2016年度農曆春節期間服務公告</a><a href="http://admin.pixnet.net/blog/post/43158973-%5b%e5%85%ac%e5%91%8a%5d-%e7%97%9e%e5%ae%a2%e9%82%a6%e3%80%8c%e5%bc%95%e7%94%a8%e3%80%8d%e5%8a%9f%e8%83%bd%e5%b0%87%e6%96%bc-2016-%e5%b9%b4-1-%e6%9c%88-11" class="topbar__announce__item topbar__announce__item--hide" title="[公告] 痞客邦「引用」功能將於 2016 年 1 月 11 日正式終止" target="_announce" tabindex="-1">[公告] 痞客邦「引用」功能將於 2016 年 1 月 11 日正式終止</a><a href="http://admin.pixnet.net/blog/post/43145044-%5b%e5%85%ac%e5%91%8a%5d-%e7%95%99%e8%a8%80%e6%9d%bf%e5%b0%87%e6%96%bc-2016-%e5%b9%b4-1-%e6%9c%88-4-%e6%97%a5%e8%bd%89%e6%8f%9b%e7%82%ba%e6%87%89%e7%94%a8" class="topbar__announce__item topbar__announce__item--hide" title="[公告] 留言板將於 2016 年 1 月 4 日轉換為應用市集「留言板」APP 服務" target="_announce" tabindex="-1">[公告] 留言板將於 2016 年 1 月 4 日轉換為應用市集「留言板」APP 服務</a><a href="http://admin.pixnet.net/blog/post/42929975-%5b%e5%85%ac%e5%91%8a%5d-%e7%97%9e%e5%ae%a2%e9%82%a6%e7%ac%ac%e4%ba%8c%e5%b1%86%e9%87%91%e9%bb%9e%e8%b3%9e%e7%99%bb%e5%a0%b4%ef%bc%81%e5%85%a8%e5%8f%b0%e6%9c%80%e5%85%b7%e5%85%ac" class="topbar__announce__item topbar__announce__item--hide" title="[公告] 痞客邦第二屆金點賞登場！全台最具公信力的社群內容年度大賞" target="_announce" tabindex="-1">[公告] 痞客邦第二屆金點賞登場！全台最具公信力的社群內容年度大賞</a>    </div>
+    
+        
+    <div class="topbar__nav">
+
+        
+            <div class="topbar__user ">
+            <a class="topbar__user__login" id="topbar__user__login" href="https://www.pixnet.net/?done=http%3A%2F%2Ffinalfrank.pixnet.net%2Fblog%2Fpost%2F27781751-program---process---thread-%25E7%259A%2584%25E5%25B7%25AE%25E5%2588%25A5">登入</a>
+        </div>
+            <div class="topbar__lang ">
+            <a href="###" class="topbar__lang__switcher topbar__dropdown-btn" title="語系">繁中</a>
+
+            <ul class="topbar__lang__lists topbar__dropdown-lists">
+                                <li class="topbar__lang__list"><a href="###" data-lang="en_US">EN</a></li>
+                                <li class="topbar__lang__list"><a href="###" data-lang="zh_CN">簡中</a></li>
+                                <li class="topbar__lang__list"><a href="###" data-lang="ja_JP">日語</a></li>
+                            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+    
+  <div id="body-div">
+  <a name="top"></a>
+  <div id="container">
+    <div id="container2">
+      <div id="container3">
+          <div id="header">
+            <div id="banner">
+		<h1><a href="http://finalfrank.pixnet.net/blog">Frank's 資訊科技潮流站</a></h1>
+              <p class="skiplink"><a href="#article-area" title="skip the page header to the main content">跳到主文</a></p>
+              <h2>介紹最新的資訊技術及應用</h2>
+	      <p id="blog-category">部落格全站分類：<a href="http://www.pixnet.net/blog/bloggers/category/15" target="_blank">數位生活</a></p>
+            </div>
+            <ul id="navigation">
+              <li id="link-album"><a href="http://finalfrank.pixnet.net/album" title="go to gallery page of this user">相簿</a></li>
+              <li id="link-blog"><a href="http://finalfrank.pixnet.net/blog" title="go to index page of this blog">部落格</a></li>
+              <li id="link-guestbook">
+                                <a id="guestbook" data-msg="尚未安裝留言板，無法進行留言" data-action="none" href="#" title="go to guestbook page of this user">留言</a>
+                            </li>
+              <li id="link-profile"><a href="http://www.pixnet.net/blog/profile/finalfrank" title="go to profile page of this user">名片</a></li>
+            </ul>
+          </div><!-- #header//-->
+          <div id="main">
+            <div id="content">
+				<div id="article-area">
+    <div id="article-box">
+    		<div class="article">
+	    <ul class="article-head">
+		<li class="publish"><span class="month">Dec </span><span class="date">04 </span><span class="day">Sat </span><span class="year">2010 </span><span class="time">23:40</span></li>
+		<li class="title" id="article-27781751" data-hot-link="//www.pixnet.net/blog/articles/category/0" data-site-category="數位生活" data-site-category-id="24" data-article-link="http://finalfrank.pixnet.net/blog/post/27781751"><h2><a href="http://finalfrank.pixnet.net/blog/post/27781751">Program / Process / Thread 的差別</a></h2></li>
+	    </ul>
+	    <div class="article-body">
+	    		<div class="article-content">
+		    
+		    <div class="article-content-inner">
+		    <p><br>Program：放在二次儲存裝置中，尚沒有被Load到記憶體的一堆Code<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 稱之為「程式」。 &nbsp;(也就是還是死的)<br><br><br>Process：已經被Load到記憶體中，任何一行Code隨時會被CPU執行，且其宣告的在記憶體<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 的變數的值會隨著需求而不斷變動。<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 稱之為「程序」。 (也就是活的Program) =&gt; 恐龍本第三章<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 一個多工作業系統(Multitasking Operating System)可以同時運行多個Process<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 然而一個CPU一次只能做一件事情，但CPU的數量永遠少於運行中的Process數，<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 因此每個Process使用的時間需要被排程(Scheduling) =&gt; 恐龍本第五章<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 又每個Process間在記憶體中，如果擺放的方式不當，就會在記憶體中產生很多<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 沒辦法用到的碎片，因此MemoryManagement是一個問題 =&gt; 恐龍本第八章<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 另外，每個Process所需要的記憶體總合，也可能大於實體記憶體，因此需要另<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 外用二次儲存裝置充當虛擬記憶體(Virtual Memory)，但是二次儲存裝置的速<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 度肯定很慢，因此如何做到對虛擬記憶體最小的依賴，盡量避免Page Fault(電<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 腦在主記憶體中找不到資料，而要去二次記憶體找，就稱為Page Fault)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 防止Thrashing的發生(因為Virtual Memory演算法不當，造成幾乎每次存取都要<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 依賴二次記憶體，就是Thrashing)，以達到效能最佳化，也是個學問 =&gt; 第九章<br><br><br><br><br>Thread ：在同一個Process底下，有許多自己的分身，就是Thread，中文又翻成執行緒。<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 以往一個Process一次只能做一件事情，因此要一面輸入文字，一面計算字數，<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 這種事情是不可能的。但是有了Thread之後，可以在同一個Process底下，讓輸<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 入文字是一個Thread，計算文字又是另外一個Thread，對CPU來說兩個都是類似<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 一個Process，因此兩個可以同時做。<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 又一個Process底下有數個Thread，而一個Process的Global Variable可以讓<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 它的所有Thread共享，也就是所有Thread都可以存取同一個Process的Global<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Variable。而每個Thread自己也有自己的專屬Variable。 =&gt; 恐龍本第四章<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 但是，如果有兩個Thread要存取同一個Global Variable，有可能發生問題，<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 也就是說可能會存取到錯的值(例如兩個Thread同時要對一個Variable做加減，<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 最後那個答案可能會是錯的)，這就是Synchronization問題 =&gt;恐龍本第六章<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 又，每一個Thread之間可能會互搶資源，而造成死結(Deadlock)，只要以下四<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 個條件都滿足就有死結。(1)這個資源不能同時給兩個人用 (2)有一個人拿了一<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 個資源，又想拿別人的資源 (3)如果一個人占了茅坑不拉屎，占用資源很久，仍<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 不能趕他走 (4)A等B，B等C，C等D，D又等A 等成一圈。 要解決這種狀況有<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Avoid(預防) 或 避免(Prevent)兩種方式，破除以上四種其中一種即可。<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; =&gt; 恐龍本第七章</p><br>
+                        
+
+		    </div>
+		</div><div class="pix-related-post pix-related-post-showed"><div class="demo recommended-posts recommended-posts3"><h5><span>您可能會有興趣的文章</span></h5><ul class="demo"><li><a href="http://pcuser.pixnet.net/blog/post/23705815" class="source-emma" target="_blank"><div class="article-image-box"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/100x100.png" class="article-image"></div><span class="article-text">[工具] 史上最好用的記憶體優化管理員</span></a></li><li><a href="http://shopper.pixnet.net/blog/post/14984912" class="source-emma" target="_blank"><div class="article-image-box"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/100x100_002.png" class="article-image"></div><span class="article-text">《新架構的AMD Phenom處理器》│PC home Shopper 電腦買物王 NO.110</span></a></li><li><a href="http://exhouse.pixnet.net/blog/post/31552450" class="source-emma" target="_blank"><div class="article-image-box"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/100x100.jpg" class="article-image"></div><span class="article-text">創意商空化住宅</span></a></li><li><a href="http://falcon.pixanalytics.com/ad/r?i=bd15537b7cc60fddf24f458ab5654bd0&amp;p=1013&amp;u=b667d9034ece496c82f6fe525cc25473&amp;c=CgEBqVbUaJkl0cT6BxjUAg%3D%3D" class="source-ec_ad" target="_blank"><div class="article-image-box"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/bd15537b7cc60fddf24f458ab5654bd0-844c1b5a5793fff4.jpg" class="article-image"></div><span class="article-text">拓展閱讀視野的最佳夥伴</span></a></li><li><a href="http://falcon.pixanalytics.com/ad/r?i=1606ed7625da1cd54f756b20166ac811&amp;p=673&amp;u=d2102e86d40647498db54269238798bd&amp;c=CgEBqVbUaJkl0cT6BxjUAg%3D%3D" class="source-ad" target="_blank"><div class="article-image-box"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/1606ed7625da1cd54f756b20166ac811-bdf9392bea7187f9.jpg" class="article-image"></div><span class="article-text">以心情調味.七先生的療癒美食</span></a></li></ul></div></div><div class="bookmark"><span style="position:relative;top:-7px;">分享:</span>&nbsp;<a title="喀嚓到7Headlines" href="javascript:(function(){var%20pixheadlines=document.createElement('script');pixheadlines.setAttribute('language','javascript');pixheadlines.setAttribute('src','http://www.7headlines.com/static/js/clip.min.js?random=844.7619455218254');document.getElementsByTagName('head')[0].appendChild(pixheadlines);})();"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/7headlines.gif" title="7Headlines" alt="7Headlines" style="height:20px;width:55px;" border="0"></a>&nbsp;<a title="分享至facebook" data-bookmark-type="facebook"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/facebook.gif" title="facebook" alt="facebook" style="width:18px;height:20px;" border="0"></a>&nbsp;<a title="分享至PLURK" data-bookmark-type="plurk"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plurk.gif" title="PLURK" alt="PLURK" style="width:18px;height:20px;" border="0"></a>&nbsp;<a title="分享至twitter" data-bookmark-type="twitter"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/twitter.gif" title="twitter" alt="twitter" style="width:18px;height:20px;" border="0"></a>&nbsp;<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;"><iframe title="+1" data-gapiattached="true" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/fastbutton.htm" name="I0_1458050567321" id="I0_1458050567321" vspace="0" tabindex="0" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div>&nbsp;<iframe src="%20http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffinalfrank.pixnet.net%2Fblog%2Fpost%2F27781751&amp;layout=button_count&amp;show_faces=false&amp;width=90&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" style="border:none; overflow:hidden; width:90px; height:21px;" allowtransparency="true" frameborder="0"></iframe></div> <!-- .article-content //-->
+
+				<p class="author">
+		    finalfrank 發表在 <a href="http://www.pixnet.net/">痞客邦 PIXNET</a>                    <a href="http://finalfrank.pixnet.net/blog/post/27781751#comments">留言</a>(7) <span class="author-views">人氣(<span id="BlogArticleCount-27781751">26872</span>)</span>
+		    		</p> <!-- .author //-->
+		<div class="forward"><form method="POST" id="0rz-form" action="http://0rz.tw/create" target="_blank"><input name="url" value="http://finalfrank.pixnet.net/blog/post/27781751" type="hidden"> </form><a href="#" data-0rz-url="true"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/push_0rz_icon.gif">產生短網址</a>
+		    <a href="javascript:;" onclick="pix.sendForwardTo('%E6%82%A8%E7%9A%84%E5%A5%BD%E6%9C%8B%E5%8F%8B%E9%82%80%E8%AB%8B%E6%82%A8%E8%A7%80%E7%9C%8B%20finalfrank%20%E7%9A%84%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET%20%E9%83%A8%E8%90%BD%E6%A0%BC%E6%96%87%E7%AB%A0-Program%20%2F%20Process%20%2F%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5','%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E6%82%A8%E7%9A%84%E5%A5%BD%E6%9C%8B%E5%8F%8B%E9%82%80%E8%AB%8B%E6%82%A8%E8%A7%80%E7%9C%8B%20finalfrank%20%E7%9A%84%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET%20%E9%83%A8%E8%90%BD%E6%A0%BC%E6%96%87%E7%AB%A0-Program%20%2F%20Process%20%2F%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%0A%E8%B6%8A%E5%A4%9A%E4%BA%BA%E7%9C%8B%E5%88%B0%EF%BC%8C%E5%8F%AF%E5%B9%AB%E4%BB%96%E5%A2%9E%E5%8A%A0%E8%B6%8A%E5%A4%9A%E4%BA%BA%E6%B0%A3%E5%96%94%7EGO%EF%BC%81%0A----------%0ADecember4%2C2010%0AProgram%20%2F%20Process%20%2F%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%0A----------%0A%E9%A6%AC%E4%B8%8A%E7%9C%8B%20http%3A%2F%2Ffinalfrank.pixnet.net%2Fblog%2Fpost%2F27781751%0A----------%0A%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET%0Ahttp%3A%2F%2Fwww.pixnet.net%2F')">E-mail轉寄</a> <a href="javascript:;" onclick="pix.forwardToGB(27781751);">轉寄至留言板</a>
+		</div> <!-- .forward //-->
+		<br>
+<div style="position: static !important; display:block !important;visibility: visible !important; float: none !important; text-align: center">
+<div style="width: 620px; height: 250px; padding-bottom: 10px;">
+    <div id="p87c3bf3d667c480bb1e51077" style="width: 300px; height: 250px; float: left; padding-right: 1px;">                <div id="pixad1077d"> <ins data-adsbygoogle-status="done" class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-6865528665029394" data-ad-slot="9725932280"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="250" width="300"></iframe></ins></ins></ins> </div>
+    </div>
+    <div id="p87c3bf3d667c480bb1e51032" style="width: 300px; height: 250px; float: left;">                <div id="pixad1077d"> <ins data-adsbygoogle-status="done" class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-6865528665029394" data-ad-slot="3544341440"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="250" width="300"></iframe></ins></ins></ins> </div>
+    
+</div>
+</div>
+<script type="text/javascript">
+(function($) {
+    var w = $('.article-content:first').width();
+    if (w >= 600) {
+                jQuery.getScript('//falcon.pixanalytics.com/ad/js?blog_category=15&article_category=24&fields[]=p87c3bf3d667c480bb1e51032,1032')    } else if (w >= 550 && w <= 599) {
+                jQuery.getScript('//falcon.pixanalytics.com/ad/js?blog_category=15&article_category=24&fields[]=p87c3bf3d667c480bb1e51032,1603')    } else {
+                jQuery.getScript('//falcon.pixanalytics.com/ad/js?blog_category=15&article_category=24&fields[]=p87c3bf3d667c480bb1e51032,1606')    }
+})(jQuery);
+</script>
+</div>
+	    </div> <!-- .article-body //-->
+	    <div class="article-footer">
+		<ul class="refer">
+		    <li>全站分類：<a href="http://www.pixnet.net/blog/articles/category/24">數位生活</a></li>		    		    		    <li>上一篇： <a class="quick-nav--pre" rel="prev" href="http://finalfrank.pixnet.net/blog/post/27781737" data-public-at="1291471584" data-thumb="http://s.pixfs.net/mobile/images/blog/article-image.png">DRAGON QUEST(勇者鬥惡龍) 戰鬥系統初解</a></li>
+<li>下一篇： <a class="quick-nav--next" rel="next" href="http://finalfrank.pixnet.net/blog/post/25837894" data-public-at="1291564440" data-thumb="http://s5.pimg.tw/album/finalfrank/element/109527495_4b865d5486b99/zoomcrop/90x90.gif">所有的知識 來自同源</a></li>
+		</ul>
+			    		<div class="back-to-top"><a href="#top" title="back to the top of the page">▲top</a></div>
+	    </div> <!-- .article-footer //-->
+        </div>
+
+<script>
+// track 上下篇點擊
+(function ($) {
+    'use strict';
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-408650-10', 'auto', {'name': 'quickNavTracker'});
+
+    var referBlock = $('.refer'),
+        quickNav = {
+            catPre: {
+                selector: '.quick-nav--cat-pre',
+                name: '此分類上一篇',
+            },
+            catNext: {
+                selector: '.quick-nav--cat-next',
+                name: '此分類下一篇',
+            },
+            pre: {
+                selector: '.quick-nav--pre',
+                name: '上一篇',
+            },
+            next: {
+                selector: '.quick-nav--next',
+                name: '下一篇',
+            }
+        },
+
+        trackEvent = function (action, label) {
+            ga('quickNavTracker.send', 'event', 'blog-related-article', action, label, { nonInteraction: ('imps' === action) });
+        },
+
+        bindClick = function (selector, label) {
+            referBlock.on('click', selector, function () {
+                trackEvent('click', label);
+            });
+        };
+
+    for (var key in quickNav) {
+        var obj = quickNav[key];
+        if (referBlock.find(obj.selector).length) {
+            // 記錄曝光
+            trackEvent('imps', obj.name);
+
+            // 點擊時紀錄
+            bindClick(obj.selector, obj.name);
+        }
+    }
+})(jQuery);
+</script>
+	</div> <!-- #article-box //-->
+		  <div id="user-post">
+    <div id="comment-box" class="user-post-box">
+      <a name="comments"></a>
+      <h3 id="comment-title" class="user-post-title" onclick="pix.commentSwitch('comment-text','comment-text-switch');" style="cursor:hand;cursor:pointer;"><img id="comment-text-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/minus.gif"> <span>留言列表 (7)</span></h3>
+      <div class="post-comment"><a href="http://finalfrank.pixnet.net/blog/post/27781751-program---process---thread-%E7%9A%84%E5%B7%AE%E5%88%A5#comment-form">發表留言</a></div>
+
+      <div id="comment-text" class="user-post-text">
+                          <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-31313935"> </a>
+              <span class="floor">#1</span>
+              <span class="user-name"> tpy</span>                                                        <span class="post-time">於 2011/04/18 18:41</span>
+                            </li>
+              <li class="post-photo">
+              <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/avatar-neutral.png" alt="tpy" height="90" width="90">              </li>
+                        <li class="post-text">
+                                <p id="comment-31313935"></p>
+                                解釋的很棒！  感謝                            </li>
+                                            </ul>
+                          <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-31354341"> </a>
+              <span class="floor">#2</span>
+              <span class="user-name"> 寫得真好，一看就懂</span>                                                        <span class="post-time">於 2011/04/28 18:49</span>
+                            </li>
+              <li class="post-photo">
+              <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/avatar-neutral.png" alt="寫得真好，一看就懂" height="90" width="90">              </li>
+                        <li class="post-text">
+                                <p id="comment-31354341"></p>
+                                寫得真好，一看就懂<br>
+謝謝了                            </li>
+                                            </ul>
+                          <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-33030563"> </a>
+              <span class="floor">#3</span>
+              <span class="user-name"><img style="vertical-align:middle;" class="identity-provider comment-icon lazy" data-original="//front.pixfs.net/comment/images/openid-pixnet-icon.gif" height="16" width="16"> <a href="http://teaparty.pixnet.net/blog" target="_blank" rel="nofollow">teaparty</a></span>                            <a class="homepage" rel="nofollow" href="http://teaparty.pixnet.net/blog" target="_blank"><img style="vertical-align:middle;" class="comment-icon" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/info-website.gif" alt="teaparty" title="teaparty"></a>
+                                                        <span class="post-time">於 2011/09/11 15:37</span>
+                            </li>
+              <li class="post-photo">
+              <a href="http://teaparty.pixnet.net/blog" target="_blank" rel="nofollow"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/90x90.png" alt="teaparty" height="90" width="90"></a>              </li>
+                        <li class="post-text">
+                                <p id="comment-33030563"></p>
+                                解釋的很清楚, 謝謝你^^<br>
+<br>
+此外, 想請問若以java中概念來看, 是否可將program視為class, process視為object而thread視為class中的function呢?                            </li>
+                                      <li class="reply-text">
+                            不過我的經驗也把class當作thread來寫耶...<br>
+JAVA process的運作方式，我在學的時候比較沒有探討到，可能還要再研究..              <p><a href="http://finalfrank.pixnet.net/blog" target="_blank">finalfrank</a> 於 2011/09/12 13:22 回覆              </p></li>
+                                  </ul>
+                          <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-33760656"> </a>
+              <span class="floor">#4</span>
+              <span class="user-name"> 初學者</span>                                                        <span class="post-time">於 2012/04/10 08:51</span>
+                            </li>
+              <li class="post-photo">
+              <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/avatar-neutral.png" alt="初學者" height="90" width="90">              </li>
+                        <li class="post-text">
+                                <p id="comment-33760656"></p>
+                                感謝作者的心得分享，謝謝。                            </li>
+                                            </ul>
+                          <div id="g4644713d58a64caa878c1738">                <div style="text-align:center;margin-bottom:20px;">
+<ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:468px;height:60px;" data-ad-client="ca-pub-6865528665029394" data-ad-slot="4359503000"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="60" width="468"></iframe></ins></ins></ins>
+</div>
+    </div>
+                    <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-33971462"> </a>
+              <span class="floor">#5</span>
+              <span class="user-name"> Eason</span>                                                        <span class="post-time">於 2012/06/14 15:50</span>
+                            </li>
+              <li class="post-photo">
+              <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/avatar-neutral.png" alt="Eason" height="90" width="90">              </li>
+                        <li class="post-text">
+                                <p id="comment-33971462"></p>
+                                寫的精簡扼要, 感覺一次走完恐龍本全部摘要, 謝謝您的整理分享!!                            </li>
+                                            </ul>
+                          <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-35181875"> </a>
+              <span class="floor">#6</span>
+              <span class="user-name"><img style="vertical-align:middle;" class="identity-provider comment-icon lazy" data-original="//front.pixfs.net/comment/images/openid-facebook-icon.gif" height="16" width="16"> <span>Viclin Vic</span></span>                            <a class="homepage" rel="nofollow" href="http://www.gluck.tw/embed/" target="_blank"><img style="vertical-align:middle;" class="comment-icon" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/info-website.gif" alt="Viclin Vic" title="Viclin Vic"></a>
+                                          <a href="mailto:vic@gluck.tw"><img style="vertical-align:middle;" class="comment-icon" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/info-mail.gif" alt="寄信給 Viclin Vic" title="寄信給 Viclin Vic"></a>
+                                          <span class="post-time">於 2012/10/31 23:57</span>
+                            </li>
+              <li class="post-photo">
+              <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/picture.jpg" alt="Viclin Vic" height="90" width="90">              </li>
+                        <li class="post-text">
+                                <p id="comment-35181875"></p>
+                                回應#3大大(雖然是一年前@@)<br>
+<br>
+雖然沒學過java不過很顯然class object是物件導向的表達方式<br>
+他與process存在方式不能畫上等號...<br>
+作者寫的是program execute時的狀況<br>
+program &gt; ram &gt; process &gt; thread<br>
+如果沒使用multi-thread 在執行function時依然是sigle thread<br>
+也就是在執行function時沒法做其他事<br>
+<br>
+如果有錯煩請指正@@                            </li>
+                                      <li class="reply-text">
+                            其實喔，class和process,thread,program是兩碼子事，一個是物件導向程式設計，一個是作業系統，兩個完全無關，當初我其實可以不用探討太深....              <p><a href="http://finalfrank.pixnet.net/blog" target="_blank">finalfrank</a> 於 2012/11/02 11:49 回覆              </p></li>
+                                  </ul>
+                          <ul class="single-post">
+                        <li class="post-info">
+              <a name="comment-60889391"> </a>
+              <span class="floor">#7</span>
+              <span class="user-name"> 訪客</span>                                                        <span class="post-time">於 2015/06/17 14:18</span>
+                            </li>
+              <li class="post-photo">
+              <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/avatar-neutral.png" alt="訪客" height="90" width="90">              </li>
+                        <li class="post-text">
+                                <p id="comment-60889391"></p>
+                                講的很棒~根本是在已故式方式敘述XD                            </li>
+                                            </ul>
+            </div> <!-- #comment-text //-->
+      <div id="comment_form"><a name="comment-form"></a>
+<form class="json-form" target="_blank" method="POST" action="http://finalfrank.pixnet.net/blog/postcomment/27781751">
+    <input name="sToken" value="c3b660478ac4900d87eedc4109e4119b" type="hidden">
+    <div id="comment-area">
+        <div id="comment-area-2">
+            <iframe src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/blogarticle.htm" marginheight="0" marginwidth="0" scrolling="no" border="0" frameborder="0"></iframe>
+                        <div class="comment-identity identity-logout">
+                <div class="choose-identity">
+                    <a href="https://www.pixnet.net/?done=http%3A%2F%2Ffinalfrank.pixnet.net%2Fblog%2Fpost%2F27781751%23comment-form" class="openid-pixnet"><span class="invisible">PIXNET</span></a>
+                    <a href="https://panel.pixnet.cc/login/facebooklogin?done=http%3A%2F%2Ffinalfrank.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Ffinalfrank.pixnet.net%252Fblog%252Fpost%252F27781751%2523comment-form&amp;without_signup=1&amp;without_full_perm=1" class="openid-facebook" onclick="window.open(this.href, 'login', config='height=650,width=650,scrollbars=1,resizable=0'); return false; "><span class="invisible">Facebook</span></a>
+                    <a href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Ffinalfrank.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Ffinalfrank.pixnet.net%252Fblog%252Fpost%252F27781751%2523comment-form&amp;openid=https%3A%2F%2Fme.yahoo.com%2F&amp;without_signup=1" class="openid-yahoo" onclick="window.open(this.href, 'login', config='height=500,width=450,scrollbars=1,resizable=0'); return false; "><span class="invisible">Yahoo!</span></a>
+                    <a href="https://panel.pixnet.cc/login/googlepluslogin?done=http%3A%2F%2Ffinalfrank.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Ffinalfrank.pixnet.net%252Fblog%252Fpost%252F27781751%2523comment-form&amp;without_signup=1" class="openid-google" onclick="window.open(this.href, 'login', config='height=500,width=450,scrollbars=1,resizable=0'); return false; "><span class="invisible">Google</span></a>
+                    <a href="https://panel.pixnet.cc/login/livelogin?done=http%3A%2F%2Ffinalfrank.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Ffinalfrank.pixnet.net%252Fblog%252Fpost%252F27781751%2523comment-form&amp;without_signup=1" class="openid-msn" onclick="window.open(this.href, 'login', config='height=500,width=470,scrollbars=1,resizable=0'); return false; "><span class="invisible">MSN</span></a>
+                </div>
+            </div>
+                        <div class="comment-body">
+                                                        <p>您尚未登入，將以<b>訪客</b>身份留言。亦可以上方服務帳號登入留言</p>
+                    <input name="blogcommenttext_name" id="comment_showname" class="comment-name" placeholder="您的暱稱 ..." type="text">                                    <div class="comment-textarea">
+                    <textarea name="blogcommenttext_body" id="comment_text" placeholder="留個言吧 ..."></textarea>                                        <div class="private-message"><label><input name="blogcomment_open" id="comment_open" value="0" type="checkbox">悄悄話</label></div>
+                                        <div id="nologin_hidden_msg" class="private-notice" style="display: none">訪客身份留言將無法觀看版主回覆，建議您登入之後再留言。</div>
+                                                        </div><!-- .comment-textarea -->
+
+                                <div id="comment-area-ad" style="display:none">
+                                    </div>
+                <div class="captcha" style="display:none" id="captcha">
+                    <a id="authcode-link-url" href="#" target="_blank"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/200x50.jpg" id="authcode-url" class="authcode-url"></a>
+                    <div>請輸入左方認證碼：<input name="authCode" class="text-input" type="text"><a class="reload-captcha" href="#">看不懂,換張圖</a></div>
+                </div>
+                
+                <div class="comment-extra">
+                    <div id="unfold-comment-extra"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/comment-unfold.jpg"> 其他選項</div>
+                    <button type="submit"><span>送出留言</span></button>
+                </div>
+
+                <div id="comment-extra" class="extra" style="display:none"><input name="blogcommenttext_mail" class="text-input" id="comment_mail" placeholder="電子郵件 ..." type="text"><input name="blogcommenttext_url" class="text-input" id="comment_url" placeholder="個人網頁 ..." type="text"></div>
+                            </div><!--.comment-middle-->
+        </div><!-- #comment-area-2-->
+    </div><!-- #comment-area -->
+</form>
+
+
+</div>
+    </div> <!--  #comment-box //-->
+  </div> <!-- #user-post //-->
+<script type="text/javascript">
+<!--
+jQuery(function() {
+    //#40294 用ajax接postcommentAction產生的comment form
+    var action = location.href;
+    action = action.replace('/post/', '/postcomment/');
+    jQuery.ajaxSetup({ cache: true });
+    jQuery.ajax({
+        type:     'GET',
+        url:      action,
+        data:     {"getForm": 1, "isMobile": 0},
+        dataType: 'json',
+        success:  function(data)
+                  {
+                      jQuery('#comment_form').html(data.form);
+
+                      setTimeout(function () {
+                      if (jQuery.pixQuestionary && 'function' === typeof jQuery.pixQuestionary) {
+                          jQuery.pixQuestionary(pix.user_name);
+                      }
+                      }, 1000);
+
+                      // 用來判斷是否有安裝'留言插入表情符號' App
+                      if (jQuery.pixAddonCommentEmotion && 'function' === typeof jQuery.pixAddonCommentEmotion) {
+                          // 裝了App 但沒表情符號可選, 須重新call function
+                          if (! document.getElementById('comment-emotion')) {
+                              jQuery.pixAddonCommentEmotion();
+                          }
+                      }
+                  },
+        error:    function(error)
+                  {
+                      console.log(error);
+                  }
+    });
+    jQuery.ajaxSetup({ cache: false });
+
+    jQuery('.comment-icon').attr('style', 'vertical-align:middle;');
+});
+// -->
+</script>
+
+
+	    </div> <!-- #article-area //-->
+            </div> <!-- #content //-->
+            <div id="links">
+              <div id="links-row-1">
+                                    <div class="hslice box c3706a1-Mib-ad-sidebar-v2-c3706a1">
+    <div class="box-text entry-content">
+        <div class="c3706a1-Mib-border-c3706a1 dark">
+            <div class="c3706a1-Sitemajidr-c3706a1" model="180x280">
+<div id="___gcse_0"><div dir="ltr" class="gsc-control-searchbox-only gsc-control-searchbox-only-zh_TW"><form accept-charset="utf-8" class="gsc-search-box gsc-search-box-tools"><table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-input"><div id="gsc-iw-id1" class="gsc-input-box"><table class="gstl_50 " id="gs_id50" style="width: 100%; padding: 0px;" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsib_a" id="gs_tti50"><input spellcheck="false" dir="ltr" x-webkit-grammar="builtin:search" x-webkit-speech="" id="gsc-i-id1" style="width: 100%; padding: 0px; border: medium none; margin: 0px; height: auto; outline: medium none; background: rgb(255, 255, 255) url(&quot;http://www.google.com/cse/static/zh_TW/google_custom_search_watermark.gif&quot;) no-repeat scroll left center;" title="搜尋" name="search" class="gsc-input" size="10" autocomplete="off" lang="zh_TW" type="text"></td><td class="gsib_b"><div dir="ltr" id="gs_st50" class="gsst_b"><a style="display: none;" href="javascript:void(0)" class="gsst_a"><span id="gs_cb50" class="gscb_a">×</span></a></div></td></tr></tbody></table></div><input id="bgresponse" name="bgresponse" type="hidden"></td><td class="gsc-search-button"><input title="搜尋" class="gsc-search-button gsc-search-button-v2" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/search_box_icon.png" type="image"></td><td class="gsc-clear-button"><div title="清除結果" class="gsc-clear-button">&nbsp;</div></td></tr></tbody></table><table class="gsc-branding" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">技術提供：</div></td><td class="gsc-branding-img"><img class="gsc-branding-img" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/small-logo.png"></td></tr></tbody></table></form></div></div></div>
+        </div><!-- /.mib-border -->
+    </div>
+</div>
+<div class="hslice box" id="category">
+    <h4 class="box-title entry-title">
+	從【分類】找文章	    </h4>
+    <div class="box-text entry-content">
+
+<div class="box-more">
+<img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/expand.gif" alt="unfold all categories" style="cursor:hand;cursor:pointer;" onclick="pix.openAllCategory('open');">
+<img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/collapse.gif" alt="fold all categories" style="cursor:hand;cursor:pointer;" onclick="pix.openAllCategory('close');">
+</div>
+
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355048','category-1355048-switch');"><img id="category-1355048-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 趨勢 Trends (1)</h6>
+<ul id="category-1355048" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558936">發展趨勢 (11)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355028','category-1355028-switch');"><img id="category-1355028-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 電腦視覺 Computer Vision (5)</h6>
+<ul id="category-1355028" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1559298">實驗用作品 (3)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1563878">立體視覺 (2)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1598083">圖形識別 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558932">相關研究 (7)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558894">電腦視覺論文摘要 (1)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355030','category-1355030-switch');"><img id="category-1355030-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 影像處理 Image Processing (9)</h6>
+<ul id="category-1355030" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558976">影像處理軟體教學 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558912">作品分享 (21)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558914">背景知識 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558926">相關研究 (5)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558900">影像處理技巧 (7)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558902">影像與視訊壓縮 (3)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558906">影像拼接 (3)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558908">影像處理書報摘要 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558892">高動態範圍HDR (1)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355032','category-1355032-switch');"><img id="category-1355032-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 電腦圖學 Computer Graphics (3)</h6>
+<ul id="category-1355032" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1565030">相關作品 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558916">數位網格 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558904">圖學引擎設計 (6)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355034','category-1355034-switch');"><img id="category-1355034-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 人工智慧 Artificial Intelligence (3)</h6>
+<ul id="category-1355034" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1567142">機器學習 (2)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558898">人工智慧書報摘要 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558890">人工智慧作品分享 (2)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355036','category-1355036-switch');"><img id="category-1355036-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 法學資訊系統 Law System (1)</h6>
+<ul id="category-1355036" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558964">網頁版成品 (1)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355050','category-1355050-switch');"><img id="category-1355050-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 資料庫與雲端運算 Database&amp;Cloud (3)</h6>
+<ul id="category-1355050" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558950">AJAX (2)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558956">網頁設計 (4)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558938">開發筆記 (3)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355052','category-1355052-switch');"><img id="category-1355052-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 電腦網路 Computer Networks (3)</h6>
+<ul id="category-1355052" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558946">網路程式設計 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558954">實用網管 (5)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558966">理論知識 (1)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355038','category-1355038-switch');"><img id="category-1355038-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 演算法與資料結構 Algo. &amp; DS. (6)</h6>
+<ul id="category-1355038" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558970">經典題目 (3)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558974">資料結構 (7)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1561298">演算法 (6)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1600319">離散數學 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558944">學習 (2)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558896">作品分享 (1)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355042','category-1355042-switch');"><img id="category-1355042-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 程式設計 Programming (5)</h6>
+<ul id="category-1355042" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558948">程式寫作教學 (7)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558968">Ruby (4)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1599897">Windows (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1916014">Android 開發 (1)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558928">作品分享 (19)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355046','category-1355046-switch');"><img id="category-1355046-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 遊戲設計 Game Design (3)</h6>
+<ul id="category-1355046" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558952">RPG Maker (7)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558942">遊戲引擎設計 (6)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558934">作品發表 (12)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355044','category-1355044-switch');"><img id="category-1355044-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 電腦醫院 Computer Doctor (1)</h6>
+<ul id="category-1355044" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558930">綜合診所 (9)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch('category-1355040','category-1355040-switch');"><img id="category-1355040-switch" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/plus.gif" alt="展開分類" border="0"> 其他 (3)</h6>
+<ul id="category-1355040" style="display: none;"><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1558940">電腦使用技巧 (2)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558910">學習雜項 (6)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1558918">遊記 (22)</a></li><!-- ie6bug --></ul>
+</div>
+<ul><!-- ie6bug
+--><li><a href="http://finalfrank.pixnet.net/blog/category/1599943">研究方法 (0)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/1599945">研究方法 (2)</a></li><!-- ie6bug --><li><a href="http://finalfrank.pixnet.net/blog/category/0">未分類文章 (155)</a></li><!-- ie6bug
+--></ul>
+    </div>
+</div> <!-- #category //-->
+<div class="hslice box folder" id="box1121885">
+    <h4 class="box-title entry-title">
+	工商服務時間	    </h4>
+    <div class="box-text entry-content">
+
+<a href="http://fassoft.com.tw/"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/fassoft.png"></a>    </div>
+</div> <!-- #box1121885 //-->
+<div class="hslice box" id="search">
+    <h4 class="box-title entry-title">
+	文章搜尋	    </h4>
+    <div class="box-text entry-content">
+
+<form method="post" action="http://finalfrank.pixnet.net/blog/search/" id="search-form" data-wording-needkeyword="請輸入關鍵字">
+	<ul>
+	    <li><input name="search-target" id="search-target" type="text"></li>
+	    <li><input id="search-submit" value="搜尋" type="submit"></li>
+	</ul>
+    </form>
+    <script type="text/javascript">//<!--
+    jQuery('#search-form').submit(function(event){
+        if ('' === jQuery('#search-target').val()) {
+            alert(jQuery(this).attr('data-wording-needkeyword'));
+            event.preventDefault();
+        }
+    });
+    //--></script>
+    </div>
+</div> <!-- #search //-->
+<div class="hslice box" id="archive">
+    <h4 class="box-title entry-title">
+	文章彙整	    </h4>
+    <div class="box-text entry-content">
+
+<select onchange="pix.gotoArchive(this);">
+<option selected="selected" value="-pixnet-">文章彙整</option>
+<option value="/blog/archives/201602">2016 二月 (1)</option>
+<option value="/blog/archives/201510">2015 十月 (1)</option>
+<option value="/blog/archives/201308">2013 八月 (1)</option>
+<option value="/blog/archives/201306">2013 六月 (1)</option>
+<option value="/blog/archives/201305">2013 五月 (7)</option>
+<option value="/blog/archives/201304">2013 四月 (3)</option>
+<option value="/blog/archives/201207">2012 七月 (11)</option>
+<option value="/blog/archives/201206">2012 六月 (4)</option>
+<option value="/blog/archives/201205">2012 五月 (9)</option>
+<option value="/blog/archives/201204">2012 四月 (8)</option>
+<option value="/blog/archives/201203">2012 三月 (1)</option>
+<option value="/blog/archives/201201">2012 一月 (1)</option>
+<option value="/blog/archives/201112">2011 十二月 (4)</option>
+<option value="/blog/archives/201111">2011 十一月 (2)</option>
+<option value="/blog/archives/201110">2011 十月 (3)</option>
+<option value="/blog/archives/201108">2011 八月 (4)</option>
+<option value="/blog/archives/201104">2011 四月 (19)</option>
+<option value="/blog/archives/201103">2011 三月 (9)</option>
+<option value="/blog/archives/201102">2011 二月 (13)</option>
+<option value="/blog/archives/201012">2010 十二月 (26)</option>
+<option value="/blog/archives/201009">2010 九月 (1)</option>
+<option value="/blog/archives/201008">2010 八月 (1)</option>
+<option value="/blog/archives/201007">2010 七月 (1)</option>
+<option value="/blog/archives/201002">2010 二月 (3)</option>
+<option value="/blog/archives/201001">2010 一月 (2)</option>
+<option value="/blog/archives/200912">2009 十二月 (6)</option>
+<option value="/blog/archives/200911">2009 十一月 (1)</option>
+<option value="/blog/archives/200909">2009 九月 (2)</option>
+<option value="/blog/archives/200908">2009 八月 (1)</option>
+<option value="/blog/archives/200907">2009 七月 (1)</option>
+<option value="/blog/archives/200906">2009 六月 (1)</option>
+<option value="/blog/archives/200905">2009 五月 (1)</option>
+<option value="/blog/archives/200903">2009 三月 (6)</option>
+<option value="/blog/archives/200902">2009 二月 (16)</option>
+<option value="/blog/archives/200901">2009 一月 (9)</option>
+<option value="/blog/archives/200812">2008 十二月 (4)</option>
+<option value="/blog/archives/200811">2008 十一月 (4)</option>
+<option value="/blog/archives/200810">2008 十月 (1)</option>
+<option value="/blog/archives/200809">2008 九月 (9)</option>
+<option value="/blog/archives/200808">2008 八月 (24)</option>
+<option value="/blog/archives/200807">2008 七月 (32)</option>
+<option value="/blog/archives/200806">2008 六月 (4)</option>
+<option value="/blog/archives/200805">2008 五月 (9)</option>
+<option value="/blog/archives/200804">2008 四月 (1)</option>
+<option value="/blog/archives/200802">2008 二月 (3)</option>
+<option value="/blog/archives/200801">2008 一月 (8)</option>
+<option value="/blog/archives/200712">2007 十二月 (7)</option>
+<option value="/blog/archives/200711">2007 十一月 (7)</option>
+<option value="/blog/archives/200710">2007 十月 (12)</option>
+<option value="/blog/archives/200709">2007 九月 (3)</option>
+<option value="/blog/archives/200708">2007 八月 (4)</option>
+<option value="/blog/archives/200707">2007 七月 (34)</option>
+<option value="/blog/archives/200706">2007 六月 (14)</option>
+<option value="/blog/archives/200705">2007 五月 (7)</option>
+<option value="/blog/archives/200604">2006 四月 (1)</option>
+<option value="/blog/archives/200601">2006 一月 (1)</option>
+<option value="/blog/archives/200511">2005 十一月 (2)</option>
+</select>
+<div class="box-more">
+<a href="http://finalfrank.pixnet.net/blog/listall/1">所有文章列表</a>
+</div>
+    </div>
+</div> <!-- #archive //-->
+<div class="hslice box" id="latest-comment">
+    <h4 class="box-title entry-title">
+	最新留言	    </h4>
+    <div class="box-text entry-content"><ul><!-- ie6bug
+--><li>
+<span>02/26</span>
+blue：<a href="http://finalfrank.pixnet.net/blog/post/28175419#comment-61560608">DOS及倚天中文還蠻好找的
+我...</a>
+</li><!-- ie6bug
+--><li>
+<span>02/02</span>
+新手：<a href="http://finalfrank.pixnet.net/blog/post/6841252#comment-61497553">請問設定好後在瀏覽器輸入了I...</a>
+</li><!-- ie6bug
+--><li>
+<span>01/31</span>
+m200254.lin：<a href="http://finalfrank.pixnet.net/blog/post/28864721#comment-61495225">請問這個程式是以哪種程式語...</a>
+</li><!-- ie6bug
+--><li>
+<span>01/22</span>
+晴川：<a href="http://finalfrank.pixnet.net/blog/post/29574285#comment-61484938">你好請問可以借我參考程式碼嗎?</a>
+</li><!-- ie6bug
+--><li>
+<span>12/22</span>
+書呆過來人：<a href="http://finalfrank.pixnet.net/blog/post/19835229#comment-61446628">這寫的太好了，拜託大家不要...</a>
+</li><!-- ie6bug
+--><li>
+<span>12/04</span>
+91s：<a href="http://finalfrank.pixnet.net/blog/post/9752428#comment-61419583">請問版主  如果我想把一個賣...</a>
+</li><!-- ie6bug
+--><li>
+<span>11/27</span>
+同學：<a href="http://finalfrank.pixnet.net/blog/post/28826199#comment-61410715">您好，我按下載卻沒有東西，...</a>
+</li><!-- ie6bug
+--></ul>
+</div>
+</div> <!-- #latest-comment //-->
+<div class="hslice box" id="counter">
+    <h4 class="box-title entry-title">
+	參觀人氣	    </h4>
+    <div class="box-text entry-content">
+
+<ul>
+    <li>本日人氣：<span id="blog_hit_daily">762</span></li>
+    <li>累積人氣：<span id="blog_hit_total">1737725</span></li>
+</ul>
+<script type="text/javascript"><!--
+    jQuery.getScript('//counter.pixplug.in/getcounter.php?now=1458050558&random=2817655918&data[%23BlogArticleCount-27781751]=%7B%22counter%22%3A%5B%22blogarticle%22%2C%22128549%22%2C%2227781751%22%2C%22total%22%5D%2C%22options%22%3A%5B%5D%7D&data[%23blog_hit_daily]=%7B%22counter%22%3A%5B%22blog%22%2C%22128549%22%2C1%2C%22daily%22%5D%2C%22options%22%3A%5B%5D%7D&data[%23blog_hit_total]=%7B%22counter%22%3A%5B%22blog%22%2C%22128549%22%2C1%2C%22total%22%5D%2C%22options%22%3A%5B%5D%7D&check=3349151665');
+//--></script>
+    </div>
+</div> <!-- #counter //-->
+
+              </div> <!-- #links-row-1 //-->
+              <div id="links-row-2">
+                                </div> <!-- #links-row-2 //-->
+                <div id="ad-mib">
+                    <script type="text/javascript">
+pix.MIB.config = {
+    hosthash: '0963a533f985cc28b647ee493db5db7d',
+    dr: {source: 'finalfrank'},
+    goldAds: pix.MIB.util.Dom.getElementsByClassName('c3706a1-Sitemajidr-c3706a1'),
+    uniq: 'cc43a67787e219e5a35d08f100c1cbf5965d0bf950558',
+    percentSite: 'http://falcon.pixanalytics.com/mib/vap',
+    falconSite: 'http://falcon.pixanalytics.com',
+    cate: '15',
+    hasMIB: 0,
+    article_cate_id: '24',
+    demo: {
+        hash: '',
+        demoOption: 0    },
+    availablePositions: [{
+        id: 1,
+        name: 'sidebar-1',
+        enable: 1
+    },{
+        id: 1,
+        name: 'sidebar-2',
+        enable: false    },{
+        id: 3,
+        name: 'video',
+        enable: false    },{
+        id: 8,
+        name: 'unfold',
+        enable: false    }],
+    ref: 'https%3A%2F%2Fwww.google.com.tw'
+};
+
+(function() {
+    var goldAds = pix.MIB.config.goldAds;
+    if (goldAds[0]) {
+        pix.MIB.build.adgen();
+        pix.MIB.build.videoadgen();
+        pix.MIB.build.detectPageScrollPlayback();
+    }
+})();
+</script>
+                </div><!-- #ad-mib //-->
+            </div> <!-- #links //-->
+          </div> <!-- #main //-->
+          <div id="footer">
+	  <p></p>
+            <div id="bottom">
+              <a class="bottom-skiplink" href="http://finalfrank.pixnet.net/blog/post/27781751-program---process---thread-%E7%9A%84%E5%B7%AE%E5%88%A5/#top" title="back to the top of the page">回到頁首</a>
+              <a class="bottom-skiplink" href="http://finalfrank.pixnet.net/blog/post/27781751-program---process---thread-%E7%9A%84%E5%B7%AE%E5%88%A5#article-area" title="back to the main cotent of the page">回到主文</a>
+	      <a class="bottom-pixnet" href="http://panel.pixnet.cc/signup/step2">免費註冊</a>
+	      <a target="_blank" class="bottom-pixnet" href="http://help.pixnet.tw/">客服中心</a>
+              <a target="_blank" class="bottom-pixnet" href="http://www.pixnet.net/">痞客邦首頁</a>
+	      © 2003 - 2016 PIXNET
+            </div>
+          </div> <!-- #footer //-->
+        </div> <!-- #container3 //-->
+      <div id="extradiv11"></div>
+      <div id="extradiv10"></div>
+      <div id="extradiv9"></div>
+      <div id="extradiv8"></div>
+    </div> <!-- #container2 //-->
+    <div id="extradiv7"></div>
+    <div id="extradiv6"></div>
+    <div id="extradiv5"></div>
+    <div id="extradiv4"></div>
+  </div> <!-- #container //-->
+  <div id="extradiv3"></div>
+  <div id="extradiv2"></div>
+  <div id="extradiv1"></div>
+  <div id="extradiv0"></div>
+  </div> <!-- #body-div //-->
+
+</div>
+
+<div id="tipLang" style="display:none;z-index:2147483647" class="barmenu">
+    <ul class="lang-list" id="lang-list">
+	<li><a href="#" onclick="pix.setLocale('zh_TW'); return false;">繁體中文</a></li>
+	<li><a href="#" onclick="pix.setLocale('zh_CN'); return false;">简体中文</a></li>
+	<li><a href="#" onclick="pix.setLocale('en_US'); return false;">English</a></li>
+	<li><a href="#" onclick="pix.setLocale('ja_JP'); return false;">日本語</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+<!--
+jQuery(window).load(function() {
+    //autoImgResize
+  '0';
+  
+
+});
+//-->
+</script>
+<script type="text/javascript">
+<!--
+jQuery(function() {
+    pix.fixPixnetPlayerID();
+    jQuery('.article-head').find('.column-star').each(function() {
+        var column_link = jQuery(this).attr('data-column-link');
+        jQuery(this).find('h2').append(' <a title="專欄之星" href="' + column_link + '" target="_blank"><img title="專欄之星" alt="column star article" src="http://s.pixfs.net/blog/images/choc/column_star.gif"></a>');
+    });
+    jQuery('.article-hot').each(function() {
+	jQuery(this).find('h2').append(' <a class="__dailyhotclass" title="本日熱門" href="' + jQuery(this).attr('data-hot-link') + '" target="_blank"><img title="熱門文章" alt="hot article today" src="http://s.pixfs.net/blog/images/choc/today_hot.gif"></a>');
+    });
+});
+//-->
+</script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/mixpanel.js"></script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/blog-mixpanel.js"></script>
+<script type="text/javascript">
+<!--
+  if (typeof dataLayer === 'undefined') dataLayer = [];
+  dataLayer.push({
+    "user_name"     : "finalfrank",
+    "page_type"     : "blog",
+    "page_view"     : "/blog/",
+    "blog_name"     : "Frank's 資訊科技潮流站",
+    "blog_cat"      : "15 - 數位生活",
+    "is_loggedin"   : "false",
+    "is_VIP"        : "false",
+    "is_obstruct"   : "false",
+    "viewer_type"   : "Regular Member",
+    "article_title" : "Program / Process / Thread 的差別",
+    "article_id"    : "27781751",
+    "article_cat"   : "24 - 數位生活"
+  });
+
+  if (typeof pixdataLayer === 'undefined') {
+      pixdataLayer = [];
+  }
+  pixdataLayer.push({
+    "is_testing_43400": "false",
+    "is_mobile_mode": "false",
+    "user_name"     : "finalfrank",
+    "page_type"     : "blog",
+    "page_view"     : "/blog/",
+    "blog_name"     : "Frank's 資訊科技潮流站",
+    "blog_cat"      : "15 - 數位生活",
+    "is_loggedin"   : "false",
+    "is_VIP"        : "false",
+    "is_obstruct"   : "false",
+    "viewer_type"   : "Regular Member",
+    "article_title" : "Program / Process / Thread 的差別",
+    "article_id"    : "27781751",
+    "article_cat"   : "24 - 數位生活"
+  });
+
+-->
+</script>
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KGMWFG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MZ3SPM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<script type="text/javascript">
+<!--
+  var _gaq = _gaq || [];
+  _gaq.push(
+    ['_setAccount', 'UA-408650-10'],
+    ['_setDetectTitle', false],
+    ['_setDomainName', 'none'],
+    ['_setAllowLinker', true],
+    ['_setCustomVar', 1, 'member', 'GUEST'],
+    ['_setCustomVar', 2, 'vip', 'nonVIP'],
+    ['_trackPageview', '/blog/']
+
+      );
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KGMWFG');
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','pixdataLayer','GTM-MZ3SPM');
+
+
+
+(function($, undefined) {
+$(function() {
+    var _topbar = $('#topbar');
+    _topbar.find('.topbar__logo').on('click', 'a', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-logo', 'GUEST']);
+    });
+    _topbar.find('#topbar__search').on('submit', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-search-button', 'GUEST']);
+    });
+    _topbar.find('.topbar__announce').on('click', '.topbar__announce__item', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-announce', 'GUEST']);
+    });
+
+    _topbar.find('.topbar__notification__counter').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-notification-counter', 'GUEST']);
+    });
+    _topbar.find('.topbar__notification__list--header__link').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-notification-setting', 'GUEST']);
+    });
+    _topbar.find('.topbar__notification__list--footer__link').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-notification-showall', 'GUEST']);
+    });
+
+    _topbar.find('#topbar__user__login').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-login', 'GUEST']);
+    });
+
+    _topbar.find('#topbar__user__list__link--blog').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-myblog', '']);
+    });
+    _topbar.find('#topbar__user__list__link--articlenew').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-articlenew', '']);
+    });
+    _topbar.find('#topbar__user__list__link--panelsite').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-panelsite', '']);
+    });
+    _topbar.find('#topbar__user__list__link--panelapp').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-panelapp', '']);
+    });
+
+    _topbar.find('#topbar__user__list__link--logout').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-logout', '']);
+    });
+
+    _topbar.find('.topbar__lang').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-language-switcher', 'GUEST']);
+    });
+});
+})(jQuery);
+
+//-->
+</script>
+<div id="popup-frame" style="display:none">
+    <div id="frame-dimmer"></div>
+    <div id="frame-box">
+       <div id="frame-border"></div>
+       <div id="frame-header">
+           <h3></h3>
+	   <a href="#" class="frame-close" title="關閉視窗"><span>關閉視窗</span></a>
+       </div>
+       <div id="frame-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/c.js"></script>
+<script type="text/javascript">
+if ('undefined' === typeof window._uCount) {
+    window._uCount = function () {};
+}
+</script>
+<script type="text/javascript">
+<!--
+var _type = 'front_blog'; _uCount();
+var _type = 'front_blog_byarticlecategory:24'; _uCount();
+var _type = 'front_blog_bysitecategory:15'; _uCount();
+if (document.location.toString().indexOf('/post/') != -1) {
+    var _type = 'front_blog_post'; _uCount();
+    var _type = 'front_blog_post_nonvip'; _uCount();
+}
+
+if (document.location.toString().indexOf('/search/') != -1) {
+    var _type = 'front_blog_search'; _uCount();
+}
+//-->
+</script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/r.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+_currentPageUsername = 'finalfrank';
+_refererCount();
+//-->
+</script>
+<script>
+var _piq = _piq || [];
+
+_piq.push(
+    ['setCustomVar', 'venue', 'pixnet'],
+    ['setCustomVar', 'author_id', pix.owner],
+        ['setCustomVar', 'article_category_id', "24"],
+        ['setCustomVar', 'nonce', pix.login_name],
+    ['setCustomVar', 'visitor_id', pix.visitor],
+    ['setCustomVar', 'visitor_openid', pix.openid],
+    ['trackPageView']
+);
+(function(d, t, u, f, j) {
+    f = d.getElementsByTagName(t)[0];
+    j = d.createElement(t);
+    j.async = 1;
+    j.src = u;
+    f.parentNode.insertBefore(j, f);
+})(document, 'script', '//s.pixanalytics.com/js/pi.min.js');
+
+(function ($) {
+    $(function () {
+        var _startTime = Math.floor((new Date()).getTime() / 1000),
+            _driveMode = ('none' === $(document.body).data('mobileMode')) ? 'desktop' : 'mobile',
+            _send = false,
+            unload;
+
+        unload = function () {
+            if (_send) {
+                return;
+            }
+
+            var _endTime = Math.floor((new Date()).getTime() / 1000),
+                _isIdleAdClosed = '';
+
+            switch ($.adIdlePopClosed) {
+                case 'hasClosed' :
+                    _isIdleAdClosed = 'close idle ad';
+                    break;
+                case 'neverClosed' :
+                    _isIdleAdClosed = 'not close idle ad';
+                    break;
+                default :
+
+            }
+            _piq.push(['trackEvent', 'article stay time', _isIdleAdClosed, _driveMode, (_endTime - _startTime)]);
+            _send = true;
+        };
+
+        $(window).on({
+            'beforeunload.idlePI': unload,
+            'unload.idlePI':       unload,
+            'pagehide.idlePI':     unload
+        });
+
+        // #41767
+        $('#pixad1032').on('click', 'a', function() {
+            if ('styleme' === $(this).data('source')) {
+                _piq.push(['trackEvent', 'yahoo 大聯盟導購', '金鑽版位點擊']);
+            }
+        });
+
+        var pixad1032ImpTracking = function() {
+            var container = $('#pixad1032');
+
+            if (0 === container.find('a').length) {
+                setTimeout(pixad1032ImpTracking, 500);
+                return;
+            }
+
+            if ('styleme' == container.find('a').data('source')) {
+                _piq.push(['trackEvent', 'yahoo 大聯盟導購', '金鑽版位曝光']);
+            }
+        };
+        pixad1032ImpTracking();
+    });
+})(jQuery);
+</script>
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/pixinsight.js"></script>
+
+        <script type="text/javascript">
+        <!--
+            jQuery(function(){
+                jQuery.getScript('//falcon.pixanalytics.com/ad/js?blog_category=15&article_category=24&fields[]=p87c3bf3d667c480bb1e51077,1077&fields[]=g4644713d58a64caa878c1738,1738');
+            });
+        //-->
+        </script>
+        
+<!-- Modified: 1458050558 -->
+<!-- async script -->
+<script type="text/javascript">
+<!--
+jQuery.ajaxSetup({ cache: true });
+jQuery.getScript("//js.pixplug.in/addon/86/production.js?v=1384155619", function(data, textStatus) { jQuery.pixBookmarkButtons({"position":"bottom","addon_username":"finalfrank","addon_expired_at":0,"addon_ismobile":false,"ab_testing_seed":2911523159}); });
+jQuery.getScript("//js.pixplug.in/addon/96/production.js?v=1380100897", function(data, textStatus) { jQuery.pix0rz({"addon_username":"finalfrank","addon_expired_at":0,"addon_ismobile":false,"ab_testing_seed":2911523159}); });
+jQuery.getScript("//js.pixplug.in/addon/98/production.js?v=1402911687", function(data, textStatus) { jQuery.pixShowPlurk({"addon_username":"finalfrank","addon_expired_at":0,"addon_ismobile":false,"ab_testing_seed":2911523159}); });
+jQuery.getScript("//js.pixplug.in/addon/206/production.js?v=1402911599", function(data, textStatus) { jQuery.pixShowTwitter({"addon_username":"finalfrank","addon_expired_at":0,"addon_ismobile":false,"ab_testing_seed":2911523159}); });
+jQuery.ajaxSetup({ cache: false });
+//-->
+</script>
+
+<!-- load sync script -->
+
+<!-- execute sync addon -->
+<script type="text/javascript"></script>
+
+
+
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/blogtopbar.js" crossorigin="anonymous"></script>
+
+
+<script>
+  var nineyi_group    = "X1";
+  var nineyi_keyindex = "0";
+  var nineyi_match    = "";
+  var nineyi_id       = "pix91_b79d0c5351549f388d1172c61e2a55f1";
+  var nineyi_products = [{"asset":"0104","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126120-4162329176_s.jpg?v=1446126272","title":"MissHana\u82b1\u5a1c\u5c0f\u59d0\u5b8c\u7f8e\u7121\u75d5\u4e09\u8272\u906e\u7455\u818f","oprice":"380","nprice":"299","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/1256490"},{"asset":"0138","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126147-4136062762_s.jpg?v=1446126272","title":"E\u2027Heart \u4f0a\u5fc3 \u6301\u4e45\u96b1\u5f62\u96d9\u9762\u96d9\u773c\u76ae\u8cbc","oprice":"348","nprice":"180","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/344734"},{"asset":"0143","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126150-2749437497_s.jpg?v=1446126272","title":"3CE (3CONCEPT EYES) \u8d85\u986f\u8272\u5507\u818f","oprice":"499","nprice":"399","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/1610019"},{"asset":"0223","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126232-3103690318_s.jpg?v=1446126273","title":"ND \u812b\u6bdb\u871c\u881f\/\u9664\u6bdb\u871c\u881f 220g","oprice":"299","nprice":"299","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/1035850"},{"asset":"0160","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126167-2508883353_s.jpg?v=1446126272","title":"\u97d3\u570b RiRe \u9ed1\u982d\u7c89\u523a\u6e05\u6f54\u5237 \u4e59\u652f\u5165(\u5167\u9644\u6e05\u6f54\u4e7320mL)","oprice":"290","nprice":"290","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/640966"},{"asset":"0109","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126124-168867797_s.jpg?v=1446126272","title":"Miss Hana \u82b1\u5a1c\u5c0f\u59d0 \u6c34\u611f\u63a7\u8272CC\u971c","oprice":"349","nprice":"299","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/668815"}];
+</script><script data-jsv-tmpl="_0" id="idleTemplate" type="text/x-jsrender" data-main="//front.pixfs.net/module/idlePop/js/idlePop.min.js?v=0cdb0724e2256988a0bbfee205e6bba2">
+<link rel="stylesheet" href="//front.pixfs.net/module/idlePop/css/idlePop.min.css?v=0cdb0724e2256988a0bbfee205e6bba2">
+<div class="modal idle-pop" tabindex="-1" role="dialog" aria-describedby="dialog">
+  <div class="modal-bg"></div>
+  <div class="modal-dialog">
+    <a class="modal-close" data-close="【 關閉 X 】"></a>
+
+    <div class="modal-content">
+      <div class="modal-header">本網頁已閒置超過 3 分鐘。請點 <kbd>關閉</kbd> 或 <kbd>點擊</kbd>任一空白處，即可回到網頁</div>
+      <div class="modal-body">
+        <div class="blogger-info">
+          <a class="blogger-info__avatar" href="//www.pixnet.net/blog/profile/{{:user.name}}"><img src="{{:user.avatar}}" alt="{{:user.name}} 的大頭貼"></a>
+
+          <div class="blogger-info__profile">
+            <div class="blogger-info__row">
+              <dl>
+                <dt>部落格名稱</dt>
+                <dd><a href="{{:blog.link}}">{{:blog.name}}</a></dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+              <dl>
+                <dt>人氣</dt>
+                <dd data-unit="人">{{:blog.hits.total}}</dd>
+
+                <dt>好友數</dt>
+                <dd data-unit="人">{{:user.friends_count}}</dd>
+
+                <dt>文章總數</dt>
+                <dd data-unit="篇">{{:blog.articles_count}}</dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+              <a class="blogger-info__follow" href="http://panel.pixnet.cc/pixfront/addsubspopup?fromuser={{:user.name}}&user={{:user.name}}&popup=1" target="pix_add_sub" data-followers="{{:user.subscribers_count}}">加入訂閱</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="idle-adsense">
+        </div>
+
+        <div class="idle-related-posts">
+          {{for posts}}
+          <a class="idle-related-post" href="{{:link}}">
+            <img src="{{:thumb}}" alt="文章縮圖">
+            <div class="idle-related-post__detail">
+              <h4>{{:title}}</h4>
+              <div class="idle-related-post__desc" data-readmore="繼續閱讀">{{:body}}</div>
+            </div>
+          </a>
+          {{/for}}
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+</script>
+
+
+<script src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/hide-ad-checker.js" crossorigin="anonymous"></script>
+
+
+<script id="" type="text/javascript">jQuery("div").find(".article a").find(':contains("1314.ws")').length&&dataLayer.push({event:"spam-detected"});</script><div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/xd_arbiter.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/xd_arbiter_002.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/postmessageRelay.htm" id="oauth2relay1084737118" name="oauth2relay1084737118"></iframe><table class="gstl_50 gssb_c" style="width: 166px; display: none; top: 570px; position: absolute; left: 250px;" cellpadding="0" cellspacing="0"><tbody><tr><td class="gssb_f"></td><td style="width: 100%;" class="gssb_e"></td></tr></tbody></table><div class="testA" id="idle-pop">
+<link rel="stylesheet" href="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/idlePop.css">
+<div class="modal idle-pop" tabindex="-1" role="dialog" aria-describedby="dialog">
+  <div class="modal-bg"></div>
+  <div class="modal-dialog">
+    <a class="modal-close" data-close="【 關閉 X 】"></a>
+
+    <div class="modal-content">
+      <div class="modal-header">本網頁已閒置超過 3 分鐘。請點 <kbd>關閉</kbd> 或 <kbd>點擊</kbd>任一空白處，即可回到網頁</div>
+      <div class="modal-body">
+        <div class="blogger-info">
+          <a class="blogger-info__avatar" href="http://www.pixnet.net/blog/profile/finalfrank"><img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/90x0.png" alt="finalfrank 的大頭貼"></a>
+
+          <div class="blogger-info__profile">
+            <div class="blogger-info__row">
+              <dl>
+                <dt>部落格名稱</dt>
+                <dd><a href="http://finalfrank.pixnet.net/blog">Frank's 資訊科技潮流站</a></dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+              <dl>
+                <dt>人氣</dt>
+                <dd data-unit="人">1737731</dd>
+
+                <dt>好友數</dt>
+                <dd data-unit="人">16</dd>
+
+                <dt>文章總數</dt>
+                <dd data-unit="篇">371</dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+              <a class="blogger-info__follow" href="http://panel.pixnet.cc/pixfront/addsubspopup?fromuser=finalfrank&amp;user=finalfrank&amp;popup=1" target="pix_add_sub" data-followers="143">加入訂閱</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="idle-adsense"><div id="pixad1186"> <ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6865528665029394" data-ad-slot="3931128440"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent"><ins id="aswift_4_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;" frameborder="0" height="280" width="336"></iframe></ins></ins></ins> </div>
+</div>
+
+        <div class="idle-related-posts">
+          
+          <a class="idle-related-post" href="#">
+            <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/resize.jpg" alt="文章縮圖">
+            <div class="idle-related-post__detail">
+              <h4>只要1499元，即可享有【板橋-佳朋樂居時尚旅店】來台北就是這麼簡單〈含雙人房住宿一晚 + wifi + 機車停車位〉</h4>
+              <div class="idle-related-post__desc" data-readmore="繼續閱讀"></div>
+            </div>
+          </a>
+          
+          <a class="idle-related-post" href="http://finalfrank.pixnet.net/blog/post/23189694">
+            <img src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/90x90.jpg" alt="文章縮圖">
+            <div class="idle-related-post__detail">
+              <h4>解決 windows live communications platform發生問題 必須關閉 謹此致歉</h4>
+              <div class="idle-related-post__desc" data-readmore="繼續閱讀"> 
+&nbsp;
+這是暫時解決方案&nbsp; 解決 MSN 9 當機(2009/3/2更新，任意系統資料夾位置都適用)
+造成故障的原因是變種Kavo病毒
+他會在Windows/system32 資料夾底下創建一個無法刪除的 lhgjyit0.dll 
+造成 msn9 的子程式 wlcomm.exe 與之衝到&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (wlcomm和加速載入網路資訊有關，可見 lhgjyit0有可能是木馬)
+
+&nbsp;
+網路上有教解毒的方法
+但是指令很多，所以我在這邊特別作了一個懶人包
+下載回去執行就好了
+&nbsp;
+&nbsp;
+
+// 
+
+
+
+
+
+「贊助廣告」
+
+
+
+
+	  
+
+</div>
+            </div>
+          </a>
+          
+          <a class="idle-related-post" href="http://falcon.pixanalytics.com/ad/r?i=88f762ca43303b286e6c7207fc130c40&amp;p=1091&amp;u=3ad66d39d5fd4069bee3e8a7959f24a8&amp;c=CgEBqVbUaJkl0cT6BxjUAg%3D%3D"><ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:361px;height:84px" data-ad-client="ca-pub-2647689032095179" data-ad-slot="3209376861"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:84px;margin:0;padding:0;position:relative;visibility:visible;width:361px;background-color:transparent"><ins id="aswift_3_anchor" style="display:block;border:none;height:84px;margin:0;padding:0;position:relative;visibility:visible;width:361px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;" frameborder="0" height="84" width="361"></iframe></ins></ins></ins></a>
+          
+        </div>
+      </div>
+      <div class="modal-footer"><div id="pixad1183"><iframe marginwidth="0" marginheight="0" framespacing="0" scrolling="NO" src="Program%20_%20Process%20_%20Thread%20%E7%9A%84%E5%B7%AE%E5%88%A5%20@%20Frank%27s%20%E8%B3%87%E8%A8%8A%E7%A7%91%E6%8A%80%E6%BD%AE%E6%B5%81%E7%AB%99%20%20%20%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET_files/ad.htm" frameborder="0" height="90" width="728"></iframe></div>
+</div>
+    </div>
+  </div>
+</div>
+</div></body></html>

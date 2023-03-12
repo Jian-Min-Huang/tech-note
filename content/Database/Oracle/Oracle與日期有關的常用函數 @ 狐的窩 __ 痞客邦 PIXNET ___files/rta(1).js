@@ -1,0 +1,1 @@
+﻿crtg_content = 'pix336280=1;pim300250p=1;'; (function(){document.cookie = 'crtg_rta=' + escape(crtg_content) + '; path=/; expires=Fri, 21 Jul 2017 10:20:23 GMT; domain=pixnet.net';})();

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" dir="ltr" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" dir="ltr" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html dir="ltr" class="js no-touch localstorage sessionstorage contenteditable use-opacity-transitions" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Disqus Comments</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <style>
+        .alert--warning {
+            border-radius: 3px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #FFE070;
+            color: #A47703;
+        }
+
+        .alert--warning a,
+        .alert--warning a:hover,
+        .alert--warning strong {
+            color: #A47703;
+            font-weight: bold;
+        }
+
+        .alert--error p,
+        .alert--warning p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        </style>
+    
+    <style>
+        
+        html {
+            overflow: hidden;
+        }
+        
+
+        #error {
+            display: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        
+    </style>
+
+<script crossorigin="anonymous" id="bootstrap-script" data-app="lounge" src="a_data/lounge_002.js"></script><meta http-equiv="Content-Security-Policy" content="script-src https:;"><link rel="stylesheet" href="a_data/lounge.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lounge/main" src="a_data/lounge.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="remote/config" src="a_data/config.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ga" src="a_data/ga.js"></script><style id="css_1496998193325"></style><!-- base href="https://disqus.com/embed/comments/?base=default&f=tutorials-jenkov-com&t_u=http%3A%2F%2Ftutorials.jenkov.com%2Fjava-util-concurrent%2Fthreadpoolexecutor.html&t_d=ThreadPoolExecutor&t_t=ThreadPoolExecutor&s_o=default" --><link rel="stylesheet" href="a_data/discovery.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="discovery/main" src="a_data/discovery.js"></script></head>
+<body>
+    
+
+    
+    <div id="error" class="alert--error">
+        <p>We were unable to load Disqus. If you are a moderator please see our <a href="https://docs.disqus.com/help/83/"> troubleshooting guide</a>. </p>
+    </div>
+
+    
+    <script type="text/json" id="disqus-forumData">{"session":{"canModerate":false,"audienceSyncVerified":false,"mustVerify":false,"canReply":true,"mustVerifyEmail":false},"features":{},"forum":{"raw_guidelines":null,"twitterName":"jjenkov","guidelines":null,"favicon":{"permalink":"https://disqus.com/api/forums/favicons/tutorials-jenkov-com.jpg","cache":"//a.disquscdn.com/1496454068/images/favicon-default.png"},"disableDisqusBranding":false,"daysAlive":0,"createdAt":"2014-10-13T09:45:37.991503","category":"Tech","founder":"90400732","id":"tutorials-jenkov-com","installCompleted":true,"pk":"3259545","channel":null,"description":"\u003cp>Tutorials for software developers and software entrepreneurs.\u003c/p>","raw_description":"Tutorials for software developers and software entrepreneurs.","adsReviewStatus":1,"permissions":{},"name":"tutorials.jenkov.com","language":"en","settings":{"adsDRNativeEnabled":false,"disable3rdPartyTrackers":false,"adsVideoEnabled":false,"allowAnonPost":false,"ssoRequired":false,"unapproveLinks":true,"adsEnabled":false,"adsProductLinksThumbnailsEnabled":false,"hasCustomAvatar":false,"organicDiscoveryEnabled":true,"allowMedia":false,"adsProductDisplayEnabled":false,"discoveryMax":false,"adsProductLinksEnabled":false,"moderatorText":"","linkAffiliationEnabled":false,"adsPositionTopEnabled":false,"adsProductStoriesEnabled":false,"adultContent":false,"promotedDiscoveryEnabled":false,"allowAnonVotes":false,"adsProductVideoEnabled":false,"mustVerify":true,"colorScheme":"auto","discoveryThumbnailsEnabled":false,"mustVerifyEmail":true,"audienceSyncEnabled":false,"typeface":"auto","adsPositionBottomEnabled":false,"mediaembedEnabled":false,"discoveryLocked":false,"validateAllPosts":true,"adsSettingsLocked":false,"isVIP":false,"adsPositionInthreadEnabled":false},"organizationId":2407069,"url":"http://tutorials.jenkov.com","daysThreadAlive":0,"avatar":{"small":{"permalink":"https://disqus.com/api/forums/avatars/tutorials-jenkov-com.jpg?size=32","cache":"//a.disquscdn.com/1496454068/images/noavatar32.png"},"large":{"permalink":"https://disqus.com/api/forums/avatars/tutorials-jenkov-com.jpg?size=92","cache":"//a.disquscdn.com/1496454068/images/noavatar92.png"}},"signedUrl":"http://disq.us/?url=http%3A%2F%2Ftutorials.jenkov.com&key=7hsJsIoznCEEvYFxEXEhNw"}}</script>
+
+    <script type="text/json" id="disqus-threadData">{"cursor":{"hasPrev":false,"prev":null,"total":0,"hasNext":false,"next":"1:0:0"},"code":0,"response":{"lastModified":1477730459,"posts":[],"thread":{"feed":"https://tutorials-jenkov-com.disqus.com/threadpoolexecutor/latest.rss","clean_title":"ThreadPoolExecutor","dislikes":0,"likes":18,"message":"","isSpam":false,"createdAt":"2014-10-13T14:06:06","category":"3311932","author":"90400732","id":"3112383969","signedLink":"http://disq.us/?url=http%3A%2F%2Ftutorials.jenkov.com%2Fjava-util-concurrent%2Fthreadpoolexecutor.html&key=kOQWJZERAkLruP1awq-8Yg","isDeleted":false,"hasStreaming":false,"raw_message":"","isClosed":false,"link":"http://tutorials.jenkov.com/java-util-concurrent/threadpoolexecutor.html","slug":"threadpoolexecutor","forum":"tutorials-jenkov-com","identifiers":[],"posts":0,"moderators":[90400732],"title":"ThreadPoolExecutor","highlightedPost":null}},"order":"popular"}</script>
+
+
+    <div id="fixed-content"></div>
+
+
+    
+        
+<script type="text/json" id="disqus-urls">{
+    "root":"//disqus.com",
+    "next":"https://c.disquscdn.com/next/current/embed"
+}</script>
+
+        
+        <script>!function () {
+            var d = document;
+            var toH = d.head.appendChild.bind(d.head);
+
+            var v = window.location.href.match(/[#&?]version=([0-9a-f]{32})/);
+            var src = 'https://c.disquscdn.com/next/embed/lounge.load';
+            if (v)
+                src += '.' + v[1];
+            src += '.js';
+
+            var s = d.createElement('script');
+            s.crossOrigin = 'anonymous';
+            s.id = 'bootstrap-script';
+            s.setAttribute('data-app', 'lounge');
+            s.src = src;
+            toH(s);
+
+            var m = d.createElement('meta');
+            m.setAttribute('http-equiv', 'Content-Security-Policy');
+            m.setAttribute('content', "script-src https:;");
+            toH(m);
+        }();</script>
+    
+
+
+<script src="a_data/common.js"></script><div id="layout" data-tracking-area="layout"><div id="onboard" data-tracking-area="onboard"></div><div id="highlighted-post" data-tracking-area="highlighted" class="highlighted-post" style="display: none;"></div><div id="global-alert"></div><header id="main-nav" data-tracking-area="main-nav"><nav class="nav nav-primary"><ul><li class="nav-tab nav-tab--primary tab-conversation active" data-role="post-count"><a class="publisher-nav-color"><span class="comment-count">0 comments</span><span class="comment-count-placeholder">Comments</span></a></li><li class="nav-tab nav-tab--primary tab-community"><a href="https://disqus.com/home/forums/tutorials-jenkov-com/" class="publisher-nav-color" data-action="community-sidebar" data-forum="tutorials-jenkov-com" id="community-tab"><span class="community-name"><strong>tutorials.jenkov.com</strong></span><strong class="community-name-placeholder">Community</strong></a></li><li class="nav-tab nav-tab--primary dropdown user-menu" data-role="logout"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="dropdown-toggle-wrapper">
+
+<span>
+Login
+</span>
+
+</span> <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+
+
+<li>
+<a href="#" data-action="auth:disqus">Disqus</a>
+</li>
+<li>
+<a href="#" data-action="auth:facebook">Facebook</a>
+</li>
+<li>
+<a href="#" data-action="auth:twitter">Twitter</a>
+</li>
+<li>
+<a href="#" data-action="auth:google">Google</a>
+</li>
+
+
+
+</ul>
+</li><li class="nav-tab nav-tab--primary notification-menu unread" data-role="notification-menu"><a href="https://disqus.com/home/inbox/" class="notification-container" data-action="home" data-home-path="home/inbox/">
+<span class="notification-icon icon-comment" aria-hidden=""></span>
+<span class="notification-count" data-role="notification-count">1</span>
+</a>
+</li></ul></nav></header><section id="conversation" data-role="main" data-tracking-area="main"><div class="nav nav-secondary" data-tracking-area="secondary-nav"><ul><li id="recommend-button" class="nav-tab nav-tab--secondary recommend dropdown"><div class="thread-likes"><a href="#" data-action="recommend" title="Recommend this discussion" class="dropdown-toggle ">
+<span class="label label-default"><span class="recommend-icon icon-heart-empty"></span> Recommend</span>
+<span class="label label-recommended"><span class="recommend-icon icon-heart"></span> Recommended</span>
+<span class="label label-count">18</span>
+</a>
+<ul class="dropdown-menu dropdown-menu--coachmark">
+<li>
+<h2 class="coachmark__heading">Discussion Recommended!</h2>
+<p class="coachmark__description">Recommending means this is a 
+discussion worth sharing. It gets shared to your followers' Disqus 
+feeds, and gives the creator kudos!</p>
+<a href="https://disqus.com/home/?utm_source=disqus_embed&amp;utm_content=recommend_btn" class="btn btn-primary coachmark__button" target="_blank">
+ Find More Discussions 
+</a>
+</li>
+</ul>
+</div></li><li id="thread-share-menu" class="nav-tab nav-tab--secondary dropdown share-menu hidden-sm"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Share">
+<span class="icon-export"></span>
+<span class="label">Share</span>
+</a>
+<ul class="share-menu dropdown-menu">
+<li>
+<div class="share-menu__label">Share this discussion on</div>
+<ul>
+<li class="twitter">
+<a data-action="share:twitter" href="#">Twitter</a>
+</li>
+<li class="facebook">
+<a data-action="share:facebook" href="#">Facebook</a>
+</li>
+</ul>
+</li>
+</ul>
+</li><li data-role="post-sort" class="nav-tab nav-tab--secondary dropdown sorting pull-right"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort by Best<span class="caret"></span></a><ul class="dropdown-menu pull-right"><li class="selected"><a href="#" data-action="sort" data-sort="popular">Best<i aria-hidden="true" class="icon-checkmark"></i></a></li><li class=""><a href="#" data-action="sort" data-sort="desc">Newest<i aria-hidden="true" class="icon-checkmark"></i></a></li><li class=""><a href="#" data-action="sort" data-sort="asc">Oldest<i aria-hidden="true" class="icon-checkmark"></i></a></li></ul></li></ul></div><div id="posts"><div id="form" class="textarea-wrapper--top-level"><form class="reply"><div class="postbox">
+<div role="alert"></div>
+<div class="avatar">
+<span class="user">
+<img data-role="user-avatar" src="a_data/noavatar92.png" alt="Avatar">
+</span>
+</div>
+
+<div class="textarea-wrapper" data-role="textarea" dir="auto"><div><span class="placeholder">Start the discussion…</span><div class="textarea" tabindex="0" role="textbox" aria-multiline="true" data-role="editable" style="overflow: auto; overflow-wrap: break-word; max-height: 350px;" aria-label="Start the discussion…" contenteditable="true"><p><br></p></div><div style="display: none;"><ul class="user-mention__list">
+<li class="header user-mention__header">
+<h5>in this conversation</h5>
+</li>
+</ul>
+</div></div>
+<div data-role="drag-drop-placeholder" class="media-drag-hover" style="display: none">
+<div class="drag-text">
+⬇ Drag and drop your images here to upload them.
+</div>
+</div>
+<div class="edit-alert" role="postbox-alert"></div>
+<div class="post-actions">
+<ul class="wysiwyg">
+</ul>
+</div>
+</div>
+
+<div data-role="login-form"><div><section class="auth-section logged-out">
+<div class="connect">
+<h6>Log in with</h6>
+<ul data-role="login-menu" class="services login-buttons">
+
+<li class="auth-disqus">
+<button type="button" data-action="auth:disqus" title="Disqus" class="connect__button"><i class="icon-disqus"></i></button>
+</li>
+<li class="auth-facebook">
+<button type="button" data-action="auth:facebook" title="Facebook" class="connect__button"><i class="icon-facebook-circle"></i></button>
+</li>
+<li class="auth-twitter">
+<button type="button" data-action="auth:twitter" title="Twitter" class="connect__button"><i class="icon-twitter-circle"></i></button>
+</li>
+<li class="auth-google">
+<button type="button" data-action="auth:google" title="Google" class="connect__button"><i class="icon-google-plus-circle"></i></button>
+</li>
+</ul>
+</div>
+<div class="guest">
+<h6 class="guest-form-title">
+<span class="register-text"> or sign up with Disqus </span>
+<span class="guest-text"> or pick a name </span>
+</h6>
+
+<div class="help-tooltip__wrapper help-icon">
+<div id="rules" class="tooltip show help-tooltip">
+<h3 class="help-tooltip__heading">Disqus is a discussion network</h3>
+<ul class="help-tooltip__list">
+<li><span>Disqus never moderates or censors. The rules on this community are its own.</span></li>
+<li><span>Your email is safe with us. It's only used for moderation and optional notifications.</span></li>
+<li><span>Don't be a jerk or do anything illegal. Everything is easier that way.</span></li>
+</ul>
+<p class="clearfix"><a href="https://docs.disqus.com/kb/terms-and-policies/" class="btn btn-small help-tooltip__button" target="_blank">Read full terms and conditions</a></p>
+</div>
+</div>
+
+<p class="input-wrapper">
+<input dir="auto" placeholder="Name" name="display_name" id="view31_display_name" maxlength="30" class="input--text" type="text">
+</p>
+
+<div class="guest-details " data-role="guest-details">
+<p class="input-wrapper">
+<input dir="auto" placeholder="Email" name="email" id="view31_email" class="input--text" type="email">
+</p>
+
+<p class="input-wrapper">
+<input dir="auto" class="register-text input--text" placeholder="Password" name="password" id="view31_password" type="password">
+</p>
+
+<div class="acceptance-wrapper register-text">
+By signing up, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+<div class="acceptance-wrapper guest-text">
+By posting, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+
+<input name="author-guest" style="display:none" type="checkbox">
+
+<div class="proceed" data-role="submit-btn-container">
+<button type="submit" class="proceed__button btn submit" aria-label="Next"><span class="icon-proceed"></span><div class="spinner"></div></button>
+</div>
+</div>
+</div>
+</section>
+
+</div></div>
+</div>
+</form></div><button class="alert alert--realtime" style="display: none;" data-role="realtime-notification"></button><div id="no-posts" style="">Be the first to comment.</div><ul id="post-list" class="post-list"></ul><div class="load-more" data-role="more" style="display: none;"><a href="#" data-action="more-posts" class="btn load-more__button">Load more comments</a></div></div></section><div id="placement-bottom" data-tracking-area="discovery-south"><div class="post-list" style="height: auto; visibility: visible;"><div style="display: block; width: 100%;"><div id="discovery-main-c50" class="discovery-main">
+
+<section id="col-organic-c68" class="col-organic">
+<header class="discovery-col-header">
+<h2>Also on <strong>tutorials.jenkov.com</strong>
+</h2>
+</header>
+<ul class="discovery-posts" data-role="discovery-posts"><li class="discovery-post post-0" id="discovery-link-organic-3267840405">
+<a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fandroid%2Fandroid-web-apps-using-android-webview.html%3ASPUqqfWprA-9KVxegUarQHJMChI&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3267840405&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3267840405" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Android Web Apps Using Android WebView">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Android Web Apps Using Android WebView
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+12 comments
+</li>
+<li class="time">3 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fandroid%2Fandroid-web-apps-using-android-webview.html%3ASPUqqfWprA-9KVxegUarQHJMChI&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3267840405&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3267840405" class="top-comment" data-role="discovery-top-comment">
+<img data-src="https://c.disquscdn.com/uploads/users/9040/732/avatar92.jpg?1413209170" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Jakob Jenkov</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> Hi Eric, to do that you must load the content of the URL into a byte array, manipulate that byte array, and then pass the manipulated byte array on to the WebView. To do so you must intercept the HTTP request that is to …</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-1" id="discovery-link-organic-3867504684">
+<a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fjava-concurrency%2Fconcurrency-vs-parallelism.html%3ATgJ2hdXjEVqT-ettJbY7VNnaGVc&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3867504684&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3867504684" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Concurrency vs. Parallelism">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Concurrency vs. Parallelism
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+1 comment
+</li>
+<li class="time">2 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fjava-concurrency%2Fconcurrency-vs-parallelism.html%3ATgJ2hdXjEVqT-ettJbY7VNnaGVc&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3867504684&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3867504684" class="top-comment" data-role="discovery-top-comment">
+<img data-src="https://c.disquscdn.com/uploads/users/20863/8680/avatar92.jpg?1463679026" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Philip Jahmani Chauvet</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">Nice
+ explanation of multitasking (concurrently or using parallel).I would 
+add "simultaneously" or "side by side" to the talk, these two ideas also
+ apply.</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-2" id="discovery-link-organic-3868052764">
+<a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fjava-json%2Fboon-objectmapper.html%3AQ401q__pP8xzDkf22c2qBEMf77o&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3868052764&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3868052764" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Boon - ObjectMapper">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Boon - ObjectMapper
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+2 comments
+</li>
+<li class="time">2 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fjava-json%2Fboon-objectmapper.html%3AQ401q__pP8xzDkf22c2qBEMf77o&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3868052764&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3868052764" class="top-comment" data-role="discovery-top-comment">
+<img data-src="https://c.disquscdn.com/uploads/users/9040/732/avatar92.jpg?1413209170" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Jakob Jenkov</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">You should do your own measurements to make sure.</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-3" id="discovery-link-organic-3867819564">
+<a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fvert.x%2Fverticles.html%3AGjKyFitad-vs-se2AENOuIAkWZQ&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3867819564&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3867819564" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Vert.x Verticles">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Vert.x Verticles
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+2 comments
+</li>
+<li class="time">2 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Ftutorials.jenkov.com%2Fvert.x%2Fverticles.html%3AGjKyFitad-vs-se2AENOuIAkWZQ&amp;imp=6f2d6652tnodi3&amp;prev_imp=6f2864m13lun8v&amp;forum_id=3259545&amp;forum=tutorials-jenkov-com&amp;thread_id=3112383969&amp;thread=3867819564&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=3867819564" class="top-comment" data-role="discovery-top-comment">
+<img data-src="https://c.disquscdn.com/uploads/users/9040/732/avatar92.jpg?1413209170" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Jakob Jenkov</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">The
+ EventBusReceiverVerticle extends AbstractVerticle. When an 
+AbstractVerticle is deployed to the Vertx instance, the vertx instance 
+is automatically set on it.</span></p>
+</a>
+
+</li>
+</ul>
+</section>
+
+</div>
+</div></div></div><div id="footer" data-tracking-area="footer" class="disqus-footer__wrapper"><ul class="disqus-footer"><li class="disqus-footer__logo"><a href="https://disqus.com/" rel="nofollow" title="Powered by Disqus" class="disqus-footer__link">Powered by Disqus</a></li><li id="thread-subscribe-button" class="email disqus-footer__item"><div class="default"><a href="#" rel="nofollow" data-action="subscribe" title="Subscribe and get email updates from this discussion" class="disqus-footer__link"><i aria-hidden="true" class="icon icon-mail"></i><span class="clip">Subscribe</span><i aria-hidden="true" class="icon icon-checkmark"></i></a></div><div class="form"><div class="input-wrapper"><input id="thread-subscribe-email" placeholder="yourname@email.com" class="disqus-footer__input input--text" type="email"></div></div></li><li class="install disqus-footer__item"><a href="https://publishers.disqus.com/engage?utm_source=tutorials-jenkov-com&amp;utm_medium=Disqus-Footer" rel="nofollow" target="_blank" class="disqus-footer__link"><i aria-hidden="true" class="icon icon-disqus"></i><span class="clip hidden-sm">Add Disqus to your site</span><span class="clip visible-sm hidden-xs">Add Disqus</span><span class="clip visible-xs">Add</span></a></li><li class="privacy disqus-footer__item"><a href="https://help.disqus.com/customer/portal/articles/1657951?utm_source=disqus&amp;utm_medium=embed-footer&amp;utm_content=privacy-btn" rel="nofollow" target="_blank" class="disqus-footer__link"><i aria-hidden="true" class="icon icon-lock"></i><span class="clip">Privacy</span></a></li></ul></div></div></body></html>

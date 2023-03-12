@@ -1,0 +1,282 @@
+.u-mib-non-visible {
+    visibility: hidden;
+}
+
+body.freeze-video-ad {
+    padding-top: 320px;
+}
+#mib-video-expander {
+    position: relative;
+    text-align: center;
+    height: 0px;
+    overflow: hidden;
+    background: url('images/linen-bg.png') repeat-x;
+    z-index: 1;
+}
+
+/* #49309: 移除 videojs 預設給的黑色背景 */
+#links .video-js.video-js {
+    background-color: transparent;
+}
+
+.vjs-control.vjs-playing,
+.vjs-control.vjs-paused,
+.video-js .vjs-progress-control.vjs-progress-control {
+    display: none;
+}
+
+/* loading 圓圈 */
+.vjs-loading-spinner.vjs-loading-spinner {
+    position: absolute;
+    margin: -25px 0 0 -25px;
+    /* IE 11 不支援 initial, auto 可解但 Safari 不支援, 只能寫死最小寬度 */
+    min-width: 38px;
+}
+
+.mib-video-background {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    margin-left: -512px;
+    width: 1024px;
+    height: 0px;
+    box-shadow: inset 0 0 10px #000000;
+}
+.mib-video-container {
+    padding: 12px;
+    margin-left: 38px;
+    width: 384px;
+    height: 288px;
+    display: none;
+    overflow: hidden;
+    position: relative;
+}
+.mib-video-container--html-background {
+    position: absolute;
+    top: 2px;
+}
+.mib-widescreen {
+    width: 512px;
+}
+.mib-left {
+}
+.mib-right{
+    float: right;
+    margin-right: 0px;
+}
+.mib-centered {
+    margin: 0 auto;
+}
+.mib-centered.mib-video-container--html-background {
+    left: 23.5%;
+}
+.mib-right.mib-video-container--html-background {
+    right: 3px;
+}
+
+.mib-video-close {
+    border: 1px solid #666;
+    display: none;
+    position: absolute;
+}
+#mib-video-expander .mib-video-close a {
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 7px 10px;
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    opacity: 0.5;
+}
+#mib-video-expander .mib-video-close a:hover {
+    opacity: 0.8;
+}
+.mib-video-close-top-right {
+    top: 20px;
+    right: 20px;
+}
+.mib-video-close-bottom-right {
+    right: 20px;
+    bottom: 50px;
+}
+.mib-video-close-top-left {
+    top: 20px;
+    left: 20px;
+}
+.mib-video-close-bottom-left {
+    bottom: 50px;
+    left: 20px;
+}
+#mib-video-expander.freeze,
+#mib-video-expander.freeze .mib-video-background {
+    position: fixed;
+    top: 0;
+    z-index: 100000000;
+}
+#mib-video-expander.freeze {
+    overflow: visible;
+    width: 100%;
+}
+#mib-video-expander.freeze .mib-video-background {
+    background-position: fixed;
+}
+
+/* 全螢幕功能鍵 */
+.video-js .vjs-fullscreen-control.vjs-control {
+    position: absolute;
+    right: 0;
+}
+
+/* MIB 側欄特開影音背板容器 */
+.mib-sidebarvideo-container--html-background {
+    position: relative;
+    left: 0;
+    max-width: 180px;
+}
+
+/* HTML5 背板 iframe */
+.mib-sidebarvideo-container--html-background > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* #47431 MIB 側欄特開影音背板 */
+.mib__video-player-background {
+    width: 180px;
+    height: 280px;
+}
+
+/* MIB 側欄特開影音 video tag */
+.mib__video-player--sidebar > video.vjs-tech {
+    z-index: 1;
+    width: 180px;
+    min-height: 135px;
+    height: 180px;
+    margin-top: 0;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* 隱藏不需要的播放器控制功能元件 */
+.vjs-time-divider.vjs-time-divider,
+.vjs-live-controls.vjs-control,
+.vjs-current-time.vjs-time-controls.vjs-control,
+.vjs-duration.vjs-time-controls.vjs-control,
+.mib__video-player--sidebar .vjs-fullscreen-control.vjs-control {
+    display: none;
+}
+
+/* 非自動播放時顯示的播放鍵 */
+.mib__video-player--sidebar.vjs-default-skin > .vjs-big-play-button {
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-left: -22px;
+    margin-top: -11px;
+    font-size: 1.5em;
+}
+
+/* 覆蓋以前 MIB 側欄圖像廣告的最小寬度 */
+.vjs-volume-control.vjs-control,
+.vjs-volume-control.vjs-control div,
+.vjs-mute-control.vjs-control {
+    min-width: initial;
+}
+
+/* 改回被地圖砲影響到的所有控制項 div 的 min-width */
+.vjs-control-bar.vjs-control-bar div {
+    min-width: auto;
+}
+
+/* 播放器控制選單切齊影片底部 */
+.mib__video-player--sidebar.vjs-default-skin .vjs-control-bar {
+    bottom: 1px;
+    z-index: 2;
+}
+
+/* 音量鍵 */
+.mib__video-player--sidebar .vjs-mute-control.vjs-control {
+    width: 1em;
+}
+
+/* 音量滑動控制器 */
+.mib__video-player--sidebar.vjs-default-skin .vjs-volume-control {
+    width: 6.2em;
+}
+
+/* 音量滑動控制器 hover */
+.mib__video-player--sidebar.vjs-default-skin .vjs-menu-button-inline:hover {
+    width: 10em;
+}
+/* 音量滑動控制器 hover 時子容器位置 */
+.mib__video-player--sidebar .vjs-menu-button-inline:hover .vjs-menu {
+    left: 2.5em;
+}
+
+/* 剩餘秒數容器 */
+.mib__video-player--sidebar .vjs-remaining-time.vjs-time-control {
+    padding-left: 0;
+}
+/* 剩餘秒數 */
+.mib__video-player--sidebar .vjs-remaining-time-display {
+    line-height: 3;
+}
+
+/* 影音展開按鈕 */
+.mib__video-player-btn-expand.mib__video-player-btn-expand {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1;
+    width: 44px;
+    height: 19px;
+    min-width: 44px;
+    cursor: pointer;
+}
+/* 影音展開按鈕 hover */
+.mib__video-player-btn-expand.mib__video-player-btn-expand:hover {
+    background: url(../../module/mib/img/btn-expend--hover.png);
+}
+
+/* 全螢幕 85% 黑底遮罩 */
+.mib-fullscreen-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10000001;
+    background-color: rgba(0, 0, 0, .85);
+}
+
+/* 側開影音展開後置中的容器 */
+.mib__popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 304px;
+    max-width: 960px;
+    min-height: 540px;
+    max-height: 540px;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+}
+
+/* 側開影音展開後 video tag */
+.mib__popup video.vjs-tech {
+    object-fit: fill;
+    cursor: pointer;
+}
+
+/* 側開影音展開後的關閉按鈕 */
+.mib-popup__close {
+    position: absolute;
+    right: 0;
+    top: -2.2em;
+    cursor: pointer;
+}

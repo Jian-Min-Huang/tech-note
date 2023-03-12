@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://www.mkyong.com/intellij/intellij-idea-auto-reload-a-web-application-hot-deploy/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Intellij IDEA – Auto reload a web application (hot deploy)</title>
+    <meta name="google-site-verification" content="VsVvSTVAouAluNodWeR30BeIWTr4c84HvN4Fn9WBsak">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- wp_head -->
+    
+<!-- All in One SEO Pack 2.2.7.1 by Michael Torbert of Semper Fi Web Design[47,120] -->
+<meta name="keywords" content="hot deploy,idea,intellij">
+
+<link rel="canonical" href="https://www.mkyong.com/intellij/intellij-idea-auto-reload-a-web-application-hot-deploy/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://ajax.googleapis.com/">
+<link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="stylesheet" id="c16ss-style-css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/c16ss.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpdiscuz-font-awesome-css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpdiscuz-frontend-css-css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/wpdiscuz.css" type="text/css" media="all">
+<link rel="stylesheet" id="prism-css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/prism.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/style.css" type="text/css" media="all">
+<script src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/ads"></script><script src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/ads(1)"></script><script async="" type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/gpt.js"></script><script id="facebook-jssdk" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/sdk.js"></script><script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/analytics.js"></script><script src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/ca-pub-2836379775501347.js"></script><script src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/getlayer" id="carambola_proxy" mediatype="InContent" async="" status="started"></script><script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jquery.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/customcookie.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jquery.autogrowtextarea.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpdiscuzAjaxObj = {"url":"https:\/\/www.mkyong.com\/wp-admin\/admin-ajax.php","wpdiscuz_options":{"wc_hide_replies_text":"Hide Replies","wc_show_replies_text":"Show Replies","wc_msg_required_fields":"Please fill out required fields","wc_invalid_field":"Some of field value is invalid","wc_error_empty_text":"please fill out this field to comment","wc_error_url_text":"url is invalid","wc_error_email_text":"email address is invalid","wc_invalid_captcha":"Invalid Captcha Code","wc_login_to_vote":"You Must Be Logged In To Vote","wc_deny_voting_from_same_ip":"You are not allowed to vote for this comment","wc_self_vote":"You cannot vote for your comment","wc_vote_only_one_time":"You've already voted for this comment","wc_voting_error":"Voting Error","wc_held_for_moderate":"Comment awaiting moderation","wc_comment_edit_not_possible":"Sorry, this comment no longer possible to edit","wc_comment_not_updated":"Sorry, the comment was not updated","wc_comment_not_edited":"You've not made any changes","wc_new_comment_button_text":"new comment","wc_new_comments_button_text":"new comments","wc_new_reply_button_text":"new reply on your comment","wc_new_replies_button_text":"new replies on your comments","wc_msg_input_min_length":"Input is too short","wc_msg_input_max_length":"Input is too long","is_user_logged_in":false,"commentListLoadType":"0","commentListUpdateType":"0","commentListUpdateTimer":"30","liveUpdateGuests":"1","wc_comment_bg_color":"#FEFEFE","wc_reply_bg_color":"#F8F8F8","wordpress_comment_order":"desc","commentsVoteOrder":true,"wordpressThreadCommentsDepth":"5","wordpressIsPaginate":"","commentTextMaxLength":null,"storeCommenterData":100000,"isCaptchaInSession":true,"isGoodbyeCaptchaActive":false,"facebookAppID":"","version":"4.0.7","wc_post_id":13929,"loadLastCommentId":"1052256","wc_captcha_show_for_guest":"0","wc_captcha_show_for_members":"0","is_email_field_required":1}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/wpdiscuz.js"></script>
+<link rel="https://api.w.org/" href="https://www.mkyong.com/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="https://www.mkyong.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mkyong.com%2Fintellij%2Fintellij-idea-auto-reload-a-web-application-hot-deploy%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.mkyong.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mkyong.com%2Fintellij%2Fintellij-idea-auto-reload-a-web-application-hot-deploy%2F&amp;format=xml">
+<style type="text/css">#wpcomm .wc_new_comment{background:#00B38F;}#wpcomm .wc_new_reply{background:#00B38F;}#wpcomm .wc-form-wrapper{background:#F9F9F9;}#wpcomm select,#wpcomm input[type="text"],#wpcomm input[type="email"],#wpcomm input[type="url"],#wpcomm input[type="date"],#wpcomm input[type="color"]{border:#D9D9D9 1px solid;}#wpcomm .wc-comment .wc-comment-right{background:#FEFEFE;}#wpcomm .wc-reply .wc-comment-right{background:#F8F8F8;}#wpcomm .wc-comment-text{font-size:14px;color:#555;}#wpcomm .wc-blog-administrator > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-administrator > .wc-comment-right .wc-comment-author a{color:#00B38F;}#wpcomm .wc-blog-administrator > .wc-comment-left .wc-comment-label{background:#00B38F;}#wpcomm .wc-blog-editor > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-editor > .wc-comment-right .wc-comment-author a{color:#00B38F;}#wpcomm .wc-blog-editor > .wc-comment-left .wc-comment-label{background:#00B38F;}#wpcomm .wc-blog-author > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-author > .wc-comment-right .wc-comment-author a{color:#00B38F;}#wpcomm .wc-blog-author > .wc-comment-left .wc-comment-label{background:#00B38F;}#wpcomm .wc-blog-contributor > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-contributor > .wc-comment-right .wc-comment-author a{color:#00B38F;}#wpcomm .wc-blog-contributor > .wc-comment-left .wc-comment-label{background:#00B38F;}#wpcomm .wc-blog-subscriber > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-subscriber > .wc-comment-right .wc-comment-author a{color:#00B38F;}#wpcomm .wc-blog-subscriber > .wc-comment-left .wc-comment-label{background:#00B38F;}#wpcomm .wc-blog-post_author > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-post_author > .wc-comment-right .wc-comment-author a{color:#00B38F;}#wpcomm .wc-blog-post_author > .wc-comment-left .wc-comment-label{background:#00B38F;}#wpcomm .wc-blog-guest > .wc-comment-right .wc-comment-author,#wpcomm .wc-blog-guest > .wc-comment-right .wc-comment-author a{color:#888888;}#wpcomm .wc-blog-guest > .wc-comment-left .wc-comment-label{background:#888888;}.wc-load-more-submit{border:1px solid #D9D9D9;}#wpcomm .wc-new-loaded-comment > .wc-comment-right{background:#FFFAD6;}.comments-area{width:auto;}.wpdiscuz-front-actions{background:#F9F9F9;}.wpdiscuz-subscribe-bar{background:#F9F9F9;}.wpdiscuz-sort-buttons{color:#bbbbbb;}.wpdiscuz-sort-button{color:#bbbbbb; cursor:pointer;}.wpdiscuz-sort-button:hover{color:#00B38F;cursor:pointer;}.wpdiscuz-sort-button-active{color:#00B38F!important;cursor:default!important;}#wpcomm .page-numbers{color:#555;border:#555 1px solid;}#wpcomm span.current{background:#555;}#wpcomm .wpdiscuz-readmore{cursor:pointer;color:#00B38F;} #wpcomm .wpdiscuz-textarea-wrap{border:#D9D9D9 1px solid;} .wpd-custom-field .wcf-pasiv-star, #wpcomm .wpdiscuz-item .wpdiscuz-rating > label {color: #DDDDDD;}#wpcomm .wpdiscuz-item .wpdiscuz-rating:not(:checked) > label:hover,.wpdiscuz-rating:not(:checked) > label:hover ~ label {   }#wpcomm .wpdiscuz-item .wpdiscuz-rating > input ~ label:hover, #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:not(:checked) ~ label:hover ~ label, #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:not(:checked) ~ label:hover ~ label{color: #FFED85;} #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label:hover, #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label:hover, #wpcomm .wpdiscuz-item .wpdiscuz-rating > label:hover ~ input:checked ~ label, #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:checked + label:hover ~ label, #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label:hover ~ label, .wpd-custom-field .wcf-activ-star, #wpcomm .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label{ color:#FFD700;} #wpcomm .wc-cta-button:hover{border: 1px solid #00B38F!important; background:#00B38F!important; color:#fff!important;} #wpcomm .wc-cta-active{border: 1px solid #00B38F!important; background:#00B38F!important; color:#fff!important;}#wpcomm .wpf-cta:hover{color:#fff!important; background:#00B38F!important; border:1px solid #00B38F!important;}
+        
+#wpcomm .wpf-cta{ border: 1px solid #cccccc; color:#bbbbbb; }
+#wpcomm .wc-cta-button{ background:#888888; border:1px solid #888888; color:#ffffff;}
+#wpcomm .wc-cta-button-x{ background:#888888; border:1px solid #888888; color:#ffffff;}
+#wpcomm .wc-vote-link{border:1px solid #bbbbbb; color:#aaaaaa;}
+#wpcomm .wc-vote-result{border-top: 1px solid #bbbbbb; border-bottom: 1px solid #bbbbbb; color:#aaaaaa;}
+#wpcomm .wc-vote-result.wc-vote-result-like{border:1px solid #bbbbbb;}
+#wpcomm .wc-vote-result.wc-vote-result-dislike{border:1px solid #bbbbbb;}
+</style>
+			
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jscripts.php"></script> 
+    <!-- ./wp_head -->
+<script type="text/javascript" async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/a.min.js"></script><script>window[window.addEventListener ? "addEventListener" : "attachEvent"](((window.addEventListener ? "addEventListener" : "attachEvent" )== "attachEvent" ? "onmessage" : "message"),function(e) {try{if(typeof e.data==="string" && e.data.indexOf("cbolaPostM")!=-1){var cbolaDataString=e.data;var cbolaAdWidth=cbolaDataString.substring(cbolaDataString.indexOf("width=")+6,cbolaDataString.indexOf(",height="));var cbolaAdHeight=cbolaDataString.substring(cbolaDataString.indexOf(",height=")+8);if(typeof window.Cbola.Common.AdsService !== "undefined") {window.Cbola.Common.AdsService.refreshOnPSA(cbolaAdWidth,cbolaAdHeight);}}}catch(er){console.log(er);console.log(e);}},false);</script><style>.cbola-fa,.cbola-ion:before{text-rendering:auto;-moz-osx-font-smoothing:grayscale}.cbola-banner-structure{position:absolute;font-size:10px;color:#999;text-align:center;opacity:1;font-family:'Open Sans';cursor:default;padding:0;z-index:3;line-height:normal!important;overflow:hidden}.hide-ad-button{display:block;position:absolute;cursor:pointer;right:3px;margin-top:0;box-shadow:0 0 0 #000!important;z-index:999999;width:18px;height:18px;background:url('//cdata.carambo.la/Layer/InImage/Prod/cbola_platform/version_2.13.10.2/css/assets/cbolaSprite.png') -52px -25px no-repeat}.cbola-fa,.cbola-ion:before,[class^=arr-]{display:inline-block}.cbola-banner-preload{background-color:transparent}.cbola-banner-preload--active{height:90%;width:90%;position:absolute;z-index:0;top:5%;left:5%;background-color:#c3d9ff}.cbola-banner{position:relative;z-index:5;opacity:1;height:100%;overflow:visible;text-align:center;-webkit-transform-origin:50% 0 0;transform-origin:50% 0 0;margin-right:auto!important;margin-left:auto!important}.cbola-banner iframe{max-width:none;border:0}.cbola-banner__tag{position:absolute;top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);background:url('//cdata.carambo.la/Layer/InImage/Prod/cbola_platform/version_2.13.10.2/css/assets/cbolaSprite.png') right bottom/5px 8px no-repeat}.cbola-banner__tag--front{z-index:10}.cbola-banner__tag--back{z-index:5}.cbola-sponsored-links-list{list-style-type:none!important;width:100%;height:100%;padding:0;margin:0}.cbola-sponsored-link{text-decoration:none!important}.cbola-sponsored-link .cbola-sponsored-link__description{color:#000;text-transform:capitalize}.cbola-ion:before{font-family:Ionicons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased}.cbola-ion-share-alt:before{content:"\f3ac"}.cbola-fa{font:normal normal normal 14px/1 FontAwesome;font-family:FontAwesome!important;font-size:inherit;-webkit-font-smoothing:antialiased;-webkit-transform:translate(-1px,1px);transform:translate(-1px,1px);font-style:inherit!important}.cbola-fa-facebook:before{content:"\f09a"}.cbola-fa-twitter:before{content:"\f099"}.cbola-fa-check:before{content:"\f00c"}.cbola-fa-times:before{content:"\f00d"}.cbola-fa-share-alt:before{content:"\f1e0"}.cbola-fa-arrow-left:before{content:"\f060"}.cbola-fa-arrow-right:before{content:"\f061"}.cbola-fa-hand-o-up:before{content:"\f0a6"}.cbola-fa-info:before{content:"\f129"}.cbola-fa-angle-left:before{content:"\f104"}.cbola-fa-angle-right:before{content:"\f105"}.cbola-no-select>*,.unselectDrag{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default}.cbolaDisableTransitionOnLoad{transition:none!important;-webkit-transition:none!important}.cbola-clearfix{overflow:auto;zoom:1}[class^=arr-]{border:solid currentColor;border-width:0 .2em .2em 0;padding:.2em}.arr-right{transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}.arr-left{transform:rotate(135deg);-webkit-transform:rotate(135deg)}.arr-up{transform:rotate(-135deg);-webkit-transform:rotate(-135deg)}.arr-down{transform:rotate(45deg);-webkit-transform:rotate(45deg)}.cbola-loader{position:absolute;top:50%;left:50%;margin-left:-19px!important;margin-top:-19px!important;height:38px;width:38px;border:4px solid rgba(100,100,100,.3);border-top:4px solid rgba(100,100,100,.9);border-radius:50%;-webkit-animation:cbolaLoader 1.2s infinite linear;animation:cbolaLoader 1.2s infinite linear;box-sizing:border-box}@-webkit-keyframes cbolaLoader{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes cbolaLoader{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}span.cbola-clamped-text{overflow:hidden;position:relative;line-height:1.4em;max-height:2.8em;text-align:justify;display:block;padding-right:1em;margin-left:1em}span.cbola-clamped-text:before{content:'...';position:absolute;right:0;bottom:0}span.cbola-clamped-text:after{content:'';position:absolute;right:0;width:1em;height:1em;margin-top:.2em;background:#fff}.cbola-fade-out{opacity:0!important;pointer-events:none}.cbola-fade-in{opacity:1!important;pointer-events:auto}.cbola-hidden{visibility:hidden!important;pointer-events:none}.cbola-hide-scrollbars::-webkit-scrollbar{display:none}.cbola-ghost-center-container:before,.cbola-ghost-center-inner{display:inline-block;vertical-align:middle}.cbola-ghost-center-container{position:relative;font-size:0}.cbola-ghost-center-container:before{content:' ';height:100%}</style><link rel="stylesheet" type="text/css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/css"><style>.cbola-spinner-timer__wrapper{height:44px;width:44px;position:relative;-webkit-transform:translateZ(0);transform:translateZ(0)}.cbola-spinner-timer__time{color:#fff;font-family:Oswald,sans-serif!important;font-size:20px!important;font-weight:400!important;position:absolute;top:48%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.cbola-spinner-timer__strikes{position:absolute;top:1px;left:31px}.cbola-spinner-timer__section{position:absolute;top:0;left:0;opacity:0;width:11px;max-width:11px;height:6px}.cbola-spinner-timer__section path{stroke:#fff;stroke-width:3}.cbola-spinner-timer__section:nth-of-type(1){-webkit-transform:translate(-12px,-2px) rotate(7deg);transform:translate(-12px,-2px) rotate(7deg)}.cbola-spinner-timer__section:nth-of-type(2){-webkit-transform:translate(-3px,2px) rotate(37deg);transform:translate(-3px,2px) rotate(37deg)}.cbola-spinner-timer__section:nth-of-type(3){-webkit-transform:translate(3px,10px) rotate(68deg);transform:translate(3px,10px) rotate(68deg)}.cbola-spinner-timer__section:nth-of-type(4){-webkit-transform:translate(4px,20px) rotate(96deg);transform:translate(4px,20px) rotate(96deg)}.cbola-spinner-timer__section:nth-of-type(5){-webkit-transform:translate(0,29px) rotate(126deg);transform:translate(0,29px) rotate(126deg)}.cbola-spinner-timer__section:nth-of-type(6){-webkit-transform:translate(-8px,35px) rotate(158deg);transform:translate(-8px,35px) rotate(158deg)}.cbola-spinner-timer__section:nth-of-type(7){-webkit-transform:translate(-18px,36px) rotate(188deg);transform:translate(-18px,36px) rotate(188deg)}.cbola-spinner-timer__section:nth-of-type(8){-webkit-transform:translate(-27px,32px) rotate(218deg);transform:translate(-27px,32px) rotate(218deg)}.cbola-spinner-timer__section:nth-of-type(9){-webkit-transform:translate(-33px,24px) rotate(245deg);transform:translate(-33px,24px) rotate(245deg)}.cbola-spinner-timer__section:nth-of-type(10){-webkit-transform:translate(-34px,14px) rotate(279deg);transform:translate(-34px,14px) rotate(279deg)}.cbola-spinner-timer__section:nth-of-type(11){-webkit-transform:translate(-30px,5px) rotate(307deg);transform:translate(-30px,5px) rotate(307deg)}.cbola-spinner-timer__section:nth-of-type(12){-webkit-transform:translate(-22px,-1px) rotate(340deg);transform:translate(-22px,-1px) rotate(340deg)}</style><link rel="stylesheet" type="text/css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/css"><style>.cbola-spinner-timer__wrapper{height:44px;width:44px;position:relative;-webkit-transform:translateZ(0);transform:translateZ(0)}.cbola-spinner-timer__time{color:#fff;font-family:Oswald,sans-serif!important;font-size:20px!important;font-weight:400!important;position:absolute;top:48%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.cbola-spinner-timer__strikes{position:absolute;top:1px;left:31px}.cbola-spinner-timer__section{position:absolute;top:0;left:0;opacity:0;width:11px;max-width:11px;height:6px}.cbola-spinner-timer__section path{stroke:#fff;stroke-width:3}.cbola-spinner-timer__section:nth-of-type(1){-webkit-transform:translate(-12px,-2px) rotate(7deg);transform:translate(-12px,-2px) rotate(7deg)}.cbola-spinner-timer__section:nth-of-type(2){-webkit-transform:translate(-3px,2px) rotate(37deg);transform:translate(-3px,2px) rotate(37deg)}.cbola-spinner-timer__section:nth-of-type(3){-webkit-transform:translate(3px,10px) rotate(68deg);transform:translate(3px,10px) rotate(68deg)}.cbola-spinner-timer__section:nth-of-type(4){-webkit-transform:translate(4px,20px) rotate(96deg);transform:translate(4px,20px) rotate(96deg)}.cbola-spinner-timer__section:nth-of-type(5){-webkit-transform:translate(0,29px) rotate(126deg);transform:translate(0,29px) rotate(126deg)}.cbola-spinner-timer__section:nth-of-type(6){-webkit-transform:translate(-8px,35px) rotate(158deg);transform:translate(-8px,35px) rotate(158deg)}.cbola-spinner-timer__section:nth-of-type(7){-webkit-transform:translate(-18px,36px) rotate(188deg);transform:translate(-18px,36px) rotate(188deg)}.cbola-spinner-timer__section:nth-of-type(8){-webkit-transform:translate(-27px,32px) rotate(218deg);transform:translate(-27px,32px) rotate(218deg)}.cbola-spinner-timer__section:nth-of-type(9){-webkit-transform:translate(-33px,24px) rotate(245deg);transform:translate(-33px,24px) rotate(245deg)}.cbola-spinner-timer__section:nth-of-type(10){-webkit-transform:translate(-34px,14px) rotate(279deg);transform:translate(-34px,14px) rotate(279deg)}.cbola-spinner-timer__section:nth-of-type(11){-webkit-transform:translate(-30px,5px) rotate(307deg);transform:translate(-30px,5px) rotate(307deg)}.cbola-spinner-timer__section:nth-of-type(12){-webkit-transform:translate(-22px,-1px) rotate(340deg);transform:translate(-22px,-1px) rotate(340deg)}</style><style>.cbola-wid-0.cbola-elem-id--1.cbola-layer p.cbola-d-trivia-multi__answer-desc:before{color:rgb(15,59,104)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__answer:hover p.cbola-d-trivia-multi__answer-desc{background-color:rgba(15,59,104,0.5);color:}.cbola-wid-0.cbola-elem-id--1.cbola-layer li.cbola-d-trivia-multi__answer-correct.cbola-d-trivia-multi__answer:hover p.cbola-d-trivia-multi__answer-desc{color:#fff;background-color:#33cf4d}.cbola-wid-0.cbola-elem-id--1.cbola-layer li.cbola-d-trivia-multi__answer-correct.cbola-d-trivia-multi__answer:hover p.cbola-d-trivia-multi__answer-desc:before{color:#fff}.cbola-wid-0.cbola-elem-id--1.cbola-layer li.cbola-d-trivia-multi__answer-wrong.cbola-d-trivia-multi__answer:hover p.cbola-d-trivia-multi__answer-desc{color:#fff;background-color:#727272}.cbola-wid-0.cbola-elem-id--1.cbola-layer li.cbola-d-trivia-multi__answer-wrong.cbola-d-trivia-multi__answer:hover p.cbola-d-trivia-multi__answer-desc:before,.cbola-wid-0.cbola-elem-id--1.cbola-layer li.cbola-d-trivia-multi__answer.cbola-d-trivia-multi__answer-correct p.cbola-d-trivia-multi__answer-desc:before,.cbola-wid-0.cbola-elem-id--1.cbola-layer li.cbola-d-trivia-multi__answer.cbola-d-trivia-multi__answer-wrong p.cbola-d-trivia-multi__answer-desc:before{color:#fff}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__circle-answer .cbola-d-trivia-multi__four-answers-pairs p.cbola-d-trivia-multi__answer-desc:before{border:1px solid InContentThemeColor}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer p.cbola-d-trivia-multi__answer-desc:before{border-left:30px solid  rgb(15,59,104) }.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__answer-list-container a.cbola-sponsored-link:hover .cbola-sponsored-link__description{background-color:rgba(15,59,104,0.5)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .in-content-container-coverage{padding-bottom:0px!important;margin-top:0px!important;margin-bottom:0px!important;max-width:640px!important;min-width:480px!important}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__body{border-color:;background-color:}.cbola-wid-0.cbola-elem-id--1.cbola-layer h2.cbola-d-trivia-multi__game-header{color:rgb(15,59,104);background-color:}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__question-wrapper{background:-moz-linear-gradient(left,rgb(15,59,104) 0,rgb(15,59,104) 73%,rgba(15,59,104,0.5) 100%);background:-webkit-linear-gradient(left,rgb(15,59,104) 0,rgb(15,59,104) 73%,rgba(15,59,104,0.5) 100%);background:linear-gradient(to right,rgb(15,59,104) 0,rgb(15,59,104) 73%,rgba(15,59,104,0.5) 100%)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi-game-end__score,.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__start-next-button{background-color:rgb(15,59,104)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__question-wrapper:after{border-top-color:rgb(15,59,104)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__start-next-button:hover{background-color:rgb(15,59,104);box-shadow:0 0 1px 3px #fff ,0 0 1px 5px  rgba(15,59,104,0.5) }.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi-game-end{background-image:null;background-size:auto;background-position:0 50%;background-repeat:no-repeat;cursor:default}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi-game-end__share{color:rgb(15,59,104)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__next-game{background-color:}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi-footer__progress,.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi-footer__score{color:rgb(45, 141, 237)}.cbola-wid-0.cbola-elem-id--1.cbola-layer .cbola-d-trivia-multi__logo-container{display: block}</style><style>
+			@font-face {
+				font-family: 'FontAwesome';
+				src: url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0');
+				src: url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+				font-weight: normal;
+				font-style: normal;
+			}</style><link rel="stylesheet" type="text/css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/css(1)"><link rel="stylesheet" type="text/css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/css"><link rel="stylesheet" type="text/css" href="./Intellij IDEA – Auto reload a web application (hot deploy)_files/css(2)"><style>ul.cbola-d-trivia-multi__answers-list{list-style-type:none;padding:2px 0 0!important;margin:0!important;width:100%;height:100%;-webkit-transition:-webkit-transform .6s ease-in;transition:transform .6s ease-in;position:absolute}ul.cbola-d-trivia-multi__answers-list li.cbola-d-trivia-multi__answer{width:98%;-webkit-transition:opacity .2s ease-in;transition:opacity .2s ease-in;padding:0}ul.cbola-d-trivia-multi__three-answers li.cbola-d-trivia-multi__answer{margin:0 0 8px 2px}ul.cbola-d-trivia-multi__four-answers li.cbola-d-trivia-multi__answer{margin:0 0 4px 2px}ul.cbola-d-trivia-multi__four-answers-pairs{font-size:0}ul.cbola-d-trivia-multi__four-answers-pairs li.cbola-d-trivia-multi__answer{display:inline-block;width:48%;height:56px}ul.cbola-d-trivia-multi__four-answers-pairs li.cbola-d-trivia-multi__answer:nth-child(2n+1){margin-right:2.5%}.cbola-d-trivia-multi__answer:last-child{margin-bottom:0}.cbola-d-trivia-multi__answer:hover p.cbola-d-trivia-multi__answer-desc{background-color:rgba(183 ,17 ,94 ,.5)}p.cbola-d-trivia-multi__answer-desc{margin:0!important;font-family:Roboto,Oswald,sans-serif;font-size:13px;color:#282828;background-color:#F4F4F4;vertical-align:middle;border-bottom-left-radius:2px;border-top-left-radius:2px;box-shadow:inset 0 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 1px 0 rgba(0,0,0,.1);cursor:pointer;overflow:hidden;padding:0;text-align:center}.cbola-d-trivia-multi__answers-letters p.cbola-d-trivia-multi__answer-desc{text-align:left}.cbola-d-trivia-multi__three-answers p.cbola-d-trivia-multi__answer-desc{height:30px;line-height:30px}.cbola-d-trivia-multi__four-answers p.cbola-d-trivia-multi__answer-desc{height:24px;line-height:24px}.cbola-d-trivia-multi__four-answers p.cbola-d-trivia-multi__answer-desc,.cbola-d-trivia-multi__three-answers p.cbola-d-trivia-multi__answer-desc{padding-left:6px;text-align:left}.cbola-d-trivia-multi__four-answers-pairs p.cbola-d-trivia-multi__answer-desc{height:46px;line-height:46px;border-radius:6px}.cbola-d-trivia-multi-md p.cbola-d-trivia-multi__answer-desc{font-size:12px}.cbola-d-trivia-multi-sm p.cbola-d-trivia-multi__answer-desc{font-size:11px}.cbola-d-trivia-multi__answers-letters p.cbola-d-trivia-multi__answer-desc:before{text-transform:uppercase;display:inline-block;color:rgba(183 ,17 ,94 ,1);font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;vertical-align:top;text-align:center;width:10%;max-width:20px;margin-right:4px;box-sizing:border-box;border-bottom-left-radius:2px;border-top-left-radius:2px;margin-left:2px}.cbola-d-trivia-multi__three-answers p.cbola-d-trivia-multi__answer-desc:before{height:30px;line-height:30px}.cbola-d-trivia-multi__four-answers p.cbola-d-trivia-multi__answer-desc:before{height:24px;line-height:24px}.cbola-d-trivia-multi__answers-letters .cbola-d-trivia-multi__answers-list .cbola-d-trivia-multi__answer:nth-child(1) .cbola-d-trivia-multi__answer-desc:before{content:'a'}.cbola-d-trivia-multi__answers-letters .cbola-d-trivia-multi__answers-list .cbola-d-trivia-multi__answer:nth-child(2) .cbola-d-trivia-multi__answer-desc:before{content:'b'}.cbola-d-trivia-multi__answers-letters .cbola-d-trivia-multi__answers-list .cbola-d-trivia-multi__answer:nth-child(3) .cbola-d-trivia-multi__answer-desc:before{content:'c'}.cbola-d-trivia-multi__answers-letters .cbola-d-trivia-multi__answers-list .cbola-d-trivia-multi__answer:nth-child(4) .cbola-d-trivia-multi__answer-desc:before{content:'d'}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__circle-answer .cbola-d-trivia-multi__four-answers-pairs p.cbola-d-trivia-multi__answer-desc:before{height:20px;width:20px;margin-top:13px;border:1px solid rgba(183 ,17 ,94 ,1);border-radius:50%;line-height:1.3em}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer p.cbola-d-trivia-multi__answer-desc:before{width:0;box-sizing:border-box;height:30px;margin-top:0;margin-left:0;padding-left:0;border-top-left-radius:0;border-bottom-left-radius:0;border-bottom:30px solid transparent;content:' '!important}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer:before{position:absolute;color:#fff;text-transform:uppercase;font-family:'Open Sans',sans;font-size:14px;font-weight:600;line-height:1.1em;padding-left:4px}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__answers-list.cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer:nth-child(1):before{content:'a'}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__answers-list.cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer:nth-child(2):before{content:'b'}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__answers-list.cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer:nth-child(3):before{content:'c'}.cbola-d-trivia-multi__answers-letters.cbola-d-trivia-multi__tabbed-answer .cbola-d-trivia-multi__answers-list.cbola-d-trivia-multi__four-answers-pairs .cbola-d-trivia-multi__answer:nth-child(4):before{content:'d'}li.cbola-d-trivia-multi__answer.cbola-d-trivia-multi__answer-correct p.cbola-d-trivia-multi__answer-desc{background-color:#33cf4d;color:#fff}li.cbola-d-trivia-multi__answer.cbola-d-trivia-multi__answer-wrong p.cbola-d-trivia-multi__answer-desc{background-color:#727272;color:#fff}li.cbola-d-trivia-multi__answer.cbola-d-trivia-multi__answer-fade{opacity:.3}li.cbola-d-trivia-multi__answer.cbola-d-trivia-multi__answer-fade:hover p.cbola-d-trivia-multi__answer-desc{background-color:#F4F4F4!important}.cbola-d-trivia-multi_image-loader{height:100%;width:100%;position:absolute;-webkit-transition:-webkit-transform .6s ease-in;transition:transform .6s ease-in;z-index:1}.cbola-d-trivia-multi__image{height:100%;width:100%;position:relative;background-position-x:50%;background-position-y:-1%;background-size:auto;background-repeat:no-repeat;background-color:transparent}.cbola-d-trivia-multi__image--prev{-webkit-transform:translateX(-101%);transform:translateX(-101%)}.cbola-d-trivia-multi__image--active{-webkit-transform:translateX(0);transform:translateX(0)}.cbola-d-trivia-multi__image--next{-webkit-transform:translateX(101%);transform:translateX(101%)}div.cbola-d-trivia-multi__question{position:absolute;overflow:hidden;height:100%;width:100%}.cbola-d-trivia-multi__question p{font-size:14px;color:#fff;font-family:'Open Sans',sans-serif!important;margin:-2px 0 0!important;padding:0!important;font-weight:400!important;line-height:normal;text-align:left}.cbola-d-trivia-multi-md .cbola-d-trivia-multi__question p,.cbola-d-trivia-multi-sm .cbola-d-trivia-multi__question p{font-size:13px;margin:0!important;line-height:16px}.cbola-d-trivia-multi__answer-list-container .cbola-sponsored-links-list{position:absolute;padding:2px 0 0!important;margin:0!important}.cbola-d-trivia-multi__answer-list-container .cbola-sponsored-links-list__item{padding:0!important;margin:0 0 4px 2px!important;display:inline-block;width:98%}.cbola-d-trivia-multi__answer-list-container a.cbola-sponsored-link .cbola-sponsored-link__description{margin:0!important;font-family:Roboto,Oswald,sans-serif;font-size:13px!important;font-weight:400;color:#282828!important;background-color:#F4F4F4;vertical-align:middle;border-bottom-left-radius:2px;border-top-left-radius:2px;box-shadow:inset 0 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 1px 0 rgba(0,0,0,.1);cursor:pointer;overflow:hidden;padding-left:6px;text-align:left;height:24px;line-height:24px;display:block}.cbola-d-trivia-multi__answer-list-container a.cbola-sponsored-link:hover .cbola-sponsored-link__description{background-color:rgba(183 ,17 ,94 ,.5)}.cbola-d-trivia-multi__answer-list-container .cbola-d-trivia-multi-md a.cbola-sponsored-link .cbola-sponsored-link__description{font-size:12px}.cbola-d-trivia-multi__answer-list-container .cbola-d-trivia-multi-sm a.cbola-sponsored-link .cbola-sponsored-link__description{font-size:11px}.cbola-d-trivia-multi *{box-sizing:border-box}.cbola-d-trivia-multi{width:100%;height:250px;position:relative;box-sizing:border-box;margin:0 auto;z-index:5;border:1px solid #ededed;overflow:hidden}.cbola-d-trivia-multi__body{width:100%;height:100%;position:relative;background-color:#fff}.cbola-d-trivia-multi__game{width:53.2%;max-width:calc(638px * .532);min-width:calc(478px * .532);height:100%;float:left;position:relative;z-index:10;-webkit-transition:opacity .6s ease;transition:opacity .6s ease}h2.cbola-d-trivia-multi__game-header{color:rgba(183,17,94,1);background-color:#fff;font-size:18px!important;font-weight:400!important;line-height:25px;font-family:Oswald,'Open Sans',sans-serif!important;letter-spacing:0;text-transform:uppercase!important;height:62px!important;margin:0!important;padding:8px 10px 5px 8px;text-align:left!important;overflow:hidden;-webkit-transition:opacity .6s ease-in;transition:opacity .6s ease-in;border:0}.cbola-d-trivia-multi-md h2.cbola-d-trivia-multi__game-header{font-size:16px!important}.cbola-d-trivia-multi-sm h2.cbola-d-trivia-multi__game-header{font-size:15px!important}h2.cbola-d-trivia-multi__game-header-game-end{color:#7b7b7b;opacity:.3}.cbola-d-trivia-multi__item-container{margin-left:8px;text-align:left}.cbola-d-trivia-multi__question-wrapper{width:105%;height:60px;padding-left:10px;border-radius:2px;overflow:visible!important;text-align:left!important;background:-webkit-linear-gradient(left,rgba(183,17,94,1) 0,rgba(184,17,94,1) 73%,rgba(184,17,94,.5) 100%);background:-webkit-linear-gradient(left, rgba(183,17,94,1) 0, rgba(184,17,94,1) 73%, rgba(184,17,94,.5) 100%);background:linear-gradient(to right,rgba(183,17,94,1) 0,rgba(184,17,94,1) 73%,rgba(184,17,94,.5) 100%)}.cbola-d-trivia-multi__question-wrapper:after{content:' ';position:absolute;width:0;height:0;left:21px;top:60px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(183,17,94,1)}.cbola-d-trivia-multi__question-container{width:calc(100% - 75px);height:100%;margin:0 5px 0 0!important;position:relative;overflow:hidden}.cbola-d-trivia-multi__answer-list-wrapper{width:95%;height:120px;padding-top:8px;position:relative;margin:0 5% 0 0;overflow:hidden}.cbola-d-trivia-multi__answer-list-container{width:100%;height:100%;overflow:hidden;margin:0;position:relative;text-align:left}.cbola-d-trivia-multi__next-game{position:absolute;top:8px;left:0;height:100%;width:100%;background-color:rgba(255,255,255,.8);opacity:1;-webkit-transition:opacity .6s ease;transition:opacity .6s ease}.cbola-d-trivia-multi__start-next-button{position:absolute;top:calc(36% - 9px);left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);font-size:19px;font-weight:700;font-family:Oswald,'Open Sans',sans-serif;color:#fff;background-color:rgba(183,17,94,1);width:66%;padding:4px 0;text-transform:uppercase;cursor:pointer;text-align:center}.cbola-d-trivia-multi__start-next-button:hover{box-shadow:0 0 1px 3px #fff,0 0 1px 5px rgba(183,17,94,.5)}.cbola-page-item{-webkit-transition:-webkit-transform .6s ease-in;transition:transform .6s ease-in}.cbola-page-item--prev{-webkit-transform:translateX(-500px);transform:translateX(-500px)}.cbola-page-item--active{-webkit-transform:translateX(0);transform:translateX(0)}.cbola-page-item--next{-webkit-transform:translateX(500px);transform:translateX(500px)}.cbola-d-trivia-multi__content-wrapper{width:46.8%;max-width:calc(638px * .468);min-width:calc(478px * .468);height:100%;z-index:1;float:right;position:relative}.cbola-d-trivia-multi__image-wrapper{width:100%;height:100%;overflow:hidden;position:relative;z-index:1}.cbola-d-trivia-multi__share{position:absolute;right:0;top:0;height:30px;width:80px;padding-top:6px;font-size:18px;z-index:100;background:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 1%,rgba(0,0,0,.35) 100%);background:-webkit-linear-gradient(left, rgba(0,0,0,0) 0, rgba(0,0,0,0) 1%, rgba(0,0,0,.35) 100%);background:linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 1%,rgba(0,0,0,.35) 100%);-webkit-transition:opacity .3s ease;transition:opacity .3s ease}.cbola-d-trivia-multi__share .cbola-fa{color:#fff;float:right;margin-right:5px;cursor:pointer}.cbola-d-trivia-multi__share .cbola-fa-facebook:hover{color:#3b5998}.cbola-d-trivia-multi__share .cbola-fa-twitter:hover{color:#3cf}.cbola-d-trivia-multi_image-container{width:100%;height:100%;position:relative;overflow:hidden}.cbola-d-trivia-multi-game-end{width:100%;height:100%;position:absolute;background-color:transparent;top:-100%;-webkit-transition:-webkit-transform .55s ease;transition:transform .55s ease;z-index:100;color:#fff;box-shadow:inset 10px 10px 100px 24px rgba(0,0,0,.75)}.cbola-d-trivia-multi-game-end--active{-webkit-transform:translateY(100%);transform:translateY(100%)}.cbola-d-trivia-multi-game-end--active~.cbola-d-trivia-multi_image-container .cbola-d-trivia-multi__image--active .cbola-d-trivia-multi__image{-webkit-filter:blur(5px);filter:blur(5px)}.cbola-ua-ie .cbola-d-trivia-multi-game-end{background-color:rgba(62,62,66,.7)}.cbola-d-trivia-multi-game-end--active~.cbola-d-trivia-multi__share{opacity:0;pointer-events:none}div.cbola-d-trivia-multi-game-end__container{padding-left:8%;text-align:left}.cbola-d-trivia-multi-md .cbola-d-trivia-multi-game-end__container,.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-game-end__container{padding-left:7%}.cbola-d-trivia-multi-game-end__score-container{width:100%;height:63px;padding-top:8px}.cbola-d-trivia-multi-game-end__score-container>div{display:inline-block}.cbola-d-trivia-multi-game-end__text{font-family:'Open Sans',Oswald,sans-serif;font-size:17px;text-transform:capitalize;max-width:calc(96% - 62px);min-width:152px;line-height:1em}.cbola-d-trivia-multi-game-end__score{font-family:'Open Sans',sans-serif;font-size:22px;font-weight:700;height:62px;width:62px;line-height:63px;border-radius:50%;background-color:rgba(183 ,17 ,94 ,1);text-align:center;letter-spacing:-1px;margin-right:2%;margin-left:2%}.cbola-d-trivia-multi-game-end__challenge,.cbola-d-trivia-multi-game-end__your-friends{text-transform:uppercase;font-size:28px;line-height:28px;font-family:'Open Sans',sans-serif;font-weight:100}.cbola-d-trivia-multi-game-end__your-friends{display:inline-block}.cbola-d-trivia-multi-game-end__share{color:rgb(183 ,17 ,94);overflow:hidden;width:40%;display:inline;font-size:25px}.cbola-d-trivia-multi-game-end__share>i{margin-left:2%;cursor:pointer}.cbola-d-trivia-multi-game-end__share .cbola-fa-facebook:hover{color:#3b5998}.cbola-d-trivia-multi-game-end__share .cbola-fa-twitter:hover{color:#3cf}.cbola-d-trivia-multi-game-end__teaser{width:100%;height:80px}p.cbola-d-trivia-multi-game-end__next-quiz{text-transform:uppercase;width:80px;font-family:'Open Sans',sans-serif!important;font-size:14px!important;font-weight:400!important;margin:0;text-align:left;color:#fff}.cbola-d-trivia-multi-md .cbola-d-trivia-multi-game-end__text{font-size:15px;max-width:calc(96% - 55px)}.cbola-d-trivia-multi-md .cbola-d-trivia-multi-game-end__score{font-size:18px;height:55px;width:55px;line-height:54px}.cbola-d-trivia-multi-md .cbola-d-trivia-multi-game-end__your-friends{letter-spacing:0;font-size:24px}.cbola-d-trivia-multi-md .cbola-d-trivia-multi-game-end__share{font-size:24px}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-game-end__text{font-size:14px;max-width:calc(96% - 46px)}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-game-end__score{font-size:18px;height:46px;width:46px;line-height:45px}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-game-end__your-friends{letter-spacing:0;font-size:23px}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-game-end__share{font-size:23px}.cbola-d-trivia-multi__content-footer{height:30px;width:100%;background-color:rgba(40,40,40,.8);font-size:0;text-align:left!important;z-index:10;position:absolute;bottom:0}.cbola-d-trivia-multi__logo-container,.cbola-d-trivia-multi__progress-wrapper{display:inline-block;vertical-align:middle;height:100%}.cbola-d-trivia-multi__progress-wrapper{width:192px;overflow:hidden}.cbola-d-trivia-multi-md .cbola-d-trivia-multi__progress-wrapper{width:167px}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi__progress-wrapper{width:154px}.cbola-d-trivia-multi--pt .cbola-d-trivia-multi__progress-wrapper{letter-spacing:-.9px}.cbola-d-trivia-multi-footer__question,.cbola-d-trivia-multi-footer__your-score{font-family:Roboto,Arial,sans-serif;font-size:14px;font-weight:400;color:#fff;text-transform:capitalize;padding-right:3px;padding-left:4px}.cbola-d-trivia-multi-footer__progress,.cbola-d-trivia-multi-footer__score{font-family:Roboto,Arial,sans-serif;font-size:14px;color:#de3885;font-weight:600}.cbola-d-trivia-multi-md .cbola-d-trivia-multi-footer__progress,.cbola-d-trivia-multi-md .cbola-d-trivia-multi-footer__question,.cbola-d-trivia-multi-md .cbola-d-trivia-multi-footer__score,.cbola-d-trivia-multi-md .cbola-d-trivia-multi-footer__your-score{font-size:12px}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-footer__progress,.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-footer__question,.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-footer__score,.cbola-d-trivia-multi-sm .cbola-d-trivia-multi-footer__your-score{font-size:11px}.cbola-d-trivia-multi--pt .cbola-d-trivia-multi__progress-wrapper{padding-left:2px}.cbola-d-trivia-multi--pt.cbola-d-trivia-multi-sm .cbola-d-trivia-multi__progress-wrapper{letter-spacing:-.7px;padding-left:1px}.cbola-d-trivia-multi__logo-container{width:calc(100% - 192px);float:right;position:relative;text-align:right}.cbola-d-trivia-multi-md .cbola-d-trivia-multi__logo-container{width:calc(100% - 167px)}.cbola-d-trivia-multi-sm .cbola-d-trivia-multi__logo-container{width:calc(100% - 154px)}.cbola-d-trivia-multi__logo{height:100%;cursor:pointer;margin:0 auto;opacity:1;max-width:95%}.cbola-d-trivia-multi__carambola_logo{background:url('//cdata.carambo.la/Layer/InImage/Prod/cbola_platform/version_2.13.10.2/css/assets/cbolaSprite.png') -61px -47px no-repeat;width:63px;height:15px;margin-right:6px}.cbola-d-trivia-multi-md .cbola-d-trivia-multi__carambola_logo{margin-left:1px;margin-right:3px}.cbola-d-trivia-multi__logo-container:hover .cbola-d-trivia-multi__carambola_logo{opacity:.7}.cbola-d-trivia-multi__add-this{position:absolute;height:20px;padding:3px 5px;background-color:rgba(40,40,40,.8);color:#e6e6e6;text-transform:capitalize;font-size:12px;font-weight:300;top:-20px;right:0;width:166px;font-family:'Open Sans',sans;cursor:pointer;-webkit-transition:opacity .2s ease-in;transition:opacity .2s ease-in}</style><script src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/pubads_impl_121.js" async=""></script><style class="cbolaApperanceStyle_-1_4">.cbolaApperanceStyle_4_-1{display: block!important;width: 100%;height: 90px;opacity: 0;background-color: transparent;position: absolute;top: 20px;left: 0;z-index: -1;-webkit-transition: margin 0.6s ease;transition: margin 0.6s ease;}</style><style class="cbolaApperanceStyle_-1_5">.cbolaApperanceStyle_5_-1{top: 0;right: -300px;display: block!important;-webkit-transition: transform 0.6s ease, height 0.6s ease;transition: transform 0.6s ease, height 0.6s ease;z-index: 6;background-color: transparent;width: 300px;height: 250px;overflow: hidden;}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body class="wpdiscuz_4.0.7">
+
+<!-- test -->
+<header class="navbar navbar-static-top navbar-default" id="top" role="navigation">
+
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.mkyong.com/" class="navbar-brand">
+                <img src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/logo.png" width="168px" height="30px">
+            </a>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+
+            <ul id="menu-topmenu" class="nav navbar-nav navbar-right"><li id="menu-item-14518" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14518"><a title="Get All Tutorials" href="https://www.mkyong.com/all-tutorials-on-mkyong-com/"><span class="glyphicon All Tutorials"></span>&nbsp;Get All Tutorials</a></li>
+<li id="menu-item-14517" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14517"><a title="Java 8" href="http://www.mkyong.com/tutorials/java-8-tutorials/">Java 8</a></li>
+<li id="menu-item-14519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14519"><a title="Spring Boot" href="http://www.mkyong.com/tutorials/spring-boot-tutorials/">Spring Boot</a></li>
+<li id="menu-item-14520" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14520"><a title="Android" href="http://www.mkyong.com/tutorials/android-tutorial/">Android</a></li>
+<li id="menu-item-14521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14521"><a title="Contact Us" href="https://www.mkyong.com/contact-mkyong/"><span class="glyphicon Contact Us"></span>&nbsp;Contact Us</a></li>
+<li><form role="search" method="get" class="navbar-form" action="https://www.mkyong.com/search/"><input type="hidden" name="cx" value="partner-pub-2836379775501347:3714346998"><input type="hidden" name="cof" value="FORID:10"><input type="hidden" name="ie" value="UTF-8"><input type="text" name="q" class="form-control" placeholder="Search..."></form></li></ul>
+        </nav>
+        <!-- /bs-navbar -->
+    </div>
+    <!-- /.container -->
+
+</header>
+
+<!--
+<div class="align-center hide_if_width_less_800 background-grey">
+    <div class="ads-top" style="width:100%">
+    </div>
+</div>
+-->
+
+<div class="align-center background-grey">
+<div class="ads-top" style="width:100%">
+
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<!-- mkyong-top-responsive-unit -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2836379775501347" data-ad-slot="5333521399" data-ad-format="auto" data-ad-region="mkyongregion" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:1200px;height:90px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource.html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+       
+</div>
+</div>
+
+ <div id="post-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-11">
+
+                <!-- google_ad_section_start(name=mkyongregion) -->
+
+                <div id="left-container">
+
+                    
+                        <article id="post-13929">
+
+                            <h1>Intellij IDEA – Auto reload a web application (hot deploy)</h1>
+
+                            <div class="post-meta">
+                                <p class="post-meta">By <a href="https://www.mkyong.com/author/mkyong/" title="mkyong" rel="author">mkyong</a> | <time datetime="2016-01-29T09:49:35+00:00">January 29, 2016</time> | Updated : January 14, 2017 | Viewed : 19,765 times <span>+312 pv/w</span></p>                            </div>
+                            <!-- /.post-meta -->
+
+                            <div class="post-content">
+                                <p>In this tutorial, we will show you how to ‘hot deploy’ or ‘hot swap’ a web application in IDEA.</p>
+<div class="note">
+Note<br>
+Tested with Intellij IDEA 14 and 15
+</div>
+<h2>1. Select exploded WAR</h2>
+<p>Go Run –&gt;&gt; Edit Configurations –&gt;&gt; “Deployment” tab, clicks + icon –&gt;&gt; select an “exploded artifact”</p>
+<div class="pic">
+<img src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/idea-hot-deploy-exploded.png" alt="idea-hot-deploy-exploded">
+</div>
+<div class="ads-in-post hide_if_width_less_800">
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<!-- new 728x90 - After1stH4 -->
+<ins class="adsbygoogle hide_if_width_less_800" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2836379775501347" data-ad-slot="7391621200" data-ad-region="mkyongregion" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:728px;height:90px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(1).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><h2>2. Update classes and resources</h2>
+<p>Select “Server” tab, update the following options :</p>
+<ol>
+<li>On ‘Update’ action -&gt; Update classes and resources</li>
+<li>On frame deactivation -&gt; Update classes and resources</li>
+</ol>
+<div class="pic">
+<img src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/idea-hot-deploy-1.png" alt="idea-hot-deploy-1">
+</div>
+<div class="ads-in-post hide_if_width_less_800">
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<!-- new 728x90 - After2ndH4 -->
+<ins class="adsbygoogle hide_if_width_less_800" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2836379775501347" data-ad-slot="3642936086" data-ad-region="mkyongregion" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:728px;height:90px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(2).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><h2>3. Run in Debug Mode</h2>
+<p>Run web application in <strong>Debug</strong> mode. Try to modify some codes or resources (JSP or html), the modified classes and resources will be reloaded automatically.</p>
+<p>Done.</p>
+<h2>References </h2>
+<ol>
+<li><a href="http://www.mkyong.com/eclipse/how-to-configure-hot-deploy-in-eclipse/" target="_blank">How to configure hot deploy in Eclipse</a></li>
+</ol>
+                            </div>
+                            <!-- /.post-content -->
+
+                            <div id="post-tags">
+                                 Tags : <span class="post-tag"><a href="https://www.mkyong.com/tag/hot-deploy/" rel="tag">hot deploy</a>  <a href="https://www.mkyong.com/tag/idea/" rel="tag">idea</a></span>                            </div>
+                            <!-- /.post-tags -->
+
+<div id="c16ss"><h2>Share this article on</h2><a class="c16ss-twitter c16ss-link" href="https://twitter.com/intent/tweet?text=Intellij%20IDEA%20-%20Auto%20reload%20a%20web%20application%20(hot%20deploy)&amp;url=https://www.mkyong.com/intellij/intellij-idea-auto-reload-a-web-application-hot-deploy/&amp;via=mkyong">Twitter</a><a class="c16ss-fb c16ss-link" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mkyong.com/intellij/intellij-idea-auto-reload-a-web-application-hot-deploy/">Facebook</a><a class="c16ss-google c16ss-link" href="https://plus.google.com/share?url=https://www.mkyong.com/intellij/intellij-idea-auto-reload-a-web-application-hot-deploy/">Google+</a></div><br>
+
+<!--Carambola Script --> 
+<img height="0" width="0" alt="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/eey7" style="display:block;"> 
+<script data-cfasync="false" class="carambola_InContent" type="text/javascript" cbola_wid="0" data-queued="true" data-active-id="0" data-status="started" data-element-id="-1">  
+(function (i,d,s,o,m,r,c,l,w,q,y,h,g) {  
+var e=d.getElementById(r);if(e===null){  
+var t = d.createElement(o); t.src = g; t.id = r; t.setAttribute(m, s);t.async = 1;var n=d.getElementsByTagName(o)[0];n.parentNode.insertBefore(t, n); 
+var dt=new Date().getTime();  
+try{i[l][w+y](h,i[l][q+y](h)+'&'+dt);}catch(er){i[h]=dt;}  
+} else if(typeof i[c]!=='undefined'){i[c]++}  
+else{i[c]=1;}  
+})(window, document, 'InContent', 'script', 'mediaType', 'carambola_proxy','Cbola_IC','localStorage','set','get','Item','cbolaDt','//route.carambo.la/inimage/getlayer?pid=myky82&did=112239&wid=0')  
+</script><div class="cbola-layer in-content-container-wrapper cbola-wid-0 cbola-elem-id--1" style="position: relative; line-height: normal; clear: both; z-index: 55;" layertype="121">
+  <div class="in-content-container-coverage" style="box-sizing: content-box; margin: 0px auto; position: relative; opacity: 1; padding: 0px; transition: height 0.6s ease; height: 332.121px; overflow: hidden;">
+
+  <div class="cbola-d-trivia-multi unselectDrag cbola-d-trivia-multi--en">
+  <div class="cbola-d-trivia-multi__body">
+    <div class="cbola-d-trivia-multi__game">
+      <h2 class="cbola-d-trivia-multi__game-header">Do You Really Know Your Mobiles?</h2>
+      <div class="cbola-d-trivia-multi__item-container">
+        <div class="cbola-d-trivia-multi__question-wrapper cbola-ghost-center-container">
+          <div class="cbola-d-trivia-multi__question-container cbola-ghost-center-inner">
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--active">
+    <p class="cbola-ghost-center-inner">
+      How many times does the average person unlock their phone a day?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      In 1973, Martin Cooper made the first mobile phone call to whom?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      In Japan, 90% of phones have which feature?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      99% of all mobile malware is targeted at which mobile users?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      Exposure to cell phone radiation right before sleep has been known to cause:
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      Nomofobia is a psychological condition where a person:
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      In Malaysia, it is legal to do what via text message?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      In 1983, the first cell phones were sold in the U.S. for how much each?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      What is the fate of 100,000 mobile phones a year in Britain?
+    </p>
+  </div>
+
+  <div class="cbola-d-trivia-multi__question cbola-ghost-center-container cbola-page-item cbola-page-item--next">
+    <p class="cbola-ghost-center-inner">
+      At 250 million gadgets sold, the best-selling gadget in history is:
+    </p>
+  </div>
+</div>
+          <div class="cbola-spinner-timer__wrapper cbola-d-trivia-multi__timer-placeholder cbola-ghost-center-inner">
+  <div class="cbola-spinner-timer__time">15</div>
+  <div class="cbola-spinner-timer__strikes">
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 1;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+  </div>
+</div>
+
+        </div>
+        <div class="cbola-d-trivia-multi__answer-list-wrapper">
+          <div class="cbola-d-trivia-multi__answer-list-container cbola-refresh-click-trigger cbola-d-trivia-multi__answers-letters">
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--active cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25652">
+        <p class="cbola-d-trivia-multi__answer-desc">20</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25653">
+        <p class="cbola-d-trivia-multi__answer-desc">110</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25654">
+        <p class="cbola-d-trivia-multi__answer-desc">55</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25655">
+        <p class="cbola-d-trivia-multi__answer-desc">201</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25648">
+        <p class="cbola-d-trivia-multi__answer-desc">Veronica Lake</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25649">
+        <p class="cbola-d-trivia-multi__answer-desc">His mother</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25650">
+        <p class="cbola-d-trivia-multi__answer-desc">A rival telecommunications company</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25651">
+        <p class="cbola-d-trivia-multi__answer-desc">The president of Russia</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25664">
+        <p class="cbola-d-trivia-multi__answer-desc">Eyeball tracking</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25665">
+        <p class="cbola-d-trivia-multi__answer-desc">Two screens</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25666">
+        <p class="cbola-d-trivia-multi__answer-desc">Projector</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25667">
+        <p class="cbola-d-trivia-multi__answer-desc">Waterproof</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25644">
+        <p class="cbola-d-trivia-multi__answer-desc">iOS</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25645">
+        <p class="cbola-d-trivia-multi__answer-desc">Windows</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25646">
+        <p class="cbola-d-trivia-multi__answer-desc">Blackberry</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25647">
+        <p class="cbola-d-trivia-multi__answer-desc">Android</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25640">
+        <p class="cbola-d-trivia-multi__answer-desc">Insomnia</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25641">
+        <p class="cbola-d-trivia-multi__answer-desc">Forgetfulness</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25642">
+        <p class="cbola-d-trivia-multi__answer-desc">Incomplete digestion</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25643">
+        <p class="cbola-d-trivia-multi__answer-desc">Depression</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25668">
+        <p class="cbola-d-trivia-multi__answer-desc">Is afraid of being without their phone</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25669">
+        <p class="cbola-d-trivia-multi__answer-desc">Is repulsed by touch screens</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25670">
+        <p class="cbola-d-trivia-multi__answer-desc">Fears new technology</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25671">
+        <p class="cbola-d-trivia-multi__answer-desc">Misplaces their phone daily</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25656">
+        <p class="cbola-d-trivia-multi__answer-desc">Divorce your partner</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25657">
+        <p class="cbola-d-trivia-multi__answer-desc">Confess guilty to a crime</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25658">
+        <p class="cbola-d-trivia-multi__answer-desc">Buy a house</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25659">
+        <p class="cbola-d-trivia-multi__answer-desc">Declare bankruptcy</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25660">
+        <p class="cbola-d-trivia-multi__answer-desc">$62,000</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25661">
+        <p class="cbola-d-trivia-multi__answer-desc">$3,095</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25662">
+        <p class="cbola-d-trivia-multi__answer-desc">$25</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25663">
+        <p class="cbola-d-trivia-multi__answer-desc">$400</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25676">
+        <p class="cbola-d-trivia-multi__answer-desc">Stolen by family members</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25677">
+        <p class="cbola-d-trivia-multi__answer-desc">Overheated in parked cars</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25678">
+        <p class="cbola-d-trivia-multi__answer-desc">Broken by toddlers</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25679">
+        <p class="cbola-d-trivia-multi__answer-desc">Dropped down the toilet</p>
+      </li>
+    
+  </ul>
+
+  <ul class="cbola-d-trivia-multi__answers-list cbola-page-item cbola-page-item--next cbola-d-trivia-multi__four-answers">
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25672">
+        <p class="cbola-d-trivia-multi__answer-desc">3.4 Samsung Galaxy C</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25673">
+        <p class="cbola-d-trivia-multi__answer-desc">iPhone 6</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25674">
+        <p class="cbola-d-trivia-multi__answer-desc">Nokia 1100</p>
+      </li>
+    
+      <li class="cbola-d-trivia-multi__answer" data-answer-id="25675">
+        <p class="cbola-d-trivia-multi__answer-desc">Android 1.6. Donut</p>
+      </li>
+    
+  </ul>
+</div>
+          <div class="cbola-d-trivia-multi__next-game cbola-fade-out">
+            <div class="cbola-d-trivia-multi__start-next-button">Start Next quiz</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cbola-d-trivia-multi__content-wrapper">
+      <div class="cbola-d-trivia-multi__image-wrapper">
+        <div class="cbola-d-trivia-multi-game-end">
+          <div class="cbola-d-trivia-multi-game-end__container">
+            <div class="cbola-d-trivia-multi-game-end__score-container cbola-ghost-center-container">
+              <div class="cbola-d-trivia-multi-game-end__text cbola-ghost-center-inner">you scored a fair</div>
+              <div class="cbola-d-trivia-multi-game-end__score cbola-ghost-center-inner">5/10</div>
+            </div>
+            <div class="cbola-d-trivia-multi-game-end__challenge">Challenge</div>
+            <div class="cbola-d-trivia-multi-game-end__social-container">
+              <div class="cbola-d-trivia-multi-game-end__your-friends">your friends</div>
+              <div class="cbola-d-trivia-multi-game-end__share">
+                <i class="cbola-fa cbola-fa-facebook"></i>
+                <i class="cbola-fa cbola-fa-twitter"></i>
+              </div>
+            </div>
+            <div class="cbola-d-trivia-multi-game-end__teaser cbola-ghost-center-container">
+              <p class="cbola-d-trivia-multi-game-end__next-quiz cbola-ghost-center-inner">Next quiz starts in:</p>
+              <div class="cbola-spinner-timer__wrapper cbola-d-trivia-multi-game-end__timer-placeholder cbola-ghost-center-inner">
+  <div class="cbola-spinner-timer__time">10</div>
+  <div class="cbola-spinner-timer__strikes">
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+    <svg class="cbola-spinner-timer__section" style="opacity: 0;">
+      <path d="M 1,4 C4.5,3.2 6.5,3.2 10,4"></path>
+    </svg>
+    
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+        <div class="cbola-d-trivia-multi__share">
+          <i class="cbola-fa cbola-fa-facebook"></i>
+          <i class="cbola-fa cbola-fa-twitter"></i>
+        </div>
+        <div class="cbola-d-trivia-multi_image-container">
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--active">
+  
+  <div class="cbola-d-trivia-multi__image" style="background-image: url(&quot;https://media.carambo.la/Images/23527_5_9.jpg&quot;);"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  
+  <div class="cbola-d-trivia-multi__image" style="background-image: url(&quot;https://media.carambo.la/Images/2536_5_9.jpg&quot;);"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+
+<div class="cbola-d-trivia-multi_image-loader cbola-d-trivia-multi__image--next">
+  <div class="cbola-loader"></div>
+  <div class="cbola-d-trivia-multi__image"></div>
+</div>
+</div>
+        <div class="cbola-d-trivia-multi__content-footer">
+          <div class="cbola-d-trivia-multi__progress-wrapper cbola-ghost-center-container">
+            <span class="cbola-d-trivia-multi-footer__your-score cbola-ghost-center-inner">Your score</span>
+            <span class="cbola-d-trivia-multi-footer__score cbola-ghost-center-inner">0</span>
+            <span class="cbola-d-trivia-multi-footer__question cbola-ghost-center-inner">Question</span>
+            <span class="cbola-d-trivia-multi-footer__progress cbola-ghost-center-inner">1/10</span>
+          </div>
+          <div class="cbola-d-trivia-multi__logo-container cbola-ghost-center-container">
+            <div class="cbola-d-trivia-multi__add-this cbola-fade-out">add this widget to your site</div>
+            <div class="cbola-d-trivia-multi__logo cbola-d-trivia-multi__carambola_logo cbola-ghost-center-inner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><div id="cbola-banner-structure-1_4" class="cbola-banner-structure cbola-banner-structure-1_4 unselectDrag cbolaApperanceStyle_4_-1" style="width: 640px; margin-top: 233px; opacity: 1; z-index: 10;">
+  <div class="cbola-banner-preload"></div>
+  <div class="hide-ad-button hide-ad-button-1_0 hide-ad-button-1" elelmid="-1" apperance="4" triggerindex="0"></div>
+  <div id="cbola-banner-1_4" class="cbola-banner cbola-banner-1_4" style="height: 90px; width: 728px; float: none; background-color: transparent; transform-origin: 0px 0px 0px; transform: scale(0.879121);"><div class="cbola-banner__tag cbola-banner__tag--front" data-ad-id="39035" style="height: 90px; width: 728px; background-color: transparent;" data-cbola-tag-id="39035" data-cbola-method="iframe_write"><iframe sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation-by-user-activation" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px !important; margin: 0px !important; vertical-align: bottom; width: 728px; height: 90px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(3).html"></iframe></div></div>
+</div><div id="cbola-banner-structure-1_5" class="cbola-banner-structure cbola-banner-structure-1_5 unselectDrag cbolaApperanceStyle_5_-1" style="transform: translateX(0px); height: 250px;">
+  <div class="cbola-banner-preload"></div>
+  <div class="hide-ad-button hide-ad-button-1_1 hide-ad-button-1 cbola-fade-out" elelmid="-1" apperance="5" triggerindex="1"></div>
+  <div id="cbola-banner-1_5" class="cbola-banner cbola-banner-1_5" style="height: 250px; width: 300px; background-color: transparent;"><div class="cbola-banner__tag cbola-banner__tag--front" data-ad-id="27627" style="height: 250px; width: 300px; background-color: transparent;" data-cbola-tag-id="27627" data-cbola-method="iframe_write"><iframe sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation-by-user-activation" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px !important; margin: 0px !important; vertical-align: bottom; width: 300px; height: 250px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(4).html"></iframe></div></div>
+</div></div>
+</div>
+<!--Carambola Script --> 
+
+                          <h3>About the Author</h3>
+                            <div id="author-info">
+                                <img alt="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/622c70d2908e68ecc070ca6754245bb2" srcset="https://secure.gravatar.com/avatar/622c70d2908e68ecc070ca6754245bb2?s=164&amp;d=mm&amp;r=g 2x" class="avatar avatar-82 photo" height="82" width="82">                                <div class="title">mkyong</div>
+                                Founder of <a href="http://mkyong.com/" rel="nofollow">Mkyong.com</a>, love Java and open source stuff. Follow him on <a href="https://twitter.com/mkyong">Twitter</a>, or befriend him on <a href="http://www.facebook.com/java.tutorial">Facebook</a> or <a href="https://plus.google.com/110948163568945735692?rel=author">Google Plus</a>. If you like my tutorials, consider make a donation to <a href="http://www.mkyong.com/blog/donate-to-charity/">these charities</a>.                            </div>
+
+
+                            <h3>Related Posts</h3>	
+				<input type="hidden" id="mkyong-postId" value="13929">
+							
+				<div class="pvbox-container">
+				    <div class="row">
+					<div class="col-md-8">
+						<div id="related-post" style="display: block;"><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">83k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/eclipse/how-to-configure-hot-deploy-in-eclipse/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=0">How to configure hot deploy in Eclipse</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">9k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/intellij/intellij-idea-how-to-build-project-automatically/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=1">Intellij IDEA - How to build project automatically</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">4k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/intellij/intellij-infinitest-continuous-testing/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=2">Intellij + Infinitest Continuous Testing</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">4k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/intellij-idea-spring-boot-template-reload-is-not-working/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=3">Intellij IDEA - Spring boot template reload is not working</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">6k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/intellij/intellij-idea-run-debug-web-application-on-tomcat/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=4">IntelliJ IDEA - Run / debug web application on Tomcat</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">2k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/intellij/eclipse-ctrl-t-in-intellij-idea/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=5">Eclipse Ctrl + T in IntelliJ IDEA</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">3k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/intellij/eclipse-ctrl-shift-o-in-intellij-idea/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=6">Eclipse Ctrl + Shift + O in IntelliJ IDEA</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">3k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/intellij/intellij-idea-how-to-know-this-class-belongs-to-which-jar/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=7">IntelliJ IDEA - How to know this class belongs to which JAR</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-2"><div class="pvbox kformat">6k</div></div><div class="col-xs-13 col-md-13 no-left-right-padding"><a href="https://www.mkyong.com/gradle/gradle-is-not-sync-with-intellij-idea/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=related-post&amp;utm_content=8">Gradle is not sync with IntelliJ IDEA</a></div></div></div>
+					</div>
+					<div class="col-md-7">
+					  <div class="align-center">
+						<div class="ads-after-post">
+
+						</div>
+					  </div>
+					</div>
+                                        
+				    </div>
+				</div>
+                           
+
+                            <div class="clearfix"></div>
+
+			<h3>Popular Posts</h3>
+			<div class="hide_if_width_less_800">
+				<div id="top-articles-below-author" style="display: block;"><div class="pvbox-container"><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">551k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=1">How to validate email address with regular expression</a></div><div class="col-md-1"><div class="pvbox kformat">822k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=2">How to create a Web Application Project with Maven</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">602k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/java/how-do-loop-iterate-a-list-in-java/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=3">How to loop / iterate a List in Java</a></div><div class="col-md-1"><div class="pvbox kformat">517k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/android/android-gridview-example/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=4">Android GridView example</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox mformat">1.1m</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/tutorials/jsf-2-0-tutorials/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=5">JSF 2.0 Tutorial</a></div><div class="col-md-1"><div class="pvbox kformat">593k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/tutorials/spring-batch-tutorial/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=6">Spring Batch Tutorial</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox mformat">1.1m</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/tutorials/jax-ws-tutorials/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=7">JAX-WS Tutorial</a></div><div class="col-md-1"><div class="pvbox mformat">1.7m</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/java/how-to-convert-java-object-to-from-json-jackson/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=8">How to convert Java object to / from JSON (Jackson)</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">725k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/spring/spring-auto-wiring-beans-with-autowired-annotation/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=9">Spring Auto-Wiring Beans with @Autowired annotation</a></div><div class="col-md-1"><div class="pvbox kformat">528k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/tomcat/how-to-change-tomcat-default-port/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=10">How to change Tomcat default port ?</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">645k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/java/how-do-convert-byte-array-to-string-in-java/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=11">how to convert Byte[] array to String in Java</a></div><div class="col-md-1"><div class="pvbox kformat">583k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/java/how-to-write-to-file-in-java-fileoutputstream-example/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=12">How to write to file in Java - FileOutputStream</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">650k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/java/how-to-compare-dates-in-java/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=13">How to compare dates in Java</a></div><div class="col-md-1"><div class="pvbox kformat">527k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/hibernate/hibernate-criteria-examples/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=14">Hibernate Criteria examples </a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">564k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/jdbc/how-to-connect-to-mysql-with-jdbc-driver-java/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=15">Connect to MySQL with JDBC driver</a></div><div class="col-md-1"><div class="pvbox kformat">679k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/android/android-imageview-example/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=16">Android ImageView example</a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">525k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/featured/top-5-free-java-ebooks/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=17">Top 5 free Java ebooks</a></div><div class="col-md-1"><div class="pvbox kformat">501k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/hibernate/hibernate-one-to-many-relationship-example/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=18">Hibernate - One-to-Many example (XML Mapping) </a></div></div><div class="row row-margin-bottom"><div class="col-md-1"><div class="pvbox kformat">995k</div></div><div class="col-md-6 no-left-right-padding"><a href="https://www.mkyong.com/java/how-to-convert-string-to-date-java/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=19">How to convert String to Date - Java</a></div><div class="col-md-1"><div class="pvbox kformat">582k</div></div><div class="col-md-7 no-left-right-padding"><a href="https://www.mkyong.com/spring/maven-spring-jdbc-example/?utm_source=mkyong&amp;utm_medium=author&amp;utm_campaign=top-pv&amp;utm_content=20">Spring + JDBC example</a></div></div></div></div>
+			</div>
+
+                            <div id="comment" minlength="15" maxlength="15360">
+                               
+    <div class="wpdiscuz_top_clearing"></div>
+                    <div id="comments" class="comments-area">
+                    <div id="respond" style="width: 0;height: 0;clear: both;margin: 0;padding: 0;"></div>
+                            <h3 id="wc-comment-header">Leave a Reply</h3>
+                <div id="wpcomm" class="wpdiscuz_unauth">
+                                    <div class="wc_social_plugin_wrapper">
+                            </div>
+                    <div class="wc-form-wrapper wc-main-form-wrapper" id="wc-main-form-wrapper-0_0">
+            <div class="wpdiscuz-comment-message" style="display: block;"></div>
+                                        <form class="wc_comm_form wc_main_comm_form" method="post" enctype="multipart/form-data">
+                    <div class="wc-field-comment">
+                                                                                    <div class="wc-field-avatararea">
+                            <img alt="avatar" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource" srcset="https://secure.gravatar.com/avatar/?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo avatar-default" height="48" width="48">                            </div>
+                                                <div class="wpdiscuz-item wc-field-textarea">
+                            <div class="wpdiscuz-textarea-wrap ">
+                                <textarea id="wc-textarea-0_0" placeholder="Join the discussion" required="" name="wc_comment" class="wc_comment wpd-field"></textarea>
+                                                                                                </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="wc-form-footer" style="display: none;"> 
+                                <div class="wpd-form-row">
+                    <div class="wpd-form-col-left">
+                        <div class="wpdiscuz-item wpd-has-icon">
+                                <div class="wpd-field-icon"><i class="fa fa-user"></i></div>
+                                                <input required="required" class="wc_name wpd-field" type="text" name="wc_name" value="" placeholder="Name" maxlength="50" pattern=".{3,50}" title="">
+                            </div>
+                        <div class="wpdiscuz-item wpd-has-icon">
+                                    <div class="wpd-field-icon"><i class="fa fa-at"></i></div>
+                                                <input required="required" class="wc_email wpd-field" type="email" name="wc_email" value="" placeholder="Email">
+                            </div>
+                            <div class="wpdiscuz-item wpd-has-icon">
+                                        <div class="wpd-field-icon"><i class="fa fa-link"></i></div>
+                                        <input class="wc_website wpd-field" type="text" name="wc_website" value="" placeholder="Website">
+                                    </div>
+                        </div>
+                <div class="wpd-form-col-right">
+                    <div class="wc-field-submit">
+                                                <div class="wc_notification_checkboxes" style="display:block">
+                                                    <input id="wc_notification_new_comment-0_0" class="wc_notification_new_comment-0_0" value="comment" type="checkbox" name="wpdiscuz_notification_type"> <label class="wc-label-comment-notify" for="wc_notification_new_comment-0_0">Notify of new replies to this comment</label><br>
+                                                </div>
+                                        <input class="wc_comm_submit wc_not_clicked button alt" type="submit" name="submit" value="Post Comment">
+        </div>
+                </div>
+                    <div class="clearfix"></div>
+        </div>
+                            </div>
+                    <div class="clearfix"></div>
+                    <input type="hidden" class="wpdiscuz_unique_id" value="0_0" name="wpdiscuz_unique_id">
+                </form>
+                        </div>
+                <div id="wpdiscuz_hidden_secondary_form" style="display: none;">
+                    <div class="wc-form-wrapper wc-secondary-form-wrapper" id="wc-secondary-form-wrapper-wpdiscuzuniqueid" style="display: none;">
+            <div class="wpdiscuz-comment-message" style="display: block;"></div>
+                            <div class="wc-secondary-forms-social-content"></div>
+                                        <form class="wc_comm_form wc-secondary-form-wrapper" method="post" enctype="multipart/form-data">
+                    <div class="wc-field-comment">
+                                                                                    <div class="wc-field-avatararea">
+                            <img alt="avatar" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource" srcset="https://secure.gravatar.com/avatar/?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo avatar-default" height="48" width="48">                            </div>
+                                                <div class="wpdiscuz-item wc-field-textarea">
+                            <div class="wpdiscuz-textarea-wrap ">
+                                <textarea id="wc-textarea-wpdiscuzuniqueid" placeholder="Join the discussion" required="" name="wc_comment" class="wc_comment wpd-field"></textarea>
+                                                                                                </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="wc-form-footer" style="display: none;"> 
+                                <div class="wpd-form-row">
+                    <div class="wpd-form-col-left">
+                        <div class="wpdiscuz-item wpd-has-icon">
+                                <div class="wpd-field-icon"><i class="fa fa-user"></i></div>
+                                                <input required="required" class="wc_name wpd-field" type="text" name="wc_name" value="" placeholder="Name" maxlength="50" pattern=".{3,50}" title="">
+                            </div>
+                        <div class="wpdiscuz-item wpd-has-icon">
+                                    <div class="wpd-field-icon"><i class="fa fa-at"></i></div>
+                                                <input required="required" class="wc_email wpd-field" type="email" name="wc_email" value="" placeholder="Email">
+                            </div>
+                            <div class="wpdiscuz-item wpd-has-icon">
+                                        <div class="wpd-field-icon"><i class="fa fa-link"></i></div>
+                                        <input class="wc_website wpd-field" type="text" name="wc_website" value="" placeholder="Website">
+                                    </div>
+                        </div>
+                <div class="wpd-form-col-right">
+                    <div class="wc-field-submit">
+                                                <div class="wc_notification_checkboxes" style="display:block">
+                                                    <input id="wc_notification_new_comment-wpdiscuzuniqueid" class="wc_notification_new_comment-wpdiscuzuniqueid" value="comment" type="checkbox" name="wpdiscuz_notification_type"> <label class="wc-label-comment-notify" for="wc_notification_new_comment-wpdiscuzuniqueid">Notify of new replies to this comment</label><br>
+                                                </div>
+                                        <input class="wc_comm_submit wc_not_clicked button alt" type="submit" name="submit" value="Post Comment">
+        </div>
+                </div>
+                    <div class="clearfix"></div>
+        </div>
+                            </div>
+                    <div class="clearfix"></div>
+                    <input type="hidden" class="wpdiscuz_unique_id" value="wpdiscuzuniqueid" name="wpdiscuz_unique_id">
+                </form>
+                        </div>
+                </div>
+                    
+
+                        
+                                    <div class="wpdiscuz-front-actions">
+                        <div class="wpdiscuz-sort-buttons" style="font-size:14px;">Sort by: &nbsp;
+                            <span class="wpdiscuz-sort-button wpdiscuz-date-sort-desc">newest</span> | 
+                            <span class="wpdiscuz-sort-button wpdiscuz-date-sort-asc">oldest</span>
+                                                            | <span class="wpdiscuz-sort-button wpdiscuz-vote-sort-up wpdiscuz-sort-button-active">most voted</span>
+                                                    </div>
+                    </div>
+                
+                                <div id="wcThreadWrapper" class="wc-thread-wrapper">
+                    <div id="wc-comm-1051657_0" class="wc-comment wc-blog-guest wc_comment_level-1"><div class="wc-comment-left "><img alt="hello" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/8abf5bc29eb812340b9b08ed41142f27" srcset="https://secure.gravatar.com/avatar/8abf5bc29eb812340b9b08ed41142f27?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><div class="wc-blog-guest wc-comment-label"><span>Guest</span></div></div><div id="comment-1051657" class="wc-comment-right "><div class="wc-comment-header"><div class="wc-comment-author ">hello</div><div class="wc-comment-link"></div><div class="wpdiscuz_clear"></div></div><div class="wc-comment-text"><p>will it work in multi-module maven project?</p>
+</div><div class="wc-comment-footer"><div class="wc-footer-left"><span class="wc-vote-link wc-up  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-up fa-flip-horizontal wc-vote-img-up"></i><span>Vote Up</span></span><span class="wc-vote-result">0</span><span class="wc-vote-link wc-down  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-down wc-vote-img-down"></i><span>Vote Down</span></span>&nbsp;<span class="wc-reply-button wc-cta-button" title="Reply"><i class="fa fa-reply" aria-hidden="true"></i> Reply</span></div><div class="wc-footer-right"><div class="wc-comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i>9 months 19 days ago</div><div class="wc-toggle"><i class="fa fa-chevron-up" aria-hidden="true" title="Hide Replies"></i></div></div><div class="wpdiscuz_clear"></div></div></div><div class="wpdiscuz-comment-message"></div><div id="wpdiscuz_form_anchor-1051657_0" style="clear:both"></div><div id="wc-comm-1052256_1051657" class="wc-comment wc-reply wc-blog-guest wc_comment_level-2"><div class="wc-comment-left "><img alt="Andrey" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/72598de644ef7c05572172d0ff7666a4" srcset="https://secure.gravatar.com/avatar/72598de644ef7c05572172d0ff7666a4?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><div class="wc-blog-guest wc-comment-label"><span>Guest</span></div></div><div id="comment-1052256" class="wc-comment-right "><div class="wc-comment-header"><div class="wc-comment-author ">Andrey</div><div class="wc-comment-link"></div><div class="wpdiscuz_clear"></div></div><div class="wc-comment-text"><p>It doesn’t help to me. Are you shure that this is related with multi-midule project?</p>
+</div><div class="wc-comment-footer"><div class="wc-footer-left"><span class="wc-vote-link wc-up  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-up fa-flip-horizontal wc-vote-img-up"></i><span>Vote Up</span></span><span class="wc-vote-result">0</span><span class="wc-vote-link wc-down  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-down wc-vote-img-down"></i><span>Vote Down</span></span>&nbsp;<span class="wc-reply-button wc-cta-button" title="Reply"><i class="fa fa-reply" aria-hidden="true"></i> Reply</span></div><div class="wc-footer-right"><div class="wc-comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i>3 months 28 days ago</div><div class="wc-toggle wpdiscuz-hidden"><i class="fa fa-chevron-up" aria-hidden="true" title="Hide Replies"></i></div></div><div class="wpdiscuz_clear"></div></div></div><div class="wpdiscuz-comment-message"></div><div id="wpdiscuz_form_anchor-1052256_1051657" style="clear:both"></div></div></div><div id="wc-comm-1050703_0" class="wc-comment wc-blog-guest wc_comment_level-1"><div class="wc-comment-left "><img alt="Ömer Hakan Bilici" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/6f66046eb1fbb5642b053f7d9a08cec7" srcset="https://secure.gravatar.com/avatar/6f66046eb1fbb5642b053f7d9a08cec7?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><div class="wc-blog-guest wc-comment-label"><span>Guest</span></div></div><div id="comment-1050703" class="wc-comment-right "><div class="wc-comment-header"><div class="wc-comment-author ">Ömer Hakan Bilici</div><div class="wc-comment-link"></div><div class="wpdiscuz_clear"></div></div><div class="wc-comment-text"><p>Is that settings has limitations like Eclipse hot swap you referenced? Or jdk version? </p>
+</div><div class="wc-comment-footer"><div class="wc-footer-left"><span class="wc-vote-link wc-up  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-up fa-flip-horizontal wc-vote-img-up"></i><span>Vote Up</span></span><span class="wc-vote-result">0</span><span class="wc-vote-link wc-down  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-down wc-vote-img-down"></i><span>Vote Down</span></span>&nbsp;<span class="wc-reply-button wc-cta-button" title="Reply"><i class="fa fa-reply" aria-hidden="true"></i> Reply</span></div><div class="wc-footer-right"><div class="wc-comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i>1 year 5 months ago</div><div class="wc-toggle"><i class="fa fa-chevron-up" aria-hidden="true" title="Hide Replies"></i></div></div><div class="wpdiscuz_clear"></div></div></div><div class="wpdiscuz-comment-message"></div><div id="wpdiscuz_form_anchor-1050703_0" style="clear:both"></div><div id="wc-comm-1050724_1050703" class="wc-comment wc-reply wc-blog-guest wc_comment_level-2"><div class="wc-comment-left "><img alt="mercenario" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/0824b30e1815ddcaa7ac672c1d0cdaed" srcset="https://secure.gravatar.com/avatar/0824b30e1815ddcaa7ac672c1d0cdaed?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><div class="wc-blog-guest wc-comment-label"><span>Guest</span></div></div><div id="comment-1050724" class="wc-comment-right "><div class="wc-comment-header"><div class="wc-comment-author ">mercenario</div><div class="wc-comment-link"></div><div class="wpdiscuz_clear"></div></div><div class="wc-comment-text"><p>The same limitations :p</p>
+</div><div class="wc-comment-footer"><div class="wc-footer-left"><span class="wc-vote-link wc-up  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-up fa-flip-horizontal wc-vote-img-up"></i><span>Vote Up</span></span><span class="wc-vote-result">0</span><span class="wc-vote-link wc-down  wc_vote wc_not_clicked wc_tooltipster"><i class="fa fa-thumbs-down wc-vote-img-down"></i><span>Vote Down</span></span>&nbsp;<span class="wc-reply-button wc-cta-button" title="Reply"><i class="fa fa-reply" aria-hidden="true"></i> Reply</span></div><div class="wc-footer-right"><div class="wc-comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i>1 year 5 months ago</div><div class="wc-toggle wpdiscuz-hidden"><i class="fa fa-chevron-up" aria-hidden="true" title="Hide Replies"></i></div></div><div class="wpdiscuz_clear"></div></div></div><div class="wpdiscuz-comment-message"></div><div id="wpdiscuz_form_anchor-1050724_1050703" style="clear:both"></div></div></div>                
+                    <div class="wpdiscuz-comment-pagination">
+                                            </div>
+                </div>
+                <div class="wpdiscuz_clear"></div>
+                                                                                </div>
+        </div>
+        <div class="wpdiscuz-loading-bar wpdiscuz-loading-bar-unauth"><img class="wpdiscuz-loading-bar-img" alt="wpDiscuz" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/loading.gif" width="32" height="25"></div>
+        
+                            </div>
+                            <!-- /#comment -->
+
+                        </article>
+                        <!-- /.article -->
+
+                    
+                </div>
+                <!-- /.left-container -->
+
+                <!-- google_ad_section_end -->
+
+            </div>
+            <!-- /.col-md-11 -->
+
+            <div class="col-md-4">
+                <div id="right-container">
+                    <div id="sidebar">
+
+    <div class="sidebar-box align-center hide_if_width_less_300">
+
+        <div class="box">
+
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<!-- Sidebar - 300x250 - 1st position -->
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2836379775501347" data-ad-slot="7072877400" data-ad-region="mkyongregion" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_3_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(5).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+    </div>
+
+    <div class="sidebar-box align-center hide_if_width_less_300">
+        <div class="box">
+
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<!-- Sidebar - 300x250 - 2nd position -->
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2836379775501347" data-ad-slot="5738517670" data-ad-region="mkyongregion" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_4_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(6).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+    </div>
+
+    <div class="sidebar-box align-center hide_if_width_less_300">
+        <div class="box">
+           <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/java.tutorial" data-width="300" data-height="250" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" fb-xfbml-state="parsed" fb-iframe-plugin-query="app_id=265494296867482&amp;container_width=0&amp;height=250&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fjava.tutorial&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;width=300"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="ff34f913a3982c" width="300px" height="250px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/page.html" style="border: none; visibility: hidden;"></iframe></span></div>
+        </div>
+    </div>
+
+        
+    <div class="sidebar-box align-center hide_if_width_less_800">
+        <div class="box">
+         
+           <div data-type="ad" data-publisher="lqm.j2ee.site" data-zone="ron" data-format="300x250" data-tags="Java%2cSpring%2cAndroid%2cMobile%2cjQuery%2cUnit%20Test%2cASP.NET%20MVC%2cDI%2cTDD"><div id="div-gpt-ad-lqm.j2ee.site/ron-1" data-google-query-id="CIagzcmq9NQCFUJ5vQodh_UCHQ" style="height: 250px; width: 300px; box-sizing: border-box; border: 0px; font-size: 0px;"><div id="google_ads_iframe_/6839/lqm.j2ee.site/ron_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/6839/lqm.j2ee.site/ron_0" title="3rd party ad content" name="google_ads_iframe_/6839/lqm.j2ee.site/ron_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(7).html"></iframe></div></div></div>
+
+        </div>
+    </div>
+
+    <div class="sidebar-box align-center hide_if_width_less_800">
+        <div class="box">
+
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<!-- Sidebar - 300x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-2836379775501347" data-ad-slot="7953295395" data-ad-region="mkyongregion" data-adsbygoogle-status="done"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_5_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;width:300px;height:600px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(8).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+    </div>
+
+    <div class="sidebar-box align-center hide_if_width_less_800">
+        <div class="box">
+
+<div data-type="ad" data-publisher="lqm.j2ee.site" data-zone="ron" data-format="160x600" data-tags="Java%2cSpring%2cAndroid%2cMobile%2cjQuery%2cUnit%20Test%2cASP.NET%20MVC%2cDI%2cTDD"><div id="div-gpt-ad-lqm.j2ee.site/ron-2" data-google-query-id="CI-gzcmq9NQCFcKVvQodAssPJQ" style="height: 600px; width: 160px; box-sizing: border-box; border: 0px; font-size: 0px;"><div id="google_ads_iframe_/6839/lqm.j2ee.site/ron_1__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/6839/lqm.j2ee.site/ron_1" title="3rd party ad content" name="google_ads_iframe_/6839/lqm.j2ee.site/ron_1" width="160" height="600" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(9).html"></iframe></div></div></div>
+
+        </div>
+    </div>
+
+    
+   <div class="sidebar-box">
+	<div class="title">Rising Posts (100k-500k pv)</div>
+	<div id="sidebar-rising-post-100k" style="display: block;"><div class="pvbox-container"><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+7.3k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java8/java-8-streams-filter-examples/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=0">Java 8 Streams filter examples</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+6.3k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java/java-convert-string-to-int/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=1">Java - Convert String to int</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+5.2k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java8/java-8-lambda-comparator-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=2">Java 8 Lambda : Comparator example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4.9k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java/java-enum-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=3">Java enum example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+3.6k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java/how-to-set-java_home-on-windows-10/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=4">How to set java_home on Windows 10?</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+3.2k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=5">Java 8 – Stream Collectors groupingBy examples</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+3.1k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/javascript/how-to-access-json-object-in-javascript/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=6">How to access JSON object in JavaScript</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+2.9k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring/spring-propertysources-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=7">Spring @PropertySource example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+2.6k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring3/spring-value-default-value/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=8">Spring @Value default value</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+2.6k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java8/java-8-filter-a-map-examples/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=9">Java 8 - Filter a Map examples</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+2.5k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/webservices/jax-rs/restful-java-client-with-apache-httpclient/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=100k-500k&amp;utm_content=10">RESTful Java client with Apache HttpClient</a></div></div></div></div>
+   </div>
+
+   <div class="sidebar-box">
+	<div class="title">Rising Posts (10k-99k pv)</div>
+	<div id="sidebar-rising-post-10k" style="display: block;"><div class="pvbox-container"><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+55.4k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-spring-data-jpa-oracle-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=0">Spring Boot + Spring Data JPA + Oracle example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+22.7k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-spring-data-mongodb-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=1">Spring Boot + Spring Data MongoDB example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+17.4k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=2">Spring Boot + Spring Security + Thymeleaf example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+15.5k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-profiles-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=3">Spring Boot Profiles example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+10.5k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-show-hibernate-sql-query/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=4">Spring Boot - Show Hibernate SQL query</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+10.2k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-data/spring-data-add-custom-method-to-repository/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=5">Spring Data - Add custom method to Repository</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+6.3k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/tutorials/spring-boot-tutorials/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=6">Spring Boot Tutorials</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4.8k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java8/java-8-streams-map-examples/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=7">Java 8 Streams map() examples</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4.7k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=8">Apache POI – Reading and Writing Excel file in Java</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4.5k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-hello-world-example-jsp/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=9">Spring Boot Hello World Example - JSP</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/tutorials/java-8-tutorials/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=10k-100k&amp;utm_content=10">Java 8 Tutorials</a></div></div></div></div>
+   </div>
+
+    <div class="sidebar-box">
+	<div class="title">Rising Posts (&lt;10k pv)</div>
+	<div id="sidebar-rising-post-0k" style="display: block;"><div class="pvbox-container"><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+7.3k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/spring-boot/spring-boot-test-how-to-stop-debug-logs/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=0">Spring Boot Test - How to stop DEBUG logs</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+6.4k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/solr/apache-solr-hello-world-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=1">Apache Solr Hello World Example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+6k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/jpa/jpa-optimistic-lock-exception-in-java-development/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=2">JPA optimistic lock exception in Java Development</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4.6k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/swing/java-swing-joptionpane-showinputdialog-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=3">Java Swing - JOptionPane showInputDialog example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+4.2k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/swing/java-swing-jfilechooser-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=4">Java Swing - JFileChooser example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+3.1k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/javafx/javafx-animated-ball-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=5">JavaFX Animated Ball Example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+2.1k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/swing/java-swing-joptionpane-showoptiondialog-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=6">Java Swing - JOptionPane showOptionDialog example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+1.6k</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/swing/java-swing-keep-dialog-window-up/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=7">Java Swing – Keep dialog window up</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+889</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/maven/jacoco-java-code-coverage-maven-example/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=8">JaCoCo Java Code Coverage + Maven example</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+777</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/awt/java-awt-drawing-rectangle-line-and-circle/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=9">Java AWT - Drawing rectangle, line and circle</a></div></div><div class="row row-margin-bottom"><div class="col-xs-2 col-md-3"><div class="pvbox kformat">+736</div></div><div class="col-xs-13 col-md-12 no-left-right-padding"><a href="https://www.mkyong.com/maven/how-to-tell-maven-to-use-java-8/?utm_source=mkyong&amp;utm_medium=sidebar&amp;utm_campaign=0-10k&amp;utm_content=10">How to tell Maven to use Java 8</a></div></div></div></div>
+    </div>
+
+<div class="sidebar-box hide_if_width_less_800">
+<!-- google recommend -->
+<script async="" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display: block; height: 1032px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-2836379775501347" data-ad-slot="3110889791" data-adsbygoogle-status="done"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:1032px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_6_anchor" style="display:block;border:none;height:1032px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="1032" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_6" name="aswift_6" style="left:0;position:absolute;top:0;width:300px;height:1032px;" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(10).html"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+</div>
+<!-- ./sidebar -->                </div>
+            </div>
+            <!-- /.col-md-4 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+ </div>
+<!-- /#post-container -->
+<div class="align-center background-grey" style="width:100%;height:100%;padding:20px 0">
+  <div data-type="ad" data-publisher="lqm.j2ee.site" data-zone="ron" data-format="728x90" data-tags="Java%2cSpring%2cAndroid%2cMobile%2cjQuery%2cUnit%20Test%2cASP.NET%20MVC%2cDI%2cTDD"></div>
+</div>
+
+<footer>
+
+    <div id="footer-main">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-5 footer-widget">
+
+                    <h4>Favorites Links</h4>
+
+                    <div class="menu-fav-links-container"><ul id="menu-fav-links" class="menu"><li id="menu-item-13669" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13669"><a href="http://developer.android.com/training/index.html">Android Getting Started</a></li>
+<li id="menu-item-13670" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13670"><a href="https://cloud.google.com/appengine/docs/java/">Google App Engine – Java</a></li>
+<li id="menu-item-13671" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13671"><a href="http://docs.spring.io/spring/docs/2.5.x/reference/index.html">Spring 2.5.x Documentation</a></li>
+<li id="menu-item-13672" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13672"><a href="http://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/">Spring 3.2.x Documentation</a></li>
+<li id="menu-item-13673" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13673"><a href="http://docs.spring.io/spring/docs/4.1.x/spring-framework-reference/html/">Spring 4.1.x Documentation</a></li>
+<li id="menu-item-13675" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13675"><a href="http://docs.oracle.com/javaee/5/tutorial/doc/docinfo.html">Java EE 5 Tutorial</a></li>
+<li id="menu-item-13676" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13676"><a href="http://docs.oracle.com/javaee/6/tutorial/doc/docinfo.html">Java EE 6 Tutorial</a></li>
+<li id="menu-item-13677" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13677"><a href="https://docs.oracle.com/javaee/7/tutorial/index.html">Java EE 7 Tutorial</a></li>
+<li id="menu-item-13678" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13678"><a href="http://docs.oracle.com/javase/6/docs/api/overview-summary.html">Java 6 API</a></li>
+<li id="menu-item-13679" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13679"><a href="http://docs.oracle.com/javase/7/docs/api/overview-summary.html">Java 7 API</a></li>
+<li id="menu-item-13680" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13680"><a href="http://docs.oracle.com/javase/8/docs/api/overview-summary.html">Java 8 API</a></li>
+<li id="menu-item-14082" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14082"><a href="http://docs.oracle.com/javase/tutorial/index.html">Oracle J2SE Tutorials</a></li>
+<li id="menu-item-13681" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13681"><a href="https://javaserverfaces.java.net/">JSF Home Page</a></li>
+<li id="menu-item-13682" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13682"><a href="https://jsp.java.net/">JSP Home Page</a></li>
+<li id="menu-item-13674" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13674"><a href="http://search.maven.org/">Maven Central Repository</a></li>
+<li id="menu-item-14083" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14083"><a href="https://docs.gradle.org/current/userguide/userguide.html">Gradle User Guide</a></li>
+<li id="menu-item-13683" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13683"><a href="http://hibernate.org/orm/">Hibernate ORM</a></li>
+<li id="menu-item-13684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13684"><a href="https://jax-ws.java.net/">JAX-WS Home Page</a></li>
+<li id="menu-item-13685" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13685"><a href="https://jax-ws.java.net/">JAX-RS Home Page (Jersey)</a></li>
+<li id="menu-item-14084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14084"><a href="http://tomcat.apache.org/tomcat-8.0-doc/index.html">Tomcat 8 Documentation</a></li>
+</ul></div>
+                </div>
+                <!-- /.col-md-5 -->
+
+                <div class="col-md-5 footer-widget">
+
+                    <h4>Partners</h4>
+
+                    <div class="menu-partners-container"><ul id="menu-partners" class="menu"><li id="menu-item-13686" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13686"><a title="JAX London" href="https://jaxlondon.com/?utm_source=mkyong.com&amp;utm_medium=referral&amp;utm_campaign=mediapartner">JAX London</a></li>
+<li id="menu-item-13664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13664"><a href="http://www.javacodegeeks.com/">Java Code Geeks</a></li>
+</ul></div>
+<br>
+
+<br>
+
+
+                </div>
+                <!-- /.col-md-5 -->
+
+                <div class="col-md-5 footer-widget">
+
+                    <h4>About Mkyong.com</h4>
+
+                    <p>Mkyong.com is for Java and J2EE developers, all examples are simple and easy to understand, and well tested in my development environment.
+                    </p>
+                    <p>
+                        Mkyong.com is created, written by, and maintained by Yong Mook Kim, aka Mkyong.
+                        It is built on <a href="https://wordpress.org/" target="_blank">WordPress</a>, hosted by <a href="https://www.liquidweb.com/?RID=mkyong" target="_blank">Liquid Web</a>,
+                        and the caches are served by CloudFlare CDN.
+                    </p>
+
+                </div>
+                <!-- /.col-md-5 -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.footer-main -->
+
+    <div id="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-15">
+                    Copyright © 2008-2017 Mkyong.com, all rights reserved. <a href="https://www.mkyong.com/privacy-policy/">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<script type="text/javascript">
+/* <![CDATA[ */
+r3f5x9JS=escape(document['referrer']);
+hf4N='2c54e360d53b1c95967e0da661fab092';
+hf4V='a5dc0a7d4f9cc53aa17ea45f2d76fe73';
+cm4S="form[action='https://www.mkyong.com/wp-comments-post.php']";
+jQuery(document).ready(function($){var e="#commentform, .comment-respond form, .comment-form, "+cm4S+", #lostpasswordform, #registerform, #loginform, #login_form, #wpss_contact_form";$(e).submit(function(){$("<input>").attr("type","hidden").attr("name","r3f5x9JS").attr("value",r3f5x9JS).appendTo(e);$("<input>").attr("type","hidden").attr("name",hf4N).attr("value",hf4V).appendTo(e);return true;});$("#comment").attr({minlength:"15",maxlength:"15360"})});
+/* ]]> */
+</script> 
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jquery.form.min.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jquery.min.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/prism.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/mk-utils-v2.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/jscripts-ftr-min.js"></script>
+<script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/wp-embed.min.js"></script>
+
+        <!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-752408-5', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<!-- Google Analytics -->
+
+	<!-- Developer Media -->
+	<script type="text/javascript">
+	    function _dmBootstrap(file) { 
+	        var _dma = document.createElement('script');  
+	        _dma.type = 'text/javascript'; 
+	        _dma.async = true;  
+	        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file; 
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+	    }
+	    function _dmFollowup(file) { if (typeof DMAds === 'undefined')  _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js');}
+	    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000);})();
+	</script>
+	<!-- Developer Media -->
+
+	<!-- Facebook SDK -->
+	<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/XBwzv5Yrm_1.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=265494296867482&version=v2.3";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Facebook SDK -->
+
+        <script type="text/javascript" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/brand"></script>
+
+</footer>
+<!-- /.footer -->
+
+
+<!-- end of body -->
+<iframe width="1" height="1" src="./Intellij IDEA – Auto reload a web application (hot deploy)_files/saved_resource(11).html" id="DMGlobalUserIdetifierIFRAME" name="DMGlobalUserIdetifierIFRAME" style="display: none;"></iframe></body></html>

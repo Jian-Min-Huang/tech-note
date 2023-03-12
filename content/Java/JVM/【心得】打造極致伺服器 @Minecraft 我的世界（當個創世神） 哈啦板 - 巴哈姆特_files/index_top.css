@@ -1,0 +1,249 @@
+.TOP-nologin > a {
+  display: block;
+  float: left;
+  margin-right: 8px;
+}
+
+.TOP-nologin > a img {
+  display: block;
+  height: 25px;
+  width: auto;
+}
+
+.TOP-nologin ul {
+  float: left;
+}
+
+.TOP-my {
+  float: right;
+}
+
+.TOP-my img {
+  display: block;
+  height: 25px;
+  width: auto;
+}
+
+.TOP-my ul:before, .TOP-my ul:after {
+  content: "";
+  display: table;
+}
+
+.TOP-my ul:after {
+  clear: both;
+}
+
+.TOP-my ul > li {
+  float: left;
+  border-left: 1px solid;
+}
+
+.TOP-my ul > li a {
+  display: block;
+  padding: 0px 12px;
+  font-size: 13px;
+  background: transparent;
+  text-align: center;
+}
+
+.TOP-my ul > li a:hover, .TOP-my ul > li a:active, .TOP-my ul > li a:focus {
+  text-decoration: none;
+}
+
+.TOP-my ul > li a:before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  font-size: 18px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.TOP-my ul > li a#topBar_more:before {
+  content: "\f0c9";
+}
+
+.TOP-my ul > li a#topBar_forum:before {
+  content: "\f02c";
+}
+
+.TOP-my ul > li a#topBar_guild:before {
+  content: "\f024";
+}
+
+.TOP-my ul > li a#topBar_mailbox:before {
+  content: "\f0e0";
+}
+
+.TOP-my ul > li a#topBar_api:before {
+  content: "\f11b";
+}
+
+.TOP-btn {
+  display: block;
+  float: right;
+}
+
+.TOP-btn a {
+  float: left;
+  display: block;
+  position: relative;
+  padding: 0 6px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.TOP-btn a span {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  border-radius: 2px;
+  padding: 2px 3px;
+  background-color: #FF0000;
+  font-size: 12px;
+  line-height: 1em;
+  color: #FFF;
+  -webkit-transform: scale(0.9, 0.9);
+          transform: scale(0.9, 0.9);
+}
+
+.TOP-btn a:before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  font-size: 19px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.TOP-btn a.topb1:before {
+  content: "\f028";
+}
+
+.TOP-btn a.topb2:before {
+  content: "\f143";
+}
+
+.TOP-btn a.topb3:before {
+  content: "\f164";
+}
+
+.TOP-my img {
+  position: relative;
+  top: 4px;
+}
+
+.TOP-my ul > li {
+  border-color: #249db8;
+}
+
+.TOP-my ul > li a {
+  height: 35px;
+  line-height: 35px;
+  color: #FFF;
+}
+
+.TOP-my ul > li a:before {
+  color: #FFF;
+}
+
+.TOP-my ul > li a:hover, .TOP-my ul > li a.topbnow {
+  background: #249db8;
+}
+
+.TOP-btn a {
+  height: 35px;
+  line-height: 35px;
+}
+
+.TOP-btn a.topbnow1:before, .TOP-btn a.topbnow2:before, .TOP-btn a.topbnow3:before {
+  color: #FFF;
+}
+
+.TOP-btn a:before {
+  color: #0c5d72;
+}
+
+.TOP-btn a:hover, .TOP-btn a.topbnow {
+  background: #249db8;
+}
+
+.TOP-my ul > li a#topBar_more img,
+.TOP-my ul > li a#topBar_forum img,
+.TOP-my ul > li a#topBar_guild img,
+.TOP-my ul > li a#topBar_mailbox img,
+.TOP-my ul > li a#topBar_api img {
+  display: none;
+}
+
+.BA-top .TOP-my ul li {
+  border-left: 1px dotted;
+  border-color: #79bbca;
+}
+
+.BA-top .TOP-my ul li a {
+  color: #595959;
+}
+
+.BA-top .TOP-my ul li a:hover {
+  color: #249db8;
+}
+
+.BA-top .TOP-my ul li a.topb1now:before, .BA-top .TOP-my ul li a.topb2now:before, .BA-top .TOP-my ul li a.topb3now:before, .BA-top .TOP-my ul li a.topbnow1:before, .BA-top .TOP-my ul li a.topbnow2:before, .BA-top .TOP-my ul li a.topbnow3:before {
+  color: #FFF;
+}
+
+.BA-top .TOP-my ul li a:before {
+  color: #595959;
+}
+
+.BA-top .TOP-my ul li a:hover {
+  background: transparent;
+}
+
+.BA-top .TOP-my ul li a:hover:before {
+  color: #249db8;
+}
+
+.BA-top .TOP-btn a.topb1now:before, .BA-top .TOP-btn a.topb2now:before, .BA-top .TOP-btn a.topb3now:before, .BA-top .TOP-btn a.topbnow1:before, .BA-top .TOP-btn a.topbnow2:before, .BA-top .TOP-btn a.topbnow3:before {
+  color: #249db8;
+}
+
+.BA-top .TOP-btn a:before {
+  color: #595959;
+}
+
+.BA-top .TOP-btn a:hover {
+  background: transparent;
+}
+
+.BA-top .TOP-btn a:hover:before {
+  color: #249db8;
+}
+
+@media screen and (max-device-width: 1000px) and (orientation: portrait) {
+  .TOP-my img {
+    width: auto;
+    height: 30px;
+  }
+  .TOP-my ul > li a {
+    padding: 4px 16px;
+    font-size: 16px;
+  }
+  .TOP-my ul > li a:before {
+    font-size: 24px;
+  }
+  .TOP-btn a {
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+  }
+  .TOP-btn a:before {
+    font-size: 24px;
+  }
+}
+
+/*# sourceMappingURL=index_top.css.map */

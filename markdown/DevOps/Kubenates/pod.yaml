@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: pod
+  labels:
+    app: pod
+spec:
+  containers:
+  - name: proxy
+    image: nginx
+    ports:
+    - containerPort: 80

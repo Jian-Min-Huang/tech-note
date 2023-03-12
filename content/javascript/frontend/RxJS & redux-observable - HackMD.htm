@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://hackmd.io/s/ByOjtSpR- -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    
+    <meta name="description" content="RxJS &amp; `redux-observable` ========  ## what is *observable*  [30 天精通 RxJS](https://ithelp.ithome.com">
+    
+    <title>RxJS &amp; redux-observable - HackMD</title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+	<link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+    <!-- Google Tag Manager -->
+<script async="" src="./RxJS &amp; redux-observable - HackMD_files/analytics.js"></script><script async="" src="./RxJS &amp; redux-observable - HackMD_files/gtm.js"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLW9Z3');</script>
+<!-- End Google Tag Manager -->
+    <meta property="fb:app_id" content="1436904003272070">
+
+<meta name="twitter:image:src" content="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=400">
+
+<meta name="twitter:site" content="@hackmd">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJS &amp; redux-observable - HackMD">
+
+<meta name="twitter:description" content="RxJS &amp; `redux-observable` ========  ## what is *observable*  [30 天精通 RxJS](https://ithelp.ithome.com">
+
+
+<meta property="og:image" content="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=400">
+
+<meta property="og:site_name" content="HackMD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJS &amp; redux-observable - HackMD">
+
+<meta property="og:description" content="RxJS &amp; `redux-observable` ========  ## what is *observable*  [30 天精通 RxJS](https://ithelp.ithome.com">
+
+	
+    <link rel="stylesheet" href="./RxJS &amp; redux-observable - HackMD_files/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./RxJS &amp; redux-observable - HackMD_files/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./RxJS &amp; redux-observable - HackMD_files/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./RxJS &amp; redux-observable - HackMD_files/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./RxJS &amp; redux-observable - HackMD_files/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous">
+    
+<link href="./RxJS &amp; redux-observable - HackMD_files/font.f28df3ddd1e0d78ea5ed.css" rel="stylesheet">
+
+<link href="./RxJS &amp; redux-observable - HackMD_files/pretty-styles.f28df3ddd1e0d78ea5ed.css" rel="stylesheet">
+
+<link href="./RxJS &amp; redux-observable - HackMD_files/pretty.f28df3ddd1e0d78ea5ed.css" rel="stylesheet">
+
+
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body style=""><div id="MathJax_Message" style="display: none;"></div>
+    <div class="ui-infobar container-fluid unselectable hidden-print">
+        <small>
+            <span>
+                
+                    <span class="ui-lastchangeuser"> <i class="ui-user-icon small" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=96);" data-toggle="tooltip" data-placement="right" title="" data-original-title="Nelson Liu GDD"></i></span>
+                
+                &nbsp;<span class="text-uppercase ui-status-lastchange">changed</span>
+                <span class="ui-lastchange text-uppercase" data-createtime="Mon Nov 06 2017 02:32:00 GMT+0000 (UTC)" data-updatetime="Wed Nov 29 2017 07:53:48 GMT+0000 (UTC)" title="Wed, Nov 29, 2017 3:53 PM">24 days ago</span>
+            </span>
+            <span class="pull-right">9 views <a href="https://hackmd.io/s/ByOjtSpR-/edit?both" class="ui-edit" title="Edit this note"><i class="fa fa-fw fa-pencil"></i></a></span>
+            <br>
+            
+        </small>
+    </div>
+    <div id="doc" class="container markdown-body"><h1 class="" id="rxjs-amp-redux-observable"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#rxjs-amp-redux-observable" title="rxjs-amp-redux-observable" smoothhashscroll=""><span class="octicon octicon-link"></span></a>RxJS &amp; <code>redux-observable</code></h1>
+<h2 class="" id="what-is-observable"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#what-is-observable" title="what-is-observable" smoothhashscroll=""><span class="octicon octicon-link"></span></a>what is <em>observable</em></h2>
+<p><a href="https://ithelp.ithome.com.tw/articles/10186104" target="_blank">30 天精通 RxJS</a></p>
+<h3 class="" id="everything-is-a-stream"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#everything-is-a-stream" title="everything-is-a-stream" smoothhashscroll=""><span class="octicon octicon-link"></span></a>everything is a stream</h3>
+<p><img src="./RxJS &amp; redux-observable - HackMD_files/kvpnsDr.png" alt="" class=""></p>
+<p><a href="http://rxmarbles.com/" target="_blank">RxMarbles</a></p>
+<h3 class="" id="observable-amp-subscriber"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#observable-amp-subscriber" title="observable-amp-subscriber" smoothhashscroll=""><span class="octicon octicon-link"></span></a>observable &amp; subscriber</h3>
+<h4 class="" id="anything-can-be-an-observable"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#anything-can-be-an-observable" title="anything-can-be-an-observable" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Anything can be an <strong>Observable</strong></h4>
+<p>Does not have to be an async method</p>
+<blockquote class="">
+<p>array, ajax, <code>setInterval</code>, iframe <code>postMessage</code>, <code>click</code> event</p>
+</blockquote>
+<h4 class="" id="addeventlistener-is-like-a-subscriber"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#addeventlistener-is-like-a-subscriber" title="addeventlistener-is-like-a-subscriber" smoothhashscroll=""><span class="octicon octicon-link"></span></a><code>addEventListener</code> is like a subscriber</h4>
+<h3 class="" id="epics"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#epics" title="epics" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Epics</h3>
+<p>Subscriber method used in <code>redux-observable</code></p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code"><span class="hljs-keyword">const</span> someEpic = <span class="hljs-function">(<span class="hljs-params">action$, store, dependencies</span>) =&gt;</span> {}
+
+<span class="hljs-comment">// suffix '$' is a naming convention for an observable</span>
+</div></div></code></pre>
+<p>If an action will both trigger state change and epic, epic will run <strong>after</strong> the state change.</p>
+<h2 class="" id="scenarios"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#scenarios" title="scenarios" smoothhashscroll=""><span class="octicon octicon-link"></span></a>scenarios</h2>
+<h3 class="" id="blocking-multiple-submission"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#blocking-multiple-submission" title="blocking-multiple-submission" smoothhashscroll=""><span class="octicon octicon-link"></span></a>blocking multiple submission</h3>
+<p><code>switchMap</code></p>
+<blockquote class="">
+<p><code>switch</code> + <code>map</code> -&gt; <code>switchMap</code></p>
+</blockquote>
+<p>If another action of <em><code>GET_GAME_CONFIG</code></em> is emitted,<br>
+it will ignore anything that was returned from the previous ones.</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code"><span class="hljs-keyword">const</span> getGameConfigEpic = <span class="hljs-function">(<span class="hljs-params">action$</span>) =&gt;</span>
+  action$
+    .ofType(<span class="hljs-string">'GET_GAME_CONFIG'</span>)
+    .switchMap(...)
+</div></div></code></pre>
+<h3 class="" id="unify-action-dispatching"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#unify-action-dispatching" title="unify-action-dispatching" smoothhashscroll=""><span class="octicon octicon-link"></span></a>unify action dispatching</h3>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code"><span class="hljs-keyword">const</span> obs = []
+obs.push(gameZoneOperations.getLastNumber(...))
+obs.push(gameZoneOperations.getLastTenNumber(...))
+obs.push(gameZoneOperations.getUserOrders(...))
+
+<span class="hljs-keyword">return</span> Observable.of(obs)
+
+<span class="hljs-comment">// Redux gets</span>
+[
+    { <span class="hljs-attr">type</span>: <span class="hljs-string">'GET_LAST_NUMBER'</span>, ... },
+    { <span class="hljs-attr">type</span>: <span class="hljs-string">'GET_LAST_TEN_NUMBER'</span>, ... },
+    { <span class="hljs-attr">type</span>: <span class="hljs-string">'GET_USER_ORDERS'</span>, ... }
+]
+</div></div></code></pre>
+<h3 class="" id="debounce-event-emitting"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#debounce-event-emitting" title="debounce-event-emitting" smoothhashscroll=""><span class="octicon octicon-link"></span></a>debounce event emitting</h3>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-keyword">const</span> heightChangeEpic = <span class="hljs-function">(<span class="hljs-params">action$</span>) =&gt;</span>
+  action$
+    .ofType(<span class="hljs-string">'HEIGHT_CHANGE'</span>)
+    .debounceTime(<span class="hljs-number">800</span>)
+    .mapTo(...)
+</div></div></code></pre>
+<h2 class="" id="pros-and-cons"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#pros-and-cons" title="pros-and-cons" smoothhashscroll=""><span class="octicon octicon-link"></span></a>pros and cons</h2>
+<h3 class="" id="pros"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#pros" title="pros" smoothhashscroll=""><span class="octicon octicon-link"></span></a><em>pros</em></h3>
+<ol>
+<li class="">ES7 Proposal</li>
+</ol>
+<blockquote class="">
+<p><a href="https://github.com/tc39/proposal-observable" target="_blank">tc39/proposal-observable</a></p>
+</blockquote>
+<ol start="2">
+<li class="">Error Catching prevents total breakdown</li>
+<li class="">Easier to understand</li>
+</ol>
+<h3 class="" id="cons"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#cons" title="cons" smoothhashscroll=""><span class="octicon octicon-link"></span></a><em>cons</em></h3>
+<ol>
+<li class="">Observables cannot emit values to Redux until the main epic is done.</li>
+<li class="">Fat module</li>
+</ol>
+<h2 class="" id="unit-testing"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#unit-testing" title="unit-testing" smoothhashscroll=""><span class="octicon octicon-link"></span></a>unit testing</h2>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span></div><div class="code"><span class="hljs-keyword">const</span> action$ = ActionsObservable.of(cartZoneOperations.createTransaction({}))
+
+<span class="hljs-keyword">const</span> fetcher = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> Observable.of({
+    <span class="hljs-attr">payload</span>: ...,
+    <span class="hljs-attr">accessToken</span>: ...
+  })
+
+cartZoneEpics.createTransactionEpic(action$, store, { fetcher })
+  .subscribe(<span class="hljs-function"><span class="hljs-params">actualOutputActions</span> =&gt;</span> {
+    expect(actualOutputActions).toEqual(expectedOutputActions)
+    done()
+  })
+</div></div></code></pre>
+<h2 class="" id="example"><a class="anchor hidden-xs" href="https://hackmd.io/s/ByOjtSpR-#example" title="example" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Example</h2>
+<p><a href="http://www.0878.com/" target="_blank">QAT</a></p>
+</div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display: none; right: 276px;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="https://hackmd.io/s/ByOjtSpR-#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#rxjs-amp-redux-observable" smoothhashscroll="">RxJS &amp; redux-observable</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#what-is-observable" smoothhashscroll="">what is observable</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#everything-is-a-stream" smoothhashscroll="">everything is a stream</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#observable-amp-subscriber" smoothhashscroll="">observable &amp; subscriber</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#epics" smoothhashscroll="">Epics</a></li></ul></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#scenarios" smoothhashscroll="">scenarios</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#blocking-multiple-submission" smoothhashscroll="">blocking multiple submission</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#unify-action-dispatching" smoothhashscroll="">unify action dispatching</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#debounce-event-emitting" smoothhashscroll="">debounce event emitting</a></li></ul></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#pros-and-cons" smoothhashscroll="">pros and cons</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#pros" smoothhashscroll="">pros</a></li><li><a href="https://hackmd.io/s/ByOjtSpR-#cons" smoothhashscroll="">cons</a></li></ul></li><li><a href="https://hackmd.io/s/ByOjtSpR-#unit-testing" smoothhashscroll="">unit testing</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#example" smoothhashscroll="">Example</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="https://hackmd.io/s/ByOjtSpR-#">Expand all</a><a class="back-to-top" href="https://hackmd.io/s/ByOjtSpR-#">Back to top</a><a class="go-to-bottom" href="https://hackmd.io/s/ByOjtSpR-#">Go to bottom</a></div></ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print affix" data-spy="affix" style="left: 1009px;"><div class="toc"><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#rxjs-amp-redux-observable" smoothhashscroll="">RxJS &amp; redux-observable</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#what-is-observable" smoothhashscroll="">what is observable</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#everything-is-a-stream" smoothhashscroll="">everything is a stream</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#observable-amp-subscriber" smoothhashscroll="">observable &amp; subscriber</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#epics" smoothhashscroll="">Epics</a></li></ul></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#scenarios" smoothhashscroll="">scenarios</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#blocking-multiple-submission" smoothhashscroll="">blocking multiple submission</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#unify-action-dispatching" smoothhashscroll="">unify action dispatching</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#debounce-event-emitting" smoothhashscroll="">debounce event emitting</a></li></ul></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#pros-and-cons" smoothhashscroll="">pros and cons</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#pros" smoothhashscroll="">pros</a></li><li><a href="https://hackmd.io/s/ByOjtSpR-#cons" smoothhashscroll="">cons</a></li></ul></li><li><a href="https://hackmd.io/s/ByOjtSpR-#unit-testing" smoothhashscroll="">unit testing</a></li><li class=""><a href="https://hackmd.io/s/ByOjtSpR-#example" smoothhashscroll="">Example</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="https://hackmd.io/s/ByOjtSpR-#">Expand all</a><a class="back-to-top" href="https://hackmd.io/s/ByOjtSpR-#">Back to top</a><a class="go-to-bottom" href="https://hackmd.io/s/ByOjtSpR-#">Go to bottom</a></div></div>
+    
+
+
+
+<script src="./RxJS &amp; redux-observable - HackMD_files/ga.js" async="" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/raven.min.js" crossorigin="anonymous"></script>
+<script>Raven.config('https://b1ed86878f414ccc832dc0f63ffe2daa@sentry.io/121416').install();</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLW9Z3"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({ messageStyle: "none", skipStartupTypeset: true ,tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true }});
+</script>
+
+<script src="./RxJS &amp; redux-observable - HackMD_files/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/velocity.min.js" integrity="sha256-bhm0lgEt6ITaZCDzZpkr/VXVrLa5RP4u9v2AYsbzSUk=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/jquery.mousewheel.min.js" integrity="sha256-jnOjDTXIPqall8M0MyTSt98JetJuZ7Yu+1Jm7hLTF7U=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/js-yaml.min.js" integrity="sha256-8PanqYAVOGlOct+i65R+HqibK3KPsXINnrSfxN+Y/J0=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/MathJax.js" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-immzXfCGLhnx3Zfi9F/dUcqxEM8K3o3oTFy9Bh6HCwg=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/moment-with-locales.min.js" integrity="sha256-vvT7Ok9u6GbfnBPXnbM6FVDEO8E1kTdgHOFZOAXrktA=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/mermaid.min.js" integrity="sha256-1uR+pqxH5fN/rOZcZTb9c5+bR3OIYEKzu2sI11Dnj9A=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/emojify.min.js" integrity="sha256-VAB5tAlKBvgaxw8oJ1crWMVbdmBVl4mP/2M8MNRl+4E=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/handlebars.min.js" integrity="sha256-1O3BtOwnPyyRzOszK6P+gqaRoXHV6JXj8HkjZmPYhCI=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/viz-lite.js" integrity="sha256-lLBbzF3IYSscIpBw/KgKjF1dDWMQdz1RWZnEdnNSDxA=" crossorigin="anonymous" defer=""></script>
+<script src="./RxJS &amp; redux-observable - HackMD_files/constant.js"></script>
+
+<script src="./RxJS &amp; redux-observable - HackMD_files/4.pretty.f28df3ddd1e0d78ea5ed.js" defer=""></script>
+
+
+
+
+</body></html>

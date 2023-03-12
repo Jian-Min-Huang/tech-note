@@ -1,0 +1,1 @@
+atwpjp([39],{153:function(t,e){t.exports='<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M6.69 8.94V32h4.83v-6.54h13.79V8.94H6.69zm13.98 11.81h-9.15v-7.43h9.15v7.43z"/></svg>'}});

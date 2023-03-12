@@ -1,0 +1,54 @@
+body {
+	background-color: #FFFFCC;
+}
+
+strong {
+	font-weight: bolder;
+	color: #660000;
+}
+
+em {
+	font-weight: bolder;
+	color: #FF0000;
+	font-style: normal;
+}
+
+h1 {
+	font-size: 36px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background-color: #FFFF33;
+	border: thin ridge #993300;
+}
+
+h2 {
+	border: thin double #FF9900;
+	background-color: #FFCC66;
+}
+
+h3 {
+	background-color: #CCFFCC;
+	color: #003300;
+}
+
+h4 {
+	background-color: #CCCCFF;
+}
+
+pre {
+	font-family: "Courier New", Courier, mono;
+}
+
+.info {
+	font-size: smaller;
+	background-color: #FFFF33;
+	border: thin dashed #993300;
+}
+
+.block{
+	border: thin solid;
+	height: auto;
+}
+
+.comment {
+	background-color: #CCFFFF;
+}

@@ -1,0 +1,362 @@
+div.feedjitc-header {
+	padding: 0;
+	float: left; 
+	border: 0px solid transparent;
+	background: none;
+	float: left;
+	display: inline; 
+	margin: 0 10px;
+}
+div.feedjitc-header a {
+	text-decoration: none;	
+	float:left;
+	cursor: pointer;
+	width: 193px; 
+	height:30px;
+}
+div.feedjitc-header a span {
+	margin: 0 10px 0 -10px;
+	padding: 9px 8px 5px 10px;
+	float:left;    
+	height:16px;
+}
+img {border:0;}
+strong {font-style:normal; font-weight:normal;}
+
+#FJ_TListC {
+	width: 213px; 
+	font-size: 11px; 
+	line-height: 1em; 
+	text-align: left; 
+	font-family: Helvetica, arial, verdana, sans-serif; 
+	word-wrap: break-word;
+	direction: ltr;
+	text-transform: none;
+	background: none;
+	border-width: 0;
+	padding: 0;
+	margin: 0;
+}
+#FJ_TList {
+	width: 213px; 
+}
+
+a, a:hover, a:visited, a:active, a:link {
+	text-decoration: none;
+}
+
+
+
+
+a.feedjitc-current, 
+a.feedjitc-current:link,
+a.feedjitc-current:active, 
+a.feedjitc-current:visited,
+a.feedjitc-current:hover
+{
+	background: url(http://feedjit.com/dmgs/b1_D09100_2853A8.png) no-repeat top right;
+ 	color: #FFFFFF; 
+	font-weight: bold; 
+	font-size: 13px;
+	padding: 0;
+	margin: 0;
+}
+
+a.feedjitc-current span {
+	background: url(http://feedjit.com/dmgs/b1_D09100_2853A8.png) no-repeat top left;
+}
+#feedjiti-overlay {
+	position: relative;
+}
+#feedjiti-overlay a {
+	display: block; 
+	width: 203px; 
+	
+	background: url(http://feedjit.com/images/w2/overlay.png) bottom right no-repeat; 
+	
+	position: absolute; 
+	left: 0px;
+	top: 0px;
+	height: 30px; 
+}
+
+#feedjiti-overlay3 {
+	position: relative;
+}
+#feedjiti-overlay3 a:hover {
+	background: none;
+}
+#feedjiti-overlay3 a {
+	display: block; 
+	width: 203px; 
+	
+	background: url(http://feedjit.com/images/w2/overlay.png) bottom right no-repeat; 
+	
+	position: absolute; 
+	left: 0px;
+	top: 0px;
+	height: 30px; 
+}
+
+
+#feedjiti-noTopBarBorderTD {
+	font-size: 0px; 
+	height: 2px;
+}
+#feedjiti-noTopBarBorder {
+	border-top: 2px solid #012B6B;
+	width: 203px;
+	height: 0px;
+}
+.topAd a, .topAd a:visited, .topAd a:link, .topAd a:hover {
+	font-size: 11px;
+}
+.topAd a, .topAd a:visited, .topAd a:link { text-decoration: none; color: #000000; }
+.topAd a:hover { text-decoration: underline; color:#135D9E; }
+
+div.traffic:hover {
+	
+		background: #d9d9d9;
+	
+}
+div.traffic div.fjTopAd {
+	cursor: pointer;
+}
+div.traffic div.fjTopAffAd {
+	cursor: pointer;
+	padding: 1px 0 1px 0;
+	width: 199px; 
+}
+div#adContainer {
+	clear: left;
+}
+div#fjEvents, div#adContainer {
+	clear: left;
+	border-left: 2px solid #012B6B; 
+	border-right: 2px solid #012B6B; 
+	width: 199px;
+}
+div.traffic {
+	color: #000000;
+	background: #FFFFFF; 
+	width: 189px; 
+	border-width: 0px;
+	
+	background-image: url(http://feedjit.com/images/w2/overlay2.png); 
+	
+	background-position: bottom left; 
+	background-repeat: no-repeat; 
+
+ 	font-size: 11px;
+	padding:4px 5px; 
+} 
+
+
+img.feedjitc-profile {
+    float:left; 
+    border-width: 2px;
+    border-style: solid;
+    border-color: #012B6B;
+    margin-right:5px;
+} 
+
+span.feedjitc-flag {
+	display: block;
+	float:right;
+	margin: 0 0 0 1px;
+	padding: 0;
+	/images/flags/sprite-des-64.png); %]
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	
+	width: 16px;
+	height: 11px;
+} 
+
+span.feedjitc-name {
+font-weight: bold;  white-space: normal; 
+} 
+span.feedjitc-tinyicons a {
+	background-image: url(http://feedjit.com/images/w2/usercons_spr.png);
+	width: 18px;
+	height: 18px;
+	margin: 0 2px 0 0;
+	padding: 0;
+	display: block;
+	float: left;
+}
+a.feedjitc-twittercon { background-position: -21px 0px; }
+a.feedjitc-twittercon:hover { background-position: -21px 18px; }
+a.feedjitc-fbcon { background-position: -43px 0px; }
+a.feedjitc-fbcon:hover { background-position: -43px 18px; }
+a.feedjitc-webcon { background-position: 0px 0px; }
+a.feedjitc-webcon:hover { background-position: 0px 18px; }
+	
+
+
+span.feedjitc-loc {
+	display: block; 
+	color: #404040; 
+	font-size: 11px; 
+	margin-top: 1px;
+} 
+
+img.icon {
+    float:left; border:2px solid #012B6B; margin-right:5px;
+} 
+
+span.feedjitc-action {
+    font-size:11px; 
+    color:#404040; 
+    display: block; 
+    margin:4px 0px 5px 1px;
+} 
+span.feedjitc-action a {
+    color:#135D9E; 
+    text-decoration: none;
+    word-wrap: break-word;
+} 
+
+span.feedjitc-action a:hover {
+	text-decoration: underline;
+} 
+
+#feedjiti-pitchbutton  {
+    display:block; 
+    width:5px; 
+    height:26px;
+    background-image: url(http://feedjit.com/dmgs/pb_4991AD_C99700_pbsh.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+    line-height: 240%; 
+    text-align: right;
+} 
+
+#feedjiti-pitchbutton a:hover { text-decoration: none; }
+#feedjiti-pitchbutton a {
+    display:block; 
+    height:26px;
+    background-image: url(http://feedjit.com/dmgs/pb_4991AD_C99700_pbsh.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+    color: #FFFFFF;  
+    margin:0px 0px 0px 5px; 
+    
+    text-align: center;
+    
+    text-decoration: underline;
+    font-weight: bold;
+    letter-spacing: -0.2px;
+} 
+
+
+	#feedjiti-pitchface { width: 43px; height: 43px; border-width: 2px; }
+	#feedjiti-pitchbutton { margin: 0px 0px 0px 52px; }
+	
+		
+			#feedjiti-pitchbutton a { font-size: 13px; line-height: 235%; }
+		
+	
+	#feedjiti-pitchbuttonA { width:145px; }
+
+#feedjiti-viewDiv {
+	background: url(http://feedjit.com/dmgs/b1_D09100_2853A8.png) no-repeat bottom center; 
+	border-left:2px solid #012B6B; 
+	border-right: 2px solid #012B6B;  
+	text-align:center; 
+	font-size: 11px;   
+	letter-spacing: .1em; 
+	width:193px;  
+	padding: 6px 3px 0px 3px; 
+	height:9px;
+	position: relative;
+} 
+div.feedjitc-footer a, div.feedjitc-footer {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#feedjiti-overlay2 {
+	display: block; 
+	width: 199px; 
+	
+	background: url(http://feedjit.com/images/w2/overlay.png) bottom left no-repeat;
+	
+	height: 12px; 
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	text-align:center; 
+	font-size: 11px;   
+	letter-spacing: .1em;
+	padding: 2px 0 0 0;
+} 
+a.feedjitc-morelink {
+	text-align: center; 
+	padding: 6px 0 0 0;
+	text-decoration: none;
+}
+	
+a.feedjitc-morelink:hover {
+	text-decoration: underline;
+}
+div.feedjitc-getit {
+	background: #FFFFFF; 
+	border-left:2px solid #012B6B; 
+	border-right: 2px solid #012B6B; 
+	border-bottom: 2px solid #012B6B;  
+	text-align:center; 
+	width:199px;
+	padding: 0 0 0 0; 
+	line-height: 1; 
+}
+.feedjitc-getit a {
+	color:#000000; 
+	text-decoration: none;
+	font-size: 11px;  
+	letter-spacing: 0em; 
+}
+.feedjitc-getit a:hover {
+	text-decoration: underline;
+}
+.feedjitc-getit img {
+	vertical-align: middle;
+	border-width: 0;
+}
+
+a.rushLine {
+	display: block;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	padding: 0;
+	text-decoration: none;
+	color: #000000;
+	white-space: nowrap;
+}
+a.rushLine:hover {
+	text-decoration: underline;
+}
+div.adsByFeedjit {
+	text-align: right;
+	padding: 0 0 0 0;
+	margin: 0px auto 1px auto;
+	border-width: 0px;
+	width: 193px;
+}
+div.adsByFeedjit a {
+	font-size: 9px;
+	font-family: Arial;
+	color: #000000;
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+#noTopBarBorder {
+	border: 1px solid #012B6B;
+	width: 203px;
+	height: 0px;
+}

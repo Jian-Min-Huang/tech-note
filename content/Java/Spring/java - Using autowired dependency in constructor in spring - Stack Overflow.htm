@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>java - Using autowired dependency in constructor in spring - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Using autowired dependency in constructor in spring">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I have class NetworkUsageService which uses NetworkUsageMapper to access a database. Mapper class is autowired to the service class.
+
+I need to access the database during the construcion of service...">
+    <meta property="og:url" content="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring">
+    <link rel="canonical" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring">
+
+    
+    
+    <script type="text/javascript" async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/ados"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/quant.js"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/beacon.js"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/analytics.js"></script><script src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Using autowired dependency in constructor in spring&#39;" href="https://stackoverflow.com/feeds/question/20331397">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:20331397});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '20331397');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1499159062,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"b0bd5eefeb969cb8ce2a5352a9a79571","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true,"ab":{"inline_signup_hero":{"v":"a","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"303f74878f9f","js/moderator.en.js":"3c90ddcfdaff","js/full-anon.en.js":"b909715880a9","js/full.en.js":"ac9afa94f0fb","js/wmd.en.js":"74417fa11270","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"ba2685451c38","js/help.en.js":"42b954c86bdb","js/tageditor.en.js":"09862381cd28","js/tageditornew.en.js":"a28d97657e31","js/inline-tag-editing.en.js":"ff9d6e1cd996","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"f0b9e6f216f7","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"70fdbac373cd","js/explore-qlist.en.js":"d33e3ab2f2e0","js/events.en.js":"e287aab873c0","js/keyboard-shortcuts.en.js":"4bb9c71b0642","js/external-editor.en.js":"ae2d26085224","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"ae2d26085224","js/snippet-javascript.en.js":"4adbf892dd3e","js/snippet-javascript-codemirror.en.js":"c42f5069afb1"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style type="text/css"&gt;body,.so-header{margin-top:1.9em}&lt;/style&gt;</noscript>
+<script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/external-editor.en.js"></script><link rel="stylesheet" href="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/jobs-multi.min.css" type="text/css"><script type="text/javascript" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/adFeedback.css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="https://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Developer Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="https://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="https://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    <input name="q" type="text" placeholder="Search..." value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20331397%2fusing-autowired-dependency-in-constructor-in-spring" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-link js-help-button" title="Help Center and other resources">
+        <svg role="icon" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16.001A8 8 0 0 0 9 1zm.812 12.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 169 Stack Exchange sites">
+            <svg role="icon" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13a2 2 0 0 0 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20331397%2fusing-autowired-dependency-in-constructor-in-spring" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.4 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring" class="question-hyperlink">Using autowired dependency in constructor in spring</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="20331397" id="question">
+
+    <div class="everyonelovesstackoverflow adzerk-vote" id="clc-tlb"><a href="https://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjI3NzY4LCJkaSI6ImQ4NmM3MGExOTZhZDQ5MmRhYzUzMGVkMzViYjE1Nzg2IiwiZG0iOjEsImZjIjoxOTI0NDQ3LCJmbCI6MjE0MjMxMiwiaXAiOiI1OS4xMjQuMjIwLjg0Iiwia3ciOiJqYXZhLHNwcmluZyxhdXRvd2lyZWQiLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjE2MDQsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20udHcvIiwic2EiOiIzIiwic2IiOiJpLTBiNzI2ZWMwYWZjMjM1Y2QzIiwic3AiOjE1MzYwLCJzdCI6ODI3NywidWsiOiJ1ZTEtZjZhMjhiYjFkNmQ0NDgzZThlOTIyYTE1YzUzYjFjM2MiLCJ6biI6NDMsInRzIjoxNDk5MzMwOTY2NjY5LCJiZiI6dHJ1ZSwicG4iOiJjbGMtdGxiIiwidXIiOiJodHRwOi8vc3RhY2tvdmVyZmxvdy5jb20vam9icy9yZW1vdGU_dXRtX3NvdXJjZT13ZWJzaXRlJnV0bV9tZWRpdW09YmFubmVyJnV0bV9jb250ZW50PWxlYWRlcmJvYXJkXzQmdXRtX2NhbXBhaWduPWhvdXNlX2Fkc19ST1NfU08ifQ&amp;s=FlmwNFvnMDnnBWnVAMvcdZ4jEaA" rel="nofollow" target="_blank" title=""><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/3ce23fa868ea401dac7e2fcfda5ec312.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20331397">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#">favorite</a>
+        <div class="favoritecount"><b></b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I have class NetworkUsageService which uses NetworkUsageMapper to access a database. Mapper class is autowired to the service class.</p>
+
+<p>I need to access the database during the construcion of service class, so I do something like this:</p>
+
+<pre class="lang-java prettyprint prettyprinted"><code><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> someField</span><span class="pun">;</span><span class="pln">    
+
+</span><span class="lit">@Autowired</span><span class="pln">
+</span><span class="kwd">private</span><span class="pln"> </span><span class="typ">NetworkUsageMapper</span><span class="pln"> networkUsageMapper</span><span class="pun">;</span><span class="pln">
+
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">NetworkUsageService</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    someField </span><span class="pun">=</span><span class="pln"> networkUsageMapper</span><span class="pun">.</span><span class="pln">getSomeResultFromDB</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>However, this doesn't seem to work as I get exception while creating the service bean. Is there a way to use an autowired dependency during the construction of an object?</p>
+
+<p>EDIT:
+this is my beans configuration as requested:</p>
+
+<pre class="lang-java prettyprint prettyprinted"><code><span class="pun">&lt;</span><span class="pln">context</span><span class="pun">:</span><span class="pln">component</span><span class="pun">-</span><span class="pln">scan base</span><span class="pun">-</span><span class="kwd">package</span><span class="pun">=</span><span class="str">"mypackage"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">mybatis</span><span class="pun">:</span><span class="pln">scan base</span><span class="pun">-</span><span class="kwd">package</span><span class="pun">=</span><span class="str">"mypackage.mappers"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">mvc</span><span class="pun">:</span><span class="pln">annotation</span><span class="pun">-</span><span class="pln">driven </span><span class="pun">/&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">context</span><span class="pun">:</span><span class="pln">property</span><span class="pun">-</span><span class="pln">placeholder location</span><span class="pun">=</span><span class="str">"classpath:/jdbc.properties"</span><span class="pun">/&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">bean id</span><span class="pun">=</span><span class="str">"sqlSessionFactory"</span><span class="pln"> </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"org.mybatis.spring.SqlSessionFactoryBean"</span><span class="pun">&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"dataSource"</span><span class="pln"> ref</span><span class="pun">=</span><span class="str">"dataSource"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"mapperLocations"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"classpath:mappers/*.xml"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"typeAliasesPackage"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"mypackage.transfer"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">bean</span><span class="pun">&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">bean id</span><span class="pun">=</span><span class="str">"transactionManager"</span><span class="pln"> </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span><span class="pun">&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"dataSource"</span><span class="pln"> ref</span><span class="pun">=</span><span class="str">"dataSource"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">bean</span><span class="pun">&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">bean  id</span><span class="pun">=</span><span class="str">"dataSource"</span><span class="pln">
+       </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span><span class="pun">&gt;</span><span class="pln">
+
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"driverClassName"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"${jdbc.driverClassName}"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"url"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"${jdbc.url}"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"username"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"${jdbc.username}"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+    </span><span class="pun">&lt;</span><span class="pln">property name</span><span class="pun">=</span><span class="str">"password"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"${jdbc.password}"</span><span class="pln"> </span><span class="pun">/&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">bean</span><span class="pun">&gt;</span></code></pre>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag js-gps-track" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/spring" class="post-tag js-gps-track" title="show questions tagged &#39;spring&#39;" rel="tag">spring</a> <a href="https://stackoverflow.com/questions/tagged/autowired" class="post-tag js-gps-track" title="show questions tagged &#39;autowired&#39;" rel="tag">autowired</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/20331397" title="short permalink to this question" class="short-link" id="link-post-20331397">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20331397/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/20331397/revisions" title="show all edits to this post">edited <span title="2013-12-02 15:34:00Z" class="relativetime">Dec 2 '13 at 15:34</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2013-12-02 15:05:22Z" class="relativetime">Dec 2 '13 at 15:05</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1829661/wolf"><div class="gravatar-wrapper-32"><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/V4Ork.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1829661/wolf">Wolf</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">433</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20331397" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-30344521" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Can you post your beans configuration?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1964272/dropout" title="7,363 reputation" class="comment-user">Dropout</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344521_20331397"><span title="2013-12-02 15:20:34Z" class="relativetime-clean">Dec 2 '13 at 15:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30345122" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">i added my beans configuration to the question</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1829661/wolf" title="433 reputation" class="comment-user owner">Wolf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30345122_20331397"><span title="2013-12-02 15:35:51Z" class="relativetime-clean">Dec 2 '13 at 15:35</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30345132" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">where is your networkUsageMapper bean?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2702504/keerthivasan" title="9,680 reputation" class="comment-user">Keerthivasan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30345132_20331397"><span title="2013-12-02 15:36:14Z" class="relativetime-clean">Dec 2 '13 at 15:36</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30345231" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@KeerthiRamanathan: &lt;mybatis:scan base-package="mypackage.mappers" /&gt; does it for me</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1829661/wolf" title="433 reputation" class="comment-user owner">Wolf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30345231_20331397"><span title="2013-12-02 15:38:50Z" class="relativetime-clean">Dec 2 '13 at 15:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20331397" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								4 Answers
+                                <span style="display:none;" itemprop="answerCount">4</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="20331793"></a>
+<div id="answer-20331793" class="answer accepted-answer" data-answerid="20331793" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20331793">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">9</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Instead of doing a lot of work in the constructor (and potentially introduce problems because the application tries to go to the database when it isn't fully initialized) it's probably better to do this initialization in a different method and annotate this with @PostConstruct . This way you know for sure your application is completely wired before networkusermapper is called.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/20331793" title="short permalink to this answer" class="short-link" id="link-post-20331793">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20331793/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-12-02 15:25:29Z" class="relativetime">Dec 2 '13 at 15:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/707693/janoz"><div class="gravatar-wrapper-32"><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/221981146f67b0afe5be05bcf62de11e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/707693/janoz">Janoz</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">838</span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20331793" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-30344952" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thank you for the answer, this sounds like something I need, I will try that, but can you be sure that dependencies are autowired before @PostConstruct methods are invoked?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1829661/wolf" title="433 reputation" class="comment-user owner">Wolf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344952_20331793"><span title="2013-12-02 15:31:23Z" class="relativetime-clean">Dec 2 '13 at 15:31</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30353106" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yes, that is part of the contract. The method annotated with @PostConstruct is called after all the beans are (auto)wired.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/707693/janoz" title="838 reputation" class="comment-user">Janoz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30353106_20331793"><span title="2013-12-02 19:34:32Z" class="relativetime-clean">Dec 2 '13 at 19:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20331793" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<div class="everyonelovesstackoverflow adzerk-vote" id="clc-mlb"><a href="https://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjI3NzY5LCJkaSI6ImZmZTIwNjIxZTQ2NjQ3MTFhNTI0MzlhZDQ2ZGI4YjkxIiwiZG0iOjEsImZjIjoxOTI0NDQ4LCJmbCI6MjE0MjMxMiwiaXAiOiI1OS4xMjQuMjIwLjg0Iiwia3ciOiJqYXZhLHNwcmluZyxhdXRvd2lyZWQiLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjE2MDQsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20udHcvIiwic2EiOiIzIiwic2IiOiJpLTBiNzI2ZWMwYWZjMjM1Y2QzIiwic3AiOjE1MzYwLCJzdCI6ODI3NywidWsiOiJ1ZTEtZjZhMjhiYjFkNmQ0NDgzZThlOTIyYTE1YzUzYjFjM2MiLCJ6biI6NDQsInRzIjoxNDk5MzMwOTY2NjcxLCJiZiI6dHJ1ZSwicG4iOiJjbGMtbWxiIiwidXIiOiJodHRwOi8vc3RhY2tvdmVyZmxvdy5jb20vam9icy9yZW1vdGU_dXRtX3NvdXJjZT13ZWJzaXRlJnV0bV9tZWRpdW09YmFubmVyJnV0bV9jb250ZW50PWxlYWRlcmJvYXJkXzQmdXRtX2NhbXBhaWduPWhvdXNlX2Fkc19ST1NfU08ifQ&amp;s=hUMhTfbQriEgct6DJKPgs8pZ1Xk" rel="nofollow" target="_blank" title=""><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/3ce23fa868ea401dac7e2fcfda5ec312.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/i(1).gif"></div>
+  
+<a name="20331445"></a>
+<div id="answer-20331445" class="answer" data-answerid="20331445" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20331445">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>That's correct.  The bean is first constructed, then the dependencies are injected.  If you need it in your constructor, do this</p>
+
+<pre class="lang-java prettyprint prettyprinted"><code><span class="lit">@Autowired</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">NetworkUsageService</span><span class="pun">(</span><span class="typ">NetworkUsageMapper</span><span class="pln"> mapper</span><span class="pun">){</span><span class="pln">
+</span><span class="com">// do stuff</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/20331445" title="short permalink to this answer" class="short-link" id="link-post-20331445">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20331445/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-12-02 15:07:35Z" class="relativetime">Dec 2 '13 at 15:07</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/150771/chris-thompson"><div class="gravatar-wrapper-32"><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/667e49c4a110469bdaa09e263b690344" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/150771/chris-thompson">Chris Thompson</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 25,789" dir="ltr">25.8k</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="60 silver badges"><span class="badge2"></span><span class="badgecount">60</span></span><span title="93 bronze badges"><span class="badge3"></span><span class="badgecount">93</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20331445" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-30344266" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thank you, just for clarification - if I do as you supposed and leave the autowired dependency as is in my code, does it mean that there will be 2 instances of NetworkUsageMapper constructed?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1829661/wolf" title="433 reputation" class="comment-user owner">Wolf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344266_20331445"><span title="2013-12-02 15:13:18Z" class="relativetime-clean">Dec 2 '13 at 15:13</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30344396" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I'm not actually sure how Spring handles that.  I would remove your existing annotation to eliminate ambiguity.  That said, you can annotate your <code>NetworkUsageMapper</code> class with the <code>@Singleton</code> annotation and that will guarantee that only one instance is created by spring and used for all dependency injection.  Otherwise, multiple instances could be created if more than one class uses the dependency.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/150771/chris-thompson" title="25,789 reputation" class="comment-user">Chris Thompson</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344396_20331445"><span title="2013-12-02 15:16:25Z" class="relativetime-clean">Dec 2 '13 at 15:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20331445" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="20331526"></a>
+<div id="answer-20331526" class="answer" data-answerid="20331526" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20331526">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The other way is to make the setterMethod of NetworkUsageMapper annotated with @Required annotation</p>
+
+<pre class="lang-java prettyprint prettyprinted"><code><span class="lit">@Required</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setNetworkUsageMapper</span><span class="pun">(</span><span class="typ">NetworkUsageMapper</span><span class="pln"> mapper</span><span class="pun">){</span><span class="pln">
+</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">networkUsageMapper </span><span class="pun">=</span><span class="pln"> mapper</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">someField </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">networkUsageMapper</span><span class="pun">.</span><span class="pln">getSomeResultFromDB</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>This method would be invoked immediately compulsorily after construction of the object. This is really useful when you have a long list of mandatory properties for the object to work properly. Instead of having the constructor with long parameter list, we can set all the properties using setters with <code>@Required</code> annotation. It seems to be very handy for me.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/20331526" title="short permalink to this answer" class="short-link" id="link-post-20331526">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20331526/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/20331526/revisions" title="show all edits to this post">edited <span title="2013-12-02 15:33:40Z" class="relativetime">Dec 2 '13 at 15:33</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-12-02 15:11:45Z" class="relativetime">Dec 2 '13 at 15:11</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2702504/keerthivasan"><div class="gravatar-wrapper-32"><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/c5a2887fe39245e9abfd2fc5963cd7c7" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/2702504/keerthivasan">Keerthivasan</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,680</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="34 bronze badges"><span class="badge3"></span><span class="badgecount">34</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20331526" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-30344737" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thank you for your answer, but as you wrote : "This method would be invoked immediately compulsorily after construction of the object." - I need to use the dependency during the construction of the object, not after it's construction</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1829661/wolf" title="433 reputation" class="comment-user owner">Wolf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344737_20331526"><span title="2013-12-02 15:25:40Z" class="relativetime-clean">Dec 2 '13 at 15:25</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30344810" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">ok,You are Welcome. May i know why do you need that?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2702504/keerthivasan" title="9,680 reputation" class="comment-user">Keerthivasan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344810_20331526"><span title="2013-12-02 15:27:37Z" class="relativetime-clean">Dec 2 '13 at 15:27</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30344876" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">i need to populate a field of service object with database data before I use it for anything else</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1829661/wolf" title="433 reputation" class="comment-user owner">Wolf</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30344876_20331526"><span title="2013-12-02 15:29:27Z" class="relativetime-clean">Dec 2 '13 at 15:29</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30345087" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I have updated the answer setting the field of the service object. Hope this helps</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2702504/keerthivasan" title="9,680 reputation" class="comment-user">Keerthivasan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#comment30345087_20331526"><span title="2013-12-02 15:34:26Z" class="relativetime-clean">Dec 2 '13 at 15:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20331526" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="20331647"></a>
+<div id="answer-20331647" class="answer" data-answerid="20331647" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20331647">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you can add the exception stack-trace along with your spring configuration that will help to answer more accurately. I am guessing it is because you might have more than one bean instances for NetworkUsageMapper class or its missing.</p>
+
+<ol>
+<li><p>If its missing just add one :). To avoid exception you can use required attribute:</p>
+
+<p>@Autowired(required=false)
+private NetworkUsageMapper networkUsageMapper;</p></li>
+<li><p>If more than one then you need to use qualifier for example :</p>
+
+<p>
+</p></li>
+</ol>
+
+<p>then</p>
+
+<pre class="lang-java prettyprint prettyprinted"><code><span class="lit">@Autowired</span><span class="pln">
+</span><span class="lit">@Qualifier</span><span class="pun">(</span><span class="str">"networkUsageMapper1"</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">private</span><span class="pln"> </span><span class="typ">NetworkUsageMapper</span><span class="pln"> networkUsageMapper</span><span class="pun">;</span></code></pre>
+
+<h2>Hope it helps :Mak</h2>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/20331647" title="short permalink to this answer" class="short-link" id="link-post-20331647">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20331647/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-12-02 15:18:07Z" class="relativetime">Dec 2 '13 at 15:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1868455/mak"><div class="gravatar-wrapper-32"><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/70e477ee39b037bef0351c6235b3b6f1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1868455/mak">Mak</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">530</span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20331647" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20331647" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="https://stackoverflow.com/questions/20331397/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="20331397">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.com.tw/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="b0bd5eefeb969cb8ce2a5352a9a79571">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20331397%2fusing-autowired-dependency-in-constructor-in-spring%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'https%3a%2f%2fstackoverflow.com%2fquestions%2f20331397%2fusing-autowired-dependency-in-constructor-in-spring%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="https://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="https://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/spring" class="post-tag" title="show questions tagged &#39;spring&#39;" rel="tag">spring</a> <a href="https://stackoverflow.com/questions/tagged/autowired" class="post-tag" title="show questions tagged &#39;autowired&#39;" rel="tag">autowired</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2013-12-02 15:05:22Z"><b>3 years, 7 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+                                    <b>3,893 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring?lastactivity" class="lastactivity-link" title="2013-12-02 15:34:00Z">3 years, 7 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<div class="orange tagged tex2jax_ignore clc-jobs-multi" id="hireme"><a class="top " href="https://stackoverflow.com/jobs?allowsremote=true" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%3Fallowsremote%3Dtrue%26med=clc&amp;sig=lw1BMUgHcDo_TQ"><span>Work from anywhere</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Engineering Manager (Performance Lead) at Wikimedia Foundation. Click to learn more." href="https://stackoverflow.com/jobs/145843/engineering-manager-performance-lead-wikimedia-foundation" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=269267&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F145843%2Fengineering-manager-performance-lead-wikimedia-foundation%3Fmed=clc&amp;sig=ljy2bm9X_wgvvw"><div class="title">Engineering Manager (Performance Lead)</div><div><span class="company">Wikimedia Foundation</span><span class="location">San Francisco, CA</span></div><div class="opts"><span class="opt remote">Remote</span></div><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=269267&amp;ct=-1&amp;sig=0_CRkMkAde9oaQ" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Machine Learning Engineer - 5+ years of relevant machine learning experience at TAINA Technology Limited. Click to learn more." href="https://stackoverflow.com/jobs/145361/machine-learning-engineer-5-plus-years-of-relevant-taina-technology-limited" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=268238&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F145361%2Fmachine-learning-engineer-5-plus-years-of-relevant-taina-technology-limited%3Fmed=clc&amp;sig=PMqGuLID_ptjog"><div class="title">Machine Learning Engineer - 5+ years of relevant machine learning experience</div><div><span class="company">TAINA Technology Limited</span><span class="location">London, UK</span></div><div class="opts"><span class="opt salary">£40k - £80k</span><span class="opt remote">Remote</span></div><span class="post-tag">machine-learning</span><span class="post-tag highlight">java</span><div><p class="job-badge job-badge-high-response">High response rate</p></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=268238&amp;ct=-1&amp;sig=hWBVhAZrpPQbbA" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/137729/technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=252209&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F137729%2Ftechnical-product-manager-100k-crossover%3Fmed=clc&amp;sig=e2duJhfuqT4sSw"><div class="title">Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">spring</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=252209&amp;ct=-1&amp;sig=PYUdGwAeNiW8yg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="DevFactory Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/135512/devfactory-technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=237678&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F135512%2Fdevfactory-technical-product-manager-100k-crossover%3Fmed=clc&amp;sig=dIjMIYlAUdXn3A"><div class="title">DevFactory Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">spring</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xJt5Vi1-9AVD9Wmd-EhTEwsrd9vcPLPWLX4RKKZWTbjR7_bAccDGaQYejYwMDTYMzIysEgzHTrN3t_NeXm7AFA85cAS83OWr6ba2s9m2n6CvaOd89x6iHj23SeW7be97RlZshLLEmczTZ3Ofug4x8ZN_GDZcLVHloL3Q-GyhzrYT23leHeAD4ssg9LB5__Ezt0t_FwOAA&amp;cr=237678&amp;ct=-1&amp;sig=STLq3h81hOeeFg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 'AqyqVam7wtQIAAAAAIU7NgECAAAAAgAAAAAXAAAAfGphdmF8c3ByaW5nfGF1dG93aXJlZHwAskvqwfsbNpkGSQ';;!function i(n){try{if("function"!=typeof[].indexOf)return;if(!window.addEventListener)return;if(!n.allowed)return;if(!RegExp(n.allowed).test(location.hostname))return;var t=window,e=t.document,c=n.wv;if(e.hidden&&c)return void e.addEventListener("visibilitychange",function t(){e.hidden||(i(n),e.removeEventListener("visibilitychange",t))});if(t.clc=t.clc||{},t.clc.init=t.clc.init||[],n.autoload&&t.clc.init.push(function(i){return i.load()}),t.clc.options){for(var o in t.clc.options)n[o]=t.clc.options[o];t.clc.options=n}else t.clc.options=n;var r=e.createElement("script");r.async=!0,r.src=n.lib,e.body.appendChild(r)}catch(i){}}.call(null, {"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=d80e98d967bf","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true});        </script>
+			<div class="module" id="chat-feature">
+
+    <h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="22 users active in 30 rooms the last 60 minutes">22 People Chatting</a></h4>
+    <div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="PHP"><a href="http://chat.stackoverflow.com/rooms/11">PHP</a></span></h3><span title="2017-07-03 23:29:31Z" class="ad502-last-message">2 days ago - <a href="http://chat.stackoverflow.com/users/4501442">Sal Orozco</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/4501442"><img height="23" width="23" title="Sal Orozco: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/picture"></a><a href="http://chat.stackoverflow.com/users/4594452"><img height="23" width="23" title="Miko Chu: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/picture(1)"></a><a href="http://chat.stackoverflow.com/users/727208"><img height="23" width="23" title="tereško: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/d2bba3700fd3a3e8cc12888edd980525"></a><a href="http://chat.stackoverflow.com/users/5764893"><img height="23" width="23" title="Jeeves: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/aMuw2.jpg"></a><a href="http://chat.stackoverflow.com/users/2265374"><img height="23" width="23" title="ThW: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/3f2fb8bbcd44609346e1cc0c06d0a39b"></a><a href="http://chat.stackoverflow.com/users/2153758"><img height="23" width="23" title="bwoebi: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/oEgTs.png"></a><a href="http://chat.stackoverflow.com/users/538216"><img height="23" width="23" title="Levi Morrison: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/e91a4b631b4bb7f0c477626617dd3926"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript</a></span></h3><span title="2017-07-03 23:35:35Z" class="ad502-last-message">2 days ago - <a href="http://chat.stackoverflow.com/users/6036932">derp</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/6036932"><img height="23" width="23" title="derp: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/3OyFY.jpg"></a><a href="http://chat.stackoverflow.com/users/400654"><img height="23" width="23" title="Kevin B: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/afc1068910df4dd83c2fc3af0255af11"></a><a href="http://chat.stackoverflow.com/users/763509"><img height="23" width="23" title="Vap0r: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/6zQkZ.png"></a><a href="http://chat.stackoverflow.com/users/2203974"><img height="23" width="23" title="Arrow: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/NURaP.jpg"></a><a href="http://chat.stackoverflow.com/users/1408759"><img height="23" width="23" title="ndugger: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/PH8Vg.png"></a><a href="http://chat.stackoverflow.com/users/785745"><img height="23" width="23" title="Kendall Frey: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/f9fc3249a341a64ee2721637915cd301"></a><a href="http://chat.stackoverflow.com/users/3161092"><img height="23" width="23" title="towc: 2 days ago" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/oVs5E.png"></a></div></div></div>
+    <script>
+    // <!--
+        StackExchange.ready(
+        function () {
+            var options = {
+                chatUrl: 'http://chat.stackoverflow.com',
+                reloadUrl: '/api/recent-chat',
+                preloadData: {"activeUsers":22,"activeRooms":30,"rooms":[{"name":"PHP","id":11,"lastPost":1499124571,"posts":2798793,"users":[{"name":"Sal Orozco","id":4501442,"emailhash":"!https://graph.facebook.com/100002888429079/picture?type=large","lastPost":1499124571},{"name":"Miko Chu","id":4594452,"emailhash":"!https://graph.facebook.com/1029298217084411/picture?type=large","lastPost":1499124088},{"name":"tereško","id":727208,"emailhash":"d2bba3700fd3a3e8cc12888edd980525","lastPost":1499123235},{"name":"Jeeves","id":5764893,"emailhash":"!https://i.stack.imgur.com/aMuw2.jpg?s=128\u0026g=1","lastPost":1499117764},{"name":"ThW","id":2265374,"emailhash":"3f2fb8bbcd44609346e1cc0c06d0a39b","lastPost":1499116769},{"name":"bwoebi","id":2153758,"emailhash":"!https://i.stack.imgur.com/oEgTs.png?s=128\u0026g=1","lastPost":1499115389},{"name":"Levi Morrison","id":538216,"emailhash":"e91a4b631b4bb7f0c477626617dd3926","lastPost":1499114217}],"messages":[{"date":1499124571,"user":"Sal Orozco","userid":4501442}],"singleImage":false,"tags":["php"]},{"name":"JavaScript","id":17,"lastPost":1499124935,"posts":4069806,"users":[{"name":"derp","id":6036932,"emailhash":"!https://i.stack.imgur.com/3OyFY.jpg?s=128\u0026g=1","lastPost":1499124934},{"name":"Kevin B","id":400654,"emailhash":"afc1068910df4dd83c2fc3af0255af11","lastPost":1499117723},{"name":"Vap0r","id":763509,"emailhash":"!https://i.stack.imgur.com/6zQkZ.png?s=128\u0026g=1","lastPost":1499117067},{"name":"Arrow","id":2203974,"emailhash":"!https://i.stack.imgur.com/NURaP.jpg?s=128\u0026g=1","lastPost":1499116816},{"name":"ndugger","id":1408759,"emailhash":"!https://i.stack.imgur.com/PH8Vg.png?s=128\u0026g=1","lastPost":1499116772},{"name":"Kendall Frey","id":785745,"emailhash":"f9fc3249a341a64ee2721637915cd301","lastPost":1499116330},{"name":"towc","id":3161092,"emailhash":"!https://i.stack.imgur.com/oVs5E.png?s=128\u0026g=1","lastPost":1499114489}],"messages":[{"date":1499124935,"user":"derp","userid":6036932}],"singleImage":false,"tags":["ecmascript","ecmascript-6","javascript","nodejs"]}]} 
+            };
+
+            StackExchange.chatAd.init(options);
+        });
+    // -->
+    </script>
+
+</div>
+
+            
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/633158?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">199</div></a><a href="https://stackoverflow.com/questions/633158/spring-autowired-usage?rq=1" class="question-hyperlink">Spring @Autowired usage</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/4093504?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">229</div></a><a href="https://stackoverflow.com/questions/4093504/resource-vs-autowired?rq=1" class="question-hyperlink">@Resource vs @Autowired</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/7142622?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">425</div></a><a href="https://stackoverflow.com/questions/7142622/what-is-the-difference-between-inject-and-autowired-in-spring-framework-which?rq=1" class="question-hyperlink">What is the difference between @Inject and @Autowired in Spring Framework? Which one to use under what condition?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/8091203?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">14</div></a><a href="https://stackoverflow.com/questions/8091203/spring-dependency-injection-autowiring-null?rq=1" class="question-hyperlink">Spring Dependency Injection Autowiring Null</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/9724490?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="https://stackoverflow.com/questions/9724490/why-cant-spring-autowire-simple-types?rq=1" class="question-hyperlink">Why can't spring autowire simple types?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/10604298?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes large">151</div></a><a href="https://stackoverflow.com/questions/10604298/spring-component-versus-bean?rq=1" class="question-hyperlink">Spring: @Component versus @Bean</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/19414734?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">181</div></a><a href="https://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage?rq=1" class="question-hyperlink">Understanding Spring @Autowired usage</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/19896870?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">308</div></a><a href="https://stackoverflow.com/questions/19896870/why-is-my-spring-autowired-field-null?rq=1" class="question-hyperlink">Why is my Spring @Autowired field null?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/25161074?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">4</div></a><a href="https://stackoverflow.com/questions/25161074/spring-autowire-by-name-constructor-arguments?rq=1" class="question-hyperlink">Spring autowire by name constructor arguments</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/34687845?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/34687845/spring-constructor-dependency-injection-with-vs-without-autowired?rq=1" class="question-hyperlink">Spring constructor dependency injection - with vs. without autowired</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/91526/should-i-hide-the-fact-that-i-did-a-group-assignment-completely-by-myself" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I hide the fact that I did a group assignment completely by myself?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/39327/whats-the-slowest-airplane" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the slowest airplane?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/129596/am-i-divisible-by-double-the-sum-of-my-digits" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Am I divisible by double the sum of my digits?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="https://puzzling.stackexchange.com/questions/53092/how-many-minutes-is-it-before-12-noon-tricky" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How many minutes is it before 12 noon? (tricky)
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/129519/spanish-id-card-control-character-calculator" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Spanish ID card control character calculator
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2345817/closed-form-of-function-composition" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Closed form of function composition
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/91659/what-would-be-some-reasons-why-a-researcher-would-use-papers-from-low-impact-fac" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What would be some reasons why a researcher would use papers from low-impact factor journals?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="https://boardgames.stackexchange.com/questions/35724/carnivore-vs-carnivore" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Carnivore vs carnivore
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/129523/it-was-just-a-bug" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    It was just a bug
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="https://music.stackexchange.com/questions/58875/practice-to-avoid-mistakes-or-practice-to-cover-mistakes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Practice to avoid mistakes or practice to cover mistakes
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/395382/which-word-begins-with-y-and-looks-like-an-axe-in-this-picture" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Which word begins with "y" and looks like an axe in this picture?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2345327/is-being-a-right-triangle-both-necessary-and-sufficient-for-the-pythagorean-theo" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is being a right triangle both necessary and sufficient for the Pythagorean Theorem to hold?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/96324/did-tgvs-have-restaurant-style-dining" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did TGVs have restaurant-style dining?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1225210/cmd-or-just" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    CMD: *.* or just *?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/85210/a-realistic-explanation-of-a-typical-plague-inc-infect-everyone-before-you-star" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A realistic explanation of a typical Plague-inc "infect everyone before you start killing them" strategy
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/85260/how-would-an-isolated-village-in-low-magic-setting-develop-an-economy-beyond-bar" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How would an isolated village in low magic setting develop an economy beyond bartering?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/128496/hello-world-every-other-character" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Hello, World! (Every other character)
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2344993/unexpected-examples-of-natural-logarithm" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Unexpected examples of natural logarithm
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/375145/how-to-grep-a-and-aa-after-a-number" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to grep "a" and "aa" after a number?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/378048/how-can-i-input-uyghur-language-in-latex" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I input Uyghur language in LaTeX?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="https://serverfault.com/questions/859216/how-to-re-balance-data-in-zfs-make-sure-the-data-is-spread-amongst-all-strip" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to 're-balance' data in zfs? (Make sure the data is spread amongst all striped mirrors)
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/102764/what-happens-to-a-paladins-summoned-steed-if-the-paladin-dies" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens to a Paladin's summoned steed if the Paladin dies?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="https://music.stackexchange.com/questions/58906/what-is-the-purpose-of-a-zero-fret-on-a-guitar" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the purpose of a zero fret on a guitar?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/38833/flag-with-13-white-stars-and-a-crescent-on-red-background" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Flag with 13 white stars and a crescent on red background
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/20331397" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/20331397/ivc/1fa0');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/20331397/ivc/1fa0" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-java</div></div>
+
+
+        </div>
+    </div><script async="" src="./java - Using autowired dependency in constructor in spring - Stack Overflow_files/clc.min.js"></script>
+
+        <footer class="s-footer js-footer _short" role="contentinfo">
+            <div class="-container">
+                <div class="g-row js-sp-between">
+                    <div class="-logo">
+                        <a href="https://stackoverflow.com/"><svg role="icon" class="svg-icon iconLogo" width="150" height="30" viewBox="0 0 150 30"><g><path d="M33.9 18.6l-1.7-.2c-1.3-.1-1.9-.6-1.9-1.6 0-1.1.8-1.8 2.4-1.8 1.1 0 2.1.3 2.8.8l1-1c-1-.8-2.3-1.1-3.8-1.1-2.3 0-3.9 1.2-3.9 3.1 0 1.8 1.1 2.7 3.2 2.9l1.8.2c1.2.1 1.8.6 1.8 1.6 0 1.3-1.1 1.9-2.8 1.9-1.3 0-2.5-.3-3.3-1.2l-1 1c1.2 1.1 2.6 1.5 4.4 1.5 2.6 0 4.3-1.2 4.3-3.2-.2-2-1.5-2.7-3.3-2.9zm13.3-4.8c-1.7 0-2.8.3-3.7 1.5l1 1c.6-.9 1.3-1.2 2.7-1.2 1.9 0 2.7.8 2.7 2.3v1h-3.2c-2.4 0-3.7 1.2-3.7 3.1 0 .8.3 1.6.8 2.2.7.7 1.5 1 3 1 1.4 0 2.2-.3 3.1-1.1v1h1.6v-7.2c-.1-2.4-1.5-3.6-4.3-3.6zm2.7 7c0 .9-.2 1.5-.5 1.8-.7.6-1.5.7-2.4.7-1.7 0-2.4-.6-2.4-1.8 0-1.2.8-1.9 2.4-1.9h3l-.1 1.2zm7.6-5.6c1 0 1.6.3 2.4 1.2l1-1c-1.1-1.2-2-1.6-3.5-1.6-2.7 0-4.7 1.8-4.7 5.5 0 3.6 2 5.5 4.7 5.5 1.5 0 2.4-.4 3.5-1.6l-1.1-1c-.8.9-1.4 1.2-2.4 1.2s-1.9-.4-2.5-1.2c-.5-.7-.7-1.5-.7-2.9 0-1.3.2-2.2.7-2.9.7-.8 1.6-1.2 2.6-1.2zm13.4-1.3H69l-4.8 4.7V9.1h-1.6v15.4h1.6v-3.9l1.9-1.9 3.6 5.8h1.9l-4.4-6.9 3.7-3.7zm7.3-.5c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.7-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7.1 1.2 0 2.2-.6 2.7zm10.8-8.2l-2.2 6.9-2.3-6.9h-2.9L87 24.6h2.2l4.1-11.1h-3zm7.6-.1c-2.9 0-4.8 2-4.8 5.7 0 4.5 2.5 5.7 5.1 5.7 2 0 3.1-.6 4.2-1.7l-1.7-1.6c-.7.7-1.3 1-2.5 1-1.6 0-2.4-1-2.4-2.5h6.9v-1.2c0-3.2-1.7-5.4-4.8-5.4zM95.8 18c0-.5.1-.8.3-1.2.3-.7.9-1.2 1.9-1.2.9 0 1.6.5 1.9 1.2.2.4.2.7.3 1.2h-4.4zm11-3.4v-1.1h-2.7v11.1h2.8v-6.7c0-1.4.9-2 1.8-2 .7 0 1 .2 1.5.7l2.1-2.1c-.8-.8-1.5-1-2.6-1-1.3-.1-2.3.4-2.9 1.1zm6.3-2.3v12.3h2.8v-8.8h2v-2.1h-2v-1.2c0-.6.3-1 1-1h1.1V9.2h-1.6c-2.3 0-3.3 1.6-3.3 3.1zm16.2 1.1c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.8-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7 0 1.2 0 2.2-.6 2.7zm16.5-8.2l-1.8 6.9-2.3-6.9h-2l-2.3 6.9-1.8-6.9H134l3.4 11.1h2.3l2.3-7 2.3 7h2.3l3.4-11.1h-2.9zM122 21.2V9.1h-2.8v12.3c0 1.6 1 3.2 3.2 3.2h1.6v-2.3h-1c-.7 0-1-.4-1-1.1zm-80.7-5.6l1.4-1.4h-3v-3.5h-1.6v11.1c0 1.6.9 2.9 2.7 2.9h1.1v-1.3h-.8c-1 0-1.5-.6-1.5-1.6v-6.1h1.7v-.1z" fill="#222426"></path><path fill="#BCBBBB" d="M21 27v-8h3v11H0V19h3v8z"></path><path d="M5.402 19.101l13.561 1.96.164-2.38-13.256-2.547-.469 2.967zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm3.4-5.9l10.2 8.5 1.7-2-10.2-8.5-1.7 2zM17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zM5 25h14v-3H5v3z" fill="#F48024"></path></g></svg></a>
+                    </div>
+
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                                            <li class="-item"><a href="https://stackoverflow.com/documentation" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 18})">Documentation</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                            <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Stack Overflow<br> Business</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Ads</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/insights" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 23 })">Insights</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackexchange.com/legal">Legal</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="-network g-row">
+                        <a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-back-trigger js-back"><svg role="icon" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.582 16l1.41-1.41L6.402 9l5.59-5.59L10.582 2l-7 7z"></path></svg></a>
+                        <div>
+                            <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                            <ul class="-list">
+                                <li class="-item"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/20331397/using-autowired-dependency-in-constructor-in-spring#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <nav class="-nav js-category" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (28)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (16)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (32)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers and students">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </nav>
+                    <div class="-copyright text-right">
+                        <div class="g-column jc-sp-between">
+                            <ul class="-list">
+                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                                <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                                <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                                <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                            </ul>
+
+                            <div>
+                                <p>
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                                    with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                                    <span id="svnrev">rev 2017.7.3.26415</span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                            </div>
+        </footer>
+
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled
+            &lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;
+        &lt;/div&gt;
+    </noscript>
+        <script> setTimeout(function() { $("#adzerk-user-match").remove(); }, 2000);</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', sampleRate: 5 });
+                ga('set', 'dimension2', '|java|spring|autowired|');
+                ga('pageData.set', 'dimension2', '|java|spring|autowired|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+
+</body></html>

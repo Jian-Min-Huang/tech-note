@@ -1,0 +1,247 @@
+/******************************************
+Replace with your custom spritesheet name
+******************************************/
+.sprite {
+	background: url("spritesheet_bar_chart.png") no-repeat;
+}
+
+/************************************
+ Used by unified index.html + main.js
+ DO NOT TOUCH.
+ ***********************************/
+
+/* The 5 end screen shapes */
+.triangle1 {
+    background-position: 0px 0px;
+    width: 70px;
+    height: 110px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.triangle2 {
+    background-position: -80px 0px;
+    width: 110px;
+    height: 110px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.triangle3 {
+    background-position: 0px -120px;
+    width: 190px;
+    height: 110px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.parallelogram {
+    background-position: -200px 0px;
+    width: 70px;
+    height: 150px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.diamond {
+    background-position: -200px -160px;
+    width: 110px;
+    height: 110px;
+    -ms-transform-origin: 55px 55px;
+    -webkit-transform-origin: 55px 55px;
+    transform-origin: 5     5px 55px;
+}
+
+.logoColored {
+    background-position: -15px -235px;
+    left: 18px;
+    top: 245px;
+    width: 65px;
+    height: 24px;
+    opacity: 1;
+}
+
+.logoWhite {
+    background-position: -100px -235px;
+    left: 18px;
+    top: 245px;
+    width: 65px;
+    height: 24px;
+    opacity: 0;
+}
+
+/* The 4 CTA button shapes */
+.ctaTriLeft {
+    background-position: -310px -140px;
+    left: -16px;
+    top: 155px;
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+}
+
+.ctaPara {
+    background-position: -270px -0px;
+    left: 24px;
+    top: 115px;
+    width: 170px;
+    height: 70px;
+    opacity: 0;
+}
+
+.ctaTriRight {
+    background-position: -380px -140px;
+    left: 144px;
+    top: 95px;
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+}
+
+.ctaRect {
+    background-position: -270px -70px;
+    left: 4px;
+    top: 135px;
+    width: 170px;
+    height: 70px;
+    opacity: 0;
+}
+
+/***********************************
+ PLACE YOUR CUSTOM SPRITE CSS BELOW
+ .sampleName is safe to delete
+ **********************************/
+
+.obj0 {
+    background: url('spritesheet_bar_chart.png') no-repeat -260px -337px;
+    width: 15px;
+    height: 28px;
+    opacity: 0;
+}
+
+.obj1 {
+    background: url('spritesheet_bar_chart.png') no-repeat -320px -219px;
+    width: 29px;
+    height: 14px;
+    opacity: 0;
+}
+
+.obj2 {
+    background: url('spritesheet_bar_chart.png') no-repeat -362px -238px;
+    width: 15px;
+    height: 29px;
+    opacity: 0;
+}
+
+.obj3 {
+    background: url('spritesheet_bar_chart.png') no-repeat -410px -245px;
+    width: 29px;
+    height: 14px;
+    opacity: 0;
+}
+
+.square0 {
+    background: url('spritesheet_bar_chart.png') no-repeat -260px -285px;
+    width: 15px;
+    height: 28px;
+    opacity: 0;
+}
+
+.square1 {
+    background: url('spritesheet_bar_chart.png') no-repeat -306px -293px;
+    width: 29px;
+    height: 14px;
+    opacity: 0;
+}
+
+.square2 {
+    background: url('spritesheet_bar_chart.png') no-repeat -362px -278px;
+    width: 29px;
+    height: 71px;
+    opacity: 0;
+}
+
+.square3 {
+    background: url('spritesheet_bar_chart.png') no-repeat -417px -279px;
+    width: 15px;
+    height: 28px;
+    opacity: 0;
+}
+
+.square4 {
+    background: url('spritesheet_bar_chart.png') no-repeat -306px -322px;
+    width: 29px;
+    height: 14px;
+    opacity: 0;
+}
+
+.arrow0 {
+    background: url('spritesheet_bar_chart.png') no-repeat -22px -316px;
+    width: 27px;
+    height: 26px;
+    opacity: 0;
+}
+
+.arrow1 {
+    background: url('spritesheet_bar_chart.png') no-repeat -74px -316px;
+    width: 27px;
+    height: 26px;
+    opacity: 0;
+}
+
+.arrow2 {
+    background: url('spritesheet_bar_chart.png') no-repeat -123px -316px;
+    width: 29px;
+    height: 14px;
+   opacity: 0; 
+}
+
+.arrow3 {
+    background: url('spritesheet_bar_chart.png') no-repeat -179px -309px;
+    width: 15px;
+    height: 28px;
+   opacity: 0; 
+}
+
+.arrow4 {
+    background: url('spritesheet_bar_chart.png') no-repeat -216px -309px;
+    width: 29px;
+    height: 71px;
+   opacity: 0; 
+}
+
+.arrow5 {
+   background: url('spritesheet_bar_chart.png') no-repeat -260px -337px;
+    width: 15px;
+    height: 28px;
+   opacity: 0; 
+}
+
+.arrow6 {
+    background: url('spritesheet_bar_chart.png') no-repeat -22px -365px;
+    width: 29px;
+    height: 14px;
+   opacity: 0; 
+}
+
+.arrow7 {
+    background: url('spritesheet_bar_chart.png') no-repeat -73px -352px;
+    width: 29px;
+    height: 28px;
+   opacity: 0; 
+}
+
+#arrowCont {
+    bottom: -15px;
+}
+
+#iconHolder {
+    top: 30px;
+    left: 33px;
+}
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0417)http://falcon-creative-cloudcdn.pixfs.net/html5/2017/06/5ee69a9f830248b1aae1d1f1ab6ecc82-89e6223675cd0a83/index.html?v=1497494550&clickTAG=http%3A%2F%2Ffalcon.pixanalytics.com%2Fmib%2Fadc%3Fa%3D5ee69a9f830248b1aae1d1f1ab6ecc82%26s%3D1%26h%3Dc907fb4fab28a9981dafb6e7651166cd%26u%3Db22baf404fe149ef91b6bc723c390e9d%26v%3Df206221774810076b3d22364adaad87a%26c%3DCgECPlk%252F854AALrvTZ8WAg%253D%253D%26cate%3D7%26acate%3D8 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="ad.size" content="width=300,height=250">
+<title>CreateJS export from A_300X250_100K</title>
+
+<script src="./createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js"></script>
+<script src="./A_300X250_100K.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var manifest = [
+		{src:"images/cranberries.png", id:"cranberries"},
+		{src:"images/logo.png", id:"logo"},
+		{src:"images/md.png", id:"md"},
+		{src:"images/pd.png", id:"pd"},
+		{src:"images/princess01.png", id:"princess01"},
+		{src:"images/princess02.png", id:"princess02"},
+		{src:"images/princess03.png", id:"princess03"},
+		{src:"images/sing.png", id:"sing"}
+	];
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	exportRoot = new lib.A_300X250_100K();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(24);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+
+<style>
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+</style>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<a href="http://falcon.pixanalytics.com/mib/adc?a=5ee69a9f830248b1aae1d1f1ab6ecc82&amp;s=1&amp;h=c907fb4fab28a9981dafb6e7651166cd&amp;u=b22baf404fe149ef91b6bc723c390e9d&amp;v=f206221774810076b3d22364adaad87a&amp;c=CgECPlk%2F854AALrvTZ8WAg%3D%3D&amp;cate=7&amp;acate=8" id="clickArea" target="_blank"><div style="position:absolute;width:300px;height:250px;z-index: 99999;opacity:0;"></div></a><canvas id="canvas" width="300" height="250" style="background-color:#ffffff"></canvas>
+	<script>function px_getClickTAG(){try{for(var c=window.location.search.substring(1),e=c.split("&"),l=0;l<e.length;l++){var r=e[l].split("=");if("clickTAG"===r[0])return decodeURIComponent(r[1].replace(/\+/g," "))}}catch(t){console.log(t)}return""}var clickTAG=px_getClickTAG(),clickArea=document.getElementById("clickArea");clickArea.href=clickTAG;</script>  
+
+</body></html>

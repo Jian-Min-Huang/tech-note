@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Re: [請益] 這些軟體工程的方法在台灣的普及度? - 看板 Soft_Job - 批踢踢實業坊</title>
+<meta name="robots" content="all">
+<meta name="keywords" content="Ptt BBS 批踢踢">
+<meta name="description" content="
+※ 引述《Wolfken ()》之銘言：
+: 目前軟體工程最紅的新方法大概就是DevOps/Continuous Delivery
+: 想問一下目前有沒有人的公司正在使用或是想要使用這幾個東西:
+: DevOps
+">
+<meta property="og:site_name" content="Ptt 批踢踢實業坊">
+<meta property="og:title" content="Re: [請益] 這些軟體工程的方法在台灣的普及度?">
+<meta property="og:description" content="
+※ 引述《Wolfken ()》之銘言：
+: 目前軟體工程最紅的新方法大概就是DevOps/Continuous Delivery
+: 想問一下目前有沒有人的公司正在使用或是想要使用這幾個東西:
+: DevOps
+">
+<link rel="canonical" href="https://www.ptt.cc/bbs/Soft_Job/M.1390977011.A.FC1.html">
+
+<link rel="stylesheet" type="text/css" href="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/bbs-common.css">
+<link rel="stylesheet" type="text/css" href="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/bbs-base.css" media="screen">
+<link rel="stylesheet" type="text/css" href="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/bbs-custom.css">
+<link rel="stylesheet" type="text/css" href="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/pushstream.css" media="screen">
+<link rel="stylesheet" type="text/css" href="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/bbs-print.css" media="print">
+
+
+<script src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/cbgapi.loaded_1" async=""></script><script src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/cbgapi.loaded_0" async=""></script><script type="text/javascript" async="" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/all.js"></script><script type="text/javascript" async="" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/ga.js"></script><script src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/jquery.js"></script>
+<script src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/bbs.js"></script>
+
+
+		
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32365737-1']);
+  _gaq.push(['_setDomainName', 'ptt.cc']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+	<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+    <body>
+		
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/0eWevUAMuoH.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="topbar-container">
+	<div id="topbar" class="bbs-content">
+		<a id="logo" href="https://www.ptt.cc/">批踢踢實業坊</a>
+		<span>›</span>
+		<a class="board" href="https://www.ptt.cc/bbs/Soft_Job/index.html"><span class="board-label">看板 </span>Soft_Job</a>
+		<a class="right small" href="https://www.ptt.cc/about.html">關於我們</a>
+		<a class="right small" href="https://www.ptt.cc/contact.html">聯絡資訊</a>
+	</div>
+</div>
+<div id="navigation-container">
+	<div id="navigation" class="bbs-content">
+		<a class="board" href="https://www.ptt.cc/bbs/Soft_Job/index.html">返回看板</a>
+		<div class="bar"></div>
+		<div class="share">
+			<span>分享</span>
+			<div class="fb-like fb_iframe_widget" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false" data-href="http://www.ptt.cc/bbs/Soft_Job/M.1390977011.A.FC1.html" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=90&amp;href=http%3A%2F%2Fwww.ptt.cc%2Fbbs%2FSoft_Job%2FM.1390977011.A.FC1.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 87px; height: 20px;"><iframe name="f3ec99cfaf1a142" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 87px; height: 20px;" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/like.htm" class="" width="90px" height="1000px" frameborder="0"></iframe></span></div>
+
+			<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1486627947010" name="I0_1486627947010" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/fastbutton.htm" data-gapiattached="true" title="+1" width="100%" frameborder="0"></iframe></div>
+<script type="text/javascript">
+window.___gcfg = {lang: 'zh-TW'};
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'https://apis.google.com/js/plusone.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+
+		</div>
+	</div>
+</div>
+<div id="main-container">
+    <div id="main-content" class="bbs-screen bbs-content"><div class="article-metaline"><span class="article-meta-tag">作者</span><span class="article-meta-value">Wolfken ()</span></div><div class="article-metaline-right"><span class="article-meta-tag">看板</span><span class="article-meta-value">Soft_Job</span></div><div class="article-metaline"><span class="article-meta-tag">標題</span><span class="article-meta-value">Re: [請益] 這些軟體工程的方法在台灣的普及度?</span></div><div class="article-metaline"><span class="article-meta-tag">時間</span><span class="article-meta-value">Wed Jan 29 14:30:09 2014</span></div>
+<span class="f2">※ 引述《Wolfken ()》之銘言：
+</span><span class="f6">: 目前軟體工程最紅的新方法大概就是DevOps/Continuous Delivery
+</span><span class="f6">: 想問一下目前有沒有人的公司正在使用或是想要使用這幾個東西:
+</span><span class="f6">: DevOps
+</span><span class="f6">: Continuous Delivery
+</span><span class="f6">: Continuous Integration
+</span><span class="f6">: Test-Driven Development
+</span><span class="f6">: 其實前三個應該是同一套的東西，涵蓋的範圍大小不同而已
+</span>
+我想還是定義一下何謂Continuous Integration，Continuous Delivery跟DevOps好了
+其中最核心應該是Continuous Integration(CI)
+
+CI想解決的問題是，一般傳統的軟體專案，大部分時間都是各個開發者自行在自己的
+電腦上開發，等到搞定了才commit到version control。沒有人會在自己的code搞定
+之前去跑跑看跟其他人的code整起來會不會出問題，所以大部分的時間裡，如果把各
+個開發者自己電腦上在開發的code包括進來，整個軟體都是處在不能動或是有問題的
+狀態，直到接近結尾要release時才會真的穩定下來。
+
+但問題就出在結尾，大家都不先試試看整起來有沒有問題，等到寫了一大堆code，
+再去跟其他人也是一大堆的code來整合，通常就會有一堆問題，然後就是無盡的debug
+。但因為新code在這種狀況下量很大，debug的複雜度相當高，要花的時間也很長。
+這問題即使使用Agile也是無法解決，因為Agile大家還是自己在自己電腦上開發到一
+定程度才會commit。
+
+CI或是CD的中心思想就是，如果一件事很麻煩很痛苦，那就把它拆成很多件小事，然
+後每天做，甚至一天做好幾次。所以顧名思義，持續整合(CI)就是要每天跟其他人的
+code做整合，甚至一天做好幾次。每次都只有幾行到幾十行的code要整合，當然複雜
+度就小很多。理念上是這樣，但怎麼落實到實際操作就是一件相當困難的事，需要整
+個流程跟使用的系統都大幅調整才有辦法。你的code就不是一個完全版的東西，甚至
+連動都還不能動，別人的code也差不多，怎麼能辦到天天整合，甚至一天整好幾次?
+
+CI/CD提出的方法就是基於一個叫做pipeline的東西。所謂pipeline就是從code commit
+到version control開始，到真正deploy到production環境中間的流程，包括build test
+publish跟deploy。pipeline有四個phase: commit, automated acceptance, manual
+test跟release。前兩個phase就是CI，四個phase全包就是CD。pipeline的想法是，把
+所有能夠自動化的東西統統自動化，真的不行再去手動做，所以還是有一個手動測試的
+phase。基本的要求是unit test跟functional test的自動化測試coverage都要有80%
+以上。這麼一來所有人的新code都能隨時跑這些自動化測試，確定自己的code跟大系統
+整合起來是沒問題的。也因為大量自動化，所以從code commit到最終deploy只需按一
+個按鈕就搞定，而且在一兩小時內搞定。一個CI/CD很重要的指標在於，一行新的code
+從commit到使用者實際看到要花多少時間。傳統的方式可能是幾星期甚至更久，但CI/CD
+是幾小時。
+
+CI的兩個phase是大量自動化的重點所在。commit phase包括build跟unit test，還有少
+量基本的functional test。基本要求是在15分鐘內完成，所以當新code進來時，可以快
+速的利用unit test確認沒有問題。通過commit phase的build會進入automated
+acceptance phase，這邊是functional test主要跑的地方，要求是30~60分鐘內要跑完。
+
+除了自動化以外，CI的重點是圍繞在自動化pipeline建立一套流程跟紀律，並且搭配新
+的文化和想法。舊的方法是build永遠都是處於紅燈(fail)狀態，直到最後要release才
+會變綠燈。CI要求build永遠是綠燈，只要任何新code讓它變成紅燈，所有人要停下手
+邊的工作，馬上去修正它。這是從Toyota的stop the line學來的，Toyota的產線工人
+只要發現問題，可以馬上要求整個生產線停下來，先去處理這個問題。如果commit phase
+出問題，開發者有十分鐘可以修正，十分鐘修正不了就是roll back。acceptance phase
+出問題則有25~30分鐘。
+
+其他的CI守則包括:
+- 不能commit到有問題的build: build只要紅燈，version control就鎖住，任何人
+都不能commit。
+- 開發者commit前必須在local跑過commit phase的自動化測試
+- 開發者commit後必須在電腦前等到commit phase過了才能離開進行下一項工作，所以
+commit按下去就去喝下午茶半小時，回來可能會被電到很慘
+- 永遠不在build fail時放著不管回家: 這當然不是說要加班到修好為止，是說下班
+前一小時就盡量別commit code了
+- 永遠不把過不了的test comment掉
+- 誰的code讓build fail，那個人就要有肩膀扛下所有責任，並把問題解決
+- Test-Driven Development: 除了在code完成時跑自動化測試以外，同樣重要的是使用
+test-driven development，在開發過程中不斷確認目前新加的幾十行code是沒問題的
+，不要等到寫了上千行，要來commit時，跑下去才發現一堆都fail，這也是在自己電
+腦上進行持續整合的方法。一直跟別人的新code整合實際操作上有困難，那麼至少一
+直確認你的新code都能通過測試。
+
+所以CI不是工具，而是一個方法，包括流程 紀律 團隊成員思考模式 組織架構 文化，
+當然有許多工具幫忙讓這件事比較容易作到，最有名的就是Jenkins，但其實沒工具
+也是能做CI，而用了Jenkins也不等於就是CI，很多公司以為用了Jenkins甚至買了幾
+套CD或是DevOps的工具就叫在做CI了，事實上CI的重點從來就不是工具，只用了工具
+而沒有用到它核心的方法，那跟傳統的方法根本也沒有差別。
+
+CD包括的就更廣，想解決的問題也更全面，然後DevOps則是再拓展到把operation也包
+括進來，不過這些就要再花更多篇幅來講了，暫時就先不說了。
+
+Note: 必須要講得更清楚的是，最早的CI其實是Extreme Programming的一部分，當時
+只有Test-Driven Development，還沒有pipeline的概念。而很多人做CI就只做半套，
+把Test-Driven Development拿掉，就變成好像CI=nightly build。後來在2010年Jez
+Humble提出CD的時候，因為他本身就很愛XP，所以將CI拿出來加強，加入了pipeline
+跟其他的一些東西，成為了CD的前半段核心部分。所以現在講的CI其實都是CD版本的
+CI，並不是當初最原始XP版本的CI了。
+
+--
+<span class="f2">※ 發信站: 批踢踢實業坊(ptt.cc)
+</span>◆ From: 118.165.198.156
+<span class="f2">※ 編輯: Wolfken         來自: 118.165.198.156      (01/29 14:31)
+</span><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">ohb</span><span class="f3 push-content">:</span><span class="push-ipdatetime"> 01/29 14:47
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">bndan</span><span class="f3 push-content">:看到認真解釋就該給推了 但CI的部份 能合80%的公司 CODE水準</span><span class="push-ipdatetime"> 01/29 14:59
+</span></div><div class="push"><span class="f1 hl push-tag">→ </span><span class="f3 hl push-userid">bndan</span><span class="f3 push-content">:在低也有一定水準...(我說穩定度)</span><span class="push-ipdatetime"> 01/29 15:00
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">lovdkkkk</span><span class="f3 push-content">:推</span><span class="push-ipdatetime"> 01/29 15:08
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">mrbigmouth</span><span class="f3 push-content">:推</span><span class="push-ipdatetime"> 01/29 15:22
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">SecretWhale</span><span class="f3 push-content">:推</span><span class="push-ipdatetime"> 01/29 15:45
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">onthesea</span><span class="f3 push-content">:原po真好心推</span><span class="push-ipdatetime"> 01/29 17:26
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">summerleaves</span><span class="f3 push-content">:認真推</span><span class="push-ipdatetime"> 01/29 17:29
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">typepeter</span><span class="f3 push-content">:Push</span><span class="push-ipdatetime"> 01/29 21:07
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">idiot1129</span><span class="f3 push-content">:推</span><span class="push-ipdatetime"> 01/29 21:24
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">ntddt</span><span class="f3 push-content">:認真推~</span><span class="push-ipdatetime"> 01/29 23:51
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">ApacheHunter</span><span class="f3 push-content">:推~</span><span class="push-ipdatetime"> 01/30 02:26
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">viper9709</span><span class="f3 push-content">:推~寫得很不錯</span><span class="push-ipdatetime"> 01/30 10:51
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">arenda</span><span class="f3 push-content">:讚</span><span class="push-ipdatetime"> 01/30 11:03
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">hopashin</span><span class="f3 push-content">:推</span><span class="push-ipdatetime"> 01/30 11:34
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">kewang</span><span class="f3 push-content">:推這篇！</span><span class="push-ipdatetime"> 01/30 16:47
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">SACkings55</span><span class="f3 push-content">:大為解惑 大推</span><span class="push-ipdatetime"> 01/31 00:04
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">jason2debug</span><span class="f3 push-content">:受教了，感謝原po大分享</span><span class="push-ipdatetime"> 01/31 22:30
+</span></div><span class="f2">※ 編輯: Wolfken         來自: 118.161.33.79        (01/31 23:55)
+</span><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">gd03</span><span class="f3 push-content">:大推</span><span class="push-ipdatetime"> 02/10 00:22
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">plsear</span><span class="f3 push-content">: 朝聖</span><span class="push-ipdatetime"> 12/20 21:05
+</span></div><div class="push"><span class="hl push-tag">推 </span><span class="f3 hl push-userid">changyuheng</span><span class="f3 push-content">: 好像沒看到 DevOps 的定義</span><span class="push-ipdatetime"> 12/21 22:29
+</span></div></div>
+    
+    <div id="article-polling" data-pollurl="/poll/Soft_Job/M.1390977011.A.FC1.html?cacheKey=2053-1675454526&amp;offset=7281&amp;offset-sig=e435257cdf1ffe38485bee160d966a265c239257" data-longpollurl="/v1/longpoll?id=e60779c70ee6a87058ce8f5332aad13cd146ed43" data-offset="7281">推文自動更新已關閉</div>
+    
+
+    
+</div>
+
+    
+
+<iframe name="oauth2relay304055968" id="oauth2relay304055968" src="Re%20%20[%E8%AB%8B%E7%9B%8A]%20%E9%80%99%E4%BA%9B%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%E5%9C%A8%E5%8F%B0%E7%81%A3%E7%9A%84%E6%99%AE%E5%8F%8A%E5%BA%A6%20%20-%20%E7%9C%8B%E6%9D%BF%20Soft_Job%20-%20%E6%89%B9%E8%B8%A2%E8%B8%A2%E5%AF%A6%E6%A5%AD%E5%9D%8A_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe></body></html>

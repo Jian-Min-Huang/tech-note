@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>資料庫的好夥伴：Redis | TechBridge 技術共筆部落格</title>
+  <meta name="description" content="TechBridge Weekly 技術週刊團隊是一群對用技術改變世界懷抱熱情的團隊。本技術共筆部落格初期專注於Web前後端、行動網路、機器人/物聯網、數據分析與產品設計等技術分享">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google-site-verification -->
+  <meta name="google-site-verification" content="WX_9sZlrIYOEpy8RR7zCoa7-pJk611zZt11BSBUcDVY">
+  <link rel="stylesheet" type="text/css" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/screen.css">
+  <link rel="stylesheet" type="text/css" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/css.css">
+
+  <!-- Share this --> 
+  <div class="fit-vids-style" id="fit-vids-style" style="display: none;">­<style>.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></div><script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/p.js" async=""></script><script src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/cbgapi.loaded_1" async=""></script><script src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/cbgapi.loaded_0" async=""></script><script id="facebook-jssdk" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/sdk.js"></script><script type="text/javascript" async="" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/ga.js"></script><script async="" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/analytics.js"></script><script type="text/javascript" id="async-buttons" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/async-buttons.js"></script><script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "dd53a2ff-c8de-4b10-be81-2f4c022c9cb5", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="http://blog.techbridge.cc/img/favicon.ico">
+  <link rel="icon" href="http://blog.techbridge.cc/img/favicon.ico">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://blog.techbridge.cc/2016/06/18/redis-introduction/atom.xml">
+  
+  
+
+  
+<script type="text/javascript" async="" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/embed.js"></script><link rel="stylesheet" type="text/css" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/buttons.css"><script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/increment_clicks.sql"></script><script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/get_counts.json"></script><script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/increment_clicks.sql"></script><iframe id="stSegmentFrame" name="stSegmentFrame" scrolling="no" sandbox="allow-scripts allow-same-origin" style="display:none;" width="0px" height="0px" frameborder="0"></iframe><link rel="prefetch" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/a_data_002/lounge.css"><link rel="prefetch" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/a_data_002/common.js"><link rel="prefetch" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/a_data_002/lounge.js"><link rel="prefetch" href="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/a_data_002/config.js"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(http://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/alfie.js" async="" charset="UTF-8"></script></head>
+
+
+<body class="post-template">
+
+  <header class="site-head" style="background-image: url('//blog.ghost.org/content/images/2013/Nov/cover.png')">
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="http://blog.techbridge.cc/"><img src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/logo-tb-500-500.png" alt="Blog Logo"></a> 
+            <h1 class="blog-title">TechBridge 技術共筆部落格</h1>
+            <h2 class="blog-description">var topics = ['Web前後端', '行動網路', '機器人/物聯網', '數據分析', '產品設計', 'etc.']</h2>
+            <div class="navbar-block">
+			    <span><a href="http://blog.techbridge.cc/about/">關於我們</a></span> / <span><a href="https://www.techbridge.cc/" target="_blank">技術日報</a></span> / <span><a href="http://weekly.techbridge.cc/" target="_blank">技術週刊</a></span> / <span><a href="https://www.facebook.com/TechBridge.Fans/" target="_blank">粉絲專頁</a></span> / <span><a href="http://blog.techbridge.cc/atom.xml" target="_blank">訂閱RSS </a></span>            
+            </div>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2016-06-18T02:40:38.000Z" itemprop="datePublished">
+          2016-06-18
+      </time>
+    
+    
+    | 
+    <a href="http://blog.techbridge.cc/tags/Redis-Database-Cache/">Redis, Database, Cache</a>
+    
+    
+</span>
+
+<meta name="generator" content="資料庫的好夥伴：Redis">
+<meta name="og:title" content="資料庫的好夥伴：Redis">
+<meta name="og:description" content="TechBridge Weekly 技術週刊團隊是一群對用技術改變世界懷抱熱情的團隊。本技術共筆部落格初期專注於Web前後端、行動網路、機器人/物聯網、數據分析與產品設計等技術分享。">
+<meta name="og:type" content="website">
+<meta name="og:image" content="/img/logo-tb-500-500.png">
+    <h1 class="post-title">資料庫的好夥伴：Redis</h1>
+    <section class="post-content">
+      <div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/TechBridge.Fans" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=700&amp;href=https%3A%2F%2Fwww.facebook.com%2FTechBridge.Fans&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=false"><span style="vertical-align: bottom; width: 124px; height: 20px;"><iframe name="fe26efcb33c79e" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 124px; height: 20px;" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/like.htm" class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div>   
+      <hr>
+      <h2 id="前言"><a href="#%E5%89%8D%E8%A8%80" class="headerlink" title="前言"></a>前言</h2><p><a href="http://redis.io/" target="_blank" rel="external">Redis</a> 是一個 in-memory 的 key-value database，因此常常被用在需要快取（Cache）一些資料的場合，可以減輕許多後端資料庫的壓力。這篇就來簡單介紹一下 Redis 提供哪些好用的東西，以及可以應用在什麼地方。</p>
+<h2 id="常用指令"><a href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4" class="headerlink" title="常用指令"></a>常用指令</h2><p><a href="http://redis.io/commands" target="_blank" rel="external">Redis 的官網</a>列出了支援的每一條指令，我們先來看看最簡單的：</p>
+<h3 id="SET-GET"><a href="#SET-GET" class="headerlink" title="SET, GET"></a>SET, GET</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">redis&gt; SET mykey "Hello"</div><div class="line">redis&gt; GET mykey</div><div class="line">"Hello"</div></pre></td></tr></tbody></table></figure>
+<p>前面有提到說 Redis 是一個 key-value pair 的資料庫，因此最簡單的 SET 就是設定某個 key 的值是多少，要取出來的話就用 GET 就好。</p>
+<h3 id="INCR-DECR"><a href="#INCR-DECR" class="headerlink" title="INCR, DECR"></a>INCR, DECR</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">redis&gt; SET mykey "10"</div><div class="line">redis&gt; DECR mykey</div><div class="line">(integer) 9</div><div class="line">redis&gt; INCR mykey</div><div class="line">(integer) 10</div></pre></td></tr></tbody></table></figure>
+<p>顧名思義就是針對某個 key 加一或減一的意思，像是程式語言裡面的<code>mykey++</code>跟<code>mykey--</code>。<br>還有 <code>INCRBY</code> 與 <code>DECRBY</code>，可以指定你要加減的數量是多少。</p>
+<h3 id="HSET-HGET"><a href="#HSET-HGET" class="headerlink" title="HSET, HGET"></a>HSET, HGET</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">redis&gt; HSET mydata name "nick"</div><div class="line">redis&gt; HSET mydata nickname "nicknick"</div><div class="line">redis&gt; HGET mydata name</div><div class="line">"nick"</div></pre></td></tr></tbody></table></figure>
+<p>H 就是 Hashmap 的意思，所以你可以存取一個 value 底下的 field，讓你可以更多元的使用，例如說你可以定義 key 
+的規則是：POST + 文章 id，裡面就可以存這篇文章的讚數、回覆數等等，就不用每一次都去 Database 裡面重新抓取。</p>
+<h3 id="SADD-SCARD"><a href="#SADD-SCARD" class="headerlink" title="SADD, SCARD"></a>SADD, SCARD</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">redis&gt; SADD myset "nick"</div><div class="line">redis&gt; SADD myset "peter"</div><div class="line">redis&gt; SADD myset "nick"</div><div class="line">redis&gt; SCARD myset</div><div class="line">(integer) 2</div></pre></td></tr></tbody></table></figure>
+<p>SADD 的 S 就是 <code>Set</code> 的意思，這邊的 <code>Set</code> 指的是資料結構學過的那個 <code>Set</code>，裡面不會有重複的內容。</p>
+<h3 id="LPUSH-RPUSH-LSET-LRANGE"><a href="#LPUSH-RPUSH-LSET-LRANGE" class="headerlink" title="LPUSH, RPUSH, LSET, LRANGE"></a>LPUSH, RPUSH, LSET, LRANGE</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">redis&gt; LPUSH mylist "a"</div><div class="line">redis&gt; LPUSH mylist "b"</div><div class="line">redis&gt; RPUSH mylist "c"</div><div class="line">redis&gt; LRANGE mylist 0 -1</div><div class="line">1) "b"</div><div class="line">2) "a"</div><div class="line">3) "c"</div><div class="line">redis&gt; LSET mylist 0 "d"</div><div class="line">redis&gt; LRANGE mylist 0 -1</div><div class="line">1) "d"</div><div class="line">2) "a"</div><div class="line">3) "c"</div></pre></td></tr></tbody></table></figure>
+<p>這邊的資料結構是 <code>List</code>，你可以選擇從左邊或是右邊 push 值進去，對應到的指令就是 <code>LPUSH</code> 與 <code>RPUSH</code>，<code>LSET</code> 則是指定某個 index 的 value 是多少。  </p>
+<p><code>LRANGE</code> 可以印出指定範圍的值，支援<code>-1</code>這種形式，表示最後一個值。</p>
+<h2 id="實際應用"><a href="#%E5%AF%A6%E9%9A%9B%E6%87%89%E7%94%A8" class="headerlink" title="實際應用"></a>實際應用</h2><p>Redis 好用的地方就在於速度很快，所以若是開發上碰到一些場合需要速度很快的話，你可以先考慮看看 Redis 是不是能夠幫助到你，以下就舉幾個我實際使用過的例子。  </p>
+<h3 id="短網址系統"><a href="#%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%B3%BB%E7%B5%B1" class="headerlink" title="短網址系統"></a>短網址系統</h3><p>其實短網址的原理非常簡單，就是一個 hash 對應到一個網址，hash 是用隨機產生，幾碼或是要有什麼符號可以自己決定，接著就把這組對應關係存到資料庫裡面，別人 query 相應的 key 時，你就 redirect 到相應的網址去就好了。  </p>
+<p>也因為是這種 key-value 的一對一關係，所以非常適合使用 Redis。<br>如果你不用像是 Redis 這種的 
+key-value cache，就必須「每一次」都從 Database 去 
+query。若是資料量小還好，但資料量一變大的時候，時間一定會增加，資料庫的負荷也會增加，因此在資料庫跟邏輯層之間引進一層快取，我認為是很好的選
+擇。  </p>
+<p>實作的過程也很簡單，  </p>
+<ol>
+<li>使用者新增短網址，系統亂數產生 abc123 對應到 <a href="http://techbridge.cc/" target="_blank" rel="external">http://techbridge.cc</a></li>
+<li>把 key=abc123, value=<a href="http://techbridge.cc/" target="_blank" rel="external">http://techbridge.cc</a> 寫進資料庫</li>
+<li>同上，但是是儲存在 Redis</li>
+<li>當有使用者點擊：abc123 這個網址時，先去 Redis 查有沒有這個 key</li>
+<li>有的話，redirect 到對應的網址</li>
+<li>沒有的話，只好去資料庫查，查完之後記得寫一份到 Redis</li>
+</ol>
+<p>若是你的資料有超級多筆，又不想花很多的錢準備一台記憶體很大的 Redis Server（資料庫是用硬碟儲存，Redis 是存在記憶體，以儲存成本來說，資料庫會便宜許多），你可以使用 Redis 的 <code>Expire</code> 這個功能。  </p>
+<p>當你在儲存資料的時候，你可以新增一個 <code>Expire time</code> 的參數，當這個時間一到之後，這個 key 就會自動被清除。舉例來說，短網址的 expire 可以設定成 7 天，當某個網址 7 天內都沒有被任何使用者訪問的話，就會自動被刪除。  </p>
+<p>這樣的好處是你可以減少記憶體的使用量，只保持某些「熱資料」會存在 Redis，其他比較冷門、不常被訪問的數據，就存在 Database，等到被訪問的時候再寫到 Redis 即可。  </p>
+<h3 id="統計系統"><a href="#%E7%B5%B1%E8%A8%88%E7%B3%BB%E7%B5%B1" class="headerlink" title="統計系統"></a>統計系統</h3><p>其實上面講到的短網址服務，除了縮網址這個功能，還有另一個重點，那就是：統計資料。例如說 Google 短網址，會提供給你：造訪次數、圖表、用什麼裝置等等，這些才是短網址服務的核心。  </p>
+<p>如果要做這個功能，那你勢必要記錄每一次 Request，或至少要把 Request 的內容（用什麼手機、時間點、IP）記錄下來，才有數據可以給使用者看。  </p>
+<p>存在 Database，讀取也是每次都從 Database 讀的話，就會造成一些效能上的 issue，例如說每次 refresh 統計頁面，你就必須重新：<code>select conut(*) from short_url where id="abc123"</code>一次，才能抓到總共有多少人造訪。  </p>
+<p>還記得我們提過的 <code>INCR</code> 嗎？這不是就派上用場了！可以自己定義 key 的格式，例如說：abc123:visit 代表 abc123 這個短網址的總共造訪次數，接著，只要在每一次的 Request 都執行：<code>INCR abc123:visit</code>，這個 key 裡面就是你要的數字了，以後都從 Redis 讀取就好。  </p>
+<p>除了這個以外，假設你想要提供「不重複 IP 訪問次數」，前面提到的 <code>Set</code> 就很適合。可以把每一個 Request 的來源 IP 都丟進一個 Set，只要用 <code>SCARD</code> 就可以知道有多少不重複 IP 了，很方便對吧！</p>
+<h3 id="高即時性排名系統"><a href="#%E9%AB%98%E5%8D%B3%E6%99%82%E6%80%A7%E6%8E%92%E5%90%8D%E7%B3%BB%E7%B5%B1" class="headerlink" title="高即時性排名系統"></a>高即時性排名系統</h3><p>我曾經做過一個專案，需求如下：  </p>
+<ol>
+<li>中午 12 點開放使用者進入網站，並且回答一題問題</li>
+<li>回答完後會看到自己的排名（依答題時間排序），照名次獲得獎品</li>
+<li>只有前 300 名有獎品，之後都沒有</li>
+</ol>
+<p>可以先想一下有哪些地方會需要跟資料庫溝通  </p>
+<ol>
+<li>進入網站時，要先檢查是否超過 300 名，有的話提示活動結束（select count(*)…）</li>
+<li>接著檢查使用者是否已答題過，已答題過的話就顯示排名（select .. where id=..）</li>
+<li>若沒答過，顯示答題頁面</li>
+<li>答題結束之後，顯示使用者名次（insert into .. id=..）</li>
+</ol>
+<p>由於這個活動只有前 300 名有獎品，預估使用者有 10000 人的話，可能在 10 秒內這個活動就結束了！  </p>
+<p>10 秒內你的資料庫必須「同時承受」這麼多個 query，可能會有點吃不消，而且仔細檢視之後，會發現很多地方其實沒有必要用資料庫來做，或者是說，用 Redis 來做會更好！  </p>
+<p>例如說，可以這樣規劃：</p>
+<ol>
+<li>用一個 key：isOver 儲存活動是否結束</li>
+<li>用 account 當做 key，裡面儲存使用者的名次</li>
+</ol>
+<p>上面的流程就可以改寫成：</p>
+<ol>
+<li>進入網站時，去 Redis 讀取 isOver，查看活動是否結束</li>
+<li>檢查使用者是否答題過，看 Redis 的使用者帳號這個 key 有沒有資料</li>
+<li>若沒答過題且答完題，寫入資料庫，並且把名次寫入 Redis</li>
+<li>若是這個使用者的排名&gt;=300，設定 isOver = true</li>
+</ol>
+<p>原本需要三個對資料庫的操作，現在縮減到只剩下最必要的一個，其他都可以交給 Redis 處理。而且又因為 Redis 是 in-memory 的資料庫，反應速度非常快！再加上我們的 key 並不多（一萬多個 key 而已），用到的記憶體很少。  </p>
+<p>就這樣，透過 Redis 的幫助，很順利的就可以解決原本資料庫負載太重可能會很慢甚至掛掉的問題。</p>
+<h2 id="總結"><a href="#%E7%B8%BD%E7%B5%90" class="headerlink" title="總結"></a>總結</h2><p>若是下次你有些專案使用者很多，或是需要很快速的返回資訊，但是又怕資料庫撐不住，不妨想想是不是能夠導入 Redis，或其他也是做快取的 service。其實在很多場合，如果快取運用得宜的話，可以減輕很多資料庫的負擔，同時也加快響應的速度。</p>
+<p>若是你對 Redis 很有興趣，可以參考 <a href="http://redisbook.com/" target="_blank" rel="external">Redis 設計與實現</a> 這個網站。</p>
+<p>關於作者：<br><a href="http://huli.logdown.com/" target="_blank" rel="external">@huli</a> 野生工程師，相信分享與交流能讓世界變得更美好</p>
+  
+      <div class="fb-like fb_iframe_widget" data-href="http://blog.techbridge.cc/2016/06/18/redis-introduction/index.html" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=700&amp;href=http%3A%2F%2Fblog.techbridge.cc%2F2016%2F06%2F18%2Fredis-introduction%2Findex.html&amp;layout=standard&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true"><span style="vertical-align: bottom; width: 450px; height: 20px;"><iframe name="f1c3f67300f1afc" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 450px; height: 20px;" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/like_002.htm" class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div> 
+      <br>
+      <div class="sharethis-social-share-block">
+        <span class="st_twitter_hcount" displaytext="Tweet" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-twitter-counter" style="background-image: url(&quot;http://w.sharethis.com/images/2017/twitter_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">2</span></span></span></span></span></span>
+        <span class="st_plusone_hcount" displaytext="Google +1" st_processed="yes"><div style="display:inline-block;overflow:hidden;line-height:0px;position:relative;vertical-align:middle;bottom:0px;width:75px; height:21px;">&nbsp;<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1494172634333" name="I0_1494172634333" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/fastbutton.htm" data-gapiattached="true" title="+1" width="100%" frameborder="0"></iframe></div></div></span>
+        <span class="st_email_hcount" displaytext="Email" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-email-counter" style="background-image: url(&quot;http://w.sharethis.com/images/2017/email_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">0</span></span></span></span></span></span>
+      </div>
+    </section>
+    <br>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>TechBridge Weekly 技術週刊編輯團隊</h4>
+    <p>TechBridge Weekly 
+技術週刊團隊是一群對用技術改變世界懷抱熱情的團隊。本技術共筆部落格初期專注於Web前後端、行動網路、機器人/物聯網、數據分析與產品設計等技術分
+享。This is TechBridge Weekly Team Tech Blog, which focus on web, mobile, 
+robot, IoT, data analytics technology sharing.</p>
+    <span><a href="http://blog.techbridge.cc/2016/03/19/about/">關於我們</a></span> / <span><a href="https://www.techbridge.cc/" target="_blank">技術日報</a></span> / <span><a href="http://weekly.techbridge.cc/" target="_blank">技術週刊</a></span> / <span><a href="https://www.facebook.com/TechBridge.Fans/" target="_blank">粉絲專頁</a></span> / <span><a href="http://blog.techbridge.cc/atom.xml" target="_blank">訂閱RSS </a></span>   
+	<div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/TechBridge.Fans" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=520&amp;href=https%3A%2F%2Fwww.facebook.com%2FTechBridge.Fans&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=false"><span style="vertical-align: bottom; width: 124px; height: 20px;"><iframe name="f7c59c2ed6befe" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 124px; height: 20px;" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/like_003.htm" class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div>    
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://blog.techbridge.cc/2016/06/18/redis-introduction/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.techbridge.cc/2016/06/18/redis-introduction/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.techbridge.cc/2016/06/18/redis-introduction/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+    <iframe src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/github-btn.htm" scrolling="0" width="170px" height="20px" frameborder="0"></iframe>      
+</section>
+    </footer>
+    <br>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="http://blog.techbridge.cc/2016/06/24/javascript-data-structure-algorithm-stack/">
+        ← 用 JavaScript 學習資料結構和演算法：堆疊（Stack）篇
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="http://blog.techbridge.cc/2016/06/08/ros-ecto-first/">
+        ecto 簡介 (1) – cell 與 plasm →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+    <div id="disqus_thread"><iframe id="dsq-app1" name="dsq-app1" allowtransparency="true" scrolling="no" tabindex="0" title="Disqus" style="width: 1px !important; min-width: 100% !important; border: medium none !important; overflow: hidden !important; height: 859px !important;" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/a_002.htm" horizontalscrolling="no" verticalscrolling="no" width="100%" frameborder="0"></iframe></div>
+    
+</div>
+</main>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75308642-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="http://blog.techbridge.cc/atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="http://blog.techbridge.cc/">TechBridge 技術共筆部落格</a> © 2016 • All rights reserved.</section>
+  </div>
+</footer>
+
+  <script src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/jquery_002.js"></script>
+
+<script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/jquery.js"></script>
+<script type="text/javascript" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/index.js"></script>
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '[object Object]']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'techbridgeweekly';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="http://staticxx.facebook.com/connect/xd_arbiter/r/87XNE1PC38r.js?version=42#channel=f35429f98bcd8ae&amp;origin=http%3A%2F%2Fblog.techbridge.cc" frameborder="0"></iframe><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/87XNE1PC38r_002.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<iframe name="oauth2relay220211219" id="oauth2relay220211219" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><iframe style="display: none;"></iframe><div id="stcpDiv" style="position: absolute; top: -1999px; left: -1988px;">ShareThis Copy and Paste</div><div id="stwrapper" class="stwrapper stwrapper5x" style="display: none;"><iframe allowtransparency="true" id="stLframe" class="stLframe" name="stLframe" scrolling="no" src="%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%A5%BD%E5%A4%A5%E4%BC%B4%EF%BC%9ARedis%20_%20TechBridge%20%E6%8A%80%E8%A1%93%E5%85%B1%E7%AD%86%E9%83%A8%E8%90%BD%E6%A0%BC_files/index.htm" frameborder="0"></iframe></div><div id="stOverlay" onclick="javascript:stWidget.closeWidget();"></div></body></html>

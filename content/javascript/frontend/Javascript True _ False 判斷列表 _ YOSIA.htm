@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!-- saved from url=(0031)http://www.yosia.net/article/48 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-hant" version="XHTML+RDFa 1.0" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#" class="js"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<link rel="shortcut icon" href="http://www.yosia.net/sites/default/files/favicon_1.png" type="image/png">
+<meta name="description" content="因為一邊寫PHP，一邊寫javascript，因為都算是script等級的語言，所以兩者在寫法上有些相似之處。所以偶而會碰到一些True/False的判定上兩者不太一樣的地方，特以本篇整理出javascript 常用的判斷值。">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="http://www.yosia.net/article/48">
+<link rel="shortlink" href="http://www.yosia.net/node/48">
+<meta property="og:site_name" content="YOSIA">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://www.yosia.net/article/48">
+<meta property="og:title" content="Javascript True / False 判斷列表">
+<meta property="og:description" content="因為一邊寫PHP，一邊寫javascript，因為都算是script等級的語言，所以兩者在寫法上有些相似之處。所以偶而會碰到一些True/False的判定上兩者不太一樣的地方，特以本篇整理出javascript 常用的判斷值。">
+<meta property="og:updated_time" content="2014-01-29T15:00:17+08:00">
+<meta property="article:published_time" content="2014-01-13T12:04:29+08:00">
+<meta property="article:modified_time" content="2014-01-29T15:00:17+08:00">
+  <title>Javascript True / False 判斷列表 | YOSIA</title>
+  <script type="text/javascript" async="" src="./Javascript True _ False 判斷列表 _ YOSIA_files/linkid.js"></script><script async="" src="./Javascript True _ False 判斷列表 _ YOSIA_files/analytics.js"></script><script src="./Javascript True _ False 判斷列表 _ YOSIA_files/js_WkOMkSyjg9rxsesVK2mUAVX_dhZTWbIE6jpIzuL-ygM.js"></script>
+<script src="./Javascript True _ False 判斷列表 _ YOSIA_files/bootstrap.min.js"></script>
+<script src="./Javascript True _ False 判斷列表 _ YOSIA_files/js_g6_PhAaYFpWFk-fYZdXsTf8tFaPOlrT5ZcgE11QylgU.js"></script>
+<script src="./Javascript True _ False 判斷列表 _ YOSIA_files/js_WlfNLOjpnY7W7hnyb9csVfRtgT5LTz-JMy6MJV8VGxA.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-7549271-21", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("require", "displayfeatures");ga("set", "anonymizeIp", true);ga("set", "page", location.pathname + location.search + location.hash);ga("send", "pageview");</script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"yosia_bootstrap","theme_token":"5--Kwu542WyRtgSIKNp2tV3Q622Ay5ObvLLYBL7q28U","js":{"sites\/all\/modules\/syntaxhighlighter\/syntaxhighlighter.min.js":1,"sites\/all\/themes\/bootstrap\/js\/bootstrap.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"\/\/cdn.jsdelivr.net\/bootstrap\/3.3.5\/js\/bootstrap.min.js":1,"sites\/all\/libraries\/syntaxhighlighter\/scripts\/shCore.js":1,"sites\/all\/libraries\/syntaxhighlighter\/scripts\/shLegacy.js":1,"sites\/all\/libraries\/syntaxhighlighter\/scripts\/shAutoloader.js":1,"sites\/default\/files\/syntaxhighlighter.autoloader.js":1,"public:\/\/languages\/zh-hant_ewscwNk_MHlfBQD4OI4Dgj7NO3Sdz7KsWgi_n1WyM4Q.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/libraries\/syntaxhighlighter\/styles\/shCore.css":1,"sites\/all\/libraries\/syntaxhighlighter\/styles\/shThemeDefault.css":1,"\/\/cdn.jsdelivr.net\/bootstrap\/3.3.5\/css\/bootstrap.min.css":1,"sites\/all\/themes\/bootstrap\/css\/3.3.5\/overrides.min.css":1,"sites\/all\/themes\/yosia_bootstrap\/css\/style.css":1}},"syntaxhighlighter":{"useAutoloader":true,"legacyMode":true},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackUrlFragments":1},"bootstrap":{"anchorsFix":"0","anchorsSmoothScrolling":"0","formHasError":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","triggerAutoclose":1,"title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"auto left","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
+  <link type="text/css" rel="stylesheet" href="./Javascript True _ False 判斷列表 _ YOSIA_files/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Javascript True _ False 判斷列表 _ YOSIA_files/css_9HPR4DqV15qTwe6qWpLx4UQt849QIVEZ9jeUKisp5po.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Javascript True _ False 判斷列表 _ YOSIA_files/css_y7x-E9HU1xpIegvHoNXPU22DGIObba-YNi7929-l8do.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Javascript True _ False 判斷列表 _ YOSIA_files/bootstrap.min.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Javascript True _ False 判斷列表 _ YOSIA_files/css_jipNvMcxvwXab8-JEeAz0LSgyP96btoAQpI2K974Nao.css" media="all">
+  
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-48 node-type-article" style="">
+  <div id="skip-link">
+    <a href="http://www.yosia.net/article/48#main-content" class="element-invisible element-focusable">移至主內容</a>
+  </div>
+    <header id="navbar" role="banner" class="navbar container-fluid navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+              <a class="logo navbar-btn pull-left" href="http://www.yosia.net/" title="首頁">
+          <img src="./Javascript True _ False 判斷列表 _ YOSIA_files/logo_3.png" alt="首頁">
+        </a>
+      
+      
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          </div>
+
+          <div class="navbar-collapse collapse" id="navbar-collapse">
+        <nav role="navigation">
+                      <ul class="menu nav navbar-nav"><li class="first leaf"><a href="http://www.yosia.net/">Home</a></li>
+<li class="leaf"><a href="http://www.yosia.net/km">知識分享</a></li>
+<li class="last leaf"><a href="http://www.yosia.net/contact" title="">聯絡我們</a></li>
+</ul>                                      </nav>
+      </div>
+      </div>
+</header>
+
+<div class="main-container container-fluid">
+
+  <header role="banner" id="page-header">
+    
+      </header> <!-- /#page-header -->
+
+  <div class="row">
+
+          <aside class="col-sm-3" role="complementary">
+          <div class="region region-sidebar-first well">
+    <section id="block-views-tag-cloud-block" class="block block-views clearfix">
+
+        <h2 class="block-title">知識分享</h2>
+    
+  <div class="view view-tag-cloud view-id-tag_cloud view-display-id-block view-dom-id-5fefabf4785b59a45000c3a3c21e7612">
+        
+  
+  
+      <div class="view-content">
+          <ul>          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/adwords">Adwords</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/apache">Apache</a>(8)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/centos">CentOS</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/css">CSS</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/drupal7">Drupal7</a>(12)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/excel">Excel</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/git">Git</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/javascript">javascript</a>(2)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/linux">Linux</a>(19)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/mail-server">Mail Server</a>(3)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/mysql">MySQL</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/nginx">Nginx</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/nodejs-0">Node.js</a>(2)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/npm">npm</a>(2)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/php">PHP</a>(6)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/postfix">Postfix</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/roundcube">RoundCube</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/seo">SEO</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/solr">Solr</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/tomcat">Tomcat</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/ubuntu">Ubuntu</a>(11)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AE%A1%E7%90%86">伺服器管理</a>(28)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/%E5%B0%88%E6%A1%88%E7%AE%A1%E7%90%86">專案管理</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/%E5%B0%8F%E7%9F%A5%E8%AD%98">小知識</a>(1)</span>  </div></li>
+          <li class="">  
+  <div>        <span><a href="http://www.yosia.net/km/%E6%9E%B6%E7%AB%99%E7%9B%B8%E9%97%9C">架站相關</a>(7)</span>  </div></li>
+      </ul>    </div>
+  
+  
+  
+  
+  
+  
+</div>
+</section>
+<section id="block-menu-menu-my-widget" class="block block-menu clearfix">
+
+        <h2 class="block-title">好用工具</h2>
+    
+  <ul class="menu nav"><li class="first leaf"><a href="http://www.yosia.net/widget/gindexed">Google 索引數查詢</a></li>
+<li class="leaf"><a href="http://company.g0v.ronny.tw/" title="">公司登記查詢</a></li>
+<li class="leaf"><a href="http://www.yosia.net/widget/html-code-converter">HTML CODE 轉換器</a></li>
+<li class="leaf"><a href="http://www.yosia.net/widget/url-decoder-encoder">URL decoder &amp; encoder</a></li>
+<li class="leaf"><a href="http://www.yosia.net/widget/qr-generator">QR Code 產生器</a></li>
+<li class="leaf"><a href="http://www.intodns.com/" title="">DNS查詢</a></li>
+<li class="leaf"><a href="http://www.yosia.net/free-source" title="">免費資源蒐集</a></li>
+<li class="last leaf"><a href="http://read.theodoreb.net/drupal-jsapi/" title="">Drupal js api</a></li>
+</ul>
+</section>
+  </div>
+      </aside>  <!-- /#sidebar-first -->
+    
+    <section class="col-sm-9">
+                  <a id="main-content"></a>
+                    <h1 class="page-header">Javascript True / False 判斷列表</h1>
+                                                          <div class="region region-content">
+    <section id="block-system-main" class="block block-system clearfix">
+
+      
+  <article id="node-48" class="node node-article clearfix" about="/article/48" typeof="sioc:Item foaf:Document">
+
+
+  <header>
+            <span property="dc:title" content="Javascript True / False 判斷列表" class="rdf-meta element-hidden"></span>
+          <span class="submitted">
+                <span property="dc:date dc:created" content="2014-01-13T12:04:29+08:00" datatype="xsd:dateTime" rel="sioc:has_creator">由 <span class="username" xml:lang="" about="/users/yosia" typeof="sioc:UserAccount" property="foaf:name" datatype="">yosia</span> 在 2014-01-13 (週一) 發表</span>      </span>
+      </header>
+
+  <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>因為一邊寫PHP，一邊寫javascript，因為都算是script等級的語言，所以兩者在寫法上有些相似之處。所以偶而會碰到一些True/False的判定上兩者不太一樣的地方，特以本篇整理出javascript 常用的判斷值。</p><p><!--break--></p><table class="table"><thead><tr><th>Expression</th><th>Result</th></tr></thead><tbody><tr><td>var x="";</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>var x=null;</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>var x;</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>undifined</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>var x=NaN;</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>NaN==NaN;</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>var x=Infinity;</td><td>True</td></tr><tr><td>Infinity==Infinity;</td><td>True</td></tr><tr><td>{}=={};</td><td><span style="color:#ff0000;">Flase</span></td></tr><tr><td>var x=[];</td><td>True</td></tr><tr><td>var x={};</td><td>True</td></tr><tr><td>var x=1;</td><td>True</td></tr><tr><td>var x=0;</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>var x="0";</td><td>True</td></tr><tr><td>var x=True;</td><td>True</td></tr><tr><td>var x="True";</td><td>True</td></tr><tr><td>var x=False;</td><td><span style="color:#ff0000;">False</span></td></tr><tr><td>var x="False";</td><td>True</td></tr></tbody></table><p>&nbsp;</p></div></div></div>
+      <footer>
+      <div class="field field-name-field-tags field-type-taxonomy-term-reference field-label-inline clearfix"><div class="field-label">Tags:&nbsp;</div><div class="field-items"><div class="field-item even" rel="dc:subject"><a href="http://www.yosia.net/km/javascript" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">javascript</a></div></div></div>          </footer>
+  
+  
+</article> <!-- /.node -->
+
+</section>
+  </div>
+    </section>
+
+    
+  </div>
+</div>
+
+  <footer class="footer container-fluid">
+      <div class="region region-footer">
+    <section id="block-block-1" class="block block-block clearfix">
+
+      
+  <p>All Rights Reserved. 版權所有©2013 Yosia.Net</p>
+</section>
+<section id="block-menu-menu-about" class="block block-menu clearfix">
+
+      
+  <ul class="menu nav"><li class="first leaf"><a href="http://www.yosia.net/about/yosia" title="">關於YOSIA</a></li>
+<li class="last leaf"><a href="http://www.yosia.net/about/principle" title="">接案原則</a></li>
+</ul>
+</section>
+  </div>
+  </footer>
+  <script src="./Javascript True _ False 判斷列表 _ YOSIA_files/js_Rk5YIkK6m2gKTGH-GrMu0pM_PlMKXnI0ktQUgXw1XgA.js"></script>
+<script src="./Javascript True _ False 判斷列表 _ YOSIA_files/js_L50O_PWoAuMOxVjnzZCkNSSmI0kFwhZsO1_KS8WnGKw.js"></script>
+
+
+
+</body></html>

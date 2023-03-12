@@ -1,0 +1,13 @@
+
+﻿(function(g){with(g){var r=10,t,fv='2',c=function(){if(fv=='2')
+{if(typeof(BA_FUNC_EXTENTION)!='undefined'){BA_FUNC_EXTENTION.eXT(g);var a={sAE:'b423516640',sIMD:3,sIM:['//js1.bloggerads.net/Impression/1952488065.HSUfMiyu/20110429000035/63630569251/2/17574,17533,17620'],eREF:'MzILF0atygbeqg7xqEmR1yGnb3jW4OdkZVJ62foPP5KyORR17gflbnP7v/WMSScRC+OX+Y31XbZB7qjvVJVzipf/8cIjeWzttaTSe7Ewbvzw5EFHs//hLCfPVEddV9CL+mp+8+jtnqMZSVo5P85CwYf1XbSkKLoAgd3wKq7q8z/6YMLjxikPvTzBqBeXh13q',isContent:'0'};g.dEC(a,function(an){g[an]=this;});rA([
+﻿{p:'/AdsMaterial/2017/17574/da2157fac3fd4bd08c52a6174474ca29.html',ct:'//js1.bloggerads.net/Click/1952488065.HSUfMiyu/20170330000001/20110429000035/2/63630569251/17574',at:3,aid:'20170330000001',ei:'',es:'',itd:0},
+﻿{p:'/AdsMaterial/2017/17533/b498d40e7b874d0bb91ba3ff880dcfa6.gif',ct:'//js1.bloggerads.net/Click/1952488065.HSUfMiyu/20070610000001/20110429000035/2/63630569251/17533',at:1,aid:'20070610000001',ei:'',es:'',itd:0},
+﻿{p:'/AdsMaterial/2017/17620/2989f359f81a45e5976a4456cb5ca426.jpg',ct:'//js1.bloggerads.net/Click/1952488065.HSUfMiyu/20170329000001/20110429000035/2/63630569251/17620',at:1,aid:'20170329000001',ei:'',es:'',itd:0}]);}
+else if(r-->0){setTimeout(function(){c();},300);}}
+else if(fv=='1')
+{if(typeof(BA_FUNC_EXTENTION_5)!='undefined'){BA_FUNC_EXTENTION_5.eXT(g);var a={sAE:'b423516640',sIMD:3,sIM:['//js1.bloggerads.net/Impression/1952488065.HSUfMiyu/20110429000035/63630569251/2/17574,17533,17620'],eREF:'MzILF0atygbeqg7xqEmR1yGnb3jW4OdkZVJ62foPP5KyORR17gflbnP7v/WMSScRC+OX+Y31XbZB7qjvVJVzipf/8cIjeWzttaTSe7Ewbvzw5EFHs//hLCfPVEddV9CL+mp+8+jtnqMZSVo5P85CwYf1XbSkKLoAgd3wKq7q8z/6YMLjxikPvTzBqBeXh13q'};g.dEC(a,function(an){g[an]=this;});rA([
+﻿{p:'/AdsMaterial/2017/17574/da2157fac3fd4bd08c52a6174474ca29.html',ct:'//js1.bloggerads.net/Click/1952488065.HSUfMiyu/20170330000001/20110429000035/2/63630569251/17574',at:3,aid:'20170330000001',ei:'',es:'',itd:0},
+﻿{p:'/AdsMaterial/2017/17533/b498d40e7b874d0bb91ba3ff880dcfa6.gif',ct:'//js1.bloggerads.net/Click/1952488065.HSUfMiyu/20070610000001/20110429000035/2/63630569251/17533',at:1,aid:'20070610000001',ei:'',es:'',itd:0},
+﻿{p:'/AdsMaterial/2017/17620/2989f359f81a45e5976a4456cb5ca426.jpg',ct:'//js1.bloggerads.net/Click/1952488065.HSUfMiyu/20170329000001/20110429000035/2/63630569251/17620',at:1,aid:'20170329000001',ei:'',es:'',itd:0}]);}
+else if(r-->0){setTimeout(function(){c();},300);}}};c();}})(window['b423516640']);

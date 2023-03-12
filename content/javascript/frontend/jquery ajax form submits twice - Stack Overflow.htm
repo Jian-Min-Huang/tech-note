@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>jquery ajax form submits twice - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="jquery ajax form submits twice">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I&#39;ve got a form that I&#39;m capturing via jquery and sending via ajax. My problem is that the form submits more than once every time I refresh the page.
+
+I&#39;ve tried to unbind the submit button but the...">
+    <meta property="og:url" content="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice">
+    <link rel="canonical" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice">
+
+    
+    
+    <script src="./jquery ajax form submits twice - Stack Overflow_files/osd.js"></script><script src="./jquery ajax form submits twice - Stack Overflow_files/rules-p-c1rF4kxgLUzNc.js"></script><script src="./jquery ajax form submits twice - Stack Overflow_files/ads"></script><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/quant.js"></script><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/beacon.js"></script><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/analytics.js"></script><script src="./jquery ajax form submits twice - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./jquery ajax form submits twice - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery ajax form submits twice - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;jquery ajax form submits twice&#39;" href="https://stackoverflow.com/feeds/question/20195483">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:20195483});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '20195483');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","serverTime":1507258541,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"b0bd5eefeb969cb8ce2a5352a9a79571","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true,"ab":{"header_jobs_label":{"v":"b","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"topBar":{},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"603f66610f5e","js/moderator.en.js":"db9679265c4b","js/full-anon.en.js":"904304ab6bfc","js/full.en.js":"a2f054bf6b6c","js/wmd.en.js":"52792b46ce75","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"cbcfabbe625c","js/help.en.js":"ca1a0fb13444","js/tageditor.en.js":"7968c1573954","js/tageditornew.en.js":"2580093d7c07","js/inline-tag-editing.en.js":"ff9d6e1cd996","js/revisions.en.js":"47de10a8358f","js/review.en.js":"080d5b53e6c5","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"56ea0f8f12d6","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"e892e0d0d9d1","js/keyboard-shortcuts.en.js":"222997891dcb","js/external-editor.en.js":"463e9ede63aa","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"463e9ede63aa","js/snippet-javascript.en.js":"baa5f1a87f26","js/snippet-javascript-codemirror.en.js":"60a8c97e768a"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style&gt;body,.top-bar{margin-top:1.9em}&lt;/style&gt;</noscript>
+<script async="" src="./jquery ajax form submits twice - Stack Overflow_files/full-anon.en.js"></script><script src="./jquery ajax form submits twice - Stack Overflow_files/pubads_impl_151.js" async=""></script><link rel="prefetch" href="https://securepubads.g.doubleclick.net/static/3p_cookie.html"><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/external-editor.en.js"></script><link rel="stylesheet" href="./jquery ajax form submits twice - Stack Overflow_files/jobs-multi.min.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script async="" src="./jquery ajax form submits twice - Stack Overflow_files/185901-159836282584097.js"></script>
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar _fixed">
+    <div class="-container">
+        <div class="-main">
+            
+                <a href="https://stackoverflow.com/" class="-logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                   <span class="-img">Stack Overflow</span>
+                </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+    <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Developer Jobs</a>
+    </li>
+    <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+    <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+                </ol>
+            </nav>
+
+        </div>
+        
+            <form id="search" action="https://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                <input name="q" type="text" placeholder="Search…" value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                <button type="submit" aria-label="Search..." class="btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></button>
+            </form>
+
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20195483%2fjquery-ajax-form-submits-twice" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 171 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20195483%2fjquery-ajax-form-submits-twice" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn-topbar-primary" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+        StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container _full ">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+
+
+
+<div class="s-hero hero-container">
+    <div class="-container g-row jc-sp-between ai-center">
+        <div class="g-col6">
+            <h1 class="-title">Learn, Share, Build</h1>
+            <p class="-paragraph">Each month, over 50 million developers come to Stack Overflow to learn, share their knowledge, and build their careers.</p>
+            <p class="-paragraph">Join the world’s largest developer community.</p>
+        </div>
+        
+        <div class="s-signup _hero g-col5">
+
+            <div id="openid-buttons" class="-social">
+                    <div class="major-provider btn _block _medium _google" data-provider="google" data-oauthserver="https://accounts.google.com/o/oauth2/auth" data-oauthversion="2.0">Google</div>
+                    <div class="major-provider btn _block _medium _facebook" data-provider="facebook" data-oauthserver="https://www.facebook.com/v2.0/dialog/oauth" data-oauthversion="2.0">Facebook</div>
+                            </div>
+
+
+            <small class="-divider text-centered">or</small>
+
+            <form id="login-form" action="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20195483%2fjquery-ajax-form-submits-twice" method="POST">
+        
+                <input type="hidden" name="fkey" value="b0bd5eefeb969cb8ce2a5352a9a79571">
+
+                <input type="hidden" name="ssrc" value="">
+
+                <input type="hidden" id="oauth_version" name="oauth_version" value="">
+                <input type="hidden" id="oauth_server" name="oauth_server" value="">
+
+                    <div id="se-login-fields">
+
+                        <input type="hidden" name="legalLinksShown" value="1">
+
+                        <div class="input-group">
+                            <div class="g-row">
+                                <label for="display-name" class="g-col -fill">Display name</label>
+                                <div class="g-col">
+                                    <input id="display-name" name="inline-display-name" type="text" class="f-input" placeholder="J. Doe" data-error-my="right top" data-error-at="left center">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="g-row">
+                                <label for="email" class="g-col -fill">Email address</label>
+                                <div class="g-col">
+                                    <input id="email" name="inline-email" type="email" maxlength="100" class="f-input" placeholder="you@example.com" data-error-my="right top" data-error-at="left center">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="g-row">
+                                <label for="password" class="g-col -fill">Password</label>
+                                <div class="g-col">
+                                    <input id="password" name="inline-password" type="password" class="js-inline-signup f-input" placeholder="********" data-error-my="right top" data-error-at="left center">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group g-row ai-center jc-sp-between">
+                            <input id="submit-button" name="submit-button" class="btn-outlined -white _medium _block" type="button" value="Sign Up">
+
+                            <small class="g-col -policy js-terms">By registering, you agree to the <a href="https://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank" class="-link">privacy policy</a> and <a href="https://stackexchange.com/legal/terms-of-service" name="tos" target="_blank" class="-link">terms of service</a>.</small>
+                        </div>
+                    </div>
+            </form>
+            <script>
+                StackExchange.ready(function () {
+                    StackExchange.InlineAuth.init();
+                })
+            </script>
+        </div>
+
+            <a id="close" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="js-dismiss -dismiss" title="dismiss"><svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg></a>
+    </div>
+</div><script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 7;
+        } else if ($("body").hasClass("question-page")) {
+            location = 7;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 6;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('.hero-container #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $(".hero-container").fadeOut("fast", function () {
+                        $(".hero-container").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>    <div class="inner-content">
+        <div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice" class="question-hyperlink">jquery ajax form submits twice</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="20195483" id="question">
+
+    <div id="dfp-tlb" class="everyonelovesstackoverflow" data-google-query-id="CKWcpdD_2tYCFVOVvAodISoIzA" data-clc-prefilled="true" data-clc-ready="true"><div id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0" title="3rd party ad content" name="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./jquery ajax form submits twice - Stack Overflow_files/saved_resource.html"></iframe></div></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20195483">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">25</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#">favorite</a>
+        <div class="favoritecount"><b>7</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I've got a form that I'm capturing via jquery and sending via ajax. My problem is that the form submits more than once every time I refresh the page.</p>
+
+<p>I've tried to unbind the submit button but then the form is posted normally after the first submit. Any help would be appreciated</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">$</span><span class="pun">(</span><span class="str">'#exportForm'</span><span class="pun">).</span><span class="pln">submit</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+  $</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">
+    type</span><span class="pun">:</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">,</span><span class="pln">
+    url</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'action'</span><span class="pun">),</span><span class="pln">
+    data</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">serialize</span><span class="pun">(),</span><span class="pln">
+    success</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $</span><span class="pun">(</span><span class="str">'#exportForm'</span><span class="pun">).</span><span class="pln">unbind</span><span class="pun">(</span><span class="str">'submit'</span><span class="pun">);</span><span class="pln">
+      console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">response</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">});</span><span class="pln">
+
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/jquery" class="post-tag js-gps-track" title="show questions tagged &#39;jquery&#39;" rel="tag">jquery</a> <a href="https://stackoverflow.com/questions/tagged/ajax" class="post-tag js-gps-track" title="show questions tagged &#39;ajax&#39;" rel="tag">ajax</a> <a href="https://stackoverflow.com/questions/tagged/submit" class="post-tag js-gps-track" title="show questions tagged &#39;submit&#39;" rel="tag">submit</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/20195483" title="short permalink to this question" class="short-link" id="link-post-20195483">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20195483/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/20195483/revisions" title="show all edits to this post">edited <span title="2016-12-30 15:53:52Z" class="relativetime">Dec 30 '16 at 15:53</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4390133/hakam-fostok"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/photo.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/4390133/hakam-fostok">Hakam Fostok</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,046</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="22 silver badges"><span class="badge2"></span><span class="badgecount">22</span></span><span title="47 bronze badges"><span class="badge3"></span><span class="badgecount">47</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2013-11-25 14:24:21Z" class="relativetime">Nov 25 '13 at 14:24</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1127572/james-privett"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/d124641407ceb40dafa4c591f9dcbcf2" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1127572/james-privett">James Privett</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">427</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20195483" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-30109386" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I think you need provide more code</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2021019/cosset" title="2,172 reputation" class="comment-user">cosset</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment30109386_20195483"><span title="2013-11-25 14:27:11Z" class="relativetime-clean">Nov 25 '13 at 14:27</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30109491" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Hey cosset, That's pretty much all there is other than a very basic form. What else would you need?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1127572/james-privett" title="427 reputation" class="comment-user owner">James Privett</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment30109491_20195483"><span title="2013-11-25 14:30:16Z" class="relativetime-clean">Nov 25 '13 at 14:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20195483" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2>
+                                5 Answers
+                                <span style="display:none;" itemprop="answerCount">5</span>
+                        </h2>
+                        <div>
+                            <div id="tabs">
+        <a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+                        </div>
+                    </div>    
+                </div>    
+
+
+
+
+  
+<a name="20195597"></a>
+<div id="answer-20195597" class="answer accepted-answer" data-answerid="20195597" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20195597">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">22</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>It's most likely that you're using a <code>button</code> or <code>submit</code> to trigger the ajax event.  Try this:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">$</span><span class="pun">(</span><span class="str">'#exportForm'</span><span class="pun">).</span><span class="pln">submit</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">
+        e</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln">
+        $</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">
+            type</span><span class="pun">:</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">,</span><span class="pln">
+            url</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="pln"> </span><span class="str">'action'</span><span class="pln"> </span><span class="pun">),</span><span class="pln">
+            data</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">serialize</span><span class="pun">(),</span><span class="pln">
+            success</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln"> response </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln"> response </span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">});</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/20195597" title="short permalink to this answer" class="short-link" id="link-post-20195597">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20195597/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/20195597/revisions" title="show all edits to this post">edited <span title="2013-11-25 14:34:47Z" class="relativetime">Nov 25 '13 at 14:34</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-11-25 14:29:42Z" class="relativetime">Nov 25 '13 at 14:29</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/408318/devlshone"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/1agkk.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/408318/devlshone">DevlshOne</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,769</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="28 bronze badges"><span class="badge3"></span><span class="badgecount">28</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20195597" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-30109575" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks, I removed the '$('#exportForm').unbind('submit');' and added the 'e.preventDefault();' and it seems to have worked. I'll accept when I can.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1127572/james-privett" title="427 reputation" class="comment-user owner">James Privett</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment30109575_20195597"><span title="2013-11-25 14:32:51Z" class="relativetime-clean">Nov 25 '13 at 14:32</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30109704" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Interesting - you're saying that the <code>return false</code> wouldn't work to prevent the default form submit action?  <a href="http://jsfiddle.net/rR8Xz/" rel="nofollow noreferrer">jsfiddle.net/rR8Xz</a></span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1385672/%e1%be%a0%e1%bf%97%e1%b5%b2%e1%84%90%e1%b6%8c" title="27,886 reputation" class="comment-user">ᾠῗᵲᄐᶌ</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment30109704_20195597"><span title="2013-11-25 14:36:08Z" class="relativetime-clean">Nov 25 '13 at 14:36</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30110322" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Sorry, after more testing found out it dose not work.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1127572/james-privett" title="427 reputation" class="comment-user owner">James Privett</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment30110322_20195597"><span title="2013-11-25 14:50:52Z" class="relativetime-clean">Nov 25 '13 at 14:50</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30110444" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What doesn't work? It's still submitting twice? You do realize that all this AJAX routine is doing is a pretty standard submit via POST, correct? If <code>#exportForm</code> is a button, I suggest you change the <code>.submit</code> to <code>.click</code>.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/408318/devlshone" title="6,769 reputation" class="comment-user">DevlshOne</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment30110444_20195597"><span title="2013-11-25 14:54:04Z" class="relativetime-clean">Nov 25 '13 at 14:54</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-49230298" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This didn't work for me either, I had to add e.stopImmediatePropagation();  as Chris Sercombe suggests below.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/477160/robini" title="182 reputation" class="comment-user">Robini</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment49230298_20195597"><span title="2015-06-01 18:03:52Z" class="relativetime-clean">Jun 1 '15 at 18:03</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20195597" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow" data-google-query-id="CKacpdD_2tYCFVOVvAodISoIzA" data-clc-prefilled="true" data-clc-ready="true"><div id="google_ads_iframe_/248424177/stackoverflow.com/mlb/question-pages_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/248424177/stackoverflow.com/mlb/question-pages_0" title="3rd party ad content" name="google_ads_iframe_/248424177/stackoverflow.com/mlb/question-pages_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./jquery ajax form submits twice - Stack Overflow_files/saved_resource(1).html"></iframe></div></div>
+  
+<a name="26261975"></a>
+<div id="answer-26261975" class="answer" data-answerid="26261975" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26261975">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">66</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>As well as calling preventDefault, also call stopImmediatePropagation on the event.</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">$</span><span class="pun">(</span><span class="str">'#exportForm'</span><span class="pun">).</span><span class="pln">submit</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">
+    e</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln">
+    e</span><span class="pun">.</span><span class="pln">stopImmediatePropagation</span><span class="pun">();</span><span class="pln">
+    $</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">,</span><span class="pln">
+        url</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="pln"> </span><span class="str">'action'</span><span class="pln"> </span><span class="pun">),</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">serialize</span><span class="pun">(),</span><span class="pln">
+        success</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln"> response </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln"> response </span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/26261975" title="short permalink to this answer" class="short-link" id="link-post-26261975">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/26261975/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-10-08 16:36:21Z" class="relativetime">Oct 8 '14 at 16:36</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4122161/chris-sercombe"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/54108d85c05454c9fedb5255232a806a" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/4122161/chris-sercombe">Chris Sercombe</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">661</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="2 bronze badges"><span class="badge3"></span><span class="badgecount">2</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26261975" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-41199574" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">While your answer may solve the question, it is always better if you can provide a description on how your answer solves it. In this case, why <code>preventDefault</code> is not enough. This is a suggestion for further improving this and future answers.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/908174/lu%c3%ads-cruz" title="8,892 reputation" class="comment-user">Luís Cruz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment41199574_26261975"><span title="2014-10-08 16:54:10Z" class="relativetime-clean">Oct 8 '14 at 16:54</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-49230326" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">7</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Adding e.stopImmediatePropagation(); worked for me, thanks Chris!  I've been scratching my head over this for about 2 hours this evening.  Whereas e.preventDefault() on its own has worked for me in the past, I suspect it is because it's fine for simple links or buttons but when working in a form's submission event, you must use e.stopImmediatePropagation() to prevent the event from bubbling up thorugh the dom.  See <a href="http://api.jquery.com/event.stopImmediatePropagation/" rel="nofollow noreferrer">api.jquery.com/event.stopImmediatePropagation</a>.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/477160/robini" title="182 reputation" class="comment-user">Robini</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment49230326_26261975"><span title="2015-06-01 18:05:00Z" class="relativetime-clean">Jun 1 '15 at 18:05</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-51558408" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is the answer.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1809053/andrew" title="702 reputation" class="comment-user">Andrew</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment51558408_26261975"><span title="2015-08-04 18:19:46Z" class="relativetime-clean">Aug 4 '15 at 18:19</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-56980762" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Worked, thanks!</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1464297/paul-denisevich" title="1,610 reputation" class="comment-user">Paul Denisevich</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment56980762_26261975"><span title="2016-01-05 17:25:20Z" class="relativetime-clean">Jan 5 '16 at 17:25</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-70919464" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You are correct but this is also not working for me, what could be the possible reason</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2347438/veshraj-joshi" title="1,455 reputation" class="comment-user">Veshraj Joshi</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#comment70919464_26261975"><span title="2017-01-26 07:38:18Z" class="relativetime-clean">Jan 26 at 7:38</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26261975" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="30009568"></a>
+<div id="answer-30009568" class="answer" data-answerid="30009568" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="30009568">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In case you are using some kind of validation (e.g jQuery Validation), the form is submitted twice because aside from <code>$('#exportForm').submit</code> you write yourself, the validation plugin will also submit the form after it successfully validates all field.</p>
+
+<p>NB : If you are using jQuery Validation, avoid using <code>.submit()</code>. Instead, use <a href="http://jqueryvalidation.org/validate#submithandler" rel="noreferrer"><code>submitHandler</code></a>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/30009568" title="short permalink to this answer" class="short-link" id="link-post-30009568">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/30009568/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-05-03 02:17:52Z" class="relativetime">May 3 '15 at 2:17</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2612920/ddanurwenda"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/picture" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/2612920/ddanurwenda">ddanurwenda</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">88</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-30009568" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-30009568" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42082345"></a>
+<div id="answer-42082345" class="answer" data-answerid="42082345" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42082345">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The problem can be resolved by using a div in place of a button on your php form.  A button is not needed due to the use of ajax. </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/42082345" title="short permalink to this answer" class="short-link" id="link-post-42082345">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/42082345/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-02-07 05:24:53Z" class="relativetime">Feb 7 at 5:24</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/7526857/kazario"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/79a8abd2b5257ec3b170071166ea50aa" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/7526857/kazario">Kazario</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1</span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42082345" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42082345" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="46417971"></a>
+<div id="answer-46417971" class="answer" data-answerid="46417971" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="46417971">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>As Chris Sercombe pointed out, e.stopImmediatePropagation() does work and it definitely fixes the problem, but you shouldn't have to use it. The problem still exists in your code somewhere. Let me mention an example of how two post requests could be sent:</p>
+
+<p>If you are using AngularJS, and lets say you make a controller called "HandleAjaxController" you could assign this ng-controller to a div, and then accidentally assign this same ng-controller to an inner div. This would cause the post request to be sent twice. So:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">'HandleAjaxController'</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">'HandleAjaxController'</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"home"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn btn-success"</span><span class="tag">&gt;</span><span class="pln">Send data</span><span class="tag">&lt;/button&gt;</span></code></pre>
+
+<p>This caused a lot of stress for me one time because in my ng-route I had set the controller in here:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">    $routeProvider
+    </span><span class="pun">.</span><span class="kwd">when</span><span class="pun">(</span><span class="str">"/"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        templateUrl </span><span class="pun">:</span><span class="pln"> </span><span class="str">"src/js/partials/home.html"</span><span class="pun">,</span><span class="pln">
+        controller </span><span class="pun">:</span><span class="pln"> </span><span class="str">"HandleAjaxController"</span><span class="pln">
+    </span><span class="pun">})</span></code></pre>
+
+<p>and then I set it again in my home.html: <code>&lt;div ng-controller='HandleAjaxController'&gt;</code></p>
+
+<p>Anyways, that is one example of how two posts could be sent.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/46417971" title="short permalink to this answer" class="short-link" id="link-post-46417971">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/46417971/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-09-26 04:44:57Z" class="relativetime">Sep 26 at 4:44</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2888009/adam"><div class="gravatar-wrapper-32"><img src="./jquery ajax form submits twice - Stack Overflow_files/151d20dbfb86185155677520033b53d6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/2888009/adam">Adam</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">65</span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-46417971" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-46417971" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+                                    <a name="new-answer"></a>
+                        <form id="post-form" action="https://stackoverflow.com/questions/20195483/answer/submit" method="post" class="post-form">
+                            <input type="hidden" id="post-id" value="20195483">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="">
+                            <h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;"> 
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="b0bd5eefeb969cb8ce2a5352a9a79571">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div style="position: relative;">
+                                
+                                            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f20195483%2fjquery-ajax-form-submits-twice%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'https%3a%2f%2fstackoverflow.com%2fquestions%2f20195483%2fjquery-ajax-form-submits-twice%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+                            </div>
+           
+                                                            <div class="form-submit cbt">
+                                    <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+                                    <a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="https://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="https://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?                            Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/jquery" class="post-tag" title="show questions tagged &#39;jquery&#39;" rel="tag">jquery</a> <a href="https://stackoverflow.com/questions/tagged/ajax" class="post-tag" title="show questions tagged &#39;ajax&#39;" rel="tag">ajax</a> <a href="https://stackoverflow.com/questions/tagged/submit" class="post-tag" title="show questions tagged &#39;submit&#39;" rel="tag">submit</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tbody><tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2013-11-25 14:24:21Z"><b>3 years, 10 months ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>30,695 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice?lastactivity" class="lastactivity-link" title="2017-09-26 04:44:57Z">9 days ago</a></b></p>
+                                </td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            <div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/10/04/3-ways-can-ally-women-tech/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/10/04/3-ways-can-ally-women-tech/?cb=1" class="question-hyperlink">3 Ways You Can Be an Ally to Women in Tech</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/10/03/mapping-ecosystems-software-development/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/10/03/mapping-ecosystems-software-development/?cb=1" class="question-hyperlink">Mapping Ecosystems of Software Development</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>            
+            <div id="dfp-tsb" class="everyonelovesstackoverflow" style="min-height: auto; height: auto; display: block;" data-google-query-id="CKecpdD_2tYCFVOVvAodISoIzA" data-clc-ready="true"><div id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0__container__" style="border: 0pt none; min-height: auto; height: auto; display: block;"><iframe id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0" title="3rd party ad content" name="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom; min-height: auto; height: auto; display: none;" src="./jquery ajax form submits twice - Stack Overflow_files/saved_resource(2).html"></iframe></div></div>
+            <div id="hireme" class="blue tagged tex2jax_ignore clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs/remote-developer-jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2Fremote-developer-jobs%3Fmed=clc&amp;sig=4ln3FwhaYu2QZA"><span>Work from anywhere</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Frontend Developer - work on the cutting edge at Purepoint. Click to learn more." href="https://stackoverflow.com/jobs/156569/frontend-developer-work-on-the-cutting-edge-purepoint" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=292385&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F156569%2Ffrontend-developer-work-on-the-cutting-edge-purepoint%3Fmed=clc&amp;sig=TQMcLmQMLs9BVQ"><div class="title">Frontend Developer - work on the cutting edge</div><div><span class="company">Purepoint</span><span class="location">No office location</span></div><div class="opts"><span class="opt salary">£40k - £70k</span><span class="opt remote">Remote</span></div><span class="post-tag">javascript</span><span class="post-tag">html5</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=292385&amp;ct=-1&amp;sig=P6iceVardEtuMw" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Salesforce Developer - 100% Remote Permanent Role (4+ years experience) at sailteam.io. Click to learn more." href="https://stackoverflow.com/jobs/155157/salesforce-developer-100-remote-permanent-role-sailteamio" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=289368&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F155157%2Fsalesforce-developer-100-remote-permanent-role-sailteamio%3Fmed=clc&amp;sig=SeDg7hVz4a0qgg"><div class="title">Salesforce Developer - 100% Remote Permanent Role (4+ years experience)</div><div><span class="company">sailteam.io</span><span class="location">No office location</span></div><div class="opts"><span class="opt salary">$80k - $120k</span><span class="opt remote">Remote</span></div><span class="post-tag">javascript</span><span class="post-tag">salesforce-lightning</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=289368&amp;ct=-1&amp;sig=Z64rjWFfzjHVcw" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Front-end Developer at Dropsource. Click to learn more." href="https://stackoverflow.com/jobs/155537/front-end-developer-dropsource" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=291267&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F155537%2Ffront-end-developer-dropsource%3Fmed=clc&amp;sig=Howf7bKv9cvCjw"><div class="title">Front-end Developer</div><div><span class="company">Dropsource</span><span class="location">Raleigh, NC</span></div><div class="opts"><span class="opt salary">$70k - $95k</span><span class="opt remote">Remote</span></div><span class="post-tag">javascript</span><span class="post-tag">node.js</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=291267&amp;ct=-1&amp;sig=jd3llWg8jVMS5Q" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Salesforce Developer (100% Remote with 2+ years experience) at sailteam.io. Click to learn more." href="https://stackoverflow.com/jobs/155866/salesforce-developer-100-remote-with-2-plus-years-sailteamio" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=290786&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F155866%2Fsalesforce-developer-100-remote-with-2-plus-years-sailteamio%3Fmed=clc&amp;sig=z8SaaNSSasfzfQ"><div class="title">Salesforce Developer (100% Remote with 2+ years experience)</div><div><span class="company">sailteam.io</span><span class="location">No office location</span></div><div class="opts"><span class="opt salary">$70k - $120k</span><span class="opt remote">Remote</span></div><span class="post-tag">javascript</span><span class="post-tag">apex</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4xI_nrknleeqh6qsQngIExPL7IsXOBUCPAy_7NU0y2b86Hc74HgggyRDzwYGhgZ7RkYGFmmmaX0cVx9wLnwjCBRPOaAy74rl9koLe2mm9a0cd69w3rgiyAkSV9L_aJmzIhIo_r-LY94dzsOPBVlB4t3K9y31DFyB4uc7OVbf4nx0H1U9w6Jj3-8_EnUrefYXAA&amp;cr=290786&amp;ct=-1&amp;sig=6Z8LO9GolHeoKQ" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="./jquery ajax form submits twice - Stack Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+                <script>var clc={options:{svc:'dfp'}};</script>
+<script>;window.clc=window.clc||{},window.clc.init=window.clc.init||function(a){var b=window,c=b.document;try{if("function"!=typeof[].indexOf||!window.addEventListener||!a.allowed)return;var d=new RegExp(a.allowed);if(!d.test(location.hostname))return;if(b.clc.options)for(var e in b.clc.options)a[e]=b.clc.options[e];b.clc.cmd="undefined"==typeof b.clc.cmd?[]:b.clc.cmd,b.clc.autoload=b.clc.autoload||function(){"function"==typeof b.clc.load?b.clc.load():b.clc.cmd.push(function(a){a.load()})};var f=a.wv;if(c.hidden&&f)return void c.addEventListener("visibilitychange",function b(){c.hidden||(window.clc.init(a),c.removeEventListener("visibilitychange",b))});b.clc.options=a,a.al&&b.clc.autoload();var g=c.createElement("script");g.async=!0,g.src=a.lib,c.body.appendChild(g)}catch(a){}},window.clc.loadDisplayAds=window.clc.loadDisplayAds||function(){function a(b){b.style.height=b.style.maxHeight=b.style.minHeight="auto",b.style.display="IFRAME"===b.tagName?"none":"block",[].forEach.call(b.children,a)}function b(a){new Image().src="https://"+e+"/stalled.gif?"+a}var c=window,d=c.document,e="clc.stackoverflow.com",f={slots:{lb:[[728,90]],mlb:[[728,90]],sb:[[300,250],[300,600]],"tag-sponsorship":[[730,135]]},ids:{"dfp-tlb":"lb","dfp-mlb":"mlb","dfp-tsb":"sb","dfp-tag":"tag-sponsorship","clc-tlb":"lb","clc-mlb":"mlb","clc-tsb":"sb"}},g=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?"tag-pages":"question-pages",h=location.hostname;/^clc\./.test(location.hostname)&&(h="test/dev.stackoverflow.com");return function(e){var i=(e&&0<e.length?e:Object.keys(f.ids)).map(function(a){return d.getElementById(a)}).filter(function(a){return!!a&&/^\s*$/.test(a.innerHTML)}).map(function(a){return a.id});if(0!==i.length){var j=d.createElement("div");j.className="adsbox",j.id="clc-abd",j.style.position="absolute",j.style.pointerEvents="none",j.innerHTML="&nbsp;",d.body.appendChild(j),c.googletag=c.googletag||{},c.googletag.cmd=c.googletag.cmd||[],c.googletag.cmd.push(function(){var e=c.googletag,j=e.pubads();j.enableSingleRequest(),j.addEventListener("slotRenderEnded",function(c){var e=c.serviceName,f=c.slot,g=c.lineItemId;try{var h=f.getSlotElementId(),i=[];h||i.push("id=0");var j=d.getElementById(h);if(!h||j?j.hasAttribute("data-clc-stalled")&&i.push("st=1"):i.push("el=0"),0!==i.length)return void b(i.join("&"));-1===[4385506061,4386578282,4386579572].indexOf(g)?j.setAttribute("data-clc-prefilled","true"):a(j),j.setAttribute("data-clc-ready","true")}catch(a){var k=d.getElementById("dfp-tsb")||d.getElementById("clc-tsb");k&&k.setAttribute("data-clc-ready","true"),b("e=1")}});var k=c.dfp_targeting||{};k&&Object.keys(k).forEach(function(a){e.pubads().setTargeting(a,k[a])});for(var l=0,m=i;l<m.length;l++){var n=m[l],o=f.ids[n],p=f.slots[o],q="/"+"248424177"+"/"+h+"/"+o+"/"+g,r=e.defineSlot(q,p,n);("tag-sponsorship"===o||"sb"==o)&&r.setCollapseEmptyDiv(!0,!0),r.addService(j),!1}e.enableServices();for(var n,s=0,t=i;s<t.length;s++)n=t[s],e.display(n)});var k=d.createElement("script");k.async=!0,k.src="https://www.googletagservices.com/tag/js/gpt.js",document.body.appendChild(k)}}}(),window.clc.init.call(null, {"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=755701fbf5a2","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false});</script>            <script>
+window.clc_request='AhnPPbtlDNUIAAAAAJsoNAECAAAAAgAAAABEAAAAfGpxdWVyeXxhamF4fHN1Ym1pdHx4LWNyb3NzLXNpdGUtc2VydmVyZmF1bHQuY29tfHgtcGVyc29uYS1mcm9udGVuZHwA18NPVSjL_ARXyg';                    clc.autoload();
+                var dfp_targeting={Registered:['false'],'so-tag':['jquery','ajax','submit'],'X-Site':['serverfault.com'],Persona:['FrontEnd']};                                    clc.loadDisplayAds();
+            </script>
+            <div class="module" id="chat-feature">
+
+    <h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="39 users active in 22 rooms the last 60 minutes">39 People Chatting</a></h4>
+    <div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript</a></span></h3><span title="2017-10-06 01:55:51Z" class="ad502-last-message">59 mins ago - <a href="http://chat.stackoverflow.com/users/345257">Mosho</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/829835"><img height="23" width="23" title="rlemon: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/6ay1r.jpg"></a><a href="http://chat.stackoverflow.com/users/345257"><img height="23" width="23" title="Mosho: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/j05a6.png"></a><a href="http://chat.stackoverflow.com/users/1661462"><img height="23" width="23" title="joshhunt: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/LOJvH.jpg"></a><a href="http://chat.stackoverflow.com/users/322395"><img height="23" width="23" title="Loktar: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/bFh01.jpg"></a><a href="http://chat.stackoverflow.com/users/129032"><img height="23" width="23" title="ssube: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/e8bea8f9e6972dfd3113d67da68e6933"></a><a href="http://chat.stackoverflow.com/users/1839506"><img height="23" width="23" title="Caprica Six: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/Sej2t.jpg"></a><a href="http://chat.stackoverflow.com/users/774078"><img height="23" width="23" title="Sterling Archer: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/WvDon.jpg"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="Lounge&lt;C++&gt;"><a href="http://chat.stackoverflow.com/rooms/10">Lounge&lt;C++&gt;</a></span></h3><span title="2017-10-06 01:44:18Z" class="ad502-last-message">1 hour ago - <a href="http://chat.stackoverflow.com/users/922184">Mysticial</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/922184"><img height="23" width="23" title="Mysticial: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/URZNf.jpg"></a><a href="http://chat.stackoverflow.com/users/4892076"><img height="23" width="23" title="jaggedSpire: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/s6vwT.png"></a><a href="http://chat.stackoverflow.com/users/85371"><img height="23" width="23" title="sehe: 1 hour ago" src="./jquery ajax form submits twice - Stack Overflow_files/6d52c235ec6dd15f30bab444103e7af2"></a><a href="http://chat.stackoverflow.com/users/303662"><img height="23" width="23" title="Ell: 2 hours ago" src="./jquery ajax form submits twice - Stack Overflow_files/Me4lE.png"></a><a href="http://chat.stackoverflow.com/users/726300"><img height="23" width="23" title="Luc Danton: 2 hours ago" src="./jquery ajax form submits twice - Stack Overflow_files/ZWH6H.png"></a><a href="http://chat.stackoverflow.com/users/583833"><img height="23" width="23" title="Borgleader: 2 hours ago" src="./jquery ajax form submits twice - Stack Overflow_files/791a00235c66b6c32effd4291101087f"></a><a href="http://chat.stackoverflow.com/users/314290"><img height="23" width="23" title="Mikhail: 2 hours ago" src="./jquery ajax form submits twice - Stack Overflow_files/5ffde821f0f9670e601b19f1731a6849"></a></div></div></div>
+    <script>
+    // <!--
+        StackExchange.ready(
+        function () {
+            var options = {
+                chatUrl: 'http://chat.stackoverflow.com',
+                reloadUrl: '/api/recent-chat',
+                preloadData: {"activeUsers":39,"activeRooms":22,"rooms":[{"name":"JavaScript","id":17,"lastPost":1507254951,"posts":4270167,"users":[{"name":"rlemon","id":829835,"emailhash":"!https://i.stack.imgur.com/6ay1r.jpg?s=128\u0026g=1","lastPost":1507254798},{"name":"Mosho","id":345257,"emailhash":"!https://i.stack.imgur.com/j05a6.png?s=128\u0026g=1","lastPost":1507254566},{"name":"joshhunt","id":1661462,"emailhash":"!https://i.stack.imgur.com/LOJvH.jpg?s=128\u0026g=1","lastPost":1507254553},{"name":"Loktar","id":322395,"emailhash":"!https://i.stack.imgur.com/bFh01.jpg?s=128\u0026g=1","lastPost":1507254377},{"name":"ssube","id":129032,"emailhash":"e8bea8f9e6972dfd3113d67da68e6933","lastPost":1507254347},{"name":"Caprica Six","id":1839506,"emailhash":"!https://i.stack.imgur.com/Sej2t.jpg?s=128\u0026g=1","lastPost":1507254106},{"name":"Sterling Archer","id":774078,"emailhash":"!https://i.stack.imgur.com/WvDon.jpg?s=128\u0026g=1","lastPost":1507254103}],"messages":[{"date":1507254951,"user":"Mosho","userid":345257}],"singleImage":false,"tags":["ecmascript","ecmascript-6","flowchart","javascript","nodejs"]},{"name":"Lounge\u003cC++\u003e","id":10,"lastPost":1507254258,"posts":4959652,"users":[{"name":"Mysticial","id":922184,"emailhash":"!https://i.stack.imgur.com/URZNf.jpg?s=128\u0026g=1","lastPost":1507254258},{"name":"jaggedSpire","id":4892076,"emailhash":"!https://i.stack.imgur.com/s6vwT.png?s=128\u0026g=1","lastPost":1507251896},{"name":"sehe","id":85371,"emailhash":"6d52c235ec6dd15f30bab444103e7af2","lastPost":1507251770},{"name":"Ell","id":303662,"emailhash":"!https://i.stack.imgur.com/Me4lE.png?s=128\u0026g=1","lastPost":1507251142},{"name":"Luc Danton","id":726300,"emailhash":"!https://i.stack.imgur.com/ZWH6H.png?s=128\u0026g=1","lastPost":1507250941},{"name":"Borgleader","id":583833,"emailhash":"791a00235c66b6c32effd4291101087f","lastPost":1507250856},{"name":"Mikhail","id":314290,"emailhash":"5ffde821f0f9670e601b19f1731a6849","lastPost":1507249796}],"messages":[{"date":1507254258,"user":"Mysticial","userid":922184}],"singleImage":false,"tags":["c++","c++11","c++14","c++17","c++-faq"]}]} 
+            };
+
+            StackExchange.chatAd.init(options);
+        });
+    // -->
+    </script>
+
+</div>
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/1960240?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">640</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/1960240/jquery-ajax-submit-form?noredirect=1&amp;lq=1" class="question-hyperlink">jQuery AJAX submit form</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/14784053?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/14784053/why-does-jquery-submit-my-ajax-form-twice?noredirect=1&amp;lq=1" class="question-hyperlink">Why does jquery submit my ajax form twice?</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/28336029?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/28336029/ajax-form-submitting-twice?noredirect=1&amp;lq=1" class="question-hyperlink">Ajax form submitting twice?</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/33110233?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/33110233/preventing-jquery-ajax-call-from-sending-form-data-twice?noredirect=1&amp;lq=1" class="question-hyperlink">Preventing jQuery AJAX call from sending form data twice</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/36012205?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/36012205/weird-double-post-call-in-sitefinity?noredirect=1&amp;lq=1" class="question-hyperlink">Weird double post call in sitefinity</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/42766653?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/42766653/jquery-ajax-double-summit?noredirect=1&amp;lq=1" class="question-hyperlink">Jquery Ajax Double Summit</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/35558455?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/35558455/jquery-ajax-form-still-submitting-twice?noredirect=1&amp;lq=1" class="question-hyperlink">jQuery ajax form still submitting twice</a>
+</div>			</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/446594?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1521</div></a><a href="https://stackoverflow.com/questions/446594/abort-ajax-requests-using-jquery?rq=1" class="question-hyperlink">Abort Ajax requests using jQuery</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1960240?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">640</div></a><a href="https://stackoverflow.com/questions/1960240/jquery-ajax-submit-form?rq=1" class="question-hyperlink">jQuery AJAX submit form</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/4340741?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="https://stackoverflow.com/questions/4340741/ajax-submit-multiple-forms-via-jquery?rq=1" class="question-hyperlink">ajax submit multiple forms via jquery</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/6675936?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">7</div></a><a href="https://stackoverflow.com/questions/6675936/jquery-submit-a-form-via-submit-on-ajax-success-how?rq=1" class="question-hyperlink">Jquery submit a form via .submit() on AJAX success… how?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/10809880?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="https://stackoverflow.com/questions/10809880/ajax-form-submit-in-jquery-mobile-a-myth?rq=1" class="question-hyperlink">Ajax form submit in jQuery mobile. A Myth?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/14078236?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="https://stackoverflow.com/questions/14078236/cant-submit-the-same-form-twice-within-one-page-load-via-jquery-and-ajax?rq=1" class="question-hyperlink">Can't submit the same form twice within one page load (via jQuery and AJAX)</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/14854578?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="https://stackoverflow.com/questions/14854578/jquery-ajax-form-submitting-twice?rq=1" class="question-hyperlink">Jquery ajax form submitting twice</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/20281501?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/20281501/php-jquery-ajax-form-submitted-twice?rq=1" class="question-hyperlink">php jquery ajax form submitted twice</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/23305757?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/23305757/jquery-submit-form-after-validating-it-with-ajax?rq=1" class="question-hyperlink">jQuery submit form AFTER validating it with ajax</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/35736304?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/35736304/ajax-in-jquery-submitting-form-twice?rq=1" class="question-hyperlink">Ajax in JQuery submitting form twice</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/171109/why-isnt-sectumsempra-an-unforgivable-curse" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why isn't Sectumsempra an Unforgivable Curse?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/4972/sketchy-friend-recently-revealed-true-colors-is-attending-my-wedding-should" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Sketchy "friend" recently revealed true colors, is attending my wedding. Should I un-invite, and if so how?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/394477/why-is-latex-free" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is LaTeX free?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1256074/how-much-space-to-leave-free-on-hdd-or-ssd" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How much space to leave free on HDD or SSD?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/46579074/what-is-the-difference-between-list-of-and-arrays-aslist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the difference between List.of and Arrays.asList?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/144448/a-euro-iginal-sequence" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A Euro-iginal Sequence
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/358611/is-encapsulation-still-one-of-the-elephants-oop-stands-on" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is encapsulation still one of the elephants OOP stands on?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/96945/is-it-okay-to-ask-a-coworker-supervisor-to-give-a-talk" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it okay to ask a coworker/supervisor to give a talk?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/170481/how-secure-is-chrome-storing-a-password" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How secure is Chrome storing a password?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/4951/how-to-redirect-a-real-life-help-vampire-to-an-alternate-source-of-food-um" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to redirect a real-life help vampire to an alternate source of food... um... assistance?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-cseducators" title="Computer Science Educators Stack Exchange"></div><a href="https://cseducators.stackexchange.com/questions/3747/teaching-students-that-printf-is-not-the-same-as-return" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:678 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Teaching students that printf() is not the same as return
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/282780/if-a-polynomial-ring-is-finite-free-over-a-subring-is-the-subring-polynomial" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If a polynomial ring is finite free over a subring, is the subring polynomial?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/85768/should-i-open-a-roth-ira-or-invest-in-the-sp-500" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I open a Roth IRA or invest in the S&amp;P 500?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="https://music.stackexchange.com/questions/62495/how-would-you-notate-a-non-accent" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How would you notate a non-accent?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2457503/is-the-ratio-of-the-side-and-at-least-one-diagonal-of-a-rhombus-always-irrationa" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is the ratio of the side and at least one diagonal of a rhombus always irrational?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/96858/should-you-tell-grad-students-to-apply-for-grants-you-know-they-wont-get" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should you tell grad students to apply for grants you know they won't get?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/5032/how-should-i-respond-to-someone-who-spoiled-the-movie-that-i-intended-to-watch" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How should I respond to someone who spoiled the movie that I intended to watch?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-writers" title="Writers Stack Exchange"></div><a href="https://writers.stackexchange.com/questions/30666/how-to-figure-out-what-my-target-readers-are" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to figure out what my target readers are?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/103163/is-there-a-general-clue-on-whether-a-flight-serves-meals" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a general clue on whether a flight serves meals?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/124585/what-are-the-specific-and-current-code-requirements-for-wiring-two-circuits-to-o" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What are the specific and current code requirements for wiring two circuits to one duplex receptacle?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/85801/lost-1-5x-in-stocks" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Lost 1.5X in stocks
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/361180/time-ordering-operator-and-derivative-with-respect-to-time" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Time ordering operator and derivative with respect to time
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/94006/airship-lifeboats-design-alternatives" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Airship lifeboats, design alternatives
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/96917/how-to-efficiently-use-time-while-preparing-for-a-class" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to efficiently use time while preparing for a class?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+        </div>
+    
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/20195483" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>    </div>
+<script>
+StackExchange.ready(function(){$.get('/posts/20195483/ivc/5425');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/20195483/ivc/5425" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+        </div>
+    </div><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/clc.min.js"></script><div class="adsbox" id="clc-abd" style="position: absolute; pointer-events: none;">&nbsp;</div><script async="" src="./jquery ajax form submits twice - Stack Overflow_files/gpt.js"></script>
+
+    <footer id="footer" class="s-footer js-footer" role="contentinfo">
+        <div class="-container">
+            <div class="g-row">
+                    <div class="-logo">
+                        <a href="https://stackoverflow.com/"><svg aria-hidden="true" class="svg-icon native iconLogo" width="150" height="30" viewBox="0 0 150 30"><g><path d="M33.9 18.6l-1.7-.2c-1.3-.1-1.9-.6-1.9-1.6 0-1.1.8-1.8 2.4-1.8 1.1 0 2.1.3 2.8.8l1-1c-1-.8-2.3-1.1-3.8-1.1-2.3 0-3.9 1.2-3.9 3.1 0 1.8 1.1 2.7 3.2 2.9l1.8.2c1.2.1 1.8.6 1.8 1.6 0 1.3-1.1 1.9-2.8 1.9-1.3 0-2.5-.3-3.3-1.2l-1 1c1.2 1.1 2.6 1.5 4.4 1.5 2.6 0 4.3-1.2 4.3-3.2-.2-2-1.5-2.7-3.3-2.9zm13.3-4.8c-1.7 0-2.8.3-3.7 1.5l1 1c.6-.9 1.3-1.2 2.7-1.2 1.9 0 2.7.8 2.7 2.3v1h-3.2c-2.4 0-3.7 1.2-3.7 3.1 0 .8.3 1.6.8 2.2.7.7 1.5 1 3 1 1.4 0 2.2-.3 3.1-1.1v1h1.6v-7.2c-.1-2.4-1.5-3.6-4.3-3.6zm2.7 7c0 .9-.2 1.5-.5 1.8-.7.6-1.5.7-2.4.7-1.7 0-2.4-.6-2.4-1.8 0-1.2.8-1.9 2.4-1.9h3l-.1 1.2zm7.6-5.6c1 0 1.6.3 2.4 1.2l1-1c-1.1-1.2-2-1.6-3.5-1.6-2.7 0-4.7 1.8-4.7 5.5 0 3.6 2 5.5 4.7 5.5 1.5 0 2.4-.4 3.5-1.6l-1.1-1c-.8.9-1.4 1.2-2.4 1.2s-1.9-.4-2.5-1.2c-.5-.7-.7-1.5-.7-2.9 0-1.3.2-2.2.7-2.9.7-.8 1.6-1.2 2.6-1.2zm13.4-1.3H69l-4.8 4.7V9.1h-1.6v15.4h1.6v-3.9l1.9-1.9 3.6 5.8h1.9l-4.4-6.9 3.7-3.7zm7.3-.33c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.7-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7.1 1.2 0 2.2-.6 2.7zm10.8-8.2l-2.2 6.9-2.3-6.9h-2.9l4.1 11.1h2.2l4.1-11.1h-3zm7.6-.1c-2.9 0-4.8 2-4.8 5.7 0 4.5 2.5 5.7 5.1 5.7 2 0 3.1-.6 4.2-1.7l-1.7-1.6c-.7.7-1.3 1-2.5 1-1.6 0-2.4-1-2.4-2.5h6.9v-1.2c0-3.2-1.7-5.4-4.8-5.4zm-2.1 4.6c0-.5.1-.8.3-1.2.3-.7.9-1.2 1.9-1.2.9 0 1.6.5 1.9 1.2.2.4.2.7.3 1.2h-4.4zm11-3.4v-1.1h-2.7v11.1h2.8v-6.7c0-1.4.9-2 1.8-2 .7 0 1 .2 1.5.7l2.1-2.1c-.8-.8-1.5-1-2.6-1-1.3-.1-2.3.4-2.9 1.1zm6.3-2.3v12.3h2.8v-8.8h2v-2.1h-2v-1.2c0-.6.3-1 1-1h1.1v-2.3h-1.6c-2.3 0-3.3 1.6-3.3 3.1zm16.2 1.1c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.8-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7 0 1.2 0 2.2-.6 2.7zm16.5-8.2l-1.8 6.9-2.3-6.9h-2l-2.3 6.9-1.8-6.9H134l3.4 11.1h2.3l2.3-7 2.3 7h2.3l3.4-11.1h-2.9zm-25.1 7.7V9.27h-2.8v12.3c0 1.6 1 3.2 3.2 3.2h1.6v-2.3h-1c-.7 0-1-.4-1-1.1zM41.3 15.6l1.4-1.4h-3v-3.5h-1.6v11.1c0 1.6.9 2.9 2.7 2.9h1.1v-1.3h-.8c-1 0-1.5-.6-1.5-1.6v-6.1h1.7v-.1z" fill="#222426"></path><path fill="#BCBBBB" d="M21 27v-8h3v11H0V19h3v8z"></path><path d="M5.4 19.1l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zm1.8-6.8l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm3.4-5.9l10.2 8.5 1.7-2-10.2-8.5-1.7 2zM17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zM5 25h14v-3H5v3z" fill="#F48024"></path></g></svg></a>
+                    </div>
+                
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com/?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Stack Overflow<br> Business</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Ads</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/enterprise?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/insights?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 23 })">Insights</a></li>
+                        </ul>
+                    </nav>
+                <nav class="-nav js-category _visible" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackexchange.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="-network g-row">
+                    <a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-back-trigger js-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"></path></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/20195483/jquery-ajax-form-submits-twice#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <nav class="-nav js-category" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (27)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (17)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (32)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers and students">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </nav>
+                <div class="-copyright g-row jc-end">
+                    <div class="g-column jc-sp-between">
+                        <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                            <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                            <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                            <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                        </ul>
+
+                        <div>
+                            <p>
+                                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license" class="-link">cc by-sa 3.0</a>
+                                with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license" class="-link">attribution required</a>.
+                                <span id="svnrev">rev 2017.10.5.27304</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    </div>
+    </footer>
+
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled
+            &lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;
+        &lt;/div&gt;
+    </noscript>
+        <script> setTimeout(function() { $("#adzerk-user-match").remove(); }, 2000);</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', sampleRate: 5 });
+                ga('set', 'dimension2', '|jquery|ajax|submit|');
+                ga('pageData.set', 'dimension2', '|jquery|ajax|submit|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+
+<iframe id="google_osd_static_frame_7158829628908" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./jquery ajax form submits twice - Stack Overflow_files/saved_resource(3).html"></iframe></body></html>

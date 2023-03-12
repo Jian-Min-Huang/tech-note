@@ -1,0 +1,82 @@
+/*
+Theme Name: Calos Nisarg
+Theme URI: http://falgunidesai.com/work/nisarg-a-wordpress-theme/
+Author: Calos Kao
+Author URI: https://blog.caloskao.org
+Description: Nisarg is a new fully responsive and translation ready theme that allows you to create stunning blogs and websites. Theme is well suited for travel, photography, recipe, design, art, personal and any other creative websites and blogs. The theme is developed using Bootstrap 3 that makes it mobile and tablets friendly.  It has various options in WordPress Customizer to change look of the theme. Theme customizer can be used to add your own header image of flexible height, background image, to set background color, header text color and accent color(Supports seven different accent colors).  Theme supports eight post formats, such as: Video, Image, Aside, Status, Audio, Quote, Link and Gallery.
+Template: nisarg
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: flexible-header, two-columns, right-sidebar, theme-options, custom-colors, custom-background, custom-header, custom-colors, custom-menu, featured-images,  post-formats, sticky-post, translation-ready, rtl-language-support, threaded-comments, featured-images, sticky-post
+Text Domain: calos-nisarg
+
+This theme is licensed under the GPL.
+
+*/
+
+
+@import url("../nisarg/style.css");
+/* Format all fonts. */
+*,
+div.wp-pagenavi > span.pages {
+    font-family: SegoeUI, 微軟正黑體;
+}
+
+/* Replace all text transform to uppercase */
+.main-navigation,
+.site-title,
+#secondary .widget-title,
+.entry-header,
+.entry-meta a,
+.cat-links a,
+.tags-links a{
+    text-transform: initial;
+}
+
+main#main > article.post-content:last-of-type {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-color: #009688;
+    font-style: initial;
+    margin-left: 0;
+}
+
+.entry-header {
+    text-align: left;
+}
+
+.entry-header .entry-meta::after {
+    width: initial;
+}
+
+p {
+    margin-bottom: 1em;
+    line-height: 1.5em;
+}
+
+code {
+    color: #009688;
+    border: 1px solid #dddddd;
+}
+
+#snippet-box {
+    display: none;
+}
+
+/* Plugin: WP Pagenavi */
+div.wp-pagenavi {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.wp-pagenavi > span.pages {
+    font-style: initial;
+}
+
+div.wp-pagenavi > span,
+div.wp-pagenavi > a {
+}

@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://hackmd.io/s/rkITEOYX -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    
+    <meta name="description" content="TypeScript新手入門 ===  ###### tags: `TypeScript` `Javascript`  &lt;style&gt;  [class=&#39;lang-javascript= hljs&#39;]">
+    
+    <title>TypeScript新手入門 - HackMD</title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+	<link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+    <!-- Google Tag Manager -->
+<script async="" src="./TypeScript新手入門 - HackMD_files/analytics.js"></script><script async="" src="./TypeScript新手入門 - HackMD_files/gtm.js"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLW9Z3');</script>
+<!-- End Google Tag Manager -->
+    <meta property="fb:app_id" content="1436904003272070">
+
+<meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/9023051?s=400">
+
+<meta name="twitter:site" content="@hackmd">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript新手入門 - HackMD">
+
+<meta name="twitter:description" content="TypeScript新手入門 ===  ###### tags: `TypeScript` `Javascript`  &lt;style&gt;  [class=&#39;lang-javascript= hljs&#39;]">
+
+
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/9023051?s=400">
+
+<meta property="og:site_name" content="HackMD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript新手入門 - HackMD">
+
+<meta property="og:description" content="TypeScript新手入門 ===  ###### tags: `TypeScript` `Javascript`  &lt;style&gt;  [class=&#39;lang-javascript= hljs&#39;]">
+
+	
+    <link rel="stylesheet" href="./TypeScript新手入門 - HackMD_files/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./TypeScript新手入門 - HackMD_files/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./TypeScript新手入門 - HackMD_files/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./TypeScript新手入門 - HackMD_files/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./TypeScript新手入門 - HackMD_files/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous">
+    
+<link href="./TypeScript新手入門 - HackMD_files/font.ad885094040db4fd8163.css" rel="stylesheet">
+
+<link href="./TypeScript新手入門 - HackMD_files/pretty-styles.ad885094040db4fd8163.css" rel="stylesheet">
+
+<link href="./TypeScript新手入門 - HackMD_files/pretty.ad885094040db4fd8163.css" rel="stylesheet">
+
+
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body style=""><div id="MathJax_Message" style="display: none;"></div>
+    <div class="ui-infobar container-fluid unselectable hidden-print">
+        <small>
+            <span>
+                
+                    <span class="ui-lastchangeuser"> <i class="ui-user-icon small" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=96);" data-toggle="tooltip" data-placement="right" title="" data-original-title="王耀德"></i></span>
+                
+                &nbsp;<span class="text-uppercase ui-status-lastchange">changed</span>
+                <span class="ui-lastchange text-uppercase" data-createtime="Mon May 30 2016 08:07:25 GMT+0000 (UTC)" data-updatetime="Sun Oct 29 2017 07:02:18 GMT+0000 (UTC)" title="Sun, Oct 29, 2017 3:02 PM">a month ago</span>
+            </span>
+            <span class="pull-right">4136 views <a href="https://hackmd.io/s/rkITEOYX/edit?both" class="ui-edit" title="Edit this note"><i class="fa fa-fw fa-pencil"></i></a></span>
+            <br>
+            
+            <span class="ui-owner">
+                 <i class="ui-user-icon small" style="background-image: url(https://avatars.githubusercontent.com/u/9023051?s=96);" data-toggle="tooltip" data-placement="right" title="" data-original-title="拉拉醬"></i>
+                &nbsp;<span class="text-uppercase">owned this note</span>
+            </span>
+            
+        </small>
+    </div>
+    <div id="doc" class="container markdown-body"><h1 class="" id="typescript新手入門"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#typescript新手入門" title="typescript新手入門" smoothhashscroll=""><span class="octicon octicon-link"></span></a>TypeScript新手入門</h1>
+<h6 class="" id="tags-typescript-javascript"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#tags-typescript-javascript" title="tags-typescript-javascript" smoothhashscroll=""><span class="octicon octicon-link"></span></a>tags: <code>TypeScript</code> <code>Javascript</code></h6>
+<style>
+
+[class='lang-javascript= hljs']{
+	font-size:24px !important;
+}
+
+[class='lang-javascript=middle hljs']{
+	font-size:20px !important;
+}
+
+[class='lang-javascript=small hljs']{
+	font-size:16px !important;
+}
+
+</style>
+<hr>
+<h2 class="" id="為什麼要使用typescript"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#為什麼要使用typescript" title="為什麼要使用typescript" smoothhashscroll=""><span class="octicon octicon-link"></span></a>為什麼要使用TypeScript?</h2>
+<hr>
+<p>在程式語言之中，有區分為強型別和弱型別兩種類型。</p>
+<hr>
+<p>JavaScript是弱型別語言</p>
+<ul>
+<li class="">
+<p>優點是寫法超彈性</p>
+</li>
+<li class="">
+<p>缺點則是無法在開發時期檢查型別</p>
+</li>
+</ul>
+<hr>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code">	<span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">var</span> y = <span class="hljs-string">'2'</span>;
+	
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a,b</span>)</span>{
+		<span class="hljs-keyword">return</span> a + b;
+	}
+	
+	<span class="hljs-built_in">console</span>.log(add(x,y)); <span class="hljs-comment">//結果變成用字串相加，印出12</span>
+	
+</div></div></code></pre>
+<p>會在【執行時期】自己判斷目前應該執行的型別</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>自行做【型別自動轉換】</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>但在快速開發時，很有可能引發一些預期之外的錯誤。</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<p>相當不利於多人協同開發。</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<p>強型別語言比較著名的有像是 C#、Java 等等，</p>
+<p>它們對於變數的定義檢查比較嚴謹，</p>
+<p>如果沒有依照指定的型別傳入參數，</p>
+<p>在【編譯時期】就會拋出 Exception 警告開發人員。</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/tMzP0Kw.png" alt="" class=""></p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<hr>
+<p><strong>TypeScript是一個提供強型別語法的JavaScript超集合</strong></p>
+<p><img src="./TypeScript新手入門 - HackMD_files/tKcLkTY.png" alt="" class=""></p>
+<hr>
+<h3 class="" id="typescript優點"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#typescript優點" title="typescript優點" smoothhashscroll=""><span class="octicon octicon-link"></span></a>TypeScript優點</h3>
+<ul>
+<li class="">在編譯時期就能做型別檢查，提升程式碼品質</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<ul>
+<li class="">透過【預編譯】器，向下相容舊有的JavaScript寫法</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<ul>
+<li class="">直接與ES6完美結合，並提供更多支援寫法</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="3" -->
+<ul>
+<li class="">二大IT龍頭支援：Microsoft及Google</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="4" -->
+<hr>
+<h2 class="" id="基本型別"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#基本型別" title="基本型別" smoothhashscroll=""><span class="octicon octicon-link"></span></a>基本型別</h2>
+<hr>
+<p>支援所有JS型別(boolean、number、string、Array)</p>
+<p>還提供了enum(列舉)、any(任意型別)、void(無型別)</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>所有的變數都可以在宣告的時候明確【指定變數的型別】</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<p>如果指派了不符合的型別內容，編譯器就會發出錯誤提示</p>
+<!-- .element: class="fragment" data-fragment-index="3" -->
+<p><img src="./TypeScript新手入門 - HackMD_files/HMBP089.png" alt="" class=""></p>
+<!-- .element: class="fragment" data-fragment-index="3" -->
+<hr>
+<h3 class="" id="boolean"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#boolean" title="boolean" smoothhashscroll=""><span class="octicon octicon-link"></span></a>boolean</h3>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code"><span class="hljs-keyword">var</span> isDone:boolean = <span class="hljs-literal">false</span>;
+</div></div></code></pre>
+<hr>
+<h3 class="" id="number"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#number" title="number" smoothhashscroll=""><span class="octicon octicon-link"></span></a>number</h3>
+<p>與JS一樣，在TS中所有的數值都是【浮點數】</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code"><span class="hljs-keyword">var</span> min:number = <span class="hljs-number">60</span>;
+
+<span class="hljs-keyword">var</span> pi:number = <span class="hljs-number">3.14</span>;
+
+</div></div></code></pre>
+<hr>
+<h3 class="" id="string"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#string" title="string" smoothhashscroll=""><span class="octicon octicon-link"></span></a>string</h3>
+<p>與JS一樣，可以使用雙引號(")或單引號(’)表示字串</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">var</span> name:string = <span class="hljs-string">"lala"</span>;
+name = <span class="hljs-string">'momo'</span>;
+</div></div></code></pre>
+<hr>
+<p>跟ES6一樣，可以使用【字串樣版 Template Literals】</p>
+<p>它可以定義多行文字和內嵌運算式</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<ul>
+<li class="">
+<p>使用｀(重音符號) 包圍文字，表示為字串樣版。</p>
+</li>
+<li class="">
+<p>在字串樣版中可以任意使用 ${variable} 放置變數。</p>
+</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code"><span class="hljs-keyword">var</span> name: string = <span class="hljs-string">`Gene`</span>;
+<span class="hljs-keyword">var</span> age: number = <span class="hljs-number">37</span>;
+<span class="hljs-keyword">var</span> sentence: string = <span class="hljs-string">`Hello, my name is <span class="hljs-subst">${ name }</span>.
+I'll be <span class="hljs-subst">${ age + <span class="hljs-number">1</span> }</span> years old next month`</span>.;
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="3" -->
+<hr>
+<h3 class="" id="array"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#array" title="array" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Array</h3>
+<p>有二種方式可以定義陣列</p>
+<ol>
+<li class="">
+<p>在想宣告的型別後面加上[]，宣告為某個型別的 Array</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-comment">// 宣告一個 number 的 Array</span>
+<span class="hljs-keyword">var</span> idList: number[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+</div></div></code></pre>
+</li>
+<li class="">
+<p>使用陣列泛型，Array&lt;元素型別&gt;</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code"><span class="hljs-keyword">var</span> list: <span class="hljs-built_in">Array</span>&lt;number&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+</div></div></code></pre>
+</li>
+</ol>
+<hr>
+<p>以下範例的結果為何？</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">var</span> list: <span class="hljs-built_in">Array</span>&lt;number&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+list.push(<span class="hljs-string">"4"</span>);
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p><img src="./TypeScript新手入門 - HackMD_files/yNToQ8o.png" alt="" class=""></p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<h3 class="" id="enum-列舉型別"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#enum-列舉型別" title="enum-列舉型別" smoothhashscroll=""><span class="octicon octicon-link"></span></a>enum 列舉型別</h3>
+<p>enum是對JavaScript標準資料型別的一個擴充。</p>
+<p>使用enum可以為一組數值賦予有意義的名稱。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">enum Color {Red, Green, Blue};
+<span class="hljs-keyword">var</span> c: Color = Color.Green;
+</div></div></code></pre>
+<hr>
+<p>預設情況下，從0開始為元素編號。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">enum Color {Red , Green, Blue};
+<span class="hljs-comment">//Color.Red = 0,Color.Green = 1 ,Color.Blue = 2</span>
+</div></div></code></pre>
+<p>你也可以手動指定成員的數值。</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">enum Color {Red = <span class="hljs-number">1</span>, Green, Blue};
+<span class="hljs-comment">//Color.Red = 1,Color.Green = 2 ,Color.Blue = 3</span>
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>或者，全部都採用手動賦值</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">enum Color {Red = <span class="hljs-number">1</span>, Green = <span class="hljs-number">2</span>, Blue = <span class="hljs-number">4</span>};
+<span class="hljs-comment">//Color.Red = 1,Color.Green = 2 ,Color.Blue = 4</span>
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<h3 class="" id="any-任意型別"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#any-任意型別" title="any-任意型別" smoothhashscroll=""><span class="octicon octicon-link"></span></a>any 任意型別</h3>
+<p>有些來自第三方提供的函式庫，</p>
+<p>我們不希望型別檢查器對這些值進行檢查，</p>
+<p>那麼我們可以用 any 來標記這些變數。</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code"><span class="hljs-keyword">var</span> notSure: any = <span class="hljs-number">4</span>;
+notSure = <span class="hljs-string">"maybe a string instead"</span>;
+notSure = <span class="hljs-literal">false</span>; <span class="hljs-comment">// 因為型別指定為any所以不會報錯。</span>
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>只建議在快速開發時使用，為了程式的穩定還是少用。</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<h3 class="" id="void"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#void" title="void" smoothhashscroll=""><span class="octicon octicon-link"></span></a>void</h3>
+<p>通常用在當函式沒有回傳值時。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showalert</span>:<span class="hljs-title">void</span> </span>{
+	alert(<span class="hljs-string">"this is the message"</span>);
+}
+</div></div></code></pre>
+<hr>
+<h2 class="" id="基本語法"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#基本語法" title="基本語法" smoothhashscroll=""><span class="octicon octicon-link"></span></a>基本語法</h2>
+<hr>
+<h3 class="" id="變數"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#變數" title="變數" smoothhashscroll=""><span class="octicon octicon-link"></span></a>變數</h3>
+<ul>
+<li class="">var (function scope)</li>
+<li class="">let (block scope)</li>
+<li class="">const (常數)</li>
+</ul>
+<hr>
+<h3 class="" id="let"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#let" title="let" smoothhashscroll=""><span class="octicon octicon-link"></span></a>let</h3>
+<p><strong>使用let取代var</strong></p>
+<hr>
+<h4 class="" id="let不會有hoisting的問題"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#let不會有hoisting的問題" title="let不會有hoisting的問題" smoothhashscroll=""><span class="octicon octicon-link"></span></a>let不會有hoisting的問題</h4>
+<p>在 javascript 中 hoisting(提升)指的是</p>
+<p>【變數宣告會被隱含提升到其所在區域內的頂端】</p>
+<p><a href="http://www.w3schools.com/js/js_hoisting.asp" target="_blank">JavaScript Hoisting - W3Schools</a></p>
+<hr>
+<p><img src="./TypeScript新手入門 - HackMD_files/iCWKeoi.png" alt="" class=""></p>
+<p>在執行時期時，所有var變數都會自動被hoisting。</p>
+<p>因此若程式中有參考到使用var定義過的變數時，</p>
+<p>會變成undefined，不會產生ERROR，</p>
+<p>容易在DEBUG時造成誤解。</p>
+<hr>
+<p><img src="./TypeScript新手入門 - HackMD_files/2LKe4hX.png" alt="" class=""></p>
+<p>使用let不會被hoisting，它是依附在{}的區塊中，</p>
+<p>若程式中有參考到let定義過的變數時，因作用區塊不同</p>
+<p>會產生ERROR，此行為比較接近常用的程式語言寫法。</p>
+<hr>
+<h4 class="" id="let在相同scope時，不會被重新宣告"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#let在相同scope時，不會被重新宣告" title="let在相同scope時，不會被重新宣告" smoothhashscroll=""><span class="octicon octicon-link"></span></a>let在相同scope時，不會被重新宣告</h4>
+<hr>
+<p><strong>在for loop中使用var</strong></p>
+<p>迴圈先跑完，var的值會redeclared，</p>
+<p>所以callback function裡的i，永遠會是最後一個值。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span></div><div class="code">
+<span class="hljs-keyword">var</span> names = [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'c'</span>];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncFn</span>(<span class="hljs-params">names</span>)</span>{
+	<span class="hljs-comment">//...</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> names){
+		$.get(<span class="hljs-string">"/users/"</span> + names [i],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"ajax get for"</span>,names[i]);
+		});
+	}
+	<span class="hljs-comment">// result is as follow</span>
+	<span class="hljs-comment">// ajax get for c</span>
+	<span class="hljs-comment">// ajax get for c</span>
+	<span class="hljs-comment">// ajax get for c</span>
+}
+</div></div></code></pre>
+<hr>
+<p><strong>在for loop中改用let</strong></p>
+<p>迴圈先跑完，let的值不會redeclared，</p>
+<p>所以callback function裡的i，會依附著for loop做變化。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span></div><div class="code">
+<span class="hljs-keyword">let</span> names = [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'c'</span>]; <span class="hljs-comment">//這裡用不用let都沒有影響。</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncFn</span>(<span class="hljs-params">names</span>)</span>{
+	<span class="hljs-comment">//...</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> names){
+		$.get(<span class="hljs-string">"/users/"</span> + names [i],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"ajax get for"</span>,names[i]);
+		});
+	}
+	<span class="hljs-comment">// result is as follow</span>
+	<span class="hljs-comment">// ajax get for a</span>
+	<span class="hljs-comment">// ajax get for b</span>
+	<span class="hljs-comment">// ajax get for c</span>
+}
+</div></div></code></pre>
+<hr>
+<p>請問下列程式碼結果為何</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code">	<span class="hljs-keyword">let</span> msg = <span class="hljs-string">"web forum"</span>;
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printInCaps</span>(<span class="hljs-params">value</span>)</span>{
+		<span class="hljs-keyword">let</span> msg = value.toUpperCase();
+		<span class="hljs-keyword">return</span> msg;
+	}
+	
+	printInCaps(<span class="hljs-string">"profiles"</span>);
+	<span class="hljs-built_in">console</span>.log(msg);
+</div></div></code></pre>
+<hr>
+<h3 class="" id="const"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#const" title="const" smoothhashscroll=""><span class="octicon octicon-link"></span></a>const</h3>
+<p>使用const定義常數值，更容易理解。</p>
+<hr>
+<p>不好的寫法</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/gyCWn6p.png" alt="" class=""></p>
+<hr>
+<p>改用const會讓程式可容易閱讀。</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/zGrPjUD.png" alt="" class=""></p>
+<hr>
+<p>const是唯讀的，一旦定義了就無法改變。</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/jgSmRHB.png" alt="" class=""></p>
+<hr>
+<p>宣告const的時候，一定要指定初值，</p>
+<p>否則會產生ERROR。</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/M2WMpXK.png" alt="" class=""></p>
+<hr>
+<p>const也不會有hoisting的問題。</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/cer8WHo.png" alt="" class=""></p>
+<hr>
+<h3 class="" id="function"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#function" title="function" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Function</h3>
+<hr>
+<h4 class="" id="為函式定義型別"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#為函式定義型別" title="為函式定義型別" smoothhashscroll=""><span class="octicon octicon-link"></span></a>為函式定義型別</h4>
+<p>與原本 JavaScript Function 不同的是，</p>
+<p>TypeScript需要指定【傳入參數】和【回傳值】的型別，</p>
+<p>避免手誤傳入不正確的參數而導致異常。</p>
+<p><img src="./TypeScript新手入門 - HackMD_files/yjkJgaV.png" alt="" class=""></p>
+<hr>
+<h4 class="" id="選擇性參數和預設參數"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#選擇性參數和預設參數" title="選擇性參數和預設參數" smoothhashscroll=""><span class="octicon octicon-link"></span></a>選擇性參數和預設參數</h4>
+<hr>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName: string, lastName: string</span>) </span>{
+    <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">" "</span> + lastName;
+}
+
+<span class="hljs-keyword">var</span> result3 = buildName(<span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Adams"</span>);  
+<span class="hljs-comment">//correct</span>
+<span class="hljs-keyword">var</span> result1 = buildName(<span class="hljs-string">"Bob"</span>);  
+<span class="hljs-comment">//error, too few</span>
+<span class="hljs-keyword">var</span> result2 = buildName(<span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Adams"</span>, <span class="hljs-string">"Sr."</span>);  
+<span class="hljs-comment">//error, too many </span>
+
+</div></div></code></pre>
+<p>在TypeScript中，「函式呼叫時傳遞的參數個數</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>必須與函式期望的參數數量一致」，否則編譯器會報錯。</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<hr>
+<p>JavaScript裡，每個參數都是選擇性的。</p>
+<p>沒傳值的時候，它的值就是undefined。</p>
+<p>在TypeScript要實現【選擇性參數】的功能，</p>
+<p>必須要在參數名稱使用"?"，標示此參數為optional</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName: string, lastName?: string</span>) </span>{
+    <span class="hljs-keyword">if</span> (lastName)
+        <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">" "</span> + lastName;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> firstName;
+}
+
+<span class="hljs-keyword">var</span> result1 = buildName(<span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Adams"</span>);  
+<span class="hljs-comment">//correct, "Bob Adams"</span>
+<span class="hljs-keyword">var</span> result2 = buildName(<span class="hljs-string">"Bob"</span>);  
+<span class="hljs-comment">//correct, "Bob"</span>
+</div></div></code></pre>
+<hr>
+<p>或者，我們也可以在參數後面【指定預設值】</p>
+<p>當傳入參數沒指定時，可以根據預設值來做處理</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName: string, lastName: string = <span class="hljs-string">''</span></span>) </span>{
+    <span class="hljs-keyword">if</span> (lastName)
+        <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">" "</span> + lastName;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> firstName;
+}
+
+<span class="hljs-keyword">var</span> result1 = buildName(<span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Adams"</span>);  
+<span class="hljs-comment">//correct, "Bob Adams"</span>
+<span class="hljs-keyword">var</span> result2 = buildName(<span class="hljs-string">"Bob"</span>);  
+<span class="hljs-comment">//correct, "Bob"</span>
+</div></div></code></pre>
+<hr>
+<p>特別需要注意的是，</p>
+<ul>
+<li class="">
+<p>選擇性參數 <code>lastname?:string</code></p>
+</li>
+<li class="">
+<p>有預設值的參數 <code>lastname:string=''</code></p>
+</li>
+</ul>
+<p>都必需要【放在Function的尾端】，否則會報錯。</p>
+<hr>
+<h4 class="" id="其餘參數-rest-parameter"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#其餘參數-rest-parameter" title="其餘參數-rest-parameter" smoothhashscroll=""><span class="octicon octicon-link"></span></a>其餘參數 (rest parameter)</h4>
+<hr>
+<p>ES6提供了<strong>其餘參數(Rest parameters)</strong></p>
+<p>是一種參數的語法：「不確定的傳入參數值的個數」</p>
+<p>此參數會把傳給它的"其餘"的所有值，</p>
+<p>轉換成一個【數值陣列】。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">...numbers</span>) </span>{
+  <span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>;
+  numbers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>{
+    result += number;
+  });
+  <span class="hljs-keyword">return</span> result;
+}
+<span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)); <span class="hljs-comment">// 15</span>
+</div></div></code></pre>
+<hr>
+<p>如同ES6一樣，TS也可以在函式中使用其餘參數</p>
+<p>標示為rest param的參數，型別必須要是Array</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName: string, ...restOfName: string[]</span>) </span>{
+  <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">" "</span> + restOfName.join(<span class="hljs-string">" "</span>);
+}
+
+<span class="hljs-keyword">var</span> employeeName = buildName(<span class="hljs-string">"Joseph"</span>, <span class="hljs-string">"Samuel"</span>, <span class="hljs-string">"Lucas"</span>);
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<hr>
+<h4 class="" id="arrow-function"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#arrow-function" title="arrow-function" smoothhashscroll=""><span class="octicon octicon-link"></span></a>arrow function</h4>
+<p>arrow function ()=&gt;</p>
+<p>寫法如下</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">
+fnName(x,y) =&gt; {
+	<span class="hljs-comment">//...</span>
+}
+
+</div></div></code></pre>
+<hr>
+<ul>
+<li class="">傳統寫法與ES6寫法的比較</li>
+</ul>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code"><span class="hljs-comment">//ES5</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">x, y</span>) </span>{ 
+    x++;
+    y--;
+    <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-comment">//ES6</span>
+foo(x, y) =&gt; {
+	x++; 
+	y--; 
+	<span class="hljs-keyword">return</span> x+y;
+}
+</div></div></code></pre>
+<hr>
+<h4 class="" id="arrow-function解決了this指向的問題"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#arrow-function解決了this指向的問題" title="arrow-function解決了this指向的問題" smoothhashscroll=""><span class="octicon octicon-link"></span></a>arrow function解決了this指向的問題</h4>
+<p>此範例中的this，</p>
+<p>因為被settimeout callback function影響的關係，</p>
+<p>this變成指向window.this。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span></div><div class="code"><span class="hljs-comment">//沒有使用arrow function</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+    <span class="hljs-keyword">constructor</span>(){
+        <span class="hljs-keyword">this</span>.type = <span class="hljs-string">'animal'</span>
+    }
+    says(say){
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.type + <span class="hljs-string">' says '</span> + say)
+        }, <span class="hljs-number">1000</span>)
+    }
+}
+
+ <span class="hljs-keyword">var</span> animal = <span class="hljs-keyword">new</span> Animal()
+ animal.says(<span class="hljs-string">'hi'</span>)  <span class="hljs-comment">//undefined says hi</span>
+
+</div></div></code></pre>
+<hr>
+<p>用了()=&gt;之後，函數體內的this，</p>
+<p>【就是定義時所在的對象】，而不是使用時所在的對象。</p>
+<p>()=&gt;不會有自己的this，它的this是繼承外面的，</p>
+<p>因此內部的this就是外層代碼區域的this。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+    <span class="hljs-keyword">constructor</span>(){
+        <span class="hljs-keyword">this</span>.type = <span class="hljs-string">'animal'</span>
+    }
+    says(say){
+        setTimeout( <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.type + <span class="hljs-string">' says '</span> + say)
+        }, <span class="hljs-number">1000</span>)
+    }
+}
+ <span class="hljs-keyword">var</span> animal = <span class="hljs-keyword">new</span> Animal()
+ animal.says(<span class="hljs-string">'hi'</span>)  <span class="hljs-comment">//animal says hi</span>
+</div></div></code></pre>
+<hr>
+<h4 class="" id="for…of-and-for…in"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#for…of-and-for…in" title="for…of-and-for…in" smoothhashscroll=""><span class="octicon octicon-link"></span></a>for…of and for…in</h4>
+<p><strong>for…of</strong>是遍歷<strong>屬性值(property values)</strong></p>
+<p><strong>for…in</strong>是遍歷<strong>屬性名(property names)</strong></p>
+<p><img src="./TypeScript新手入門 - HackMD_files/sLYg5CM.png" alt="" class=""></p>
+<hr>
+<h2 class="" id="class"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#class" title="class" smoothhashscroll=""><span class="octicon octicon-link"></span></a>class</h2>
+<hr>
+<h3 class="" id="基本語法1"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#基本語法1" title="基本語法1" smoothhashscroll=""><span class="octicon octicon-link"></span></a>基本語法</h3>
+<p>寫法同ES6，會有屬性、建構式的特性</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+  name: string;
+
+  <span class="hljs-keyword">constructor</span>(name: string){
+    <span class="hljs-keyword">this</span>.name = name;
+  }
+
+  getPhoneNumber(): string {
+    <span class="hljs-comment">//程式邏輯</span>
+  }
+}
+</div></div></code></pre>
+<hr>
+<h3 class="" id="property-屬性"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#property-屬性" title="property-屬性" smoothhashscroll=""><span class="octicon octicon-link"></span></a>property 屬性</h3>
+<p>屬性預設都是public，不要被外部存取，要加上private。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{  
+  name: string;    
+  age: number;
+  private  birth: <span class="hljs-built_in">Date</span>;  
+}
+
+<span class="hljs-keyword">var</span> student = <span class="hljs-keyword">new</span> Student();
+
+<span class="hljs-built_in">console</span>.log(student.name);  <span class="hljs-comment">//正常</span>
+<span class="hljs-built_in">console</span>.log(student.birth); <span class="hljs-comment">//錯誤提示</span>
+</div></div></code></pre>
+<hr>
+<p>也可以把屬性宣告為static，</p>
+<p>在使用時，也不需要實體化就能夠呼叫。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{  
+  <span class="hljs-keyword">static</span> type: string;
+}
+
+Student.type;
+</div></div></code></pre>
+<hr>
+<p>想要給予屬性預設值的話，可以使用等號直接指定。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{  
+  name: string = <span class="hljs-string">'Student'</span>;
+}
+</div></div></code></pre>
+<hr>
+<h3 class="" id="constructor-建構式"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#constructor-建構式" title="constructor-建構式" smoothhashscroll=""><span class="octicon octicon-link"></span></a>constructor 建構式</h3>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+
+	name: string;  
+	age: number;
+
+	<span class="hljs-keyword">constructor</span>(name: string, age: number) {    
+    	<span class="hljs-keyword">this</span>.name = name;    
+    	<span class="hljs-keyword">this</span>.age = age;  
+	}
+}
+
+<span class="hljs-keyword">var</span> student = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">'Kirk'</span>, <span class="hljs-number">18</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Student name: <span class="hljs-subst">${student.name}</span>, age: <span class="hljs-subst">${student.age}</span>`</span>);
+</div></div></code></pre>
+<hr>
+<p>以上寫法，TypeScript提供了速寫語法。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{  
+  <span class="hljs-keyword">constructor</span>(public name: string,public age: number) {}
+}
+
+<span class="hljs-keyword">var</span> student = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">'Kirk'</span>, <span class="hljs-number">18</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Student name: <span class="hljs-subst">${student.name}</span>, age: <span class="hljs-subst">${student.age}</span>`</span>);
+
+</div></div></code></pre>
+<hr>
+<h2 class="" id="interface"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#interface" title="interface" smoothhashscroll=""><span class="octicon octicon-link"></span></a>interface</h2>
+<hr>
+<h3 class="" id="interface-basic"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#interface-basic" title="interface-basic" smoothhashscroll=""><span class="octicon octicon-link"></span></a>interface basic</h3>
+<p>同Java的寫法相似，interface(介面)是一種規格</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">interface IClock {
+    <span class="hljs-attr">currentTime</span>: <span class="hljs-built_in">Date</span>;
+    setTime(d: <span class="hljs-built_in">Date</span>);
+}
+
+</div></div></code></pre>
+<hr>
+<p>當一個類別實踐一個介面，表示他必須實踐這個規格。</p>
+<p>實做類別的關鍵字是 implements</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Clock</span> <span class="hljs-title">implements</span> <span class="hljs-title">IClock</span>  </span>{
+    currentTime: <span class="hljs-built_in">Date</span>;
+    <span class="hljs-keyword">constructor</span>(
+		public h: number, 
+		public m: number) {
+	}
+	setTime(d: <span class="hljs-built_in">Date</span>) {
+        <span class="hljs-keyword">this</span>.currentTime = d;
+    }
+}
+
+<span class="hljs-keyword">var</span> myClock: IClock = <span class="hljs-keyword">new</span> Clock(<span class="hljs-number">12</span>,<span class="hljs-number">60</span>);
+myClock.setTime(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+</div></div></code></pre>
+<hr>
+<h3 class="" id="hybrid-types"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#hybrid-types" title="hybrid-types" smoothhashscroll=""><span class="octicon octicon-link"></span></a>hybrid types</h3>
+<p>另一種用法：利用介面來達成複雜型別(complex type)</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code">interface IPerson{
+	<span class="hljs-attr">name</span>:string;
+	age:number;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showPerson</span>(<span class="hljs-params">person:IPerson</span>)</span>{
+	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"name: "</span>,person.name,<span class="hljs-string">" age:"</span>,person.age);
+}
+</div></div></code></pre>
+<hr>
+<h3 class="" id="介面擴充"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#介面擴充" title="介面擴充" smoothhashscroll=""><span class="octicon octicon-link"></span></a>介面擴充</h3>
+<p>就像類別一樣，介面也可以彼此擴充。</p>
+<p>它可以讓你快速的複製一個介面的成員到另一個介面</p>
+<p>而且這樣更利於介面的重用性，讓程式更有彈性。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code">interface Shape {
+	<span class="hljs-attr">color</span>:string;
+}
+
+interface Square extends Shape {
+	<span class="hljs-attr">sideLength</span>:number;
+}
+
+<span class="hljs-comment">// 這個例子是把interface當做複雜型別</span>
+<span class="hljs-comment">// &lt;型別&gt; 是泛型的用法，後面會再提到</span>
+<span class="hljs-keyword">let</span> square = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Square</span>&gt;</span>{};
+square.color = 'blue';
+square.sideLength = 10;
+</span></div></div></code></pre>
+<hr>
+<h2 class="" id="generic"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#generic" title="generic" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Generic</h2>
+<hr>
+<p>當你在建構Function、Interface及Class時</p>
+<p>你會希望這些Component都是能夠被重複運用的</p>
+<p>Generic(泛型)提供了一個彈性的做法</p>
+<p>語法是：<code>&lt;T&gt;</code></p>
+<hr>
+<p>你在撰寫Function、Interface及Class時</p>
+<p>不指定變數的【具體型別】，</p>
+<p>而是用一個【型別參數】做代替</p>
+<p>未來在使用這個Component時，</p>
+<p>這個【型別參數】會由一個具體的型別所代替。</p>
+<hr>
+<h3 class="" id="generic-functions"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#generic-functions" title="generic-functions" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Generic Functions</h3>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LogAndReturn</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">thing:T</span>):<span class="hljs-title">T</span> </span>{
+	<span class="hljs-built_in">console</span>.log(thing);
+	<span class="hljs-keyword">return</span> thing;
+}
+
+<span class="hljs-keyword">let</span> stringLog:string = LogAndReturn&lt;string&gt;(<span class="hljs-string">'string log'</span>);
+
+<span class="hljs-keyword">let</span> numberLog:number = LogAndReturn&lt;number&gt;(<span class="hljs-number">1000</span>);
+
+<span class="hljs-keyword">let</span> newBook:Book = {<span class="hljs-attr">title</span>:<span class="hljs-string">'This is a Book'</span>};
+<span class="hljs-keyword">let</span> bookLog:Book = LogAndReturn&lt;Book&gt;(newBook);
+</div></div></code></pre>
+<hr>
+<h3 class="" id="generic-interfaces"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#generic-interfaces" title="generic-interfaces" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Generic Interfaces</h3>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code">interface Inventory&lt;T&gt; {
+	<span class="hljs-attr">addItem</span>:<span class="hljs-function">(<span class="hljs-params">newItem:T</span>) =&gt;</span> <span class="hljs-keyword">void</span>;
+	getAllItems:<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">Array</span>&lt;T&gt;;
+}
+
+<span class="hljs-keyword">let</span> bookInventory:Inventory&lt;Book&gt;;
+<span class="hljs-keyword">let</span> allBooks:<span class="hljs-built_in">Array</span>&lt;Book&gt; = bookInventory.getAllItems();
+<span class="hljs-keyword">let</span> comicInventory:Inventory&lt;Comic&gt;;
+<span class="hljs-keyword">let</span> allComics:<span class="hljs-built_in">Array</span>&lt;Comic&gt; = comicInventory.getAllItems();
+</div></div></code></pre>
+<hr>
+<h3 class="" id="generic-classes"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#generic-classes" title="generic-classes" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Generic Classes</h3>
+<pre><code class="javascript=middle hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shelf</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+	private _items:<span class="hljs-built_in">Array</span>&lt;T&gt; = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>&lt;T&gt;();
+	
+	add(item:T):<span class="hljs-keyword">void</span>{
+		<span class="hljs-keyword">this</span>._items.push(item);
+	}
+}
+
+<span class="hljs-keyword">let</span> newBook:Book = {<span class="hljs-attr">title</span>:<span class="hljs-string">'CSS Secrets'</span>};
+<span class="hljs-keyword">let</span> bookShelf:Shelf&lt;Book&gt; = <span class="hljs-keyword">new</span> Shelf&lt;Book&gt;();
+bookShelf.add(newBook);
+
+<span class="hljs-keyword">let</span> newNumber:number = <span class="hljs-number">1000</span>;
+<span class="hljs-keyword">let</span> numberShelf:Shelf&lt;number&gt; = <span class="hljs-keyword">new</span> Shelf&lt;number&gt;();
+numberShelf.add(newNumber);
+</code></pre>
+<hr>
+<p>有時候你的商業邏輯需要操作宣告為泛型的類別成員。</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shelf</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+	private _items:<span class="hljs-built_in">Array</span>&lt;T&gt; = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>&lt;T&gt;();
+	
+	add(item:T):<span class="hljs-keyword">void</span>{<span class="hljs-keyword">this</span>._items.push(item);}
+	
+	printTitles():<span class="hljs-keyword">void</span>{
+		<span class="hljs-keyword">this</span>._items.forEach(
+			<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item.title)
+		);
+		<span class="hljs-comment">//compile會告訴你T沒有title這個屬性</span>
+	}
+}
+
+</div></div></code></pre>
+<p>遇到這種狀況，你要做的是為Generic加上限制。</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<hr>
+<h3 class="" id="generic-constraints"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#generic-constraints" title="generic-constraints" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Generic Constraints</h3>
+<pre><code class="javascript=middle hljs">
+interface ShelfItem {
+	<span class="hljs-attr">title</span>:string;
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shelf</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ShelfItem</span>&gt; </span>{
+	private _items:<span class="hljs-built_in">Array</span>&lt;T&gt; = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>&lt;T&gt;();
+	
+	add(item:T):<span class="hljs-keyword">void</span>{<span class="hljs-keyword">this</span>._items.push(item);}
+	
+	printTitles():<span class="hljs-keyword">void</span>{
+		<span class="hljs-keyword">this</span>._items.forEach(
+			<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item.title)
+		);
+	}
+}
+
+</code></pre>
+<hr>
+<pre><code class="javascript=middle hljs">
+<span class="hljs-keyword">let</span> newBook:Book = {title:<span class="hljs-string">'CSS Secrets'</span>};
+<span class="hljs-keyword">let</span> bookShelf:Shelf&lt;Book&gt; = <span class="hljs-keyword">new</span> Shelf&lt;Book&gt;();
+bookShelf.<span class="hljs-keyword">add</span>(newBook);
+bookShelf.printTitles();<span class="hljs-comment">//Correct，因為Book有title的屬性</span>
+
+<span class="hljs-keyword">let</span> newNumber:number = <span class="hljs-number">1000</span>;
+<span class="hljs-keyword">let</span> numberShelf:Shelf&lt;number&gt; = <span class="hljs-keyword">new</span> Shelf&lt;number&gt;();
+numberShelf.<span class="hljs-keyword">add</span>(newNumber);
+numberShelf.printTitles();<span class="hljs-comment">//Error，因為number沒有title的屬性</span>
+</code></pre>
+<hr>
+<h2 class="" id="modules"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#modules" title="modules" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Modules</h2>
+<hr>
+<p>在TS中【組織程式碼的方法】</p>
+<ul>
+<li class="">
+<p>外部模組 - module</p>
+<p>模組之間是不同功能，利用import/export來互相引用彼此公開的功能</p>
+</li>
+<li class="">
+<p>內部模組 - namespace</p>
+<p>模組之間是相近的功能，使用namespace集中功能。</p>
+</li>
+</ul>
+<hr>
+<h3 class="" id="moudle-外部模組"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#moudle-外部模組" title="moudle-外部模組" smoothhashscroll=""><span class="octicon octicon-link"></span></a>moudle 外部模組</h3>
+<ul>
+<li class="">
+<p>使用 export (用法同ES6)</p>
+<p>將想要分享的變數、函式、類別及介面做 <strong>公開</strong></p>
+</li>
+<li class="">
+<p>使用 import (用法同ES6)</p>
+<p><strong>引用</strong> 不同檔案並設定公開的變數、函式、類別及介面</p>
+</li>
+</ul>
+<p><em>MyExport.ts</em></p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">	<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SomeType</span>  </span>{ <span class="hljs-comment">/* ... */</span> }
+	<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">someFn</span> </span>{ <span class="hljs-comment">/* ... */</span> }
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p><em>App.ts</em></p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">	<span class="hljs-keyword">import</span> { SomeType,somefn } form <span class="hljs-string">'./Myexport'</span>;
+	<span class="hljs-keyword">let</span> x = <span class="hljs-keyword">new</span> SomeType();
+	<span class="hljs-keyword">let</span> y = someFn();
+</div></div></code></pre>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<h3 class="" id="namespace-內部模組命名空間"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#namespace-內部模組命名空間" title="namespace-內部模組命名空間" smoothhashscroll=""><span class="octicon octicon-link"></span></a>namespace 內部模組(命名空間)</h3>
+<hr>
+<p>請先觀察以下寫法，有什麼缺點。</p>
+<pre><code class="javascript=small hljs">
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> </span>{
+	area(h:number,w:number):number;
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Square</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>{
+	area(h:number,w:number) {<span class="hljs-keyword">return</span> h*w;}
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>{ 
+	area(h:number,w:number) {<span class="hljs-keyword">return</span> (h*w) / <span class="hljs-number">2</span>;}
+}
+
+let s = <span class="hljs-keyword">new</span> Square();
+console.log(s.area(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>)); <span class="hljs-comment">// 50</span>
+let t = <span class="hljs-keyword">new</span> Triangle();
+console.log(t.area(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>)); <span class="hljs-comment">// 25</span>
+</code></pre>
+<p>Shape、Square、Triangle 放在 global namespace</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>放在global namespace的缺點是容易造成名稱衝突</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<p>前例的寫法可修改成模組化，關鍵字使用namespace</p>
+<pre><code class="javascript=small hljs">namespace Geometric { 
+	<span class="hljs-keyword">const</span> HALF = <span class="hljs-number">0.5</span>;
+	
+	<span class="hljs-keyword">export</span> interface Shape {
+		area(h:number,<span class="hljs-attr">w</span>:number):number;
+	} 
+	
+	<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Square</span> <span class="hljs-title">implements</span> <span class="hljs-title">Shape</span> </span>{
+		area(h:number,<span class="hljs-attr">w</span>:number) {<span class="hljs-keyword">return</span> h*w;}
+	}
+
+	<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> <span class="hljs-title">implements</span> <span class="hljs-title">Shape</span> </span>{ 
+		area(h:number,<span class="hljs-attr">w</span>:number) { <span class="hljs-keyword">return</span> (h*w)*HALF };
+	}
+} <span class="hljs-comment">//所以global namespace，只有Geometric這個物件</span>
+
+<span class="hljs-keyword">let</span> s = <span class="hljs-keyword">new</span> Geometric.Square();
+<span class="hljs-built_in">console</span>.log(s.area(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>)); <span class="hljs-comment">// 50</span>
+<span class="hljs-keyword">let</span> t = <span class="hljs-keyword">new</span> Geometric.Triangle();
+<span class="hljs-built_in">console</span>.log(t.area(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>)); <span class="hljs-comment">// 25</span>
+</code></pre>
+<p>我們希望介面跟類別是公開的，所以使用export公開。</p>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+<p>而變數HALF是實現的細節，就不必要使用export，</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<p>因此變數HALF在模組外是不可見的。</p>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+<hr>
+<p><img src="./TypeScript新手入門 - HackMD_files/M1IlGQI.png" alt="" class=""></p>
+<p>可以觀察到編譯成ES3之後，</p>
+<p>模組是被包裝成立即函式，因此避免了全域環境汙染。</p>
+<hr>
+<p>將模組拆分成多個檔案</p>
+<p>隨著應用的擴展，我們希望將程式拆分成多個文件</p>
+<p>使每個檔案的功能更單純，更方便維護。(單一職責原則)</p>
+<hr>
+<p><em>Shape.ts</em></p>
+<pre><code class="javascript=small hljs"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Geometric</span> {
+	export <span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> {
+		area(h:number,w:number):number;
+	} 
+}
+</code></pre>
+<p><em>Square.ts</em></p>
+<pre><code class="javascript=small hljs"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;reference path="Shape.ts" /&gt;</span></span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Geometric</span> {
+	export <span class="hljs-keyword">class</span> <span class="hljs-title">Square</span> <span class="hljs-title">implements</span> <span class="hljs-title">Shape</span> {
+		area(h:number,w:number) {<span class="hljs-keyword">return</span> h*w;}
+	}
+}
+</code></pre>
+<p><em>Triangle.ts</em></p>
+<pre><code class="javascript=small hljs"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;reference path="Shape.ts" /&gt;</span></span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Geometric</span> {
+	export <span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> <span class="hljs-title">implements</span> <span class="hljs-title">Shape</span> {
+		area(h:number,w:number) {<span class="hljs-keyword">return</span> h*w;}
+	}
+}
+</code></pre>
+<hr>
+<p>雖然被拆分成多個檔案，每個檔案都是單獨的</p>
+<p>但是他們都在為同一個模組貢獻功能。</p>
+<p>檔案中有參考的地方，使用 reference 來做引用</p>
+<hr>
+<p><em>App.ts</em></p>
+<pre><code class="javascript=small hljs"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;reference path="Shape.ts" /&gt;</span></span>
+<span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;reference path="Square.ts" /&gt;</span></span>
+<span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;reference path="Triangle.ts" /&gt;</span></span>
+
+<span class="hljs-keyword">let</span> s = <span class="hljs-keyword">new</span> Geometric.Square();
+console.log(s.area(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>)); <span class="hljs-comment">// 50</span>
+<span class="hljs-keyword">let</span> t = <span class="hljs-keyword">new</span> Geometric.Triangle();
+console.log(t.area(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>)); <span class="hljs-comment">// 25</span>
+</code></pre>
+<hr>
+<h3 class="" id="別名"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#別名" title="別名" smoothhashscroll=""><span class="octicon octicon-link"></span></a>別名</h3>
+<p>當取用模組的path比較長時，</p>
+<p>可以使用 <code>import q = x.y.z</code> 的語法</p>
+<p>給常用的模組起一個簡短的名稱</p>
+<pre><code class="javascript=middle hljs">	<span class="hljs-keyword">namespace</span> <span class="hljs-title">Shapes</span> {
+		export <span class="hljs-keyword">namespace</span> <span class="hljs-title">Polygons</span> {
+			export <span class="hljs-keyword">class</span> <span class="hljs-title">Square</span> {}
+			export <span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> {}
+		}
+	}
+	
+	<span class="hljs-comment">//沒有用別名之前</span>
+	<span class="hljs-keyword">var</span> test1 = <span class="hljs-keyword">new</span> Shapes.Polygons.Square();
+	<span class="hljs-keyword">var</span> test2 = <span class="hljs-keyword">new</span> Shapes.Polygons.Triangle();
+	
+	<span class="hljs-comment">//使用別名之後</span>
+	import pg = Shapes.Polygons;
+	<span class="hljs-keyword">var</span> sq = <span class="hljs-keyword">new</span> pg.Square();
+	<span class="hljs-keyword">var</span> tri = <span class="hljs-keyword">new</span> pg.Triangle();
+</code></pre>
+<hr>
+<h2 class="" id="type-script-compiler-tsc"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#type-script-compiler-tsc" title="type-script-compiler-tsc" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Type Script Compiler (tsc)</h2>
+<ul>
+<li class="">
+<p>瀏覧器不會直接執行TypeScript，tsc會將TypeScript轉譯成JavaScript</p>
+</li>
+<li class="">
+<p>所有轉譯的設定，被定義在tsconfig.json這個檔案中</p>
+</li>
+</ul>
+<hr>
+<h3 class="" id="tsconfigjson"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#tsconfigjson" title="tsconfigjson" smoothhashscroll=""><span class="octicon octicon-link"></span></a>tsconfig.json</h3>
+<p>基本設定</p>
+<pre><code class="javascript=middle hljs">{
+  <span class="hljs-attr">"compilerOptions"</span>: {
+    <span class="hljs-attr">"target"</span>: <span class="hljs-string">"es5"</span>,
+    <span class="hljs-attr">"module"</span>: <span class="hljs-string">"commonjs"</span>,
+    <span class="hljs-attr">"typeRoots"</span>: [
+      <span class="hljs-string">"../../node_modules/@types/"</span>
+    ]
+  },
+  <span class="hljs-attr">"compileOnSave"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"exclude"</span>: [
+    <span class="hljs-string">"node_modules/*"</span>
+  ]
+}
+
+</code></pre>
+<hr>
+<h2 class="" id="type-definition-file"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#type-definition-file" title="type-definition-file" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Type Definition File</h2>
+<ul>
+<li class="">
+<p>當你操作第三方函式庫(Lib)時，都需要定義檔(*.d.ts)</p>
+</li>
+<li class="">
+<p>定義檔用來揭露第三方函式庫的型別資訊</p>
+</li>
+<li class="">
+<p>不包含實作的細節，可以想像它是c/c++的表頭檔(*.h)</p>
+</li>
+<li class="">
+<p>有了Lib定義檔，就可在開發時期操作時Lib做型別檢查</p>
+</li>
+</ul>
+<hr>
+<h3 class="" id="ambient-declaration"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#ambient-declaration" title="ambient-declaration" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Ambient Declaration</h3>
+<p>ambient declaration = 周圍環境宣告</p>
+<p>代表你要宣告一個在目前環境中已經有的變數，</p>
+<p>例如jQuery你早就載入了，只是TS不知道，</p>
+<p>透過這招設定讓TS知道$代表某個型別</p>
+<p><em>jquery.d.ts</em></p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">declare <span class="hljs-keyword">var</span> jQuery: JQueryStatic;
+declare <span class="hljs-keyword">var</span> $: JQueryStatic;
+</div></div></code></pre>
+<p><em>knockout.d.ts</em></p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">declare <span class="hljs-keyword">var</span> ko: KnockoutStatic;
+</div></div></code></pre>
+<hr>
+<h3 class="" id="type-definition-sources"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#type-definition-sources" title="type-definition-sources" smoothhashscroll=""><span class="octicon octicon-link"></span></a>Type Definition Sources</h3>
+<p><img src="./TypeScript新手入門 - HackMD_files/OgCy7z4.png" alt="" class=""></p>
+<hr>
+<h4 class="" id="definitelytyped"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#definitelytyped" title="definitelytyped" smoothhashscroll=""><span class="octicon octicon-link"></span></a><a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank">DefinitelyTyped</a></h4>
+<ul>
+<li class="">
+<p>Github儲存庫，存放很多定義檔，可手動下載至專案內</p>
+</li>
+<li class="">
+<p>舊的作法，目前不建議使用此方式下載定義檔</p>
+</li>
+</ul>
+<hr>
+<h4 class="" id="tsd"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#tsd" title="tsd" smoothhashscroll=""><span class="octicon octicon-link"></span></a><a href="https://www.npmjs.com/package/tsd" target="_blank">tsd</a></h4>
+<ul>
+<li class="">
+<p>NPM套件，可用來搜尋及下載TS的定義檔</p>
+</li>
+<li class="">
+<p>所有下載的設定，可以在tsd.json看到</p>
+</li>
+<li class="">
+<p>舊的作法，目前不建議使用此方式下載定義檔</p>
+</li>
+</ul>
+<hr>
+<h4 class="" id="typings"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#typings" title="typings" smoothhashscroll=""><span class="octicon octicon-link"></span></a><a href="https://www.npmjs.com/package/typings" target="_blank">typings</a></h4>
+<ul>
+<li class="">
+<p>NPM套件，可用來搜尋及下載TS的定義檔</p>
+</li>
+<li class="">
+<p>可以指定多個下載來源</p>
+<ul>
+<li class="">npm/github/bower/dt(DefinitelyTyped)</li>
+</ul>
+</li>
+<li class="">
+<p>所有下載的設定，可以在typings.json看到</p>
+</li>
+<li class="">
+<p>舊的作法，目前不建議使用此方式下載定義檔</p>
+</li>
+</ul>
+<hr>
+<h4 class="" id="types"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#types" title="types" smoothhashscroll=""><span class="octicon octicon-link"></span></a><a href="https://www.npmjs.com/~types" target="_blank">@types</a></h4>
+<ul>
+<li class="">
+<p>在Typescript 2.0之後，盡量不使用tsd及typings</p>
+</li>
+<li class="">
+<p>不需再額外安裝其他下載定義檔的套件，直接使用npm</p>
+<p><code>npm install --save @types/lodash</code></p>
+</li>
+<li class="">
+<p>所有下載的設定，可以直接在package.json看到</p>
+</li>
+<li class="">
+<p>只需要在tsconfig.json指定typeRoots，tsc就知道去哪裡找定義檔</p>
+</li>
+</ul>
+<pre><code>    "typeRoots": [
+      "../node_modules/@types"
+    ]
+</code></pre>
+<hr>
+<h2 class="" id="小結"><a class="anchor hidden-xs" href="https://hackmd.io/s/rkITEOYX#小結" title="小結" smoothhashscroll=""><span class="octicon octicon-link"></span></a>小結</h2>
+<ul>
+<li class="">
+<p>JavaScript慢慢變成類似Assembly Language的地位</p>
+</li>
+<li class="">
+<p>我們會用ES2015或是TypeScript的高階語法來開發JS</p>
+</li>
+<li class="">
+<p>透過【預編譯】把高階語法轉譯成瀏覧器認識的ES3or5</p>
+</li>
+<li class="">
+<p>TS的型別檢查、模組化及OOP特性，增加程式開發品質。</p>
+</li>
+</ul>
+</div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display: none; right: 276px;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="https://hackmd.io/s/rkITEOYX#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav"><li class="active"><a href="https://hackmd.io/s/rkITEOYX#typescript新手入門" smoothhashscroll="">TypeScript新手入門</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#為什麼要使用typescript" smoothhashscroll="">為什麼要使用TypeScript?</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#typescript優點" smoothhashscroll="">TypeScript優點</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#基本型別" smoothhashscroll="">基本型別</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#boolean" smoothhashscroll="">boolean</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#number" smoothhashscroll="">number</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#string" smoothhashscroll="">string</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#array" smoothhashscroll="">Array</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#enum-列舉型別" smoothhashscroll="">enum 列舉型別</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#any-任意型別" smoothhashscroll="">any 任意型別</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#void" smoothhashscroll="">void</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#基本語法" smoothhashscroll="">基本語法</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#變數" smoothhashscroll="">變數</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#let" smoothhashscroll="">let</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#const" smoothhashscroll="">const</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#function" smoothhashscroll="">Function</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#class" smoothhashscroll="">class</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#基本語法1" smoothhashscroll="">基本語法</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#property-屬性" smoothhashscroll="">property 屬性</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#constructor-建構式" smoothhashscroll="">constructor 建構式</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#interface" smoothhashscroll="">interface</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#interface-basic" smoothhashscroll="">interface basic</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#hybrid-types" smoothhashscroll="">hybrid types</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#介面擴充" smoothhashscroll="">介面擴充</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic" smoothhashscroll="">Generic</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-functions" smoothhashscroll="">Generic Functions</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-interfaces" smoothhashscroll="">Generic Interfaces</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-classes" smoothhashscroll="">Generic Classes</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-constraints" smoothhashscroll="">Generic Constraints</a></li></ul></li><li class="active"><a href="https://hackmd.io/s/rkITEOYX#modules" smoothhashscroll="">Modules</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#moudle-外部模組" smoothhashscroll="">moudle 外部模組</a></li><li class="active"><a href="https://hackmd.io/s/rkITEOYX#namespace-內部模組命名空間" smoothhashscroll="">namespace 內部模組(命名空間)</a></li><li><a href="https://hackmd.io/s/rkITEOYX#別名" smoothhashscroll="">別名</a></li></ul></li><li><a href="https://hackmd.io/s/rkITEOYX#type-script-compiler-tsc" smoothhashscroll="">Type Script Compiler (tsc)</a><ul class="nav"><li><a href="https://hackmd.io/s/rkITEOYX#tsconfigjson" smoothhashscroll="">tsconfig.json</a></li></ul></li><li><a href="https://hackmd.io/s/rkITEOYX#type-definition-file" smoothhashscroll="">Type Definition File</a><ul class="nav"><li><a href="https://hackmd.io/s/rkITEOYX#ambient-declaration" smoothhashscroll="">Ambient Declaration</a></li><li><a href="https://hackmd.io/s/rkITEOYX#type-definition-sources" smoothhashscroll="">Type Definition Sources</a></li></ul></li><li><a href="https://hackmd.io/s/rkITEOYX#小結" smoothhashscroll="">小結</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="https://hackmd.io/s/rkITEOYX#">Expand all</a><a class="back-to-top" href="https://hackmd.io/s/rkITEOYX#">Back to top</a><a class="go-to-bottom" href="https://hackmd.io/s/rkITEOYX#">Go to bottom</a></div></ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print affix" data-spy="affix" style="left: 1009px;"><div class="toc"><ul class="nav"><li class="active"><a href="https://hackmd.io/s/rkITEOYX#typescript新手入門" smoothhashscroll="">TypeScript新手入門</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#為什麼要使用typescript" smoothhashscroll="">為什麼要使用TypeScript?</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#typescript優點" smoothhashscroll="">TypeScript優點</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#基本型別" smoothhashscroll="">基本型別</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#boolean" smoothhashscroll="">boolean</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#number" smoothhashscroll="">number</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#string" smoothhashscroll="">string</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#array" smoothhashscroll="">Array</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#enum-列舉型別" smoothhashscroll="">enum 列舉型別</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#any-任意型別" smoothhashscroll="">any 任意型別</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#void" smoothhashscroll="">void</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#基本語法" smoothhashscroll="">基本語法</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#變數" smoothhashscroll="">變數</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#let" smoothhashscroll="">let</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#const" smoothhashscroll="">const</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#function" smoothhashscroll="">Function</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#class" smoothhashscroll="">class</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#基本語法1" smoothhashscroll="">基本語法</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#property-屬性" smoothhashscroll="">property 屬性</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#constructor-建構式" smoothhashscroll="">constructor 建構式</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#interface" smoothhashscroll="">interface</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#interface-basic" smoothhashscroll="">interface basic</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#hybrid-types" smoothhashscroll="">hybrid types</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#介面擴充" smoothhashscroll="">介面擴充</a></li></ul></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic" smoothhashscroll="">Generic</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-functions" smoothhashscroll="">Generic Functions</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-interfaces" smoothhashscroll="">Generic Interfaces</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-classes" smoothhashscroll="">Generic Classes</a></li><li class=""><a href="https://hackmd.io/s/rkITEOYX#generic-constraints" smoothhashscroll="">Generic Constraints</a></li></ul></li><li class="active"><a href="https://hackmd.io/s/rkITEOYX#modules" smoothhashscroll="">Modules</a><ul class="nav"><li class=""><a href="https://hackmd.io/s/rkITEOYX#moudle-外部模組" smoothhashscroll="">moudle 外部模組</a></li><li class="active"><a href="https://hackmd.io/s/rkITEOYX#namespace-內部模組命名空間" smoothhashscroll="">namespace 內部模組(命名空間)</a></li><li><a href="https://hackmd.io/s/rkITEOYX#別名" smoothhashscroll="">別名</a></li></ul></li><li><a href="https://hackmd.io/s/rkITEOYX#type-script-compiler-tsc" smoothhashscroll="">Type Script Compiler (tsc)</a><ul class="nav"><li><a href="https://hackmd.io/s/rkITEOYX#tsconfigjson" smoothhashscroll="">tsconfig.json</a></li></ul></li><li><a href="https://hackmd.io/s/rkITEOYX#type-definition-file" smoothhashscroll="">Type Definition File</a><ul class="nav"><li><a href="https://hackmd.io/s/rkITEOYX#ambient-declaration" smoothhashscroll="">Ambient Declaration</a></li><li><a href="https://hackmd.io/s/rkITEOYX#type-definition-sources" smoothhashscroll="">Type Definition Sources</a></li></ul></li><li><a href="https://hackmd.io/s/rkITEOYX#小結" smoothhashscroll="">小結</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="https://hackmd.io/s/rkITEOYX#">Expand all</a><a class="back-to-top" href="https://hackmd.io/s/rkITEOYX#">Back to top</a><a class="go-to-bottom" href="https://hackmd.io/s/rkITEOYX#">Go to bottom</a></div></div>
+    
+
+
+
+<script src="./TypeScript新手入門 - HackMD_files/ga.js" async="" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/raven.min.js" crossorigin="anonymous"></script>
+<script>Raven.config('https://b1ed86878f414ccc832dc0f63ffe2daa@sentry.io/121416').install();</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLW9Z3"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({ messageStyle: "none", skipStartupTypeset: true ,tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true }});
+</script>
+
+<script src="./TypeScript新手入門 - HackMD_files/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="./TypeScript新手入門 - HackMD_files/velocity.min.js" integrity="sha256-bhm0lgEt6ITaZCDzZpkr/VXVrLa5RP4u9v2AYsbzSUk=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/jquery.mousewheel.min.js" integrity="sha256-jnOjDTXIPqall8M0MyTSt98JetJuZ7Yu+1Jm7hLTF7U=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/js-yaml.min.js" integrity="sha256-8PanqYAVOGlOct+i65R+HqibK3KPsXINnrSfxN+Y/J0=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/MathJax.js" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-immzXfCGLhnx3Zfi9F/dUcqxEM8K3o3oTFy9Bh6HCwg=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/moment-with-locales.min.js" integrity="sha256-vvT7Ok9u6GbfnBPXnbM6FVDEO8E1kTdgHOFZOAXrktA=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/mermaid.min.js" integrity="sha256-1uR+pqxH5fN/rOZcZTb9c5+bR3OIYEKzu2sI11Dnj9A=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/emojify.min.js" integrity="sha256-VAB5tAlKBvgaxw8oJ1crWMVbdmBVl4mP/2M8MNRl+4E=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/handlebars.min.js" integrity="sha256-1O3BtOwnPyyRzOszK6P+gqaRoXHV6JXj8HkjZmPYhCI=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/viz-lite.js" integrity="sha256-lLBbzF3IYSscIpBw/KgKjF1dDWMQdz1RWZnEdnNSDxA=" crossorigin="anonymous" defer=""></script>
+<script src="./TypeScript新手入門 - HackMD_files/constant.js"></script>
+
+<script src="./TypeScript新手入門 - HackMD_files/4.pretty.ad885094040db4fd8163.js" defer=""></script>
+
+
+
+
+</body></html>

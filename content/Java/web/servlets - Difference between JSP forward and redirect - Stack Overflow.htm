@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>servlets - Difference between JSP forward and redirect - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Difference between JSP forward and redirect">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Please explain the difference between jsp:forward and redirect? 
+What is happening in each case?">
+    <meta property="og:url" content="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect">
+    <link rel="canonical" href="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect">
+
+    
+    
+    <script type="text/javascript" async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/ados"></script><script src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/rules-p-c1rF4kxgLUzNc.js"></script><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/quant.js"></script><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/beacon.js"></script><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/ados.js"></script><script src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/jquery.js"></script>
+    <script src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'Difference between JSP forward and redirect'" href="http://stackoverflow.com/feeds/question/6068891">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:6068891});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '6068891');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1494943963,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"http"},"user":{"fkey":"b15ff581015ffa68fe70ee667fbb6630","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"39f7ade28f21","js/moderator.en.js":"40864e2316e3","js/full-anon.en.js":"8b8b02dd0f2f","js/full.en.js":"4cd3d10395b7","js/wmd.en.js":"40070ec69fee","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"617589bf91c4","js/help.en.js":"a2f92aacc060","js/tageditor.en.js":"248fce004255","js/tageditornew.en.js":"454ed55ff86b","js/inline-tag-editing.en.js":"2ddfa79492e7","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"3e7053bbf7bd","js/tagsuggestions.en.js":"ddb0e41afe26","js/post-validation.en.js":"eaadf036ed64","js/explore-qlist.en.js":"d33e3ab2f2e0","js/events.en.js":"0431d82b88a0","js/keyboard-shortcuts.en.js":"92e99ec66726","js/external-editor.en.js":"dec8b7cab79e","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"dec8b7cab79e","js/snippet-javascript.en.js":"9ba1796a308e","js/snippet-javascript-codemirror.en.js":"62b2dba174b2"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css"><style type="text/css">body,.so-header{margin-top:1.9em}</style></noscript>
+<script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/full-anon.js"></script><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/snippet-javascript.js"></script><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/post-validation.js"></script><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/external-editor.js"></script><script type="text/javascript" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/adFeedback.css"><link rel="stylesheet" href="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/jobs-multi.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="http://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="http://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="http://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="http://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="http://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                    <input name="q" placeholder="Search..." tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field" type="text">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="http://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6068891%2fdifference-between-jsp-forward-and-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M9 0a9 9 0 1 0 .001 18.001A9 9 0 0 0 9 0zm.812 13.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 167 Stack Exchange sites">
+            <svg viewBox="0 0 18 19" width="18" height="19" role="icon"><path fill-rule="evenodd" d="M0 14a2 2 0 0 0 2 2h10v3l3-3h1a2 2 0 0 0 2-2v-2H0v2zM16 0H2a2 2 0 0 0-2 2v2h18V2a2 2 0 0 0-2-2zM0 6h18v4H0V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6068891%2fdifference-between-jsp-forward-and-redirect" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.1 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect" class="question-hyperlink">Difference between JSP forward and redirect</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="http://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="6068891" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk769610198",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk769610198"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo1ODI1MDEsImNoIjoxMTc4LCJjayI6e30sImNyIjoyOTQ4MjI5LCJkaSI6ImE4NTBlMjBiZGJmODQwMjFhNjRhYTEyMmU2ODIyMGQ4IiwiZG0iOjEsImZjIjo1MDIzMTc2LCJmbCI6NTIxMDMxNCwiaXAiOiIyMjAuMTMzLjE4Ni4xMSIsImt3IjoianNwLHNlcnZsZXRzIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNTY4LCJydCI6MiwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLnR3LyIsInNiIjoiaS0wOGI2YzQ3YjQ5ZDdmNzQxYyIsInNwIjo1NTM2LCJzdCI6ODI3NywidWsiOiJ1ZTEtZWI1ODZkM2NmMmMxNDdmOWI4ZWE2ODY2ZTlhYWY3YzkiLCJ6biI6NDMsInRzIjoxNDk0OTQzOTY2MTM1LCJiZiI6dHJ1ZSwicG4iOiJhZHplcms3Njk2MTAxOTgiLCJ1ciI6Imh0dHBzOi8vd3d3LnN0YWNrb3ZlcmZsb3cuY29tL2pvYnMvbGl2ZS13b3JrLWFueXdoZXJlLz91dG1fc291cmNlPXNvLW93bmVkJnV0bV9tZWRpdW09aG91c2UtYWQmdXRtX2NhbXBhaWduPWpvYi1lbmdhZ2Utd29yay1saXZlJnV0bV9jb250ZW50PWxlYWRlcmJvYXJkIn0&amp;s=zQ2gKv5Czs36z1Jy8K0U8XHaqfk" rel="nofollow" target="_blank" title=""><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/91fbb74beca1448cb52b5e8a7f9e2286.png" title="" alt="" width="728" border="0" height="90"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/i_002.gif" width="0px" border="0" height="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="6068891" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">53</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>29</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>Please explain the difference between <code>jsp:forward</code> and <code>redirect</code>? <br>
+What is happening in each case?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/jsp" class="post-tag js-gps-track" title="show questions tagged 'jsp'" rel="tag">jsp</a> <a href="http://stackoverflow.com/questions/tagged/servlets" class="post-tag js-gps-track" title="show questions tagged 'servlets'" rel="tag">servlets</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/6068891" title="short permalink to this question" class="short-link" id="link-post-6068891">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/6068891/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/6068891/revisions" title="show all edits to this post">edited <span title="2017-01-07 14:48:16Z" class="relativetime">Jan 7 at 14:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/5317530/usernotfoundexception"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/drh2l.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/5317530/usernotfoundexception">UserNotFoundException</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">306</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2011-05-20 07:40:48Z" class="relativetime">May 20 '11 at 7:40</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/701813/ammu"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/10d0e181cae7096d11017b072e2d8720.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/701813/ammu">Ammu</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,915</span><span title="7 gold badges"><span class="badge1"></span><span class="badgecount">7</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="34 bronze badges"><span class="badge3"></span><span class="badgecount">34</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6068891" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-61000663" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">(in Spring MVC) If I return a view name without any prefix, is it considered a  forward ?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3701346/modeller" title="1,510 reputation" class="comment-user">modeller</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment61000663_6068891"><span title="2016-04-19 00:21:34Z" class="relativetime-clean">Apr 19 '16 at 0:21</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-71319856" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Possible duplicate of <a href="http://stackoverflow.com/questions/2047122/requestdispatcher-forward-vs-httpservletresponse-sendredirect">RequestDispatcher.forward() vs HttpServletResponse.sendRedirect()</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/603516/vadzim" title="9,714 reputation" class="comment-user">Vadzim</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment71319856_6068891"><span title="2017-02-06 18:00:34Z" class="relativetime-clean">Feb 6 at 18:00</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-6068891" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								6 Answers
+                                <span style="display:none;" itemprop="answerCount">6</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="6068925"></a>
+<div id="answer-6068925" class="answer accepted-answer" data-answerid="6068925" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="6068925" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">98</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<ul>
+<li><p>redirect sets the response status to 302 [1], and the new url in a <code>Location</code>
+ header, and sends the response to the browser. Then the browser, 
+according to the http specification, makes another request to the new 
+url</p></li>
+<li><p>forward happens entirely on the server. The servlet container 
+just forwards the same request to the target url, without the browser 
+knowing about that. Hence you can use the same request attributes and 
+the same request parameters when handling the new url. And the browser 
+won't know the url has changed (because it has happened entirely on the 
+server)</p></li>
+</ul>
+
+<hr>
+
+<blockquote>
+  <p>[1]: This is an example of industry practice contradicting the standard.
+  The HTTP/1.0 specification (RFC 1945) required the client to perform a
+  temporary redirect (the original describing phrase was "Moved
+  Temporarily"), but popular browsers implemented 302 with the
+  functionality of a 303 See Other. Therefore, HTTP/1.1 added status
+  codes 303 and 307 to distinguish between the two behaviours. However,
+  some Web applications and frameworks use the 302 status code as if it
+  were the 303. <a href="https://en.wikipedia.org/wiki/HTTP_302" rel="noreferrer">Source</a></p>
+</blockquote>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/6068925" title="short permalink to this answer" class="short-link" id="link-post-6068925">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/6068925/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/6068925/revisions" title="show all edits to this post">edited <span title="2015-10-02 16:14:07Z" class="relativetime">Oct 2 '15 at 16:14</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4807777/laurentiu-l"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/PVd4T.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4807777/laurentiu-l">Laurentiu L.</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,597</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-05-20 07:43:33Z" class="relativetime">May 20 '11 at 7:43</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/203907/bozho"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/8de038497b6b8b67bc82eeaaef1a0b6b.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/203907/bozho">Bozho</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 413,249" dir="ltr">413k</span><span title="91 gold badges"><span class="badge1"></span><span class="badgecount">91</span></span><span title="824 silver badges"><span class="badge2"></span><span class="badgecount">824</span></span><span title="985 bronze badges"><span class="badge3"></span><span class="badgecount">985</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6068925" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-7027694" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">For forward does th url change?I read the url will remain the same.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/701813/ammu" title="1,915 reputation" class="comment-user owner">Ammu</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment7027694_6068925"><span title="2011-05-20 07:47:00Z" class="relativetime-clean">May 20 '11 at 7:47</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-7027804" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">yes, it will remain the same, because the browser does not know about the change</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/203907/bozho" title="413,249 reputation" class="comment-user">Bozho</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment7027804_6068925"><span title="2011-05-20 07:55:35Z" class="relativetime-clean">May 20 '11 at 7:55</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-6068925" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1039588429",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1039588429"></div>
+  
+<a name="21133225"></a>
+<div id="answer-21133225" class="answer" data-answerid="21133225" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="21133225" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">23</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I've heard interesting explanation of redirect and forward. Imagine 
+that you need some service from your friend.Its doesn't matter what 
+service. Suppose that your friend can't help you but know who can.</p>
+
+<p>He would REDIRECTs your request if he will tell you: "I can't handle this but know who can.Here his phone number. Call him"</p>
+
+<p>He would FORWARDs your request if he will tell you: "No problem" and 
+call that man by himself without noticing you about involving another 
+person in handling your desire. Then your friend wil get result of 
+soring out your wish and transmit to you</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/21133225" title="short permalink to this answer" class="short-link" id="link-post-21133225">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/21133225/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/21133225/revisions" title="show all edits to this post">edited <span title="2015-11-20 04:48:07Z" class="relativetime">Nov 20 '15 at 4:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/283311/sk9"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/e0351250dd6cb3321a689421f86a00c8.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/283311/sk9">SK9</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 16,880" dir="ltr">16.9k</span><span title="26 gold badges"><span class="badge1"></span><span class="badgecount">26</span></span><span title="94 silver badges"><span class="badge2"></span><span class="badgecount">94</span></span><span title="136 bronze badges"><span class="badge3"></span><span class="badgecount">136</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-01-15 09:13:52Z" class="relativetime">Jan 15 '14 at 9:13</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2322770/sobik"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/79e02200302035554c484039f8b1fde1.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2322770/sobik">Sobik</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">481</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="12 bronze badges"><span class="badge3"></span><span class="badgecount">12</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-21133225" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-21133225" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="7424834"></a>
+<div id="answer-7424834" class="answer" data-answerid="7424834" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="7424834" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">9</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Redirect is also slower compared to forward because it has to go 
+through the browser and wait for the browser to make a new request, and 
+also therefore causing request scope objects to be unavailable after 
+redirect.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/7424834" title="short permalink to this answer" class="short-link" id="link-post-7424834">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/7424834/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-09-15 01:13:10Z" class="relativetime">Sep 15 '11 at 1:13</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/328443/blackrocky"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/255894884a3021cc553f28c5e82b8af9.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/328443/blackrocky">blackrocky</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">487</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="12 bronze badges"><span class="badge3"></span><span class="badgecount">12</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-7424834" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-7424834" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="19874294"></a>
+<div id="answer-19874294" class="answer" data-answerid="19874294" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="19874294" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Redirect : </p>
+
+<ol>
+<li>User requests a resource.</li>
+<li>Response sent to the user.</li>
+<li>This is not the requested resource, this is response with HTTP code 302 and contains the   URL of the requested resource.</li>
+<li>URL could be same or different from the requested URL.</li>
+<li>Client browser makes request for resource again with the new URL, this time the actual resource is sent to the user.</li>
+</ol>
+
+<p>Forward:</p>
+
+<p>It is the process of simply displaying the requested resource to the user. It happens entirely on the server side.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/19874294" title="short permalink to this answer" class="short-link" id="link-post-19874294">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/19874294/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-11-09 09:15:13Z" class="relativetime">Nov 9 '13 at 9:15</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2308497/nishant"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/04d15d26104290a825a93e2b9f94258c.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2308497/nishant">Nishant</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">737</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19874294" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-19874294" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="28856386"></a>
+<div id="answer-28856386" class="answer" data-answerid="28856386" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="28856386" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><a href="http://javapapers.com/jsp/difference-between-forward-and-sendredirect/" rel="nofollow">This post</a> gives a really good explanation about forward vs redirect using a nice real world example.</p>
+
+<blockquote>
+  <p>The milk man comes and asks for monthly payment to you in your house.
+  Here house is the container and you are a resource existing in the
+  container. Milk man is the client or browser.</p>
+  
+  <p>He asks for the monthly payment to you, this is the request made by
+  the browser to resource A. If you go inside your house and ask your
+  mother (another resource B inside the same container) for the cash and
+  come back and deliver to milkman this is called forward.</p>
+  
+  <p>If you ask the milkman to speak himself to your mother inside your
+  house or you ask the milkman to speak to your father who is in his
+  office (different domain) then this is called redirect.</p>
+</blockquote>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/28856386" title="short permalink to this answer" class="short-link" id="link-post-28856386">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/28856386/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-03-04 14:00:35Z" class="relativetime">Mar 4 '15 at 14:00</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1096193/aravindam"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/9ba1c3a75692db66c6b97667a53571a5.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1096193/aravindam">aravindaM</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">171</span><span title="8 bronze badges"><span class="badge3"></span><span class="badgecount">8</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-28856386" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-28856386" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="29600736"></a>
+<div id="answer-29600736" class="answer" data-answerid="29600736" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="29600736" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>When you forward a request,</p>
+
+<p>-request and response objectsare transferred.
+-url stays the same.</p>
+
+<p>When you redirect the request to  another JSP/servlets,</p>
+
+<p>-request and response objects are not transferred to new object.
+-Url changes to the directory of new page.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/29600736" title="short permalink to this answer" class="short-link" id="link-post-29600736">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/29600736/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-04-13 08:15:47Z" class="relativetime">Apr 13 '15 at 8:15</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4655922/buskeek"><div class="gravatar-wrapper-32"><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/scBbI.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4655922/buskeek">Buskeek</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">51</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-29600736" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-29600736" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/6068891/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="6068891" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.com.tw/" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="b15ff581015ffa68fe70ee667fbb6630" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6068891%2fdifference-between-jsp-forward-and-redirect%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        
+StackExchange.openid.initPostLogin('.new-post-login', 
+'http%3a%2f%2fstackoverflow.com%2fquestions%2f6068891%2fdifference-between-jsp-forward-and-redirect%23new-answer',
+ 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" 
+type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" 
+size="30" maxlength="100" value="" tabindex="106" placeholder="required,
+ but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/jsp" class="post-tag" title="show questions tagged 'jsp'" rel="tag">jsp</a> <a href="http://stackoverflow.com/questions/tagged/servlets" class="post-tag" title="show questions tagged 'servlets'" rel="tag">servlets</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-05-20 07:40:48Z"><b>5 years, 11 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>43063 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/6068891/difference-between-jsp-forward-and-redirect?lastactivity" class="lastactivity-link" title="2017-01-07 14:48:16Z">4 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk673199288",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk673199288"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/i.gif" width="0px" border="0" height="0px"></div>
+            <div id="hireme" class="tag-themed java tagged tex2jax_ignore clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%3Fmed=clc&amp;sig=wxjqmvS6JwaePw"><span>Want a <span class="header-tag">java</span> job?</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/137729/technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=252209&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F137729%2Ftechnical-product-manager-100k-crossover%3Fmed=clc&amp;sig=hIR_6M3n0xAK0A"><div class="title">Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">tdd</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=252209&amp;ct=-1&amp;sig=Z7hdse_FGSWa1w" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Java Software Architect - $60k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/129485/java-software-architect-60k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=17264&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F129485%2Fjava-software-architect-60k-crossover%3Fmed=clc&amp;sig=K59t0fNueRk9Zw"><div class="title">Java Software Architect - $60k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">cloud</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=17264&amp;ct=-1&amp;sig=fZYF68akchbrAQ" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Java Chief Software Architect - $100K at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/129483/java-chief-software-architect-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=17260&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F129483%2Fjava-chief-software-architect-100k-crossover%3Fmed=clc&amp;sig=p5p3JJiQQ-IUFA"><div class="title">Java Chief Software Architect - $100K</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">cloud</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=17260&amp;ct=-1&amp;sig=KUQia6iTxwDlBQ" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="DevFactory Technical Product Manager - $100k at Crossover. Click to learn more." href="https://stackoverflow.com/jobs/135512/devfactory-technical-product-manager-100k-crossover" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=237678&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F135512%2Fdevfactory-technical-product-manager-100k-crossover%3Fmed=clc&amp;sig=_ZTuO8n4OfUN5Q"><div class="title">DevFactory Technical Product Manager - $100k</div><div><span class="company">Crossover</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">java</span><span class="post-tag">tdd</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zreF7kgdc4VD9Vu6fAQJiaW2Vs_MTmpff2z5e4D02zGj363A44HMnAy9GxgYGiwZ2RkYJnNNHU6-6HjHBs38TNxMqQcYElaZvlAnNWekSUrsSxxNtOD4g0NjB_aGJlBkkveLbP8_BUhea94XQPjmzZGsM6TE6ZaOklesoNJHupgP7WV490BPhZMc5WMWKaeZmTgYjJifGDJwMDFbMR4D0QzaTA6HWEE8-vXvXJtUs5o9E0EAA&amp;cr=237678&amp;ct=-1&amp;sig=dLt3ekTQS748XA" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 
+'Athmnp5lnNQIAAAAAJuaXAACAAAAAgAAAAAOAAAAfGpzcHxzZXJ2bGV0c3wAdFlYy2UbA67rzA';;(function(n){var
+ 
+u={log:window.console.log.bind(window.console,"[clc]"),error:window.console.error.bind(window.console,"[clc]")},f,e,t,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(f=n.allowed,!f)return;if(e=new
+ RegExp(n.allowed),!e.test(location.hostname)){u.error("Invalid host: 
+"+location.hostname);return}if(t=window,t.clc=t.clc||{},t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return
+ n.load()}),t.clc.options){for(r in 
+t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else 
+t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(o){u.error("[clc]
+ Error in loader:",o)}}).call(null, 
+{"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=436861d2e2c5","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$"});
+        </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/8646650?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8646650/difference-between-forwarding-and-redirection?noredirect=1&amp;lq=1" class="question-hyperlink">difference between forwarding and redirection</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/2047122?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">76</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/2047122/requestdispatcher-forward-vs-httpservletresponse-sendredirect?noredirect=1&amp;lq=1" class="question-hyperlink">RequestDispatcher.forward() vs HttpServletResponse.sendRedirect()</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/14459574?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14459574/how-to-forward-the-requestdispatcher-to-a-remote-url?noredirect=1&amp;lq=1" class="question-hyperlink">How to forward the requestdispatcher to a remote URL</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/7727445?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/7727445/jsp-forward-vs-redirect-and-browser-url?noredirect=1&amp;lq=1" class="question-hyperlink">JSP Forward vs. Redirect and Browser URL</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/10473722?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/10473722/doesnt-redirect-javafaces-2-0-primefaces-pcommandbutton-o-pcommandlink?noredirect=1&amp;lq=1" class="question-hyperlink">Doesn't Redirect JavaFaces 2.0 Primefaces p:commandButton o p:commandLink</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/16206746?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/16206746/how-do-the-different-technologies-used-for-programming-webapplications-in-java-w?noredirect=1&amp;lq=1" class="question-hyperlink">How do the different technologies used for programming webapplications in Java work together?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/12831739?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/12831739/how-to-call-multiple-servlet-form-action-in-single-jsp-page?noredirect=1&amp;lq=1" class="question-hyperlink">how to call multiple servlet form action in single jsp page</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/15216189?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/15216189/is-it-possible-to-send-my-current-jsp-path-to-a-servlet-or-other-jsp-without-sho?noredirect=1&amp;lq=1" class="question-hyperlink">Is
+ it possible to send my current JSP path to a Servlet or other JSP 
+without showing it to the user by appending to URL or using a POST?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/26530485?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26530485/how-to-change-url-in-doget-or-dopost?noredirect=1&amp;lq=1" class="question-hyperlink">How to change URL in doGet() or doPost()</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/25677028?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25677028/jsp-changing-values-in-sql-database?noredirect=1&amp;lq=1" class="question-hyperlink">JSP - Changing values in SQL database</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/6068891?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/359434?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">121</div></a><a href="http://stackoverflow.com/questions/359434/differences-between-cookies-and-sessions?rq=1" class="question-hyperlink">Differences between cookies and sessions?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2095397?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">627</div></a><a href="http://stackoverflow.com/questions/2095397/what-is-the-difference-between-jsf-servlet-and-jsp?rq=1" class="question-hyperlink">What is the difference between JSF, Servlet and JSP?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2422468?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">507</div></a><a href="http://stackoverflow.com/questions/2422468/how-to-upload-files-to-server-using-jsp-servlet?rq=1" class="question-hyperlink">How to upload files to server using JSP/Servlet?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/3222211?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="http://stackoverflow.com/questions/3222211/forward-redirect-usage-for-a-signup-process?rq=1" class="question-hyperlink">forward()/redirect() usage for a signup process?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/4965914?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">82</div></a><a href="http://stackoverflow.com/questions/4965914/java-jsp-vs-servlet?rq=1" class="question-hyperlink">Java JSP vs servlet?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/5243754?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">194</div></a><a href="http://stackoverflow.com/questions/5243754/difference-between-getattribute-and-getparameter?rq=1" class="question-hyperlink">Difference between getAttribute() and getParameter()</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/5806191?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="http://stackoverflow.com/questions/5806191/difference-between-servlet-and-jsp?rq=1" class="question-hyperlink">Difference between Servlet and JSP?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/8646650?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">4</div></a><a href="http://stackoverflow.com/questions/8646650/difference-between-forwarding-and-redirection?rq=1" class="question-hyperlink">difference between forwarding and redirection</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/39545232?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/39545232/redirection-to-a-jsp-from-a-servlet?rq=1" class="question-hyperlink">Redirection to a .jsp from a servlet</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/40299111?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/40299111/how-to-forward-to-jsp-from-servlet?rq=1" class="question-hyperlink">how to forward to jsp from servlet?</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/79789/can-i-lose-more-on-forex-than-i-deposit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I lose more on Forex than I deposit?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/915610/whats-the-actual-download-size-of-gimp" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the actual download size of Gimp?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/91072/can-i-bring-food-to-share-only-with-the-people-in-my-team-around-me" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I bring food to share only with the people in my team/around me?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/915626/setting-permanent-export-editor-to-nano-for-all-future-sessions" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Setting permanent export EDITOR to nano for all future sessions
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1209437/email-sent-to-me-is-addressed-to-mailmail-com-how-is-this-done" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Email sent to me is addressed to MAIL@MAIL.COM. How is this done?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/389156/what-is-a-term-for-a-server-that-is-functioning-24-7" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is a term for a server that is functioning 24/7?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/120688/snowball-fight-koth" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Snowball Fight KoTH!
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="https://chemistry.stackexchange.com/questions/74623/why-is-use-of-calcium-carbide-as-an-artificial-fruit-ripening-agent-banned" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is use of calcium carbide as an artificial fruit ripening agent banned?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/90692/my-manager-told-me-i-should-feel-comfortable-about-telling-him-if-i-want-to-leav" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    My manager told me I should feel comfortable about 
+telling him if I want to leave the company. Should I tell him?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2283041/please-help-me-identify-these-mathematicians" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Please help me identify these mathematicians
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/348943/is-it-considered-an-anti-pattern-to-write-sql-in-the-source-code" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it considered an anti pattern to write SQL in the source code?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/365320/how-do-i-grep-and-sort-using-this-specific-pattern" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I grep and sort using this specific pattern?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/99881/what-do-these-markings-mean-on-this-old-dd-map" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What do these markings mean on this old D&amp;D map?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/159496/what-story-has-a-man-forget-a-very-significant-question" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What story has a man forget a very significant question?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/159331/how-is-the-wannacry-malware-spreading-and-how-should-users-defend-themselves-f" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How is the "WannaCry" Malware spreading and how should users defend themselves from it?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="https://stats.stackexchange.com/questions/279718/i-dont-understand-the-variance-of-the-binomial" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I don't understand the variance of the binomial
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/80973/can-there-be-sexism-towards-women-in-a-society-where-the-main-religion-is-based" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can there be sexism towards women in a society where the main religion is based on a female messiah?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-arduino" title="Arduino Stack Exchange"></div><a href="https://arduino.stackexchange.com/questions/38417/programmatically-change-arduino-com-port-name" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:540 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Programmatically Change Arduino Com Port Name
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/79764/what-happens-to-the-insider-trade-profits" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens to the insider trade profits?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="https://codereview.stackexchange.com/questions/163370/decide-if-the-sum-of-three-numbers-is-even-or-odd" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Decide if the sum of three numbers is even or odd
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/93328/how-to-insure-valuables-in-checked-luggage" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to insure valuables in checked luggage?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/332972/why-was-carbon-12-chosen-for-the-atomic-mass-unit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why was carbon-12 chosen for the atomic mass unit?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/81021/can-man-live-on-ostrich-eggs-alone" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can man live on ostrich eggs alone?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/80983/what-geotechnical-conditions-would-force-the-use-of-crypts-or-catacombs-for-buri" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What geotechnical conditions would force the use of 
+crypts or catacombs for burial (vs. sticking coffins in the ground)?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/6068891" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/6068891/ivc/7cc1');});
+</script>
+<noscript>
+    <div><img src="/posts/6068891/ivc/7cc1" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+        </div>
+    </div><script async="" src="servlets%20-%20Difference%20between%20JSP%20forward%20and%20redirect%20-%20Stack%20Overflow_files/clc.js"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="https://data.stackexchange.com/">data</a>
+                    <a href="https://stackexchange.com/legal">legal</a>
+                    <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a href="http://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="http://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="http://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="http://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="http://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="http://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="http://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="http://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="http://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="http://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="http://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="http://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.5.16.25918
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with 
+JavaScript enabled<img 
+src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" 
+class="dno"></div>
+    </noscript>
+<script>var 
+z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var
+ 
+s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('jsp,servlets');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || 
+function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new
+ Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = 
+g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 
+'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', 
+sampleRate: 5 });
+                ga('set', 'dimension2', '|jsp|servlets|');
+                ga('pageData.set', 'dimension2', '|jsp|servlets|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + 
+'.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + 
+'.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = 
+newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i)
+ || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') 
+service =  2;
+                                    else if (service === 'Place') 
+service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', 
+function() {
+                                        
+StackExchange.gps.track('google_maps_places_api.call', { service: 
+service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+</body></html>

@@ -1,0 +1,1727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0140)http://mark528.pixnet.net/blog/post/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8 -->
+<html lang="zh-TW" itemscope="" itemtype="http://schema.org/Blog"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/analytics.js"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cb=gapi.loaded_1" async=""></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/analytics.js"></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plusone.js" gapi_processed="true"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/analytics.js"></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plusone(1).js" gapi_processed="true"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pi.min.js"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/510235355828933" async=""></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/fbevents.js"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/gtm.js"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/gtm(1).js"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/gtm(2).js"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/gtm(3).js"></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ga.js"></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/mixpanel-2.2.min.js"></script><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+
+<meta property="og:site_name" content="狐的窩">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="http://mark528.pixnet.net/blog/post/7267486">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle與日期有關的常用函數 @ 狐的窩 :: 痞客邦 PIXNET ::">
+<meta property="og:description" content="Oracle 用來取得目前系統時間的函數為sysdate。EX:SQL&amp;amp;gt; SELECT sysdate FROM dual;SYSDATE---------15-AUG-11*更改目前s">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="twitter:card" content="summary">
+<meta name="description" content="Oracle 用來取得目前系統時間的函數為sysdate。EX:SQL&amp;amp;gt; SELECT sysdate FROM dual;SYSDATE---------15-AUG-11*更改目前s">
+<meta name="twitter:description" content="Oracle 用來取得目前系統時間的函數為sysdate。EX:SQL&amp;amp;gt; SELECT sysdate FROM dual;SYSDATE---------15-AUG-11*更改目前s">
+<meta name="twitter:site" content="@pixnet">
+<meta name="author" content="mark528 (mark528)">
+<meta name="author-avatar-20" content="http://s9.pimg.tw/avatar/mark528/0/0/zoomcrop/20x20.png?v=1322548908">
+<meta name="static-version" content="60a8550dd9f629fbb413ec286a0c9a92">
+<meta name="generator" content="PChoc">
+<meta name="keywords" content=",進修深造,Oracle,Oracle與日期有關的常用函數">
+<link rel="canonical" href="http://mark528.pixnet.net/blog/post/7267486-oracle%e8%88%87%e6%97%a5%e6%9c%9f%e6%9c%89%e9%97%9c%e7%9a%84%e5%b8%b8%e7%94%a8%e5%87%bd%e6%95%b8">
+<meta name="twitter:url" content="http://mark528.pixnet.net/blog/post/7267486">
+<meta name="cover_image" content="">
+<meta name="twitter:image" content="">
+<link rel="prev" href="http://mark528.pixnet.net/blog/post/7267488">
+<link rel="next" href="http://mark528.pixnet.net/blog/post/7267484">
+<link rel="alternate" type="application/json+oembed" href="http://api.pixnet.cc/oembed?url=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486&amp;format=json" title="PIXNET oEmbed Profile">
+<link rel="alternate" type="text/xml+oembed" href="http://api.pixnet.cc/oembed?url=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486&amp;format=xml" title="PIXNET oEmbed Profile">
+<link rel="search" type="application/opensearchdescription+xml" href="http://mark528.pixnet.net/blog/opensearch" title="狐的窩">
+<title>Oracle與日期有關的常用函數 @ 狐的窩 :: 痞客邦 PIXNET ::</title>
+<meta name="twitter:title" content="Oracle與日期有關的常用函數 @ 狐的窩 :: 痞客邦 PIXNET ::">
+<!--<base href="http://mark528.pixnet.net/blog/post/7267486">--><base href=".">
+<style type="text/css">
+#links-row-1 .xf73b89-mIb-ad-sidebar-v2-xf73b89 {display: block !important; min-width: 160px !important; min-height: 270px !important; margin-top: 0; z-index:100;}
+.xf73b89-mIb-ad-sidebar-v2-xf73b89 * { padding: 0 ; margin: 0 ; border: 0; vertical-align: baseline; display: block; line-height: 1; }
+.xf73b89-mIb-ad-sidebar-v2-xf73b89 .box-text { overflow:hidden; padding:0; margin:0; }
+.xf73b89-mIb-ad-sidebar-v2-xf73b89 .box-text a {height: auto;}
+.xf73b89-mIb-border-xf73b89 { padding: 0; min-width: 180px; min-height: 280px; margin: 12px auto; overflow: hidden; text-align:center; }
+.xf73b89-mIb-border-xf73b89 img, .xf73b89-mIb-border-xf73b89 div { margin:0 auto; display:inline-block; min-width:160px; }
+.xf73b89-mIb-border-xf73b89_1080 {padding: 0; width: 180px; height: 280px; margin: 12px auto; overflow: hidden;}
+.xf73b89-mIb-border-xf73b89 div {position: relative;}
+</style>
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/video.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/lang-css.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/iframe-popup.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plugins.min.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/openid-comment.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/style.min.css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/blogtopbar.min.css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/main.min.css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/normal.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/falcon-ad.css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/iframe-popup.css" type="text/css">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/author-info.css" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feed.pixnet.net/blog/posts/rss/mark528">
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="http://feed.pixnet.net/blog/posts/atom/mark528">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://api.pixnet.cc/blog/xmlrpc?rsd=mark528">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://api.pixnet.cc/static/blog/wlwmanifest.xml">
+
+
+<link rel="stylesheet" type="text/css" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ba_ad.min.css"><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ea"></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ga.js"></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/getads.aspx" async=""></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ba.min.js" async=""></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/analytics.js"></script><script type="text/javascript" async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/atrk.js"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/checklogin.min.js"></script><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/analytics.js"></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/jquery.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/jquery.onAppear.min.js"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/json2.min.js" type="text/javascript"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/angular.min.js" crossorigin="anonymous"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/spin.min.js" type="text/javascript"></script><style type="text/css"></style>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/angular-spinner.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+var pix = pix || {};
+pix.panelsite = 'panel.pixnet.cc';
+pix.apisite = 'api.pixnet.cc';
+pix.login_name = 'f351d783ad7f235eb31e5533c8c9191d';
+pix.visitor = "MjNiNTA2ZjU2YjE4ZTRiYzhjM2MxOWQwMDY4ODQ3YmM=";
+pix.openid = "MjNiNTA2ZjU2YjE4ZTRiYzhjM2MxOWQwMDY4ODQ3YmM=";
+pix.owner = 'mark528';
+pix.is_owner = false;
+pix.server_name = 'mark528.pixnet.net';
+pix.sToken = "150e73e041dcda3348d2e4440b07927f";
+pix.pixfssite = 's.pixfs.net';
+pix.falconsite = 'falcon.pixanalytics.com';
+pix.checklogin_version = 2;
+// timezone: null;
+//-->
+</script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/checklogin.php" type="text/javascript"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/checklogin.min(1).js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+var pix = pix || {};
+pix.ab_testing_seed = 641297590;
+dataLayer = window.dataLayer || [];
+//-->
+</script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/zh_TW.js" type="text/javascript"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pix.min.js" type="text/javascript" crossorigin="anonymous"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pix-addon.min.js" crossorigin="anonymous"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/all.min.js" type="text/javascript" crossorigin="anonymous"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/blog.min.js" type="text/javascript" crossorigin="anonymous"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/search_selection.min.js" type="text/javascript"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ad-full-page.min.js" type="text/javascript" crossorigin="anonymous"></script>
+<meta itemprop="name" content="Oracle與日期有關的常用函數 @ 狐的窩 :: 痞客邦 PIXNET ::">
+<meta itemprop="description" content="Oracle 用來取得目前系統時間的函數為sysdate。EX:SQL&amp;amp;gt; SELECT sysdate FROM dual;SYSDATE---------15-AUG-11*更改目前s">
+
+<script type="text/javascript">
+<!--
+var pix = pix || {};
+pix.js_error_type = pix.js_error_type || 'frontblog';
+//-->
+</script>
+<script async="" type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixlogger.min.js"></script>
+<script type="text/javascript">
+
+<!--
+(function(){
+    if (window.size().height > 10 && window.size().width > 10) {
+        var i = new Image(1,1);
+        i.src = '//counter.pixplug.in/count.php?timestamp=1498040420&random=2861111240&check=272744114&data[blog]=%7B%22blogid%22%3A%223128759%22%7D&data[blogarticle]=%7B%22blogid%22%3A%223128759%22%2C%22articleid%22%3A%227267486%22%7D&height=' + window.size().height + '&width=' + window.size().width + '&referer=' + encodeURI(document.referrer);
+        i.onload = function() { return; }
+    }
+})();
+//-->
+</script>
+<!-- Head Modified: 1498040420 -->
+<!-- async script -->
+<script type="text/javascript">
+<!--
+jQuery(document).ready(function () {
+    jQuery.ajaxSetup({ cache: true });
+    jQuery.getScript("//js.pixplug.in/addon/11/production.js?v=1497580901", function(data, textStatus) { jQuery.ajaxSetup({cache: true});jQuery.pixAddonRelatedArticle({"blog_relatedarticleshow":"post","blog_relatedarticle":"site","blog_relatedtemplate":"system","addon_username":"mark528","addon_expired_at":0,"addon_ismobile":false,"addon_isvip":false,"addon_is_allow_setting":false,"ab_testing_seed":641297590});jQuery.ajaxSetup({cache: false}); });
+    jQuery.ajaxSetup({ cache: false });
+});
+//-->
+</script>
+
+<!-- load sync script -->
+
+<!-- execute sync addon -->
+<script type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+var pix = pix || {};
+pix.visitor_url = "http://mark528.pixnet.net/blog";
+pix.visitor_timestamp = "1498040420";
+pix.visitor_nonce = "1582529302";
+pix.visitor_public = "LumrRMVHhADdttHSeUhMM8S3";
+pix.visitor_sig = "8c400fded1956713c9ea20421783308a";
+pix.user_name = null;
+pix.avatar_version = 0;
+(function() {
+    var js = document.createElement('script');
+    js.src = "\/\/s.pixfs.net\/visitor.pixplug.in\/checklogin.min.js?v=60a8550dd9f629fbb413ec286a0c9a92";
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(js, s);
+})();
+//-->
+</script>
+    <script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/checkloop.min.js"></script>
+<script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/swfobject.js"></script>
+<link href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/video-js.min.css" rel="stylesheet">
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/video.min.js" crossorigin="anonymous"></script>
+<meta property="falcon:blogcategory" content="7"><meta property="falcon:articlecategory" content="8"><script async="" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/adsbyfalcon.min.js"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/mib_falcon--bundle.min.js" crossorigin="anonymous"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/getdata.php"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ada" type="text/javascript"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/checklogin"></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ada(1)" type="text/javascript"></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/rta.js" async=""></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/rta(1).js" async=""></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/rta(2).js" async=""></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/tagr_lib_learn_tw_v3.js" type="text/javascript"></script><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/rta(3).js" async=""></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/tagr_lib_learn_tw_v3.js" type="text/javascript"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:25px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:15px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:19px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:13px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:13px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:17px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/rta(4).js" async=""></script><script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/tagr_lib_learn_tw_v3.js" type="text/javascript"></script></head>
+
+<body id="article-main" data-showing-advertisement="yep" data-adsense-state="block" data-blog-site-category-id="7" data-mobile-mode="none" data-ab-testing-seed="641297590" data-article-id="7267486" class="category_194422 article_7267486 folder_25497">
+
+
+
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"H00Mh1aIE700wg", domain:"pixnet.net",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript>&lt;img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=H00Mh1aIE700wg" style="display:none" height="1" width="1" alt="" /&gt;</noscript>
+
+
+<style>
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -220px;
+    bottom: 0;
+    float: left;
+    width: 220px;
+
+    /* reset */
+    font: normal 100 100% / 1 Arial;
+    font-variant: normal;
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-indent: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+
+    background: #e6e6e6;
+    overflow: hidden;
+}
+
+@media (min-width: 1280px) {
+    .sidebar {
+        position: relative;
+    }
+}
+
+/* 顯示 sidebar */
+.show-sidebar .sidebar { left: 0; }
+.show-sidebar .main-container { margin-left: 220px; }
+.show-sidebar .topbar--fixed { left: 220px; }
+
+/* fixed 的狀態 */
+.sidebar--fixed {
+    position: fixed;
+}
+
+.sidebar--fixed > .keyword-articles-container,
+.sidebar--fixed .keyword-articles {
+    position: absolute;
+}
+
+.keyword-header {
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background: #3161dd;
+}
+
+.keyword-tags {
+    box-sizing: border-box;
+    padding: 5px 10px 10px;
+    background: #f3f3f3;
+}
+
+.keyword-tag {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 7px;
+    border: 1px solid #3161dd;
+    padding: 5px 15px 3px 7px;
+    color: #3161dd;
+    font-size: 12px;
+    line-height: 15px;
+    background: #fff url('//front.pixfs.net/images/icon-arrow--blue.png') no-repeat right 6px top 8px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.keyword-tag:hover,
+.keyword-tag.active {
+    color: #fff;
+    background-color: #3161dd;
+    background-image: url('//front.pixfs.net/images/icon-arrow--white.png');
+}
+
+.keyword-articles-container {
+    top: 120px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+    white-space: nowrap;
+}
+
+.keyword-articles {
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.keyword-articles:nth-of-type(2) { left: 220px; }
+.keyword-articles:nth-of-type(3) { left: 440px; }
+
+.keyword-article {
+    display: block;
+    margin: 5px 10px;
+    border-left: 3px solid transparent;
+    padding: 8px 10px 8px 7px;
+    background: #fff;
+}
+
+.keyword-article-min70 {
+    min-height: 70px;
+}
+
+.keyword-article:hover {
+    text-decoration: none;
+}
+
+.keyword-article:visited {
+    background: #eee;
+}
+
+.keyword-article.active,
+.keyword-article:hover {
+    border-color: #3161dd;
+    background: #fff;
+}
+
+.keyword-article__title {
+    color: #333;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.keyword-article:hover > .keyword-article__title {
+    color: #3161dd;
+    text-decoration: underline;
+}
+
+.keyword-article__desc {
+    margin-top: 10px;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.keyword-article span {
+    color: #f00;
+}
+
+.keyword-article:not(.active):visited span {
+    color: currentColor;
+}
+
+.keyword-article:visited:hover span {
+    color: #f00;
+}
+
+.keyword-article + iframe {
+    margin-bottom: -14px;
+    min-height: 15px;
+}
+</style>
+
+<div class="sidebar sidebar--fixed" data-obstruct="ip" data-search="">
+    <div class="keyword-header">依據 Google 關鍵字搜尋結果</div>
+    <div class="keyword-tags"></div>
+    <div class="keyword-articles-container"></div>
+</div>
+
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ypa-resize-pixnet.min.js"></script>
+
+<div class="main-container">
+
+    
+    <div class="topbar-placeholder">
+        
+<div class="topbar cssanimations borderradius boxshadow cssgradients" id="topbar">
+    <div class="topbar__logo topbar__logo">
+    <h1 class="topbar__logo__title">痞客邦 PIXNET</h1>
+    <ul class="topbar__logo__chanenl-lists topbar__dropdown-lists">
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--home" href="http://www.pixnet.net/">首頁</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--blog" href="http://www.pixnet.net/blog">部落格</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--sport" href="http://channel.pixnet.net/sport?utm_source=PIXNET-index&amp;utm_medium=mobile&amp;utm_campaign=TOPBAR_to_sport">運動</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--styleme" href="http://styleme.pixnet.net/home?utm_source=PIXNET-index&amp;utm_medium=desktop&amp;utm_campaign=TOPBAR_to_styleMe">PIXstyleMe</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--ccc" href="http://tech3c.pixnet.net/?utm_source=PIXNET-index&amp;utm_medium=desktop&amp;utm_campaign=TOPBAR_to_tech3c">3C</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--movie" href="http://movie.pixnet.net/category/19?utm_source=PIXNET-index&amp;utm_medium=desktop&amp;utm_campaign=TOPBAR_to_movie">電影</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--travel" href="http://travel.pixnet.net/?utm_source=PIXNET-index&amp;utm_medium=desktop&amp;utm_campaign=TOPBAR_to_travel">旅遊</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--family" href="http://family.pixnet.net/?utm_source=PIXNET-index&amp;utm_medium=desktop&amp;utm_campaign=TOPBAR_to_family">親子</a>
+        </li>
+        <li class="topbar__logo__channel">
+        <a class="topbar__logo__channel-link" id="topbar__logo__channel-link--food" href="http://food.pixnet.net/?utm_source=PIXNET-index&amp;utm_medium=desktop&amp;utm_campaign=TOPBAR_to_food">美食</a>
+        </li>
+        <li class="topbar__logo__channel">
+            <a class="topbar__logo__channel-link"></a>
+        </li>
+    </ul>
+</div>
+
+        
+            
+<div class="topbar__related-article__block topbar__related-article__block--large" data-articles-type="固定" data-articles-category="進修深造" data-test-variation="">
+
+    <a class="topbar__related-article__cat-name" href="https://www.pixnet.net/blog/articles/category/8" target="_blank">進修深造</a>
+    <ul class="topbar__related-article__cat-list">
+                                <li class="topbar__related-article__cat topbar__related-article__cat--dropdown" data-tab-name="今日熱門">
+                <div class="topbar__related-article__txt">今日熱門</div>
+
+                <div class="topbar__related-article__showcase">
+                    <ul class="topbar__related-article-list topbar__related-article-list--show-num">
+                        <li class="topbar__related-article"><a class="topbar__related-article-link" href="http://grus1773.pixnet.net/blog/post/201224536" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166.jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">聯成電腦學員學習心得 ─ 只為了：愛畫圖</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://tatsuzin.pixnet.net/blog/post/8030765" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/zoomcrop" onerror="this.remove()"></div><div class="topbar__related-article__title">日文五十音(完整教學)</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://rulinty.pixnet.net/blog/post/309703839" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(1).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">105年桃園免試入學超額比序與104年公立高中錄取門檻。主筆陳順基</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://juniorexam.pixnet.net/blog/post/3001617" target="_blank"><div class="topbar__related-article__img"></div><div class="topbar__related-article__title">106國中會考-中區高中錄取門檻落點預估</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://belleaya.pixnet.net/blog/post/30754486" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166.png" onerror="this.remove()"></div><div class="topbar__related-article__title">[教學] [統計] ANOVA變異數分析 小筆記</div></a></li>                    </ul>
+                </div>
+            </li>
+                                            <li class="topbar__related-article__cat topbar__related-article__cat--dropdown" data-tab-name="達人話題">
+                <div class="topbar__related-article__txt">達人話題</div>
+
+                <div class="topbar__related-article__showcase">
+                    <ul class="topbar__related-article-list ">
+                        <li class="topbar__related-article"><a class="topbar__related-article-link" href="http://ofeyhong.pixnet.net/blog/post/202079254" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(2).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">【教學】Win10電腦還原 (重設此電腦)<span>by 歐飛</span></div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://imlabor.pixnet.net/blog/post/42742925" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(3).png" onerror="this.remove()"></div><div class="topbar__related-article__title">申請育嬰留職停薪津貼前，請育嬰假要知道...<span>by 勞工保險局</span></div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://sin0800666104.pixnet.net/blog/post/36443641" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(4).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">大桃園地區中壢抽水肥包通馬桶不通免費<span>by 新生衛生</span></div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://kato3c.pixnet.net/blog/post/453283187" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/zoomcrop(1)" onerror="this.remove()"></div><div class="topbar__related-article__title">藤小二電腦修配坊 筆電購買指南-2017年 推...<span>by 藤小二電腦修配坊</span></div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://raindog.pixnet.net/blog/post/34387507" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(5).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">《DMM》2016 年九月十大 AV 女優<span>by RainDog</span></div></a></li>                    </ul>
+                </div>
+            </li>
+                                            <li class="topbar__related-article__cat topbar__related-article__cat--dropdown" data-tab-name="編輯力推">
+                <div class="topbar__related-article__txt">編輯力推</div>
+
+                <div class="topbar__related-article__showcase">
+                    <ul class="topbar__related-article-list ">
+                        <li class="topbar__related-article"><a class="topbar__related-article-link" href="http://ksk.tw/blog/post/336663872" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(6).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">你知道去日本必買的好喝清酒是哪瓶嗎？</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="https://styleme.pixnet.net/post/217017788" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(7).png" onerror="this.remove()"></div><div class="topbar__related-article__title">逛到失心瘋！小香限定快閃店COCO CAFE</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://chahabi77.pixnet.net/blog/post/436715527" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(8).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">2017京阪神最新版，自由行懶人包就看這！</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="https://styleme.pixnet.net/post/216486731" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(9).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">編織眼影Get沒？微霧光澤讓眼神超美～</div></a></li><li class="topbar__related-article"><a class="topbar__related-article-link" href="http://amigohan.pixnet.net/blog/post/342105966" target="_blank"><div class="topbar__related-article__img"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/250x166(10).jpg" onerror="this.remove()"></div><div class="topbar__related-article__title">美味的午茶時光，五星主廚來上菜！</div></a></li>                    </ul>
+                </div>
+            </li>
+                            <div class="topbar__related-article__showcase-block"></div>
+    </ul>
+</div>
+    
+    <div class="topbar__nav">
+
+                
+<div class="topbar__search-container">
+    <div class="topbar__search__toggle-btn"></div>
+    <form class="topbar__search" id="topbar__search" action="http://www.pixnet.net/searcharticle" target="_search" style="display: none;">
+        <input type="text" name="q" class="topbar__search__input topbar__search__input--large topbar__search__input--no-icon" id="topbar__search__input" placeholder="哈囉～你今天想搜尋什麼關鍵字呢？" value="" maxlength="32" tabindex="1" autocomplete="off">
+        <button type="reset" class="topbar__search__reset">×</button>
+
+        <div class="topbar__search__btns topbar__search__btns--large">
+            <button class="topbar__search__submit" name="search" type="submit" title="找文章" value="searcharticle" tabindex="2" data-counterlink="//counter.pixplug.in/count.php?timestamp=1498040420&amp;random=2096826048&amp;check=3244244945&amp;no_timeout=1&amp;data[counter]=%7B%22tag_id%22%3A30%2C%22id%22%3A%22search-articles-click%22%2C%22no_timeout%22%3Atrue%7D">找文章</button>
+            <button class="topbar__search__submit" name="search" type="submit" title="找部落客" value="searchblog" tabindex="3" data-counterlink="//counter.pixplug.in/count.php?timestamp=1498040420&amp;random=2845712471&amp;check=1848490774&amp;no_timeout=1&amp;data[counter]=%7B%22tag_id%22%3A30%2C%22id%22%3A%22search-bloggers-click%22%2C%22no_timeout%22%3Atrue%7D">找部落客</button>
+        </div>
+
+        <ul class="topbar__search__suggestion"></ul>
+    </form>
+</div>
+    
+            <div class="topbar__user">
+            <a class="topbar__user__login" id="topbar__user__login" href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486-oracle%25E8%2588%2587%25E6%2597%25A5%25E6%259C%259F%25E6%259C%2589%25E9%2597%259C%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E5%2587%25BD%25E6%2595%25B8&amp;openid=https%3A%2F%2Fmember.pixnet.cc%2Flogin&amp;easy_login=1&amp;from_service=Blog">登入</a>
+        </div>
+    
+    </div>
+
+</div>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/blogtopbar.min.js" defer=""></script>
+    </div>
+    
+  <div id="body-div">
+  <a name="top"></a>
+  <div id="container">
+    <div id="container2">
+      <div id="container3">
+          <div id="header">
+            <div id="banner">
+        <h1><a href="http://mark528.pixnet.net/blog">狐的窩</a></h1>
+              <p class="skiplink"><a href="http://mark528.pixnet.net/blog/post/7267486#article-area" title="skip the page header to the main content">跳到主文</a></p>
+                            <h2>享受生活</h2>
+          <p id="blog-category">部落格全站分類：<a href="http://www.pixnet.net/blog/bloggers/category/7" target="_blank">圖文創作</a></p>
+            </div>
+            <ul id="navigation">
+              <li id="link-album"><a href="http://mark528.pixnet.net/album" title="go to gallery page of this user">相簿</a></li>
+              <li id="link-blog"><a href="http://mark528.pixnet.net/blog" title="go to index page of this blog">部落格</a></li>
+              <li id="link-guestbook">
+                                <a id="guestbook" data-msg="尚未安裝留言板，無法進行留言" data-action="none" href="http://mark528.pixnet.net/blog/post/7267486#" title="go to guestbook page of this user">留言</a>
+                            </li>
+              <li id="link-profile"><a href="http://www.pixnet.net/blog/profile/mark528" title="go to profile page of this user">名片</a></li>
+            </ul>
+          </div><!-- #header//-->
+          <div id="main">
+            <div id="content">
+                <div id="article-area">
+    <div id="article-box">
+    		<div class="article">
+	    <ul class="article-head">
+		<li class="publish"><span class="month">Aug </span><span class="date">15 </span><span class="day">Mon </span><span class="year">2011 </span><span class="time">11:38</span></li>
+		<li class="title" id="article-7267486" data-hot-link="//www.pixnet.net/blog/articles/category/0" data-site-category="進修深造" data-site-category-id="8" data-article-link="http://mark528.pixnet.net/blog/post/7267486"><h2><a href="http://mark528.pixnet.net/blog/post/7267486">Oracle與日期有關的常用函數</a></h2></li>
+	    </ul>
+	    <div class="article-body">
+	    		<div class="bookmark"><span style="position:relative;top:-7px;">分享:</span>&nbsp;<a title="分享至facebook" data-bookmark-type="facebook"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/facebook.gif" title="facebook" alt="facebook" border="0" style="width:18px;height:20px;"></a>&nbsp;<a title="分享至PLURK" data-bookmark-type="plurk"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plurk.gif" title="PLURK" alt="PLURK" border="0" style="width:18px;height:20px;"></a>&nbsp;<a title="分享至twitter" data-bookmark-type="twitter"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/twitter.gif" title="twitter" alt="twitter" border="0" style="width:18px;height:20px;"></a>&nbsp;<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1498040424099" name="I0_1498040424099" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>&nbsp;<iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/like.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowtransparency="true"></iframe></div><div class="article-content">
+		    
+		    <div class="article-content-inner" id="article-content-inner">
+		    <p>Oracle 用來取得目前系統時間的函數為<strong>sysdate</strong>。<br>EX:<br>SQL&gt; SELECT sysdate FROM dual;<br>SYSDATE<br>---------<br>15-AUG-11<br><br><strong>*更改目前session日期顯示格式</strong><br>SQL&gt; ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD';<br>Session altered.<br><br>SQL&gt; SELECT sysdate FROM dual;<br>SYSDATE<br>----------<br>2011-08-15<br><br><span class="fullpost"><br><em>常用的日期格式：</em><br><strong>1. YYYY/MM/DD<br>YYYY 年(4位)<br>MM 月份(2位)<br>DD 日期(2位)</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'YYYY/MM/DD') FROM dual;<br>TO_CHAR(SY<br>----------<br>2011/08/15<br><br><strong>2. 取得星期幾<br>Sunday=1, Monday=2, ...</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'D') FROM dual;<br>T<br>-<br>2<br><br>SQL&gt; SELECT TO_CHAR( TO_DATE('2011/08/14'), 'D') FROM dual;<br>T<br>-<br>1<br><br><strong>3. DDD 一年的第幾天</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'DDD') FROM dual;<br>TO_<br>---<br>227<br><br><strong>4. WW 一年的第幾週</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'WW') FROM dual;<br>TO<br>--<br>33<br><br><strong>5. W 一月的第幾週</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'W') FROM dual;<br>T<br>-<br>3<br><br><strong>6. YYYY/MM/DD HH24:MI:SS AM<br>YYYY 年<br>MM 月份<br>DD 日期<br>HH24/HH HH24表採24小時制<br>MI 分鐘<br>SS 秒數<br>AM/PM 顯示上/下午</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'YYYY/MM/DD HH24:MI:SS AM') FROM dual;<br>TO_CHAR(SYSDATE,'YYYY/<br>----------------------<br>2011/08/15 11:48:43 AM<br><br>SQL&gt; SELECT TO_CHAR(sysdate, 'YYYY/MM/DD HH24:MI:SS PM') FROM dual;<br>TO_CHAR(SYSDATE,'YYYY/<br>----------------------<br>2011/08/15 11:49:03 AM<br><br><strong>7. J 顯示Juilan Day, BC 4712/01/01為1</strong><br>SQL&gt; SELECT TO_CHAR(sysdate, 'J') FROM dual;<br>TO_CHAR<br>-------<br>2455789<br><br>SQL&gt; SELECT TO_CHAR(TO_DATE('2011/08/14'),'J') FROM dual;<br>TO_CHAR<br>-------<br>2455788<br><br><strong>8. RR/MM/DD<br>公元 2000 問題<br>00-49 表下世紀<br>50-99 表本世紀<br></strong>SQL&gt; SELECT to_DATE('99/12/31','RR/MM/DD') FROM dual;<br>TO_DATE('9<br>----------<br>1999-12-31<br><br>SQL&gt; SELECT TO_DATE('02/02/02','RR/MM/DD') FROM dual;<br>TO_DATE('0<br>----------<br>2002-02-02<br><br>SQL&gt; SELECT TO_DATE('49/12/31','RR/MM/DD') FROM dual;<br>TO_DATE('4<br>----------<br>2049-12-31<br><br>SQL&gt; SELECT TO_DATE('50/01/01','RR/MM/DD') FROM dual;<br>TO_DATE('5<br>----------<br>1950-01-01<br></span></p>
+                        
+<div class="article-keyword" style="word-wrap: break-word; word-break: break-all; margin-top: 20px; clear: both;">
+    <img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/tag_blue.gif" style="vertical-align: middle;">
+
+        <a href="http://tags.pixnet.net/blog/user/mark528/oracle" rel="tag" target="_blank">oracle</a>,        <a href="http://tags.pixnet.net/blog/user/mark528/%E6%97%A5%E6%9C%9F%E5%B8%B8%E7%94%A8%E5%87%BD%E5%BC%8F" rel="tag" target="_blank">日期常用函式</a>    </div>
+
+
+                        
+<div class="author-profile">
+    <div class="author-profile__header">創作者介紹</div>
+
+    <div class="author-profile__main">
+        <img class="author-profile__avatar" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/80x0.png" alt="">
+        <div>
+            <div class="author-profile__content">
+                <a class="author-profile__name" href="http://mark528.pixnet.net/">mark528</a>
+
+                <div class="social-links">
+                                                                    <img class="social-link__icon" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/icon-facebook--gray.png" alt="">
+                                                                                            <img class="social-link__icon" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/icon-mail--gray.png" alt="">
+                                                                                            <img class="social-link__icon" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/icon-youtube--gray.png" alt="">
+                                                                                            <img class="social-link__icon" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/icon-instagram--gray.png" alt="">
+                                                            </div>
+            </div>
+
+            <p class="author-profile__info">狐的窩</p>
+        </div>
+    </div>
+</div>
+
+                        		    </div>
+		</div> <!-- .article-content //-->
+
+				<p class="author">
+		    mark528 發表在 <a href="http://www.pixnet.net/">痞客邦 PIXNET</a>                    <a href="http://mark528.pixnet.net/blog/post/7267486#comments">留言</a>(0) <span class="author-views">人氣(<span id="BlogArticleCount-7267486">27139</span>)</span>
+		    		</p> <!-- .author //-->
+		<div class="forward">
+		    <a href="javascript:;" onclick="pix.sendForwardTo(&#39;%E6%82%A8%E7%9A%84%E5%A5%BD%E6%9C%8B%E5%8F%8B%E9%82%80%E8%AB%8B%E6%82%A8%E8%A7%80%E7%9C%8B%20mark528%20%E7%9A%84%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET%20%E9%83%A8%E8%90%BD%E6%A0%BC%E6%96%87%E7%AB%A0-Oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8&#39;,&#39;%E6%82%A8%E5%A5%BD%EF%BC%8C%0A%0A%E6%82%A8%E7%9A%84%E5%A5%BD%E6%9C%8B%E5%8F%8B%E9%82%80%E8%AB%8B%E6%82%A8%E8%A7%80%E7%9C%8B%20mark528%20%E7%9A%84%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET%20%E9%83%A8%E8%90%BD%E6%A0%BC%E6%96%87%E7%AB%A0-Oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8%0A%E8%B6%8A%E5%A4%9A%E4%BA%BA%E7%9C%8B%E5%88%B0%EF%BC%8C%E5%8F%AF%E5%B9%AB%E4%BB%96%E5%A2%9E%E5%8A%A0%E8%B6%8A%E5%A4%9A%E4%BA%BA%E6%B0%A3%E5%96%94%7EGO%EF%BC%81%0A----------%0AAugust15%2C2011%0AOracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8%0A----------%0A%E9%A6%AC%E4%B8%8A%E7%9C%8B%20http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486%0A----------%0A%E7%97%9E%E5%AE%A2%E9%82%A6%20PIXNET%0Ahttp%3A%2F%2Fwww.pixnet.net%2F&#39;)">E-mail轉寄</a>
+		</div> <!-- .forward //-->
+		<br>
+<div style="position: static !important; display:block !important;visibility: visible !important; float: none !important; text-align: center">
+<div style="width: 620px; height: 250px; padding-bottom: 10px;">
+    <div id="g21f9265f53e34eb991c21077" style="width: 300px; height: 250px; float: left; padding-right: 1px;">
+        <ins class="adsbyfalcon" data-ad-client="1" data-ad-slot="1811" data-embed="false" style="display:inline-block;width:300px;height:250px;" data-adsbyfalcon-status="done">        
+            <div class="pix1811c pixnet-ad"><ins class="clickforceads " style="display: inline-block; left: 0px;" data-ad-zone-max="2651" data-ad-zone-min="2652" data-ad-width-max="300" data-ad-height-max="250" data-ad-width-min="300" data-ad-height-min="250" data-ad-changeminwidth="1024" data-ad-serving="0"><div><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/saved_resource.html" class="cfadif cfadif0" width="300" height="250" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true" vspace="0" hspace="0" frameborder="0"></iframe></div></ins></div>
+<script>
+var falcon_class = 'pix1811c',
+falcon_width = 300,
+falcon_height = 250,
+falcon_clickTAG = 'https://falcon.pixanalytics.com/ad/rc?i=005551a3268635a803a6dc1a45246e23&s=criteo&';
+
+var crtg_nid = '4606',
+crtg_cookiename = 'crtg_rta',
+crtg_varname = 'crtg_content',
+crtg_key = 'pim300250b',
+crtg_zoneid = '442590';
+
+function crtg_getCookie(c_name) {
+var i, x, y, ARRCookies = document.cookie.split(";");
+for (i = 0; i < ARRCookies.length; i++) {
+x = ARRCookies[i].substr(0, ARRCookies[i].indexOf("="));
+y = ARRCookies[i].substr(ARRCookies[i].indexOf("=") + 1);
+x = x.replace(/^\s+|\s+$/g, "");
+if (x == c_name) {
+return unescape(y);
+}
+}
+return '';
+}
+var crtg_content = crtg_getCookie(crtg_cookiename);
+var crtg_rnd = Math.floor(Math.random() * 99999999999);
+(function() {
+var crtg_url = location.protocol + '//rtax.criteo.com/delivery/rta/rta.js?netId=' + escape(crtg_nid);
+crtg_url += '&cookieName=' + escape(crtg_cookiename);
+crtg_url += '&rnd=' + crtg_rnd;
+crtg_url += '&varName=' + escape(crtg_varname);
+var crtg_script = document.createElement('script');
+crtg_script.type = 'text/javascript';
+crtg_script.src = crtg_url;
+crtg_script.async = true;
+if (document.getElementsByTagName("head").length > 0) document.getElementsByTagName("head")[0].appendChild(crtg_script);
+else if (document.getElementsByTagName("body").length > 0) document.getElementsByTagName("body")[0].appendChild(crtg_script);
+})();
+
+var str = '';
+var addiv,isfind=false;
+jQuery('.' + falcon_class).each(function() {
+if (!isfind && '' == jQuery(this).html()) {
+addiv = jQuery(this);
+isfind=true;
+}
+});
+
+
+if (crtg_content && crtg_content.indexOf(crtg_key) > -1) {
+str = '<iframe frameborder="0" marginwidth="0" marginheight="0" framespacing="0" width="' + falcon_width + '" height="' + falcon_height + '" scrolling="NO" src="//falcon.pixfs.net/criteo/ad.html';
+str += '?zoneid=' + crtg_zoneid;
+str += '&location=' + escape(window.location);
+str += '&referer=' + escape(document.referer);
+str += '&context=' + escape(document.context);
+str += '&clickTAG=' + escape(falcon_clickTAG);
+str += '"></iframe>';
+addiv.append(str);
+} else {
+addiv.append('<ins class="clickforceads " style="display:inline-block;" data-ad-zone-max=2651 data-ad-zone-min=2652 data-ad-width-max=300 data-ad-height-max=250 data-ad-width-min=300 data-ad-height-min=250 data-ad-changeMinWidth=1024></ins>');
+jQuery.getScript('//cdn.doublemax.net/js/rwd_cap.js');
+}
+
+</script>    </ins>                <script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/publishertag.js"></script>
+        <div id="crt-701fb163" style="width: 300px; height: 250px; margin: 0px auto; display: none;"></div>
+        <script>
+        Criteo.DisplayAcceptableAdIfAdblocked({
+           "zoneid": 439225,
+           "containerid": "crt-701fb163"
+        });
+        </script>
+            </div>
+    <div id="g21f9265f53e34eb991c21032" style="width: 300px; height: 250px; float: left;">
+    <ins class="adsbyfalcon" data-ad-client="1" data-ad-slot="1811" data-embed="false" style="display:inline-block;width:300px;height:250px;" data-adsbyfalcon-status="done">        
+            <div class="pix1811c pixnet-ad"><ins class="clickforceads " style="display: inline-block; left: 0px;" data-ad-zone-max="2651" data-ad-zone-min="2652" data-ad-width-max="300" data-ad-height-max="250" data-ad-width-min="300" data-ad-height-min="250" data-ad-changeminwidth="1024" data-ad-serving="0"><div><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/saved_resource(3).html" class="cfadif cfadif1" width="300" height="250" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true" vspace="0" hspace="0" frameborder="0"></iframe></div></ins></div>
+<script>
+var falcon_class = 'pix1811c',
+falcon_width = 300,
+falcon_height = 250,
+falcon_clickTAG = 'https://falcon.pixanalytics.com/ad/rc?i=005551a3268635a803a6dc1a45246e23&s=criteo&';
+
+var crtg_nid = '4606',
+crtg_cookiename = 'crtg_rta',
+crtg_varname = 'crtg_content',
+crtg_key = 'pim300250b',
+crtg_zoneid = '442590';
+
+function crtg_getCookie(c_name) {
+var i, x, y, ARRCookies = document.cookie.split(";");
+for (i = 0; i < ARRCookies.length; i++) {
+x = ARRCookies[i].substr(0, ARRCookies[i].indexOf("="));
+y = ARRCookies[i].substr(ARRCookies[i].indexOf("=") + 1);
+x = x.replace(/^\s+|\s+$/g, "");
+if (x == c_name) {
+return unescape(y);
+}
+}
+return '';
+}
+var crtg_content = crtg_getCookie(crtg_cookiename);
+var crtg_rnd = Math.floor(Math.random() * 99999999999);
+(function() {
+var crtg_url = location.protocol + '//rtax.criteo.com/delivery/rta/rta.js?netId=' + escape(crtg_nid);
+crtg_url += '&cookieName=' + escape(crtg_cookiename);
+crtg_url += '&rnd=' + crtg_rnd;
+crtg_url += '&varName=' + escape(crtg_varname);
+var crtg_script = document.createElement('script');
+crtg_script.type = 'text/javascript';
+crtg_script.src = crtg_url;
+crtg_script.async = true;
+if (document.getElementsByTagName("head").length > 0) document.getElementsByTagName("head")[0].appendChild(crtg_script);
+else if (document.getElementsByTagName("body").length > 0) document.getElementsByTagName("body")[0].appendChild(crtg_script);
+})();
+
+var str = '';
+var addiv,isfind=false;
+jQuery('.' + falcon_class).each(function() {
+if (!isfind && '' == jQuery(this).html()) {
+addiv = jQuery(this);
+isfind=true;
+}
+});
+
+
+if (crtg_content && crtg_content.indexOf(crtg_key) > -1) {
+str = '<iframe frameborder="0" marginwidth="0" marginheight="0" framespacing="0" width="' + falcon_width + '" height="' + falcon_height + '" scrolling="NO" src="//falcon.pixfs.net/criteo/ad.html';
+str += '?zoneid=' + crtg_zoneid;
+str += '&location=' + escape(window.location);
+str += '&referer=' + escape(document.referer);
+str += '&context=' + escape(document.context);
+str += '&clickTAG=' + escape(falcon_clickTAG);
+str += '"></iframe>';
+addiv.append(str);
+} else {
+addiv.append('<ins class="clickforceads " style="display:inline-block;" data-ad-zone-max=2651 data-ad-zone-min=2652 data-ad-width-max=300 data-ad-height-max=250 data-ad-width-min=300 data-ad-height-min=250 data-ad-changeMinWidth=1024></ins>');
+jQuery.getScript('//cdn.doublemax.net/js/rwd_cap.js');
+}
+
+</script>    </ins></div>
+</div>
+<script>
+(function($) {
+    var w = $('.article-content:first').width(),
+        ad1032 = $('#g21f9265f53e34eb991c21032');
+    if (w >= 600) {
+        ad1032.append("<ins class=\"adsbyfalcon\" data-ad-client=\"1\" data-ad-slot=\"1811\" data-embed=\"false\" style=\"display:inline-block;width:300px;height:250px;\"><\/ins>");
+    } else if (w >= 550 && w <= 599) {
+        ad1032.append("<ins class=\"adsbyfalcon\" data-ad-client=\"1\" data-ad-slot=\"1817\" data-embed=\"false\" style=\"display:inline-block;width:250px;height:250px;\"><\/ins>");
+    } else {
+    }
+})(jQuery);
+</script>
+</div>
+	    </div> <!-- .article-body //-->
+	    <div class="article-footer">
+		<ul class="refer">
+		    <li>全站分類：<a href="http://www.pixnet.net/blog/articles/category/8">進修深造</a></li>		    <li>個人分類：<a href="http://mark528.pixnet.net/blog/category/194422">Oracle</a></li>		    <li>此分類上一篇： <a class="quick-nav--cat-pre" href="http://mark528.pixnet.net/blog/post/7267498">Oracle內建常用數字函數</a></li>
+<li>此分類下一篇： <a class="quick-nav--cat-next" href="http://mark528.pixnet.net/blog/post/7267484">Oracle日期運算問題</a></li>
+		    <li>上一篇： <a class="quick-nav--pre" rel="prev" href="http://mark528.pixnet.net/blog/post/7267488" data-public-at="1313379360" data-thumb="http://s.pixfs.net/mobile/images/blog/article-image.png">用 Smarty 開發第一個程式</a></li>
+<li>下一篇： <a class="quick-nav--next" rel="next" href="http://mark528.pixnet.net/blog/post/7267484" data-public-at="1313388180" data-thumb="http://s.pixfs.net/mobile/images/blog/article-image.png">Oracle日期運算問題</a></li>
+		</ul>
+		<div class="history">
+<h6>歷史上的今天</h6>
+<ul>
+<li>2011: <a href="http://mark528.pixnet.net/blog/post/7267484">Oracle日期運算問題</a></li>
+<li>2011: <a href="http://mark528.pixnet.net/blog/post/7267488">用 Smarty 開發第一個程式</a></li>
+<li>2011: <a href="http://mark528.pixnet.net/blog/post/7267490">在Windows安裝Smarty</a></li>
+<li>2011: <a href="http://mark528.pixnet.net/blog/post/7267492">紙模：憤怒鳥之病死豬</a></li>
+<li>2011: <a href="http://mark528.pixnet.net/blog/post/7267494">紙模：迴轉企鵝紙杯君</a></li>
+</ul>
+</div>
+	    		<div class="back-to-top"><a href="http://mark528.pixnet.net/blog/post/7267486#top" title="back to the top of the page">▲top</a></div>
+	    </div> <!-- .article-footer //-->
+        </div>
+
+<script>
+// track 上下篇點擊
+(function ($) {
+    'use strict';
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-408650-10', 'auto', {'name': 'quickNavTracker'});
+
+    var referBlock = $('.refer'),
+        quickNav = {
+            catPre: {
+                selector: '.quick-nav--cat-pre',
+                name: '此分類上一篇',
+            },
+            catNext: {
+                selector: '.quick-nav--cat-next',
+                name: '此分類下一篇',
+            },
+            pre: {
+                selector: '.quick-nav--pre',
+                name: '上一篇',
+            },
+            next: {
+                selector: '.quick-nav--next',
+                name: '下一篇',
+            }
+        },
+
+        trackEvent = function (action, label) {
+            ga('quickNavTracker.send', 'event', 'previous-next-page', action, label, { nonInteraction: ('imps' === action) });
+        },
+
+        bindClick = function (selector, label) {
+            referBlock.on('click', selector, function () {
+                trackEvent('click', label);
+            });
+        };
+
+    for (var key in quickNav) {
+        var obj = quickNav[key];
+        if (referBlock.find(obj.selector).length) {
+            /* 不再記錄曝光 */
+
+            // 點擊時紀錄
+            bindClick(obj.selector, obj.name);
+        }
+    }
+
+})(jQuery);
+</script>
+	</div> <!-- #article-box //-->
+		  <div id="user-post">
+    <div id="comment-box" class="user-post-box">
+      <a name="comments"></a>
+      <h3 id="comment-title" class="user-post-title" onclick="pix.commentSwitch(&#39;comment-text&#39;,&#39;comment-text-switch&#39;);" style="cursor:hand;cursor:pointer;"><img id="comment-text-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/minus.gif"> <span>留言列表 (0)</span></h3>
+      <div class="post-comment"><a href="http://mark528.pixnet.net/blog/post/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8#comment-form">發表留言</a></div>
+
+      <div id="comment-text" class="user-post-text">
+            </div> <!-- #comment-text //-->
+      <div id="comment_form"><a name="comment-form"></a>
+<form class="json-form" target="_blank" method="POST" action="http://mark528.pixnet.net/blog/postcomment/7267486">
+    <input type="hidden" name="sToken" value="150e73e041dcda3348d2e4440b07927f">
+    <div id="comment-area">
+        <div id="comment-area-2">
+            <iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/blogarticle.html" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" border="0"></iframe>
+                            <div class="comment-identity identity-logout">
+    <div class="choose-identity">
+        <a class="openid-pixnet" href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486%23comment-form&amp;openid=https%3A%2F%2Fmember.pixnet.cc%2Flogin&amp;easy_login=1&amp;from_service=Blog"><span class="invisible">PIXNET</span></a>
+        <a class="openid-facebook" href="https://panel.pixnet.cc/login/facebooklogin?done=http%3A%2F%2Fmark528.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Fmark528.pixnet.net%252Fblog%252Fpost%252F7267486%2523comment-form&amp;easy_login=1" onclick="window.open(this.href, &#39;login&#39;, config=&#39;height=650,width=650,scrollbars=1,resizable=0&#39;); return false;"><span class="invisible">Facebook</span></a>
+        <a class="openid-yahoo" href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Fmark528.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Fmark528.pixnet.net%252Fblog%252Fpost%252F7267486%2523comment-form&amp;openid=https%3A%2F%2Fme.yahoo.com%2F&amp;without_signup=1" onclick="window.open(this.href, &#39;login&#39;, config=&#39;height=650,width=650,scrollbars=1,resizable=0&#39;); return false;"><span class="invisible">Yahoo!</span></a>
+        <a class="openid-google" href="https://panel.pixnet.cc/login/googlepluslogin?done=http%3A%2F%2Fmark528.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Fmark528.pixnet.net%252Fblog%252Fpost%252F7267486%2523comment-form&amp;without_signup=1" onclick="window.open(this.href, &#39;login&#39;, config=&#39;height=650,width=650,scrollbars=1,resizable=0&#39;); return false;"><span class="invisible">Google</span></a>
+        <a class="openid-msn" href="https://panel.pixnet.cc/login/livelogin?done=http%3A%2F%2Fmark528.pixnet.net%2Fapi%2Fpopuplogin%3Fdone%3Dhttp%253A%252F%252Fmark528.pixnet.net%252Fblog%252Fpost%252F7267486%2523comment-form&amp;without_signup=1" onclick="window.open(this.href, &#39;login&#39;, config=&#39;height=650,width=650,scrollbars=1,resizable=0&#39;); return false;"><span class="invisible">MSN</span></a>
+    </div>
+</div>
+                        <div class="comment-body">
+                                                        <p>您尚未登入，將以<b>訪客</b>身份留言。亦可<a href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486%23comment-form&amp;openid=https%3A%2F%2Fmember.pixnet.cc%2Flogin&amp;easy_login=1&amp;from_service=Blog">登入</a>留言</p>
+                    <input type="text" name="blogcommenttext_name" id="comment_showname" class="comment-name" placeholder="您的暱稱 ...">                                    <div class="comment-textarea comment-textarea--text-right">
+                    <textarea name="blogcommenttext_body" id="comment_text" placeholder="留個言吧 ..."></textarea>
+                                                                                                    <div class="private-message-container">
+                                <div class="private-message"><label><input type="checkbox" name="blogcomment_open" id="comment_open" value="0" disabled=""><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/icon-lock--gray.png" width="12" height="12">悄悄話</label></div>
+                                <div id="nologin_hidden_msg" class="private-notice"><a href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486%23comment-form&amp;openid=https%3A%2F%2Fmember.pixnet.cc%2Flogin&amp;easy_login=1&amp;from_service=Blog">登入</a>可留悄悄話</div>
+                            </div>
+                                                            </div><!-- .comment-textarea -->
+
+                                <div id="comment-area-ad" style="display:none">
+                                    </div>
+                <div class="captcha" style="display:none" id="captcha">
+                    <a id="authcode-link-url" href="http://mark528.pixnet.net/blog/post/7267486#" target="_blank"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/200x50.jpeg" id="authcode-url" class="authcode-url"></a>
+                    <div>請輸入左方認證碼：<input type="text" name="authCode" class="text-input"><a class="reload-captcha" href="http://mark528.pixnet.net/blog/post/7267486#">看不懂,換張圖</a></div>
+                </div>
+                
+                <div class="comment-extra">
+                    <div id="unfold-comment-extra"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/comment-unfold.jpg"> 其他選項</div>
+                    <button type="submit"><span>送出留言</span></button>
+                </div>
+
+                <div id="comment-extra" class="extra" style="display:none"><input type="text" name="blogcommenttext_mail" class="text-input" id="comment_mail" placeholder="電子郵件 ..."><input type="text" name="blogcommenttext_url" class="text-input" id="comment_url" placeholder="個人網頁 ..."></div>
+                            </div><!--.comment-middle-->
+        </div><!-- #comment-area-2-->
+    </div><!-- #comment-area -->
+</form>
+
+
+</div>
+    </div> <!--  #comment-box //-->
+  </div> <!-- #user-post //-->
+<script type="text/javascript">
+<!--
+jQuery(function() {
+    // ajax 接postcommentAction產生的comment form
+    var action = location.href;
+    action = action.replace('/post/', '/postcomment/');
+    jQuery.ajaxSetup({ cache: true });
+    jQuery.ajax({
+        type:     'GET',
+        url:      action,
+        data:     {"getForm": 1, "isMobile": 0},
+        dataType: 'json',
+        success:  function(data)
+                  {
+                      jQuery('#comment_form').html(data.form);
+
+                      setTimeout(function () {
+                      if (jQuery.pixQuestionary && 'function' === typeof jQuery.pixQuestionary) {
+                          jQuery.pixQuestionary(pix.user_name);
+                      }
+                      }, 1000);
+
+                      // 用來判斷是否有安裝'留言插入表情符號' App
+                      if (jQuery.pixAddonCommentEmotion && 'function' === typeof jQuery.pixAddonCommentEmotion) {
+                          // 裝了App 但沒表情符號可選, 須重新call function
+                          if (! document.getElementById('comment-emotion')) {
+                              jQuery.pixAddonCommentEmotion();
+                          }
+                      }
+                  },
+        error:    function(error)
+                  {
+                      console.log(error);
+                  }
+    });
+    jQuery.ajaxSetup({ cache: false });
+
+    jQuery('.comment-icon').attr('style', 'vertical-align:middle;');
+});
+// -->
+</script>
+
+
+	    </div> <!-- #article-area //-->
+            </div> <!-- #content //-->
+            <div id="links">
+              <div id="links-row-1">
+                                    <div class="hslice box xf73b89-mIb-ad-sidebar-v2-xf73b89" data-plugin_type="mibsidebar1">
+    <div class="box-text entry-content">
+        <div class="xf73b89-mIb-border-xf73b89">
+            <div class="xf73b89-sItemajidr-xf73b89" model="180x280"><a target="_blank" href="http://falcon.pixanalytics.com/ad/r?i=3983871db5719ccbcb910aa21fbd0389&amp;p=835&amp;u=86892929881c447fb7d3c0703887c702&amp;c=CgECPlk%2F854AALrvTZ8WAg%3D%3D" style="display: inline ! important; visibility: visible ! important;">
+<img border="0" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/3983871db5719ccbcb910aa21fbd0389-83d31f814ec3a7a0.jpg" style="display: inline ! important; visibility: visible ! important;">
+</a><span class="mib--ad-box__icon"><a href="http://mark528.pixnet.net/blog/post/7267486#">痞客邦廣告聯播網</a></span></div>
+        </div><!-- /.mib-border -->
+    </div>
+</div>
+<div class="hslice box xf73b89-mIb-ad-sidebar-v2-xf73b89" data-plugin_type="mibsidebar2">
+    <div class="box-text entry-content">
+        <div class="xf73b89-mIb-border-xf73b89">
+            <div class="xf73b89-sItemajidr-xf73b89" model="180x280"><a target="_blank" href="http://falcon.pixanalytics.com/ad/r?i=3983871db5719ccbcb910aa21fbd0389&amp;p=835&amp;u=86892929881c447fb7d3c0703887c702&amp;c=CgECPlk%2F854AALrvTZ8WAg%3D%3D" style="display: inline ! important; visibility: visible ! important;">
+<img border="0" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/3983871db5719ccbcb910aa21fbd0389-83d31f814ec3a7a0.jpg" style="display: inline ! important; visibility: visible ! important;">
+</a><span class="mib--ad-box__icon"><a href="http://mark528.pixnet.net/blog/post/7267486#">痞客邦廣告聯播網</a></span></div>
+        </div><!-- /.mib-border -->
+    </div>
+</div>
+<div class="hslice box" id="search">
+    <h4 class="box-title entry-title">
+            文章搜尋    	    </h4>
+    <div class="box-text entry-content">
+
+<form method="post" action="http://mark528.pixnet.net/blog/search/" id="search-form" data-wording-needkeyword="請輸入關鍵字">
+	<ul>
+	    <li><input name="search-target" id="search-target" type="text"></li>
+	    <li><input id="search-submit" type="submit" value="搜尋"></li>
+	</ul>
+    </form>
+    <script type="text/javascript">//<!--
+    jQuery('#search-form').submit(function(event){
+        if ('' === jQuery('#search-target').val()) {
+            alert(jQuery(this).attr('data-wording-needkeyword'));
+            event.preventDefault();
+        }
+    });
+    //--></script>
+    </div>
+</div> <!-- #search //-->
+<div class="hslice box folder" id="box66058">
+    <h4 class="box-title entry-title">
+            好康資訊    	    </h4>
+    <div class="box-text entry-content">
+
+<div id="BA_AD_2" class="Ba_Ad" style="width: 160px;"><div id="ba_ad_06094810932957939" class="AdItem Ad_160x290 Mg_B_5"><div class="AdBox"><iframe width="160" height="290" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/da2157fac3fd4bd08c52a6174474ca29.html" frameborder="0" border="0" cellspacing="0" allowtransparency="true" scrolling="no"></iframe></div><div class="Tag"><a href="http://www.bloggerads.net/" title="BloggerAds 部落格行銷" target="_blank">BloggerAds 部落格行銷</a></div></div><div id="ba_ad_042660784974019106" class="AdItem Ad_160x290 Mg_B_5"><div class="AdBox"><a href="http://js1.bloggerads.net/Click/-1540875251.10cXWWqI/20170329000001/20111129000015/2/63633666009/17620/2" target="_blank"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/2989f359f81a45e5976a4456cb5ca426.jpg" border="0"></a></div><div class="Tag"><a href="http://www.bloggerads.net/" title="BloggerAds 部落格行銷" target="_blank">BloggerAds 部落格行銷</a></div></div><div id="ba_ad_020902700669491892" class="AdItem Ad_160x290"><div class="AdBox"><a href="http://js1.bloggerads.net/Click/-1540875251.10cXWWqI/20070610000001/20111129000015/2/63633666009/17058/2" target="_blank"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/baAdBanner160x290_0513a.gif" border="0"></a></div><div class="Tag"><a href="http://www.bloggerads.net/" title="BloggerAds 部落格行銷" target="_blank">BloggerAds 部落格行銷</a></div></div></div><script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/showads.aspx"></script>    </div>
+</div> <!-- #box66058 //-->
+<div class="hslice box" id="hot-article">
+    <h4 class="box-title entry-title">
+            熱門文章    	    </h4>
+    <div class="box-text entry-content">
+
+<ul id="hotArtUl"><li><a href="http://mark528.pixnet.net/blog/post/7267524"><span>(95875)</span>MySQL管理工具(phpMyAdmin)</a></li>
+<li><a href="http://mark528.pixnet.net/blog/post/7267574"><span>(33320)</span>SQL語法查詢結果去除重複性資料</a></li>
+<li><a href="http://mark528.pixnet.net/blog/post/7267486"><span>(27135)</span>Oracle與日期有關的常用函數</a></li>
+<li><a href="http://mark528.pixnet.net/blog/post/7267382"><span>(21350)</span>iPhone：減少按 Home 鍵的次數，iOS 5新增功能提供虛擬按鈕，延長 Home 鍵壽命</a></li>
+<li><a href="http://mark528.pixnet.net/blog/post/7267604"><span>(20691)</span>在Windows安裝php開發環境</a></li>
+</ul>
+<script type="text/javascript">
+<!--
+jQuery('#hot-article #hotArtUl').load('/blog/hotarticledata?limit=5');
+// -->
+</script>
+    </div>
+</div> <!-- #hot-article //-->
+<div class="hslice box" id="category">
+    <h4 class="box-title entry-title">
+            文章分類    	    </h4>
+    <div class="box-text entry-content">
+
+<div class="box-more">
+<img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/expand.gif" alt="unfold all categories" style="cursor:hand;cursor:pointer;" onclick="pix.openAllCategory(&#39;open&#39;);">
+<img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/collapse.gif" alt="fold all categories" style="cursor:hand;cursor:pointer;" onclick="pix.openAllCategory(&#39;close&#39;);">
+</div>
+
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-25497&#39;,&#39;category-25497-switch&#39;);"><img id="category-25497-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 資料庫 (5)</h6>
+<ul id="category-25497" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/745454">SQL Server (6)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/1789551">DB2 (8)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194436">MySQL (7)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194422">Oracle (10)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194410">PostgreSQL (6)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-23506&#39;,&#39;category-23506-switch&#39;);"><img id="category-23506-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 手工物製作 (3)</h6>
+<ul id="category-23506" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/194382">模型 (25)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194376">PaperCraft (110)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194368">手帳 (3)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-24177&#39;,&#39;category-24177-switch&#39;);"><img id="category-24177-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 學習心得 (3)</h6>
+<ul id="category-24177" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/194400">PMP (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/210593">讀書心得 (2)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194456">學習心得 (17)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-23512&#39;,&#39;category-23512-switch&#39;);"><img id="category-23512-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 程式設計 (15)</h6>
+<ul id="category-23512" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/242431">Web (6)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/242433">專案管理 (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/299471">JSP (4)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/428690">Java (20)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/955526">Visual C++ (8)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/1243522">HTML (3)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/1247882">Windows 8 (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/2051116">Websphere (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194458">C# (11)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194462">Windows Scripting Host (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194384">Shell Script (3)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194448">ASP.NET (6)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194446">WebPI (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194426">PHP (5)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194416">Perl (7)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-24157&#39;,&#39;category-24157-switch&#39;);"><img id="category-24157-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 生活綜合 (2)</h6>
+<ul id="category-24157" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/194474">生活資訊 (73)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194532">生活雜記 (25)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-23508&#39;,&#39;category-23508-switch&#39;);"><img id="category-23508-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 網路資源 (2)</h6>
+<ul id="category-23508" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/194362">圖像和圖示 (3)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194544">網路空間應用 (1)</a></li><!-- ie6bug --></ul>
+</div>
+<div class="inner-box">
+    <h6 style="cursor:hand;cursor:pointer;" onclick="pix.commentSwitch(&#39;category-23510&#39;,&#39;category-23510-switch&#39;);"><img id="category-23510-switch" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/plus.gif" border="0" alt="展開分類"> 軟體應用 (5)</h6>
+<ul id="category-23510" style="display: none;"><!-- ie6bug
+--><li><a href="http://mark528.pixnet.net/blog/category/1789559">Windows 8 (1)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194370">CentOS (7)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194364">excel (6)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194388">iphone (25)</a></li><!-- ie6bug --><li><a href="http://mark528.pixnet.net/blog/category/194366">虛擬軟體 (2)</a></li><!-- ie6bug --></ul>
+</div>
+<ul><!-- ie6bug
+--></ul>
+    </div>
+</div> <!-- #category //-->
+<div class="hslice box" id="archive">
+    <h4 class="box-title entry-title">
+            文章精選    	    </h4>
+    <div class="box-text entry-content">
+
+<select onchange="pix.gotoArchive(this);">
+<option value="-pixnet-">文章精選</option>
+<option value="/blog/archives/201509">2015 九月 (1)</option>
+<option value="/blog/archives/201508">2015 八月 (4)</option>
+<option value="/blog/archives/201412">2014 十二月 (3)</option>
+<option value="/blog/archives/201409">2014 九月 (3)</option>
+<option value="/blog/archives/201408">2014 八月 (3)</option>
+<option value="/blog/archives/201407">2014 七月 (1)</option>
+<option value="/blog/archives/201404">2014 四月 (5)</option>
+<option value="/blog/archives/201403">2014 三月 (1)</option>
+<option value="/blog/archives/201402">2014 二月 (12)</option>
+<option value="/blog/archives/201311">2013 十一月 (2)</option>
+<option value="/blog/archives/201310">2013 十月 (1)</option>
+<option value="/blog/archives/201309">2013 九月 (7)</option>
+<option value="/blog/archives/201308">2013 八月 (1)</option>
+<option value="/blog/archives/201306">2013 六月 (4)</option>
+<option value="/blog/archives/201305">2013 五月 (3)</option>
+<option value="/blog/archives/201304">2013 四月 (4)</option>
+<option value="/blog/archives/201303">2013 三月 (2)</option>
+<option value="/blog/archives/201302">2013 二月 (6)</option>
+<option value="/blog/archives/201301">2013 一月 (11)</option>
+<option value="/blog/archives/201212">2012 十二月 (2)</option>
+<option value="/blog/archives/201211">2012 十一月 (19)</option>
+<option value="/blog/archives/201210">2012 十月 (17)</option>
+<option value="/blog/archives/201209">2012 九月 (8)</option>
+<option value="/blog/archives/201208">2012 八月 (11)</option>
+<option value="/blog/archives/201207">2012 七月 (3)</option>
+<option value="/blog/archives/201206">2012 六月 (15)</option>
+<option value="/blog/archives/201205">2012 五月 (3)</option>
+<option value="/blog/archives/201204">2012 四月 (13)</option>
+<option value="/blog/archives/201203">2012 三月 (16)</option>
+<option value="/blog/archives/201202">2012 二月 (11)</option>
+<option value="/blog/archives/201201">2012 一月 (27)</option>
+<option value="/blog/archives/201112">2011 十二月 (26)</option>
+<option value="/blog/archives/201111">2011 十一月 (28)</option>
+<option value="/blog/archives/201110">2011 十月 (31)</option>
+<option value="/blog/archives/201109">2011 九月 (29)</option>
+<option value="/blog/archives/201108">2011 八月 (34)</option>
+<option value="/blog/archives/201107">2011 七月 (27)</option>
+<option value="/blog/archives/201104">2011 四月 (1)</option>
+<option value="/blog/archives/201103">2011 三月 (2)</option>
+<option value="/blog/archives/201101">2011 一月 (1)</option>
+<option value="/blog/archives/201012">2010 十二月 (2)</option>
+<option value="/blog/archives/201010">2010 十月 (2)</option>
+<option value="/blog/archives/201009">2010 九月 (4)</option>
+<option value="/blog/archives/201006">2010 六月 (1)</option>
+<option value="/blog/archives/201005">2010 五月 (9)</option>
+</select>
+<div class="box-more">
+<a href="http://mark528.pixnet.net/blog/listall/1">所有文章列表</a>
+</div>
+    </div>
+</div> <!-- #archive //-->
+<div class="hslice box folder" id="box725478">
+    <h4 class="box-title entry-title">
+            痞客邦新服務7Headlines    	    </h4>
+    <div class="box-text entry-content">
+
+<iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/sticker.html" width="200" height="480" scrolling="no" frameborder="0"></iframe>    </div>
+</div> <!-- #box725478 //-->
+<div id="user-info" class="hslice box">
+    <h4 class="box-title entry-title">
+	個人資訊	    </h4>
+    <div class="box-text entry-content">
+	<a class="user-img" href="http://www.pixnet.net/blog/profile/mark528"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/90x90.png"></a>
+	<div class="user-action">
+            	</div>
+	<dl>
+            <dt>暱稱：</dt><dd>mark528</dd>
+	    <dt>分類：</dt><dd><a href="http://www.pixnet.net/blog/bloggers/category/7">圖文創作</a></dd>
+	    	    <dt>好友：</dt><dd>共0位 <a href="http://mark528.pixnet.net/blog/post/7267486#" id="user-info-open-friends-iframe">(看全部)</a></dd>
+	    	    	    	    	    	    	                	    		<dt>地區：</dt>
+		                <dd>基隆市</dd>
+			    	    	    	    	    	    	    	    	    	    	    	    	    	</dl>
+    </div>
+</div>
+<script type="text/javascript">
+<!--
+jQuery(function($) {
+    pix.iframePopup.init('#popup-frame', "http:\/\/mark528.pixnet.net\/friend\/list", '#user-info-open-friends-iframe', '#popup-frame .frame-close', "mark528 \u7684\u597d\u53cb\u5217\u8868");
+    var $add_friend = $('#user-info').find('input.add_friend');
+    var $add_subs = $('#user-info').find('input.add_subs');
+    $add_friend.add($add_subs).click(function(e){
+                    window.location = 'http://' + "www.pixnet.net" + '?done=' + encodeURIComponent(window.location);
+            });
+});
+//-->
+</script>
+<div class="hslice box" id="feed">
+    <h4 class="box-title entry-title">
+            新聞交換(RSS)    	    </h4>
+    <div class="box-text entry-content">
+
+    <ul>
+      <li><a title="pixnet rss" href="http://mark528.pixnet.net/blog/feed/rss"><img alt="pixnet rss for articles" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixnet-rss.gif"></a></li><!--
+      --><li><a title="pixnet atom rss" href="http://mark528.pixnet.net/blog/feed/atom"><img alt="pixnet atom rss for articles" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixnet-atom.gif"></a></li><!--
+      --><li><a title="reply rss" href="http://mark528.pixnet.net/blog/comments/feed"><img alt="pixnet rss for reply" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/reply-rss.gif"></a></li><!--
+    --></ul>
+    </div>
+</div> <!-- #feed //-->
+<div class="hslice box" id="counter">
+    <h4 class="box-title entry-title">
+            參觀人氣    	    </h4>
+    <div class="box-text entry-content">
+
+<ul>
+    <li>本日人氣：<span id="blog_hit_daily">315</span></li>
+    <li>累積人氣：<span id="blog_hit_total">545115</span></li>
+</ul>
+<script type="text/javascript"><!--
+    jQuery.getScript('//counter.pixplug.in/getcounter.php?now=1498040422&random=3101756871&data[%23BlogArticleCount-7267486]=%7B%22counter%22%3A%5B%22blogarticle%22%2C%223128759%22%2C%227267486%22%2C%22total%22%5D%2C%22options%22%3A%5B%5D%7D&data[%23blog_hit_daily]=%7B%22counter%22%3A%5B%22blog%22%2C%223128759%22%2C1%2C%22daily%22%5D%2C%22options%22%3A%5B%5D%7D&data[%23blog_hit_total]=%7B%22counter%22%3A%5B%22blog%22%2C%223128759%22%2C1%2C%22total%22%5D%2C%22options%22%3A%5B%5D%7D&check=1977818928');
+//--></script>
+    </div>
+</div> <!-- #counter //-->
+<div class="hslice box" id="qrcode">
+    <h4 class="box-title entry-title">
+            QR Code    	    </h4>
+    <div class="box-text entry-content">
+
+<div class="qrcode">
+<img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/7267486-oracle與日期有關的常用函數.png">
+</div>
+    </div>
+</div> <!-- #qrcode //-->
+
+<div class="hslice box" id="powered">
+    <h4 class="box-title entry-title">
+            POWERED BY    	    </h4>
+    <div class="box-text entry-content">
+
+<ul>
+    <li><a href="http://www.pixnet.net/" title="pixnet"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixnet-logo.png"></a></li>
+    <li><a href="https://panel.pixnet.cc/login/openid?done=http%3A%2F%2Fmark528.pixnet.net%2Fblog%2Fpost%2F7267486-oracle%25E8%2588%2587%25E6%2597%25A5%25E6%259C%259F%25E6%259C%2589%25E9%2597%259C%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E5%2587%25BD%25E6%2595%25B8&amp;openid=https%3A%2F%2Fmember.pixnet.cc%2Flogin&amp;easy_login=1&amp;from_service=Blog">(登入)</a></li>
+</ul>
+    </div>
+</div> <!-- #powered //-->
+
+              </div> <!-- #links-row-1 //-->
+              <div id="links-row-2">
+                                </div> <!-- #links-row-2 //-->
+                <div id="ad-mib">
+                    <script type="text/javascript">
+pix.MIB.config = {
+    hosthash: 'c907fb4fab28a9981dafb6e7651166cd',
+    dr: {source: 'mark528'},
+    goldAds: document.querySelectorAll('.xf73b89-sItemajidr-xf73b89'),
+    uniq: 'e980e4e502795c54dd6a28dc7c1e9375d506fbf940422',
+    percentSite: 'http://falcon.pixanalytics.com/mib/vap',
+    falconSite: 'http://falcon.pixanalytics.com',
+    cate: '7',
+    hasMIB: 1,
+    canPutVideo: true,
+    article_cate_id: '8',
+    demo: {
+        hash: '',
+        demoOption: 6    },
+    availablePositions: [{
+        id: 1,
+        name: 'sidebar-1',
+        enable: 1
+    },{
+        id: 1,
+        name: 'sidebar-2',
+        enable: true    },{
+        id: 3,
+        name: 'video',
+        enable: true    },{
+        id: 8,
+        name: 'unfold',
+        enable: true    }],
+    ref: ''
+};
+
+(function() {
+    var goldAds = pix.MIB.config.goldAds;
+    if (goldAds[0]) {
+        pix.MIB.build.generate();
+        pix.MIB.build.detectPageScrollPlayback();
+    }
+})();
+</script>
+                </div><!-- #ad-mib //-->
+            </div> <!-- #links //-->
+          </div> <!-- #main //-->
+          <div id="footer">
+      <p></p>
+            <div id="bottom">
+              <a class="bottom-skiplink" href="http://mark528.pixnet.net/blog/post/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8/#top" title="back to the top of the page">回到頁首</a>
+              <a class="bottom-skiplink" href="http://mark528.pixnet.net/blog/post/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8#article-area" title="back to the main cotent of the page">回到主文</a>
+              <a class="bottom-pixnet" href="http://member.pixnet.cc/register">免費註冊</a>
+              <a target="_blank" class="bottom-pixnet" href="http://help.pixnet.tw/">客服中心</a>
+              <a target="_blank" class="bottom-pixnet" href="http://www.pixnet.net/">痞客邦首頁</a>
+          © 2003 - 2017 PIXNET             </div>
+          </div> <!-- #footer //-->
+        </div> <!-- #container3 //-->
+      <div id="extradiv11"></div>
+      <div id="extradiv10"></div>
+      <div id="extradiv9"></div>
+      <div id="extradiv8"></div>
+    </div> <!-- #container2 //-->
+    <div id="extradiv7"></div>
+    <div id="extradiv6"></div>
+    <div id="extradiv5"></div>
+    <div id="extradiv4"></div>
+  </div> <!-- #container //-->
+  <div id="extradiv3"></div>
+  <div id="extradiv2"></div>
+  <div id="extradiv1"></div>
+  <div id="extradiv0"></div>
+  </div> <!-- #body-div //-->
+
+</div>
+
+<script type="text/javascript">
+<!--
+jQuery(window).on('load', function () {
+    //autoImgResize
+  '1';
+      jQuery.settings = jQuery.settings || {};
+    jQuery.settings.autoImgResize = {
+      mode:+'1',
+      resizWidth:+'400',
+      selector:'content'
+    };
+
+    if (2 === jQuery.settings.autoImgResize.mode) {
+      jQuery.settings.autoImgResize.resizWidth = jQuery('.article-content').width();
+    }
+    pix.autoImgResize(jQuery.settings.autoImgResize.resizWidth, jQuery.settings.autoImgResize.selector);
+  
+
+});
+//-->
+</script>
+<script type="text/javascript">
+<!--
+jQuery(function() {
+    pix.fixPixnetPlayerID();
+    jQuery('.article-head').find('.column-star').each(function() {
+        var column_link = jQuery(this).attr('data-column-link');
+        jQuery(this).find('h2').append(' <a title="專欄之星" href="' + column_link + '" target="_blank"><img title="專欄之星" alt="column star article" src="http://s.pixfs.net/blog/images/choc/column_star.gif"></a>');
+    });
+    jQuery('.article-hot').each(function() {
+    jQuery(this).find('h2').append(' <a class="__dailyhotclass" title="本日熱門" href="' + jQuery(this).attr('data-hot-link') + '" target="_blank"><img title="熱門文章" alt="hot article today" src="http://s.pixfs.net/blog/images/choc/today_hot.gif"></a>');
+    });
+});
+//-->
+</script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/mixpanel.js"></script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/blog-mixpanel.min.js"></script>
+<script type="text/javascript">
+<!--
+  if (typeof dataLayer === 'undefined') dataLayer = [];
+
+dataLayer.push({
+    "blog_page_type": "post",
+    "keyword": "",
+    "page_meta": "mark528\/blog\/post\/7267486-Oracle與日期有關的常用函數",
+    "user_cat_id": "194422",
+    "user_cat_name": "Oracle",
+    "is_testing_43400": false,
+    "is_partner_program": false,
+    "is_mobile_mode": false,
+    "user_name": "mark528",
+    "page_type": "blog",
+    "service_type": "blog",
+    "page_view": "\/blog\/",
+    "blog_name": "狐的窩",
+    "blog_cat": "7 - 圖文創作",
+    "is_loggedin": false,
+    "is_VIP": false,
+    "is_obstruct": "ip",
+    "viewer_type": "Regular Member",
+    "article_title": "Oracle與日期有關的常用函數",
+    "article_id": "7267486",
+    "article_cat": "8 - 進修深造"
+});
+
+-->
+</script>
+
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-KGMWFG" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-MZ3SPM" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+
+
+<script type="text/javascript">
+<!--
+  var _gaq = _gaq || [];
+  _gaq.push(
+    ['_setAccount', 'UA-408650-10'],
+    ['_setDetectTitle', false],
+    ['_setDomainName', 'none'],
+    ['_setAllowLinker', true],
+    ['_setCustomVar', 1, 'member', 'GUEST'],
+    ['_setCustomVar', 2, 'vip', 'nonVIP'],
+    ['_trackPageview', '/blog/']
+
+      );
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KGMWFG');
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MZ3SPM');
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M9S8TF');
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NDN8FB');
+
+
+
+(function($, undefined) {
+$(function() {
+    var _topbar = $('#topbar');
+    _topbar.find('.topbar__logo').on('click', 'a', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-logo', 'GUEST']);
+    });
+    _topbar.find('#topbar__search').on('submit', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-search-button', 'GUEST']);
+    });
+    _topbar.find('.topbar__announce').on('click', '.topbar__announce__item', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-announce', 'GUEST']);
+    });
+
+    _topbar.find('.topbar__notification__counter').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-notification-counter', 'GUEST']);
+    });
+    _topbar.find('.topbar__notification__list--header__link').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-notification-setting', 'GUEST']);
+    });
+    _topbar.find('.topbar__notification__list--footer__link').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-notification-showall', 'GUEST']);
+    });
+
+    _topbar.find('#topbar__user__login').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-login', 'GUEST']);
+    });
+
+    _topbar.find('#topbar__user__list__link--blog').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-myblog', '']);
+    });
+    _topbar.find('#topbar__user__list__link--articlenew').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-articlenew', '']);
+    });
+    _topbar.find('#topbar__user__list__link--panelsite').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-panelsite', '']);
+    });
+    _topbar.find('#topbar__user__list__link--panelapp').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-panelapp', '']);
+    });
+
+    _topbar.find('#topbar__user__list__link--logout').on('click', function() {
+        _gaq.push(['_trackEvent', 'blog-bar', 'click-logout', '']);
+    });
+});
+})(jQuery);
+
+//-->
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '510235355828933');
+fbq('track', "PageView");</script>
+<noscript>&lt;img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=510235355828933&amp;ev=PageView&amp;noscript=1"
+/&gt;</noscript>
+<!-- End Facebook Pixel Code -->
+<div id="popup-frame" style="display:none">
+    <div id="frame-dimmer"></div>
+    <div id="frame-box">
+       <div id="frame-border"></div>
+       <div id="frame-header">
+           <h3></h3>
+	   <a href="http://mark528.pixnet.net/blog/post/7267486#" class="frame-close" title="關閉視窗"><span>關閉視窗</span></a>
+       </div>
+       <div id="frame-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/c.js"></script>
+<script type="text/javascript">
+if ('undefined' === typeof window._uCount) {
+    window._uCount = function () {};
+}
+</script>
+<script type="text/javascript">
+<!--
+var _type = 'front_blog'; _uCount();
+var _type = 'front_blog_byarticlecategory:8'; _uCount();
+var _type = 'front_blog_bysitecategory:7'; _uCount();
+if (document.location.toString().indexOf('/post/') != -1) {
+    var _type = 'front_blog_post'; _uCount();
+    var _type = 'front_blog_post_nonvip'; _uCount();
+}
+
+if (document.location.toString().indexOf('/search/') != -1) {
+    var _type = 'front_blog_search'; _uCount();
+}
+//-->
+</script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/r.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+_currentPageUsername = 'mark528';
+_refererCount();
+//-->
+</script>
+<script>
+var _piq = _piq || [];
+
+_piq.push(
+    ['setCustomVar', 'venue', 'pixnet'],
+    ['setCustomVar', 'author_id', pix.owner],
+        ['setCustomVar', 'article_category_id', "8"],
+        ['setCustomVar', 'nonce', pix.login_name],
+    ['setCustomVar', 'visitor_id', pix.visitor],
+    ['setCustomVar', 'visitor_openid', pix.openid],
+    ['trackPageView']
+);
+(function(d, t, u, f, j) {
+    f = d.getElementsByTagName(t)[0];
+    j = d.createElement(t);
+    j.async = 1;
+    j.src = u;
+    f.parentNode.insertBefore(j, f);
+})(document, 'script', 'https://s.pixanalytics.com/js/pi.min.js');
+
+(function ($) {
+    $(function () {
+        var _startTime = Math.floor((new Date()).getTime() / 1000),
+            _driveMode = ('none' === $(document.body).data('mobileMode')) ? 'desktop' : 'mobile',
+            _send = false,
+            unload;
+
+        unload = function () {
+            if (_send) {
+                return;
+            }
+
+            var _endTime = Math.floor((new Date()).getTime() / 1000),
+                _isIdleAdClosed = '';
+
+            switch ($.adIdlePopClosed) {
+                case 'hasClosed' :
+                    _isIdleAdClosed = 'close idle ad';
+                    break;
+                case 'neverClosed' :
+                    _isIdleAdClosed = 'not close idle ad';
+                    break;
+                default :
+
+            }
+            _piq.push(['trackEvent', 'article stay time', _isIdleAdClosed, _driveMode, (_endTime - _startTime)]);
+            _send = true;
+        };
+
+        $(window).on({
+            'beforeunload.idlePI': unload,
+            'unload.idlePI':       unload,
+            'pagehide.idlePI':     unload
+        });
+
+        $('#pixad1032').on('click', 'a', function() {
+            if ('styleme' === $(this).data('source')) {
+                _piq.push(['trackEvent', 'yahoo 大聯盟導購', '金鑽版位點擊']);
+            }
+        });
+
+        var pixad1032ImpTracking = function() {
+            var container = $('#pixad1032');
+
+            if (0 === container.find('a').length) {
+                setTimeout(pixad1032ImpTracking, 500);
+                return;
+            }
+
+            if ('styleme' == container.find('a').data('source')) {
+                _piq.push(['trackEvent', 'yahoo 大聯盟導購', '金鑽版位曝光']);
+            }
+        };
+        pixad1032ImpTracking();
+    });
+})(jQuery);
+</script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixinsight.min.js"></script>
+
+
+<!-- Modified: 1498040422 -->
+<!-- async script -->
+<script type="text/javascript">
+<!--
+jQuery.ajaxSetup({ cache: true });
+jQuery.getScript("//js.pixplug.in/addon/86/production.js?v=1490773849", function(data, textStatus) { jQuery.pixBookmarkButtons({"position":"top","addon_username":"mark528","addon_expired_at":0,"addon_ismobile":false,"addon_isvip":false,"addon_is_allow_setting":true,"ab_testing_seed":641297590}); });
+jQuery.getScript("//js.pixplug.in/addon/98/production.js?v=1497412908", function(data, textStatus) { jQuery.pixShowPlurk({"addon_username":"mark528","addon_expired_at":0,"addon_ismobile":false,"addon_isvip":false,"addon_is_allow_setting":true,"ab_testing_seed":641297590}); });
+jQuery.getScript("//js.pixplug.in/addon/206/production.js?v=1497413248", function(data, textStatus) { jQuery.pixShowTwitter({"addon_username":"mark528","addon_expired_at":0,"addon_ismobile":false,"addon_isvip":false,"addon_is_allow_setting":true,"ab_testing_seed":641297590}); });
+jQuery.ajaxSetup({ cache: false });
+//-->
+</script>
+
+<!-- load sync script -->
+
+<!-- execute sync addon -->
+<script type="text/javascript"></script>
+
+
+
+<script>pix.stylemeTags = [];</script>
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/styleme.min.js" crossorigin="anonymous"></script>
+
+<script>
+(function () {
+    pix.octopusTags = null;
+    if (null === pix.octopusTags || undefined === pix.octopusTags) {
+        return;
+    }
+    for (var i = 0; i < pix.octopusTags.length; i++) {
+        if ('' === pix.octopusTags[i]) {
+            continue;
+        }
+        _piq.push(['trackEvent', 'otopusTag', '', pix.octopusTags[i]]);
+    }
+})();
+</script>
+
+
+
+<script>
+  var nineyi_group    = "X1";
+  var nineyi_keyindex = "0";
+  var nineyi_match    = "";
+  var nineyi_id       = "pix91_8c2cecf30a1adab0a0067436b108fca8";
+  var nineyi_products = [{"asset":"0104","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126120-4162329176_s.jpg?v=1446126272","title":"MissHana\u82b1\u5a1c\u5c0f\u59d0\u5b8c\u7f8e\u7121\u75d5\u4e09\u8272\u906e\u7455\u818f","oprice":"380","nprice":"299","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/1256490"},{"asset":"0138","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126147-4136062762_s.jpg?v=1446126272","title":"E\u2027Heart \u4f0a\u5fc3 \u6301\u4e45\u96b1\u5f62\u96d9\u9762\u96d9\u773c\u76ae\u8cbc","oprice":"348","nprice":"180","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/344734"},{"asset":"0143","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126150-2749437497_s.jpg?v=1446126272","title":"3CE (3CONCEPT EYES) \u8d85\u986f\u8272\u5507\u818f","oprice":"499","nprice":"399","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/1610019"},{"asset":"0223","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126232-3103690318_s.jpg?v=1446126273","title":"ND \u812b\u6bdb\u871c\u881f\/\u9664\u6bdb\u871c\u881f 220g","oprice":"299","nprice":"299","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/1035850"},{"asset":"0160","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126167-2508883353_s.jpg?v=1446126272","title":"\u97d3\u570b RiRe \u9ed1\u982d\u7c89\u523a\u6e05\u6f54\u5237 \u4e59\u652f\u5165(\u5167\u9644\u6e05\u6f54\u4e7320mL)","oprice":"290","nprice":"290","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/640966"},{"asset":"0109","image":"http:\/\/pic.pimg.tw\/pixnetvisual\/1446126124-168867797_s.jpg?v=1446126272","title":"Miss Hana \u82b1\u5a1c\u5c0f\u59d0 \u6c34\u611f\u63a7\u8272CC\u971c","oprice":"349","nprice":"299","link":"http:\/\/www.86shops.com.tw\/SalePage\/Index\/668815"}];
+</script><script id="idleTemplate" type="text/x-jsrender" data-main="//front.pixfs.net/module/idlePop/js/idlePop.min.js?v=60a8550dd9f629fbb413ec286a0c9a92" data-jsv-tmpl="_0">
+<link rel="stylesheet" href="//front.pixfs.net/module/idlePop/css/idlePop.min.css?v=6057ab06?v=60a8550dd9f629fbb413ec286a0c9a92">
+<div class="modal idle-pop" tabindex="-1" role="dialog" aria-describedby="dialog">
+  <div class="modal-bg"></div>
+  <div class="modal-dialog">
+    <a class="modal-close" data-close="【 關閉 X 】"></a>
+
+    <div class="modal-content">
+      <div class="modal-header">本網頁已閒置超過 3 分鐘。請點 <kbd>關閉</kbd> 或 <kbd>點擊</kbd>任一空白處，即可回到網頁</div>
+      <div class="modal-body">
+        <div class="blogger-info">
+          <a class="blogger-info__avatar" href="//www.pixnet.net/blog/profile/{{:user.name}}"><img src="{{:user.avatar}}" alt="{{:user.name}} 的大頭貼"></a>
+
+          <div class="blogger-info__profile">
+            <div class="blogger-info__row">
+              <dl>
+                <dt>部落格名稱</dt>
+                <dd><a href="{{:blog.link}}">{{:blog.name}}</a></dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+              <dl>
+                <dt>人氣</dt>
+                <dd data-unit="人">{{:blog.hits.total}}</dd>
+
+                <dt>好友數</dt>
+                <dd data-unit="人">{{:user.friends_count}}</dd>
+
+                <dt>文章總數</dt>
+                <dd data-unit="篇">{{:blog.articles_count}}</dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+            </div>
+          </div>
+        </div>
+
+        <div class="idle-adsense">
+        </div>
+
+        <div class="idle-related-posts">
+          {{for posts}}
+          <a class="idle-related-post" href="{{:link}}">
+            <img src="{{:thumb}}" alt="文章縮圖">
+            <div class="idle-related-post__detail">
+              <h4>{{:title}}</h4>
+              <div class="idle-related-post__desc" data-readmore="繼續閱讀">{{:body}}</div>
+            </div>
+          </a>
+          {{/for}}
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+</script>
+
+
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/hide-ad-checker.min.js" crossorigin="anonymous"></script>
+
+
+
+<script src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/ev" defer=""></script><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/0F7S7QWJ0Ac.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/0F7S7QWJ0Ac(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><script type="text/javascript" id="">jQuery("div").find(".article a").find(':contains("1314.ws")').length&&dataLayer.push({event:"spam-detected"});</script><script type="text/javascript" id="">function updateQueryStringParameter(a,b,c){var d=new RegExp("([?\x26])"+b+"\x3d.*?(\x26|$)","i"),e=-1!==a.indexOf("?")?"\x26":"?";return a.match(d)?a.replace(d,"$1"+b+"\x3d"+c+"$2"):a+e+b+"\x3d"+c}
+jQuery(".article-body").on("click","a",function(){var a=this.href;0<=a.toLowerCase().indexOf("klook.com")&&-1==a.toLowerCase().indexOf("aid")?(a=updateQueryStringParameter(a,"aid","11"),jQuery(this).attr("href",a),dataLayer.push({event:"genericEvent",eventUA:"UA-65168598-20",eventCategory:"Klook \u7121AID\u9023\u7d50\u8f49\u63db\uff08\u6b63\u78ba\uff09",eventAction:"Click",eventLabel:"http:\/\/mark528.pixnet.net\/blog\/post\/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8",eventNonInteraction:"true"})):0<=a.toLowerCase().indexOf("hotelscombined.com")&&-1==a.toLowerCase().indexOf("a_aid")?
+(a=updateQueryStringParameter(a,"a_aid","132653"),a=updateQueryStringParameter(a,"label","link_replace"),jQuery(this).attr("href",a),dataLayer.push({event:"genericEvent",eventUA:"UA-65168598-1",eventCategory:"HotelsCombined \u7121AID\u9023\u7d50\u8f49\u63db",eventAction:"Click",eventLabel:"http:\/\/mark528.pixnet.net\/blog\/post\/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8",eventNonInteraction:"true"})):0<=a.toLowerCase().indexOf("booking.com")&&-1==a.toLowerCase().indexOf("aid")?(a=updateQueryStringParameter(a,"aid","835804"),a=updateQueryStringParameter(a,
+"label","link_replace"),jQuery(this).attr("href",a),dataLayer.push({event:"genericEvent",eventUA:"UA-65168598-1",eventCategory:"Booking.com \u7121AID\u9023\u7d50\u8f49\u63db",eventAction:"Click",eventLabel:"http:\/\/mark528.pixnet.net\/blog\/post\/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8",eventNonInteraction:"true"})):0<=a.toLowerCase().indexOf("agoda.com")&&-1==a.toLowerCase().indexOf("cid")&&(a=updateQueryStringParameter(a,"cid","1658048"),jQuery(this).attr("href",a),dataLayer.push({event:"genericEvent",eventUA:"UA-65168598-1",eventCategory:"Agoda.com \u7121AID\u9023\u7d50\u8f49\u63db",
+eventAction:"Click",eventLabel:"http:\/\/mark528.pixnet.net\/blog\/post\/7267486-oracle%E8%88%87%E6%97%A5%E6%9C%9F%E6%9C%89%E9%97%9C%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8",eventNonInteraction:"true"}))});</script><script type="text/javascript" id="">(function(c){var a=c(document.body),g=1===~~a.data("in-more-read-button-test1-period"),d=a.data("ab-testing-seed"),h="yep"===a.data("mobile-mode"),k=1===~~a.data("is-from-fb");a.find("#read-all \x3e a");var b,e,f;g&&0===~~(10*Math.random())&&h&&(b=0===d%2?"1B":"1A",b+=k?" \u4f86\u6e90FB":" \u4f86\u6e90\u975eFB",e=Math.floor((new Date).getTime()),c(window).on("beforeunload",function(a){f=Math.floor((new Date).getTime());_piq.push(["trackEvent","more_read_button_article","article stay time",b,f-e])}),
+c(function(){_piq.push(["trackEvent","more_read_button_article","imps",b]);_piq.push(["trackEvent","more_read_button_article","imps-debug-seed",b,d])}))})(jQuery);</script><div id="pix-mib-unfold-ad" class="mib-unfold--ad-box show-right" style="right: 0px;"><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/index.html" width="320" height="270" frameborder="0"></iframe><div class="cancel-btn">X</div><span class="mib--ad-box__icon"><a href="http://mark528.pixnet.net/blog/post/7267486#">痞客邦廣告聯播網</a></span></div><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/capmapping.html" width="0" height="0" style="display:none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/capmapping(1).html" width="0" height="0" style="display:none;"></iframe><img width="0" height="0" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/setCookie" style="display: none;"><div id="tagrdiv" style="width: 0px; height: 0px; overflow: hidden; position: absolute; display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/learn" style="width: 0px; height: 0px; border: 0px; display: none;"></div><div id="tagrdiv" style="width: 0px; height: 0px; overflow: hidden; position: absolute; display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/learn(1)" style="width: 0px; height: 0px; border: 0px; display: none;"></div><img width="0" height="0" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/setCookie" style="display: none;"><iframe name="oauth2relay888532641" id="oauth2relay888532641" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/viewreceiver.html" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cookie_transfer.html" style="display:none" height="0" width="0"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/viewreceiver(1).html" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cookie_transfer(1).html" style="display:none" height="0" width="0"></iframe><div id="idle-pop" class="testA">
+<link rel="stylesheet" href="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/idlePop.min.css">
+<div class="modal idle-pop" tabindex="-1" role="dialog" aria-describedby="dialog">
+  <div class="modal-bg"></div>
+  <div class="modal-dialog">
+    <a class="modal-close" data-close="【 關閉 X 】"></a>
+
+    <div class="modal-content">
+      <div class="modal-header">本網頁已閒置超過 3 分鐘。請點 <kbd>關閉</kbd> 或 <kbd>點擊</kbd>任一空白處，即可回到網頁</div>
+      <div class="modal-body">
+        <div class="blogger-info">
+          <a class="blogger-info__avatar" href="http://www.pixnet.net/blog/profile/mark528"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/90x0.png" alt="mark528 的大頭貼"></a>
+
+          <div class="blogger-info__profile">
+            <div class="blogger-info__row">
+              <dl>
+                <dt>部落格名稱</dt>
+                <dd><a href="http://mark528.pixnet.net/blog">狐的窩</a></dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+              <dl>
+                <dt>人氣</dt>
+                <dd data-unit="人">545115</dd>
+
+                <dt>好友數</dt>
+                <dd data-unit="人">0</dd>
+
+                <dt>文章總數</dt>
+                <dd data-unit="篇">416</dd>
+              </dl>
+            </div>
+
+            <div class="blogger-info__row">
+            </div>
+          </div>
+        </div>
+
+        <div class="idle-adsense"><a target="_blank" href="http://falcon.pixanalytics.com/ad/r?i=22153597264d81daee7151b6aa503bf2&amp;p=1802&amp;u=1ad4c0385f4e4cccadd52287cf2f4340&amp;c=CgECPlk%2F854AALrvTZ8WAg%3D%3D" style="display: inline ! important; visibility: visible ! important;">
+<img border="0" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/22153597264d81daee7151b6aa503bf2-8d4d7e5d4b6a4e85.jpg" style="display: inline ! important; visibility: visible ! important;">
+</a></div>
+
+        <div class="idle-related-posts">
+          
+          <a class="idle-related-post" href="http://mark528.pixnet.net/blog/post/7267486">
+            <img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/article-image.png" alt="文章縮圖">
+            <div class="idle-related-post__detail">
+              <h4>Oracle與日期有關的常用函數</h4>
+              <div class="idle-related-post__desc" data-readmore="繼續閱讀">Oracle 用來取得目前系統時間的函數為sysdate。EX:SQL&gt; SELECT sysdate FROM dual;SYSDATE---------15-AUG-11*更改目前session日期顯示格式SQL&gt; ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD';Session altered.SQL&gt; SELECT sysdate FROM dual;SYSDATE----------2011-08-15常用的日期格式：1. YYYY/MM/DDYYYY 年(4位)MM 月份(2位)DD 日期(2位)SQL&gt; SELECT TO_CHAR(sysdate, 'YYYY/MM/DD') FROM dual;TO_CHAR(SY----</div>
+            </div>
+          </a>
+          
+          <a class="idle-related-post" href="http://smileman1229.pixnet.net/blog/post/192645428">
+            <img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/100x100.png" alt="文章縮圖">
+            <div class="idle-related-post__detail">
+              <h4>SELECT查詢指令</h4>
+              <div class="idle-related-post__desc" data-readmore="繼續閱讀">
+&nbsp;
+
+
+
+
+select sysdate
+from dual;
+
+查詢日期
+
+
+select user from dual;
+查詢使用者名稱
+
+
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+
+
+&nbsp;
+&nbsp;
+
+
+
+&nbsp;
+
+&nbsp;</div>
+            </div>
+          </a>
+          
+          <a class="idle-related-post" href="http://falcon.pixanalytics.com/ad/r?i=2dd06031aab6faf6a0786f49ff2c0c96&amp;p=1816&amp;u=82dcd01a628d47059b9135ab90f8af1e&amp;c=CgECPlk%2F854AALrvTZ8WAg%3D%3D"><div id="tenmaxadpc2"> </div><a class="idle-related-post" href="http://rtb-asiamax.tenmax.io/bid/click/1498040653429/c591b700-566b-11e7-bd6e-65c2fb25c2bf/5640/8040/?optInfo=xlKbCFWiLegQ4w&amp;sUrl=http%3A%2F%2Fssp.tenmax.io%2Fauction%2Fwinner%2Ftracking%2Fclk%3Fb%3Dc591b700-566b-11e7-bd6e-65c2fb25c2bf%26i%3D0%26id%3Ddb0efe1b-8522-45f8-a460-86bf42e3e3b8%26adurl%3D&amp;rUrl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXjiUgjDPKag" target="_blank">
+  <img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/fcab2017_icon.jpg" alt="文章縮圖">
+  <div class="idle-related-post__detail">
+    <h4>簡嫚書×曹佑寧 最新演出【人生 轉‧運‧站】，大好評！</h4>
+    <div class="idle-related-post__desc" data-readmore="繼續閱讀">當今台灣經濟環境不明朗、就業環境不甚理想，讓時下年輕人在日常生活甚至找尋工作時，容易感受挫折與不順。究竟，什麼才是連命運之神也搶不走的寶物，趕快一起來看看簡嫚書與曹佑寧的完美詮釋！</div>
+  </div>
+</a>
+<ins class="rmax" data-rmax-space-id="c981a0d52b77404f" data-rmax-space-type="NATIVE" data-target-id="#tenmaxadpc2" data-target-pos="AFTER" data-rmax-space-picked="true" data-rmax-space-result="bid success" data-request-id="c591b700-566b-11e7-bd6e-65c2fb25c2bf" data-time-cost="115" data-viewed="true"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixel" style="display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/pixel(1)" style="display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/saved_resource" style="display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/saved_resource(1)" style="display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/c591b700-566b-11e7-bd6e-65c2fb25c2bf" style="display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/saved_resource(2)" style="display: none;"></ins>
+</a>
+          
+        </div>
+      </div>
+      <div class="modal-footer"><ins class="clickforceads " style="display: inline-block; left: 0px;" data-ad-zone-max="2656" data-ad-zone-min="2254" data-ad-width-max="728" data-ad-height-max="90" data-ad-width-min="320" data-ad-height-min="50" data-ad-changeminwidth="1024" data-ad-serving="0"><div><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/saved_resource(4).html" class="cfadif cfadif2" width="728" height="90" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true" vspace="0" hspace="0" frameborder="0"></iframe></div></ins>
+</div>
+    </div>
+  </div>
+</div>
+</div><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/capmapping(2).html" width="0" height="0" style="display:none;"></iframe><div id="tagrdiv" style="width: 0px; height: 0px; overflow: hidden; position: absolute; display: none;"><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/learn(2)" style="width: 0px; height: 0px; border: 0px; display: none;"></div><img src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/b734323b-0532-40a6-8d4e-782e1c96bd3a" class="acvzdmp" style="display: none;"><img width="0" height="0" src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/setCookie" style="display: none;"><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/viewreceiver(2).html" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cookie_transfer(2).html" style="display:none" height="0" width="0"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/viewreceiver(3).html" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cookie_transfer(3).html" style="display:none" height="0" width="0"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/viewreceiver(4).html" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cookie_transfer(4).html" style="display:none" height="0" width="0"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/viewreceiver(5).html" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><iframe src="./Oracle與日期有關的常用函數 @ 狐的窩 __ 痞客邦 PIXNET ___files/cookie_transfer(5).html" style="display:none" height="0" width="0"></iframe></body></html>

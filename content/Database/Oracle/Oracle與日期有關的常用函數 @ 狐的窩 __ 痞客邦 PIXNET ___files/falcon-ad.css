@@ -1,0 +1,106 @@
+#falcon-ad-right-fixed-block {
+    display: inline-block;
+    position: fixed;
+    right: -210px;
+    bottom: 100px;
+    height: 175px;
+    width: 180px;
+    padding: 15px 15px 0;
+    margin-right: 5px;
+    z-index: 9999999;
+    text-align: center;
+    border: 1px #ccc solid;
+    background-color: white;
+}
+
+#falcon-ad-right-fixed-block .title {
+    color: #000;
+}
+
+#falcon-ad-right-fixed-block .cancel-btn:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 6px;
+    border-color: transparent transparent transparent #204ab8;
+}
+
+#falcon-ad-right-fixed-block .cancel-btn {
+    position: absolute;
+    top: 5px;
+    left: -33px;
+    padding: 5px 10px;
+    background: #204ab8;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* FOR 展開廣告 */
+.mib-unfold--ad-box {
+    display: inline-block;
+    position: fixed;
+    bottom: 50px;
+    height: 250px;
+    width: 300px;
+    margin-right: 5px;
+    z-index: 9999999;
+    text-align: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+.mib-unfold--ad-box.show-right {
+    right: -330px;
+}
+.mib-unfold--ad-box.show-left {
+    left: -330px;
+}
+
+.mib-unfold--ad-box .cancel-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    background: #204ab8;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.mib--ad-box__icon {
+    position: absolute;
+    z-index: 1;
+    bottom: 2px;
+    right: 3px;
+    width: 16px;
+    height: 18px;
+    background: transparent url('../images/mib/ad-icon.png') no-repeat;
+}
+
+.mib--ad-box__icon a {
+    /* 有些使用者的自訂樣式為 #links (中略) a {...} , 因此提高優先權  */
+    display: none !important;
+    padding: 0 7px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #fff;
+    background: #1472b9;
+    border-radius: 2px;
+}
+
+/* 隱藏 style 未來有需求可以給廣告網 hover 過去顯示連結
+.mib--ad-box__icon:hover {
+    width: 110px;
+    right: 0;
+    bottom: 3px;
+}
+
+.mib--ad-box__icon:hover a {
+    display: block;
+    color: #fff;
+}*/

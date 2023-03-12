@@ -1,0 +1,45 @@
+.c16ss-twitter {
+    background: #41B7D8;
+}
+
+.c16ss-twitter:hover, .c16ss-twitter:active {
+    background: #279ebf;
+}
+
+.c16ss-fb {
+    background: #3B5997;
+}
+
+.c16ss-fb:hover, .c16ss-fb:active {
+    background: #2d4372;
+}
+
+.c16ss-google {
+    background: #D64937;
+}
+
+.c16ss-google:hover, .c16ss-google:active {
+    background: #b53525;
+}
+
+.c16ss-link:hover, .c16ss-link:active {
+    color: white;
+}
+.c16ss-link {
+    padding: 5px 10px;
+    color: white;
+}
+
+#c16ss{
+    margin:10px 0;
+}
+/*
+#c16ss h2{
+    margin:0 0 20px 0!important;
+}*/
+
+#c16ss a {
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    margin-right:4px;
+}

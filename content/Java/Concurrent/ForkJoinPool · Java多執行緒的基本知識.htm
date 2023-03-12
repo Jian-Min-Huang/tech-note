@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+        <title>ForkJoinPool · Java多執行緒的基本知識</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        <meta name="author" content="popcornylu">
+        
+        
+    
+    <link rel="stylesheet" href="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/website_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://popcornylu.gitbooks.io/java_multithread/content/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="https://popcornylu.gitbooks.io/java_multithread/content/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    
+    
+    
+    
+
+    <link rel="prev" href="https://popcornylu.gitbooks.io/java_multithread/content/threadpool/basicpool.html"><link rel="next" href="https://popcornylu.gitbooks.io/java_multithread/content/async/async.html"></head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input placeholder="Type to search" type="text">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.gitbook.com/book/popcornylu/java_multithread" target="_blank" class="custom-link">Java多執行緒的基本知識</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../thread.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/thread.html">
+            
+                    
+                    Java Thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../sync/sync.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/sync/sync.html">
+            
+                    
+                    Synchronization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../sync/resource_sharing.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/sync/resource_sharing.html">
+            
+                    
+                    Resource Sharing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../sync/flow_control.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/sync/flow_control.html">
+            
+                    
+                    Flow Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../sync/message_passing.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/sync/message_passing.html">
+            
+                    
+                    Message Passing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="threadpool.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/threadpool/threadpool.html">
+            
+                    
+                    Thread Pool
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="basicpool.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/threadpool/basicpool.html">
+            
+                    
+                    Basic Pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="forkjoin.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/threadpool/forkjoin.html">
+            
+                    
+                    ForkJoinPool
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../async/async.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/async/async.html">
+            
+                    
+                    Asynchronous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../async/future.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/async/future.html">
+            
+                    
+                    Future
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../async/cfuture.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/async/cfuture.html">
+            
+                    
+                    CompletableFuture
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../conclusions.html">
+            
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/conclusions.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <a class="btn pull-left js-toolbar-action" aria-label="" href="#"><i class="fa fa-align-justify"></i></a><div class="dropdown pull-right  js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Share" href="#"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a class="btn pull-right js-toolbar-action" aria-label="" href="#"><i class="fa fa-facebook"></i></a><a class="btn pull-right js-toolbar-action" aria-label="" href="#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" href="#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="https://popcornylu.gitbooks.io/java_multithread/content/">ForkJoinPool</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="forkjoin-pool">ForkJoin Pool</h1>
+<p class="comments-section">在java7的時候，推出了一種很不一樣的thread pool，他實作了<a href="https://en.wikipedia.org/wiki/Work_stealing" target="_blank">working stealing scheduling</a>。這是什麼概念呢? 試想有一個大的專案，如果一個人無法完成的話，那我們很直覺的會把大的專案，切成很多中型的task，再把他分成幾個小的task，讓整個團隊可以協力完成。這些小的task完成之後，中型的task再把它整合起來，最終完成整合後就完成了大的專案。<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">咦，這不就是<a href="https://en.wikipedia.org/wiki/Recursion" target="_blank">recursion</a>或是<a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms" target="_blank">divide &amp; conquer</a>嗎?
+ 沒錯，很多的演算法都是類似這種divide and 
+conquer的形式。這種算法的特性是，要等到所有的subtask都完成之後，才可以算出中間的結果，再來可以算出最後完整的結果。而
+ForkJoin Pool就是為了解決這種問題平行化的solution。<div class="comments-icon"><div class="marker">+</div></div></p>
+<h2 id="work-stealing">Work Stealing</h2>
+<p class="comments-section">相較於一般的Thread Pool，大家共用一個queue，ForkJoin Pool是<strong>每個thread有一個自己的queue</strong>，
+而且是雙向的queue(deque)。當一個task進來，他會把一部分的工作fork(切)出來先放到queue的最後面，另外一部分開始做。當然可
+能做進去後，發現task還是太大，就會繼續切更小，並再放到queue的最後方。如此一邊切一邊往下執行，直到task夠小可以直接運算為止。<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">當一個小工作完成之後，他會從最後端的task拿出來(其實這邊比較像stack的行為)，繼
+續往下做。當然recursion的程式除了divide以外，還有merge 
+results的動作，這邊稱之為join。join會取得每個subtask的結果，最終成為目前task的結果回傳回去。<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">那其他thread呢? 
+當其他thread身上的queue是空的時候，他會去別的thread的queue最前頭steal一個task到自己的queue當中。之後的行為就
+跟前面一模一樣。這有沒有很像一個團隊做專案的時候的行為? 所以如果我們把thread pool類比為取票機，forkjoin 
+pool就很像做專案一樣。<div class="comments-icon"><div class="marker">+</div></div></p>
+<h2 id="how-to-use">How to use</h2>
+<p class="comments-section">前面講的是概念，現在來講實際怎麼實作。我拿費式數列當作例子，雖然他recursion不是他的最佳解法，但是他的定義很recursive。為了解釋方便，我們先不管它的效能。來看傳統recursion版本<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+    <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> n;
+    <span class="hljs-keyword">return</span> fib(n-<span class="hljs-number">1</span>) + fib(n-<span class="hljs-number">2</span>);
+}
+</code></pre>
+<p class="comments-section">再來是ForkJoin版本<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fibonacci</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RecursiveTask</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>{
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> n;
+    Fibonacci(<span class="hljs-keyword">int</span> n) { <span class="hljs-keyword">this</span>.n = n; }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">compute</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)
+            <span class="hljs-keyword">return</span> n;
+        Fibonacci f1 = <span class="hljs-keyword">new</span> Fibonacci(n - <span class="hljs-number">1</span>);
+        f1.fork();
+        Fibonacci f2 = <span class="hljs-keyword">new</span> Fibonacci(n - <span class="hljs-number">2</span>);
+        <span class="hljs-keyword">return</span> f2.compute() + f1.join();
+    }
+}
+</code></pre>
+<p class="comments-section">Recursion task要繼承於<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveTask.html" target="_blank">RecursiveTask</a>或是<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveAction.html" target="_blank">RecursiveAction</a>。前者是有回傳值，後者沒有。繼承需要實作<code>compute()</code>這個method，裡面實作divide and conquer的邏輯。在當中我們可以直接呼叫subtask的<code>compute()</code>，也可以呼叫subtask的<code>fork()</code>，代表的是把subtask丟到queue。等到需要他的結果時，再呼叫<code>join()</code>，它會把subtask結果回傳回來，再把所有的result去整合成目前task的result。<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">實際執行我們需要有一個ForkJoinPool。我們可以直接用大家共用的common forkjoin pool，也就是<code>ForkJoinPool.commonPool()</code>。下面是執行這個RecursiveTask的範例<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ExecutionException, InterruptedException </span>{
+    Fibonacci fibonacci = <span class="hljs-keyword">new</span> Fibonacci(<span class="hljs-number">10</span>);
+    ForkJoinPool.commonPool().execute(fibonacci);
+    System.out.println(fibonacci.get());
+}
+</code></pre>
+<h1 id="跟傳統thread-pool比較">跟傳統Thread Pool比較</h1>
+<p class="comments-section">其實這是兩種不同的執行策略，分別是producer 
+consumer跟recursion。前者適合每個task是獨立的，他可以把大事小事都平均分攤在每個thread去執行；後者是透過divide 
+and conquer演算法，用work stealing的方式去執行。所以主要還是要看你的task是哪一種類型居多。<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">而ForkJoinPool有一個很大的好處是減少thread因為blocking造成
+context switching。不管是fork, compute, 
+join都幾乎不會blocking(只有join少數情況會要等待結果)。這可以讓thread一直保持running的狀態，一直到時間到了被
+context switch，而不是自己卡住了造成的context switch。<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">但ForkJoinPool對於不可分割的task，並且處理時間差異很大的情境比較不適合，
+畢竟每個thread都有一個queue。就很像在大賣場排隊結帳，只要運氣不好排到一個前面卡比較久的task就要等比較久。但是別排又沒有閒到可以把
+你steal走，那就沒有辦法做到先到先處理的特性了。<div class="comments-icon"><div class="marker">+</div></div></p>
+<h1 id="java8-parallel-stream">Java8 Parallel Stream</h1>
+<p class="comments-section">Java8的<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html" target="_blank">Stream API</a>的parallel stream事實上也是用ForkJoinPool，他透過<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html" target="_blank">Spliterator</a>來定義怎麼去split(或稱fork)你的input data。若執行結果需要collect，就會join回最後的result。<div class="comments-icon"><div class="marker">+</div></div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/threadpool/basicpool.html" class="navigation navigation-prev " aria-label="Previous page: Basic Pool">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="https://popcornylu.gitbooks.io/java_multithread/content/async/async.html" class="navigation navigation-next " aria-label="Next page: Asynchronous" style="margin-right: 17px;">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ForkJoinPool","level":"1.4.2","depth":2,"next":{"title":"Asynchronous","level":"1.5","depth":1,"path":"async/async.md","ref":"async/async.md","articles":[{"title":"Future","level":"1.5.1","depth":2,"path":"async/future.md","ref":"async/future.md","articles":[]},{"title":"CompletableFuture","level":"1.5.2","depth":2,"path":"async/cfuture.md","ref":"async/cfuture.md","articles":[]}]},"previous":{"title":"Basic Pool","level":"1.4.1","depth":2,"path":"threadpool/basicpool.md","ref":"threadpool/basicpool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["comment"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{"font":{"size":null,"family":"Impact","color":"#FFF"},"size":{"w":1800,"h":2360},"background":{"color":"#09F"}},"comment":{"highlightCommented":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":"popcornylu/java_multithread","theme":"default","author":"popcornylu","pdf":{"pageNumbers":true,"fontSize":16,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java多執行緒的基本知識","language":"zh","links":{"sidebar":{"Java多執行緒的基本知識":"https://www.gitbook.com/book/popcornylu/java_multithread"},"gitbook":true},"gitbook":"*","description":"Java多執行緒的基本知識"},"file":{"path":"threadpool/forkjoin.md","mtime":"2016-08-01T01:38:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-08-01T01:38:34.058Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/gitbook.js"></script>
+    <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/theme.js"></script>
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/plugin.js"></script>
+        
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/search-engine.js"></script>
+        
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/search.js"></script>
+        
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/lunr.js"></script>
+        
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/search-lunr.js"></script>
+        
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/buttons.js"></script>
+        
+    
+        
+        <script src="ForkJoinPool%20%C2%B7%20Java%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AD%98_files/fontsettings.js"></script>
+        
+    
+
+    
+<div><script style="display: none;" type="application/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57505611-7', 'auto', {name: 'microcdn'});
+  ga('microcdn.send', 'pageview');
+
+  var _cdn_prev_loc = window.location.pathname;
+  window.setInterval(function () {
+    if (window.location.pathname !== _cdn_prev_loc) {
+      _cdn_prev_loc = window.location.pathname;
+      ga('microcdn.send', 'pageview');
+    }
+  }, 100);
+
+</script></div>
+
+
+
+</body></html>

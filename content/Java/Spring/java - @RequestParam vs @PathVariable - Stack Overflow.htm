@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>java - @RequestParam vs @PathVariable - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="@RequestParam vs @PathVariable">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="What is the difference between @RequestParam and @PathVariable while handling special characters? + was accepted by @RequestParam as space. In case of @PathVariable, + was accepted as +.">
+    <meta property="og:url" content="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable">
+    <link rel="canonical" href="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable">
+
+    
+    
+    <script type="text/javascript" async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/ados"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/quant.js"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/beacon.js"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/ados.js"></script><script src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/jquery.js"></script>
+    <script src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question '@RequestParam vs @PathVariable'" href="https://stackoverflow.com/feeds/question/13715811">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:13715811});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '13715811');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1496931785,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"5b9f1f5fcf9675e21eb3dc0bb767f10b","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true,"ab":{"devstory_timeline_exp":{"v":"new_add_item_interaction","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"603f66610f5e","js/moderator.en.js":"f38ff18af017","js/full-anon.en.js":"149670969fc4","js/full.en.js":"2510cf588997","js/wmd.en.js":"af4e0cf56dcd","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"ba2685451c38","js/help.en.js":"a56fdf9b9ff2","js/tageditor.en.js":"235a2acc7d79","js/tageditornew.en.js":"37258b54fcc7","js/inline-tag-editing.en.js":"7581a98341e4","js/revisions.en.js":"d059a98114ef","js/review.en.js":"429e6a363749","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"d1ed57564ccd","js/explore-qlist.en.js":"88f824a42b1a","js/events.en.js":"893fb137ec42","js/keyboard-shortcuts.en.js":"a4d2faa379ef","js/external-editor.en.js":"71095ef40e9d","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"71095ef40e9d","js/snippet-javascript.en.js":"9d345bbe4762","js/snippet-javascript-codemirror.en.js":"1903f319b3e5"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css"><style type="text/css">body,.so-header{margin-top:1.9em}</style></noscript>
+<script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/full-anon.js"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/snippet-javascript.js"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/post-validation.js"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/prettify-full.js"></script><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/external-editor.js"></script><script type="text/javascript" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/adFeedback.css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="https://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="https://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    <input name="q" placeholder="Search..." tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field" type="text">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f13715811%2frequestparam-vs-pathvariable" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg role="icon" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16.001A8 8 0 0 0 9 1zm.812 12.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 168 Stack Exchange sites">
+            <svg role="icon" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13a2 2 0 0 0 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f13715811%2frequestparam-vs-pathvariable" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.2 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable" class="question-hyperlink">@RequestParam vs @PathVariable</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="13715811" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1026646070",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1026646070"><a href="https://engine.adzerk.net/r?e=eyJhdiI6OTE0OTQsImF0Ijo0LCJidCI6MCwiY20iOjU4OTg2MywiY2giOjExNzgsImNrIjp7fSwiY3IiOjE5NDEzOTMsImRpIjoiYTFiYzIyY2JlMmMxNDcyZmI3YjhhZjFiY2UwYTljYzQiLCJkbSI6MSwiZmMiOjU0OTU3MjcsImZsIjo1NjQ4NDIzLCJpcCI6IjIyMy4xMzYuMjMyLjk0Iiwia3ciOiJqYXZhLHNwcmluZyxzcHJpbmctbXZjIiwibWsiOiJqYXZhIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjo0MjUyOSwicnQiOjIsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS50dy8iLCJzYSI6IjMiLCJzYiI6ImktMGRjZmM5YjI0OTNjZTZlYTkiLCJzcCI6MTU2Mywic3QiOjgyNzcsInRyIjp0cnVlLCJ1ayI6InVlMS1lYjU4NmQzY2YyYzE0N2Y5YjhlYTY4NjZlOWFhZjdjOSIsInpuIjo0MywidHMiOjE0OTY5MzE3ODg2MTksImJmIjp0cnVlLCJwbiI6ImFkemVyazEwMjY2NDYwNzAiLCJ1ciI6Imh0dHBzOi8vcmVkaXNsYWJzLmNvbS9kb2NzLzE1LXJlYXNvbnMtY2FjaGluZy1pcy1iZXN0LWRvbmUtd2l0aC1yZWRpcy8_dXRtX3NvdXJjZT1TdGFja092ZXJmbG93JnV0bV9jYW1wYWlnbj1DYWNoaW5nJTIwaXMlMjBCZXN0JTIwd2l0aCUyMFJlZGlzJnV0bV9tZWRpdW09QmFubmVyIn0&amp;s=nNRqXPg5EKS5LU5Ru4w3Vi3FOFM" rel="nofollow" target="_blank" title=""><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/4f374f52a9c942b094b015eb08222b20.png" title="" alt="" width="728" border="0" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/i.gif" width="0px" border="0" height="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="13715811" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">144</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>60</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>What is the difference between <code>@RequestParam</code> and <code>@PathVariable</code> while handling special characters? <code>+</code> was accepted by <code>@RequestParam</code> as space. In case of <code>@PathVariable</code>, <code>+</code> was accepted as <code>+</code>.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag js-gps-track" title="show questions tagged 'java'" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/spring" class="post-tag js-gps-track" title="show questions tagged 'spring'" rel="tag">spring</a> <a href="https://stackoverflow.com/questions/tagged/spring-mvc" class="post-tag js-gps-track" title="show questions tagged 'spring-mvc'" rel="tag">spring-mvc</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/13715811" title="short permalink to this question" class="short-link" id="link-post-13715811">share</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/13715811/revisions" title="show all edits to this post">edited <span title="2012-12-13 18:26:54Z" class="relativetime">Dec 13 '12 at 18:26</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/31493/daniel-serodio"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/945258270639ca5c60f7bc5b778b3319.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/31493/daniel-serodio">Daniel Serodio</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,359</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="31 bronze badges"><span class="badge3"></span><span class="badgecount">31</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2012-12-05 03:25:03Z" class="relativetime">Dec 5 '12 at 3:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1857181/user1857181"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/72584d99acc375d8ecaa8654be5db7fc.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1857181/user1857181">user1857181</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">726</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-13715811" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-13715811" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								4 Answers
+                                <span style="display:none;" itemprop="answerCount">4</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="13718502"></a>
+<div id="answer-13718502" class="answer" data-answerid="13718502" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="13718502" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">267</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<ul>
+<li><code>@PathVariable</code> is to obtain some placeholder from the uri (Spring call it an URI Template)
+— see <a href="http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/htmlsingle/spring-framework-reference.html#mvc-ann-requestmapping-uri-templates">Spring Reference Chapter 16.3.2.2 URI Template Patterns</a></li>
+<li><code>@RequestParam</code> is to obtain an parameter — see <a href="http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/htmlsingle/spring-framework-reference.html#mvc-ann-requestparam">Spring Reference Chapter 16.3.3.3 Binding request parameters to method parameters with @RequestParam</a></li>
+</ul>
+
+<p>If URL <code>http://localhost:8080/MyApp/user/1234/invoices?date=12-05-2013</code> gets the invoices for user 1234 on December 5th, 2013, the controller method would look like:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@RequestMapping</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=</span><span class="str">"/user/{userId}/invoices"</span><span class="pun">,</span><span class="pln"> method </span><span class="pun">=</span><span class="pln"> </span><span class="typ">RequestMethod</span><span class="pun">.</span><span class="pln">GET</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Invoice</span><span class="pun">&gt;</span><span class="pln"> listUsersInvoices</span><span class="pun">(</span><span class="pln">
+            </span><span class="lit">@PathVariable</span><span class="pun">(</span><span class="str">"userId"</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> user</span><span class="pun">,</span><span class="pln">
+            </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="str">"date"</span><span class="pun">,</span><span class="pln"> required </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">)</span><span class="pln"> </span><span class="typ">Date</span><span class="pln"> dateOrNull</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Also, request parameters can be optional, but path variables 
+cannot--if they were, it would change the URL path hierarchy and 
+introduce request mapping conflicts. For example, would <code>/user/invoices</code> provide the invoices for user <code>null</code> or details about a user with ID "invoices"?</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/13718502" title="short permalink to this answer" class="short-link" id="link-post-13718502">share</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/13718502/revisions" title="show all edits to this post">edited <span title="2016-07-15 13:21:50Z" class="relativetime">Jul 15 '16 at 13:21</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/417302/bdkosher"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/XHQuX.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/417302/bdkosher">bdkosher</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,669</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="27 bronze badges"><span class="badge3"></span><span class="badgecount">27</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-12-05 07:47:16Z" class="relativetime">Dec 5 '12 at 7:47</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/280244/ralph"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/835Lz.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/280244/ralph">Ralph</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 76,410" dir="ltr">76.4k</span><span title="30 gold badges"><span class="badge1"></span><span class="badgecount">30</span></span><span title="191 silver badges"><span class="badge2"></span><span class="badgecount">191</span></span><span title="288 bronze badges"><span class="badge3"></span><span class="badgecount">288</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-13718502" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="3" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-50314682" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Can @pathVariable work with a POST request?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/3058470/ishanbakshi" title="750 reputation" class="comment-user">ishanbakshi</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment50314682_13718502"><span title="2015-07-01 04:30:24Z" class="relativetime-clean">Jul 1 '15 at 4:30</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-50334559" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy"><code>@PathVariable</code> can be used in any RequestMethod</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2646067/kurai-bankusu" title="1,285 reputation" class="comment-user">Kurai Bankusu</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment50334559_13718502"><span title="2015-07-01 13:42:07Z" class="relativetime-clean">Jul 1 '15 at 13:42</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-61091136" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This def needs a check mark next to it.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1950529/snowyetis" title="688 reputation" class="comment-user">snowYetis</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment61091136_13718502"><span title="2016-04-20 21:24:09Z" class="relativetime-clean">Apr 20 '16 at 21:24</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-67666795" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@AlexO: this has nothing to 
+do with java8, it works even for java 5 and Spring3.0: The point is that
+ the code is compiled with debugging enabled.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/280244/ralph" title="76,410 reputation" class="comment-user">Ralph</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment67666795_13718502"><span title="2016-10-23 08:18:57Z" class="relativetime-clean">Oct 23 '16 at 8:18</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-67849014" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Ralph Correct, this works 
+with debugging before Java 8. Since Java 8 it also works without 
+debugging, instead using "-parameters": <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-uri-templates" rel="nofollow noreferrer">docs.spring.io/spring/docs/current/spring-framework-referenc‌​e/…</a> <a href="https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html" rel="nofollow noreferrer">docs.oracle.com/javase/tutorial/reflect/member/…</a></span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1941359/alexo" title="225 reputation" class="comment-user">AlexO</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment67849014_13718502"><span title="2016-10-27 22:40:42Z" class="relativetime-clean">Oct 27 '16 at 22:40</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-13718502" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>3</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk510048831",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk510048831"></div>
+  
+<a name="40040384"></a>
+<div id="answer-40040384" class="answer" data-answerid="40040384" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="40040384" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">22</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><strong>@RequestParam</strong> annotation used for accessing the query parameter values from the request. Look at the following request URL:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="pln">http</span><span class="pun">:</span><span class="com">//localhost:8080/springmvc/hello/101?param1=10&amp;param2=20</span></code></pre>
+
+<p>In the above URL request, the values for param1 and param2 can be accessed as below:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getDetails</span><span class="pun">(</span><span class="pln">
+    </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=</span><span class="str">"param1"</span><span class="pun">,</span><span class="pln"> required</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> param1</span><span class="pun">,</span><span class="pln">
+        </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=</span><span class="str">"param2"</span><span class="pun">,</span><span class="pln"> required</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> param2</span><span class="pun">){</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>The following are the list of parameters supported by the @RequestParam annotation:</p>
+
+<ul>
+<li><strong>defaultValue</strong> – This is the default value as a fallback mechanism if request is not having the value or it is empty.</li>
+<li><strong>name</strong> – Name of the parameter to bind</li>
+<li><strong>required</strong> – Whether the parameter is mandatory or not. If it is true, failing to send that parameter will fail.</li>
+<li><strong>value</strong> – This is an alias for the name attribute</li>
+</ul>
+
+<p><strong>@PathVariable</strong></p>
+
+<p>@<em>PathVariable</em> identifies the pattern that is used in the URI for the incoming request. Let’s look at the below request URL:</p>
+
+<blockquote>
+  <p><a href="http://localhost:8080/springmvc/hello/101?param1=10&amp;param2=20" rel="noreferrer">http://localhost:8080/springmvc/hello/101?param1=10&amp;param2=20</a></p>
+</blockquote>
+
+<p>The above URL request can be written in your Spring MVC as below:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@RequestMapping</span><span class="pun">(</span><span class="str">"/hello/{id}"</span><span class="pun">)</span><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getDetails</span><span class="pun">(</span><span class="lit">@PathVariable</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=</span><span class="str">"id"</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> id</span><span class="pun">,</span><span class="pln">
+    </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=</span><span class="str">"param1"</span><span class="pun">,</span><span class="pln"> required</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> param1</span><span class="pun">,</span><span class="pln">
+    </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=</span><span class="str">"param2"</span><span class="pun">,</span><span class="pln"> required</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> param2</span><span class="pun">){</span><span class="pln">
+</span><span class="pun">.......</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>The @<strong>PathVariable</strong> annotation has only one attribute value for binding the request URI template. It is allowed to use the multiple @<strong>PathVariable</strong> annotation in the single method. But, ensure that no more than one method has the same pattern.</p>
+
+<p>Also there is one more interesting annotation:
+<strong>@MatrixVariable</strong></p>
+
+<blockquote>
+  <p><a href="http://localhost:8080/spring_3_2/matrixvars/stocks;BT.A=276.70,+10.40,+3.91;AZN=236.00,+103.00,+3.29;SBRY=375.50,+7.60,+2.07" rel="noreferrer">http://localhost:8080/spring_3_2/matrixvars/stocks;BT.A=276.70,+10.40,+3.91;AZN=236.00,+103.00,+3.29;SBRY=375.50,+7.60,+2.07</a></p>
+</blockquote>
+
+<p>And the Controller method for it</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="pln"> </span><span class="lit">@RequestMapping</span><span class="pun">(</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="str">"/{stocks}"</span><span class="pun">,</span><span class="pln"> method </span><span class="pun">=</span><span class="pln"> </span><span class="typ">RequestMethod</span><span class="pun">.</span><span class="pln">GET</span><span class="pun">)</span><span class="pln">
+  </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> showPortfolioValues</span><span class="pun">(</span><span class="lit">@MatrixVariable</span><span class="pln"> </span><span class="typ">Map</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">,</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;&gt;</span><span class="pln"> matrixVars</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Model</span><span class="pln"> model</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    logger</span><span class="pun">.</span><span class="pln">info</span><span class="pun">(</span><span class="str">"Storing {} Values which are: {}"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Object</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> matrixVars</span><span class="pun">.</span><span class="pln">size</span><span class="pun">(),</span><span class="pln"> matrixVars </span><span class="pun">});</span><span class="pln">
+
+    </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;&gt;</span><span class="pln"> outlist </span><span class="pun">=</span><span class="pln"> map2List</span><span class="pun">(</span><span class="pln">matrixVars</span><span class="pun">);</span><span class="pln">
+    model</span><span class="pun">.</span><span class="pln">addAttribute</span><span class="pun">(</span><span class="str">"stocks"</span><span class="pun">,</span><span class="pln"> outlist</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="str">"stocks"</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span></code></pre>
+
+<p>But you must enable:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="pun">&lt;</span><span class="pln">mvc</span><span class="pun">:</span><span class="pln">annotation</span><span class="pun">-</span><span class="pln">driven enableMatrixVariables</span><span class="pun">=</span><span class="str">"true"</span><span class="pln"> </span><span class="pun">&gt;</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/40040384" title="short permalink to this answer" class="short-link" id="link-post-40040384">share</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/40040384/revisions" title="show all edits to this post">edited <span title="2017-01-03 05:48:55Z" class="relativetime">Jan 3 at 5:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-10-14 10:00:59Z" class="relativetime">Oct 14 '16 at 10:00</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1732936/xelian"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/f107992a766854d72c417ca7d27456aa.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1732936/xelian">Xelian</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,866</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="43 silver badges"><span class="badge2"></span><span class="badgecount">43</span></span><span title="70 bronze badges"><span class="badge3"></span><span class="badgecount">70</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-40040384" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-67693432" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Will a string, such as <code>userName</code> have a type param or not? I'm leaning towards making it a variable, but it could be a param too.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/4037019/cst1992" title="978 reputation" class="comment-user">cst1992</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment67693432_40040384"><span title="2016-10-24 09:16:42Z" class="relativetime-clean">Oct 24 '16 at 9:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-74390412" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">..And here is the original post :-  <a href="http://javabeat.net/spring-mvc-requestparam-pathvariable/" rel="nofollow noreferrer">javabeat.net/spring-mvc-requestparam-pathvariable</a></span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/4516110/mehraj-malik" title="890 reputation" class="comment-user">Mehraj Malik</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment74390412_40040384"><span title="2017-04-28 04:39:10Z" class="relativetime-clean">Apr 28 at 4:39</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-40040384" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="26051012"></a>
+<div id="answer-26051012" class="answer" data-answerid="26051012" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="26051012" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>it may be that the application/x-www-form-urlencoded midia type convert space to <strong>+</strong>, and the reciever will decode the data by converting the <strong>+</strong> to space.check the url for more info.<a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1" rel="nofollow">http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/26051012" title="short permalink to this answer" class="short-link" id="link-post-26051012">share</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-09-26 02:13:00Z" class="relativetime">Sep 26 '14 at 2:13</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1889327/andy"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/lFDYA.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1889327/andy">andy</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">855</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="25 bronze badges"><span class="badge3"></span><span class="badgecount">25</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26051012" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26051012" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="41247816"></a>
+<div id="answer-41247816" class="answer" data-answerid="41247816" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="41247816" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="lit">@PathVariable</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> must be placed in the endpoint uri and access the query parameter value from the request
+</span><span class="lit">@RequestParam</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> must be passed as method parameter </span><span class="pun">(</span><span class="pln">optional based on the required property</span><span class="pun">)</span><span class="pln">
+ http</span><span class="pun">:</span><span class="com">//localhost:8080/employee/call/7865467</span><span class="pln">
+
+ </span><span class="lit">@RequestMapping</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=“/</span><span class="pln">call</span><span class="pun">/{</span><span class="pln">callId</span><span class="pun">}</span><span class="str">",</span><span class="pln"> method </span><span class="pun">=</span><span class="pln"> </span><span class="typ">RequestMethod</span><span class="pun">.</span><span class="pln">GET</span><span class="pun">)</span><span class="pln">
+ </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Calls</span><span class="pun">&gt;</span><span class="pln"> getAgentCallById</span><span class="pun">(</span><span class="pln">
+            </span><span class="lit">@PathVariable</span><span class="pun">(“</span><span class="pln">callId</span><span class="str">")</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> callId</span><span class="pun">,</span><span class="pln">
+            </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="pun">“</span><span class="pln">status</span><span class="str">",</span><span class="pln"> required </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> callStatus</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="pun">}</span><span class="pln">
+
+http</span><span class="pun">:</span><span class="com">//localhost:8080/app/call/7865467?status=Cancelled</span><span class="pln">
+
+</span><span class="lit">@RequestMapping</span><span class="pun">(</span><span class="pln">value</span><span class="pun">=“/</span><span class="pln">call</span><span class="pun">/{</span><span class="pln">callId</span><span class="pun">}</span><span class="str">",</span><span class="pln"> method </span><span class="pun">=</span><span class="pln"> </span><span class="typ">RequestMethod</span><span class="pun">.</span><span class="pln">GET</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Calls</span><span class="pun">&gt;</span><span class="pln"> getAgentCallById</span><span class="pun">(</span><span class="pln">
+            </span><span class="lit">@PathVariable</span><span class="pun">(“</span><span class="pln">callId</span><span class="str">")</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> callId</span><span class="pun">,</span><span class="pln">
+            </span><span class="lit">@RequestParam</span><span class="pun">(</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="pun">“</span><span class="pln">status</span><span class="str">",</span><span class="pln"> required </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> callStatus</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/41247816" title="short permalink to this answer" class="short-link" id="link-post-41247816">share</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-12-20 17:14:24Z" class="relativetime">Dec 20 '16 at 17:14</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4215156/mathew-menalish"><div class="gravatar-wrapper-32"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/wJ6nY.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/4215156/mathew-menalish">Mathew Menalish</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-41247816" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-41247816" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/13715811/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="13715811" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.com.tw/" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="b0bd5eefeb969cb8ce2a5352a9a79571" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f13715811%2frequestparam-vs-pathvariable%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                                    
+                                var $window = $(window),
+                                    onScroll = function(e) {
+                                        var $elem = $('.new-login-left'),
+                                            docViewTop = $window.scrollTop(),
+                                            docViewBottom = docViewTop + $window.height(),
+                                            elemTop = $elem.offset().top,
+                                            elemBottom = elemTop + $elem.height();							
+                                        if ((docViewTop < elemTop) && (docViewBottom > elemBottom))  {
+                                            StackExchange.using('gps', function() { StackExchange.gps.track('embedded_signup_form.view', { location: 'question_page' }); });
+                                            $window.unbind('scroll', onScroll);
+                                        }
+                                    };
+                                $window.on('scroll', onScroll);
+                                    
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        
+StackExchange.openid.initPostLogin('.new-post-login', 
+'https%3a%2f%2fstackoverflow.com%2fquestions%2f13715811%2frequestparam-vs-pathvariable%23new-answer',
+ 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" 
+type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" 
+size="30" maxlength="100" value="" tabindex="106" placeholder="required,
+ but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag" title="show questions tagged 'java'" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/spring" class="post-tag" title="show questions tagged 'spring'" rel="tag">spring</a> <a href="https://stackoverflow.com/questions/tagged/spring-mvc" class="post-tag" title="show questions tagged 'spring-mvc'" rel="tag">spring-mvc</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-12-05 03:25:03Z"><b>4 years, 6 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+                                    <b>137,272 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="https://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable?lastactivity" class="lastactivity-link" title="2017-01-03 05:48:55Z">5 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk736363714",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk736363714"><div id="so_community_div" style="height: 250px; width: 220px;"><style type="text/css">
+    .ads {
+        margin-left: 60px;
+    }
+
+    .ad-container {
+        width: 300px;
+        height: 250px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+        .ad-container .ad {
+            height: 250px;
+        }
+
+        .ad-container .footer-container {
+            overflow: hidden;
+            height: 30px;
+            position: relative;
+            top: -30px;
+        }
+
+            .ad-container .footer-container .footer {
+                font-family: Arial,Helvetic,Sans-Serif;
+                font-size: 12px;
+                text-align: center;
+                padding-top: 9px;
+                background-color: #000;
+                color: #EFF;
+                opacity: 0.9;
+                filter: alpha(opacity=90);
+                top: 30px;
+                height: 30px;
+                position: relative;
+            }
+
+        .ad-container a:hover {
+            text-decoration: underline;
+        }
+
+    #adzerk2 {
+        height: 250px;
+    }
+</style>
+<script>
+    StackExchange.ready(function () {
+        $(".ad-container").hover(
+            function () {
+                $(".ad-container .footer-container .footer").stop(true, 
+true).animate({ top: "0px" }, "fast");
+            },
+            function () {
+                $(".ad-container .footer-container .footer").animate({ 
+top: "30px" }, "fast");
+            });
+    });
+    if (window._passthroughAdUrl) {
+        $('.ad-container a').each(function () { $(this).attr('href', 
+window._passthroughAdUrl + (window._passthroughAdUrl.indexOf('?') == -1 ?
+ '?' : '&') + 'url=' + encodeURIComponent($(this).attr('href'))); });
+    }
+</script>
+        <div class="ad-container">
+            <div class="ad">
+                <a href="http://meta.stackoverflow.com/ads/ct/349083?url=https%3a%2f%2fgithub.com%2frubberduck-vba%2fRubberduck&amp;s=38487cd9b91c8264a195c8ff581f560bc2b3d1c89c572d37dc6433102db1885e" rel="nofollow" target="_blank"><img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/NtieB.png" alt="Help us bring the glorious VBE into this century!" title="Help us bring the glorious VBE into this century!" width="300" height="250"></a>
+            </div>
+            <div class="footer-container">
+                <div class="footer">
+                    21 votes · <a href="http://meta.stackoverflow.com/questions/349017#349083" title="click to comment on this ad" target="_blank">comment</a> · <a href="http://meta.stackoverflow.com/ads/display/349017" target="_blank">stats</a>
+                </div>
+            </div>
+        </div></div><script type="text/javascript">window._a51AdUrl = 
+"https://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NSwiYnQiOjAsImNtIjozNzM4NjIsImNoIjoxMTc4LCJjayI6e30sImNyIjoxMzc1MDY1LCJkaSI6Ijg5Mjc3YjZkZmE3NzQ5NTE5NDIyZTM1YTRjYjg0MGI3IiwiZG0iOjEsImZjIjoxNTM5MjY4LCJmbCI6MTE0NjE3NSwiaXAiOiIyMjMuMTM2LjIzMi45NCIsImt3IjoiamF2YSxzcHJpbmcsc3ByaW5nLW12YyIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS50dy8iLCJzYSI6IjMiLCJzYiI6ImktMGRjZmM5YjI0OTNjZTZlYTkiLCJzcCI6MTU2Mywic3QiOjgyNzcsInVrIjoidWUxLWViNTg2ZDNjZjJjMTQ3ZjliOGVhNjg2NmU5YWFmN2M5Iiwiem4iOjQ1LCJ0cyI6MTQ5NjkzMTc4ODYyMiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrNzM2MzYzNzE0IiwidXIiOm51bGx9&s=hcpRERfDplMSVhzc38j-ZHBMtCE";</script><script type="text/javascript" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/community"></script><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/i_002.gif" width="0px" border="0" height="0px"></div>
+            <div id="hireme"></div>
+        <script>
+window.clc_request = 
+'AnYg-eB5rtQIAAAAAGNJ0QACAAAAAgAAAAAYAAAAfGphdmF8c3ByaW5nfHNwcmluZy1tdmN8AMlhYMJxyqD6jIs';;(function(n){var
+ 
+u={log:window.console.log.bind(window.console,"[clc]"),error:window.console.error.bind(window.console,"[clc]")},f,e,t,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(f=n.allowed,!f)return;if(e=new
+ RegExp(n.allowed),!e.test(location.hostname)){u.error("Invalid host: 
+"+location.hostname);return}if(t=window,t.clc=t.clc||{},t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return
+ n.load()}),t.clc.options){for(r in 
+t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else 
+t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(o){u.error("[clc]
+ Error in loader:",o)}}).call(null, 
+{"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=436861d2e2c5","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$"});
+        </script>
+			<div class="module" id="chat-feature">
+
+    <h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="134 users active in 60 rooms the last 60 minutes">134 People Chatting</a></h4>
+    <div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript</a></span></h3><span title="2017-06-08 12:04:07Z" class="ad502-last-message">2 hours ago - <a href="http://chat.stackoverflow.com/users/2534346">Kamil Solecki</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/2534346"><img title="Kamil Solecki: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/Dfvkv.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/2412895"><img title="KarelG: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/p3J02.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/4781925"><img title="JayIsTooCommon: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/T9qYr.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/1348195"><img title="Benjamin Gruenbaum: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/f6dca2295546af21e1cde8e68f2d49bd.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/809950"><img title="GNi33: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/mIOhV.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/871050"><img title="Madara Uchiha: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/a7a50a9492be737b0c012a839338272a.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/1839506"><img title="Caprica Six: 3 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/Sej2t.jpg" width="23" height="23"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="C#"><a href="http://chat.stackoverflow.com/rooms/7">C#</a></span></h3><span title="2017-06-08 12:11:57Z" class="ad502-last-message">2 hours ago - <a href="http://chat.stackoverflow.com/users/4623058">Ibrahim Alsurkhi</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/4623058"><img title="Ibrahim Alsurkhi: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/picture.gif" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/2534346"><img title="Kamil Solecki: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/Dfvkv.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/1859959"><img title="ntohl: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/e8fe3081b93f7e139e9c87a1b9dddd7c.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/472015"><img title="Roel van Uden: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/dd31c566b8e5e541810b1cfcdce25170.png" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/701054"><img title="Avner Shahar-Kashtan: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/494c00da8ba5640f1f6a1eb1a62aaa46.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/2919498"><img title="Proxy: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/DpkPD.jpg" width="23" height="23"></a><a href="http://chat.stackoverflow.com/users/313414"><img title="Tom W: 2 hours ago" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/wR062.jpg" width="23" height="23"></a></div></div></div>
+    <script>
+    // <!--
+        StackExchange.ready(
+        function () {
+            var options = {
+                chatUrl: 'http://chat.stackoverflow.com',
+                reloadUrl: '/api/recent-chat',
+                preloadData: 
+{"activeUsers":134,"activeRooms":60,"rooms":[{"name":"JavaScript","id":17,"lastPost":1496923447,"posts":4026649,"users":[{"name":"Kamil
+ 
+Solecki","id":2534346,"emailhash":"!https://i.stack.imgur.com/Dfvkv.jpg?s=128\u0026g=1","lastPost":1496923447},{"name":"KarelG","id":2412895,"emailhash":"!https://i.stack.imgur.com/p3J02.jpg?s=128\u0026g=1","lastPost":1496922022},{"name":"JayIsTooCommon","id":4781925,"emailhash":"!https://i.stack.imgur.com/T9qYr.png?s=128\u0026g=1","lastPost":1496921954},{"name":"Benjamin
+ 
+Gruenbaum","id":1348195,"emailhash":"f6dca2295546af21e1cde8e68f2d49bd","lastPost":1496921697},{"name":"GNi33","id":809950,"emailhash":"!https://i.stack.imgur.com/mIOhV.jpg?s=128\u0026g=1","lastPost":1496921566},{"name":"Madara
+ 
+Uchiha","id":871050,"emailhash":"a7a50a9492be737b0c012a839338272a","lastPost":1496921231},{"name":"Caprica
+ 
+Six","id":1839506,"emailhash":"!https://i.stack.imgur.com/Sej2t.jpg?s=128\u0026g=1","lastPost":1496920996}],"messages":[{"date":1496923447,"user":"Kamil
+ 
+Solecki","userid":2534346}],"singleImage":false,"tags":["ecmascript","ecmascript-6","hypescript","javascript","nodejs"]},{"name":"C#","id":7,"lastPost":1496923917,"posts":2125808,"users":[{"name":"Ibrahim
+ 
+Alsurkhi","id":4623058,"emailhash":"!https://graph.facebook.com/654774567982179/picture?type=large","lastPost":1496923917},{"name":"Kamil
+ 
+Solecki","id":2534346,"emailhash":"!https://i.stack.imgur.com/Dfvkv.jpg?s=128\u0026g=1","lastPost":1496923741},{"name":"ntohl","id":1859959,"emailhash":"e8fe3081b93f7e139e9c87a1b9dddd7c","lastPost":1496923703},{"name":"Roel
+ van 
+Uden","id":472015,"emailhash":"dd31c566b8e5e541810b1cfcdce25170","lastPost":1496923695},{"name":"Avner
+ 
+Shahar-Kashtan","id":701054,"emailhash":"494c00da8ba5640f1f6a1eb1a62aaa46","lastPost":1496923585},{"name":"Proxy","id":2919498,"emailhash":"!https://i.stack.imgur.com/DpkPD.jpg?s=128\u0026g=1","lastPost":1496923454},{"name":"Tom
+ 
+W","id":313414,"emailhash":"!https://i.stack.imgur.com/wR062.jpg?s=128\u0026g=1","lastPost":1496921067}],"messages":[{"date":1496923917,"user":"Ibrahim
+ 
+Alsurkhi","userid":4623058}],"singleImage":false,"tags":[".net","asp.net","asp.net-mvc","c#","coreclr","entity-framework","linq","visual-studio","wcf","wpf"]}]}
+ 
+            };
+
+            StackExchange.chatAd.init(options);
+        });
+    // -->
+    </script>
+
+</div>
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/32837964?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/32837964/ambiguous-handler-methods-for-http-path?noredirect=1&amp;lq=1" class="question-hyperlink">Ambiguous handler methods for http path?</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/33593390?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/33593390/spring-resttemplate-sending-array-list-of-string-in-get-request?noredirect=1&amp;lq=1" class="question-hyperlink">Spring RestTemplate: sending array / list of String in GET request</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/26697071?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/26697071/error-405-method-not-allowed-error-when-sending-delete-to-server?noredirect=1&amp;lq=1" class="question-hyperlink">Error 405 Method Not Allowed error, when sending DELETE to server</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/34703568?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/34703568/how-to-properly-manage-pathvariables-with-spring?noredirect=1&amp;lq=1" class="question-hyperlink">How to properly manage PathVariables with spring</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/7257153?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">4</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/7257153/handling-special-characters-in-post-parameters-for-spring-mvc?noredirect=1&amp;lq=1" class="question-hyperlink">Handling special characters in post parameters for Spring-mvc</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/32367501?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">6</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/32367501/what-is-the-difference-between-pathparam-and-pathvariable?noredirect=1&amp;lq=1" class="question-hyperlink">What is the difference between @PathParam and @PathVariable</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/32341270?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">7</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/32341270/uploading-pdf-from-jspdf-with-ajax-using-binary-data?noredirect=1&amp;lq=1" class="question-hyperlink">Uploading PDF from jsPDF with AJAX using binary data</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/31398498?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">-1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/31398498/diffrence-between-requestparam-and-requestmapping?noredirect=1&amp;lq=1" class="question-hyperlink">diffrence between @RequestParam and @RequestMapping</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/26859786?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/26859786/rest-services-pass-parameters-in-key-value-format?noredirect=1&amp;lq=1" class="question-hyperlink">rest services- pass parameters in key value format</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/31269722?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/31269722/receive-url-parameter-on-a-spring-controller-from-an-angular-application?noredirect=1&amp;lq=1" class="question-hyperlink">Receive URL parameter on a Spring controller from an Angular application</a>
+</div>					<div class="spacer more">
+				<a href="https://stackoverflow.com/questions/linked/13715811?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/3526523?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes large">115</div></a><a href="https://stackoverflow.com/questions/3526523/spring-mvc-pathvariable-getting-truncated?rq=1" class="question-hyperlink">Spring MVC @PathVariable getting truncated</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/4073970?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">13</div></a><a href="https://stackoverflow.com/questions/4073970/in-a-spring-3-0-get-request-whats-the-difference-between-a-pathvariable-and-a?rq=1" class="question-hyperlink">In a Spring 3.0 GET request, what's the difference between a @PathVariable and a @RequestParam</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/23917192?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/23917192/pathvariable-and-requestparam-and-object-as-method-argument?rq=1" class="question-hyperlink">@PathVariable and @RequestParam and Object as method argument</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/24410395?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="https://stackoverflow.com/questions/24410395/use-requestparam-or-pathvariable?rq=1" class="question-hyperlink">Use @RequestParam or @PathVariable?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/27513048?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="https://stackoverflow.com/questions/27513048/what-is-the-correct-way-to-register-a-custom-converter-for-spring-4-requestpara?rq=1" class="question-hyperlink">What is the correct way to register a custom converter for Spring 4 @RequestParam or @PathVariable</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/30641675?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">7</div></a><a href="https://stackoverflow.com/questions/30641675/pathvariable-and-requestparam-not-working-together?rq=1" class="question-hyperlink">@PathVariable and @RequestParam not working together</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/31339002?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="https://stackoverflow.com/questions/31339002/when-to-go-for-requestparam-and-pathvariable?rq=1" class="question-hyperlink">When to go for @RequestParam and @PathVariable</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/32713389?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="https://stackoverflow.com/questions/32713389/pathvariable-and-requestparam-in-one-query?rq=1" class="question-hyperlink">@PathVariable and @RequestParam in one query</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/37827901?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/37827901/binding-requestbody-requestparam-pathvariable-to-a-single-object?rq=1" class="question-hyperlink">Binding @RequestBody, @RequestParam, @PathVariable to a single object</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/37878684?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="https://stackoverflow.com/questions/37878684/when-to-choose-requestparam-over-pathvariable-and-vice-versa?rq=1" class="question-hyperlink">When to choose @RequestParam over @PathVariable and vice-versa?</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/44427682/why-does-work-with-wrapper-classes-while-doesnt" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does '&lt;', '&gt; ' work with wrapper classes while '==' doesn't ?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/373920/realscripts-package-not-working-in-texlive-2017-mactex" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Realscripts package not working in TeXLive 2017 (MacTeX)
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/393023/is-there-a-word-or-idiom-that-refers-to-short-distance-other-than-walkable" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a word or idiom that refers to "short distance", other than "walkable" and "a stone's throw"?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-bioinformatics" title="Bioinformatics Stack Exchange"></div><a href="https://bioinformatics.stackexchange.com/questions/570/what-to-use-to-edit-rna-alignments" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:676 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What to use to edit RNA alignments?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/125053/golf-an-anagram-quine" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Golf an Anagram Quine
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-blender" title="Blender Stack Exchange"></div><a href="https://blender.stackexchange.com/questions/81001/how-do-i-put-my-blender-screen-back-to-normal-to-how-i-first-got-it" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:502 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I put my Blender screen back to normal, to how I first got it?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/161256/why-dont-merry-and-pippin-seem-taller-than-frodo-and-sam-even-after-drinking-e" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't Merry and Pippin seem taller than Frodo and Sam, even after drinking ent-draught?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-writers" title="Writers Stack Exchange"></div><a href="https://writers.stackexchange.com/questions/28548/uh-oh-my-book-stinks-now-what" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Uh oh - My book stinks. Now what?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-sqa" title="Software Quality Assurance &amp; Testing Stack Exchange"></div><a href="https://sqa.stackexchange.com/questions/27622/how-should-a-software-tester-deal-with-missed-defects-bugs-in-production" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:244 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How should a Software Tester deal with missed Defects/bugs in Production?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2313839/how-should-i-be-avoiding-this-mistake-to-avoid-missing-solutions" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How should I be avoiding this mistake? (To avoid missing solutions)
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/82881/could-extreme-climate-zones-exist-next-to-each-other" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Could extreme climate zones exist next to each other?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/101206/can-a-spell-be-cast-through-semi-transparent-things" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a spell be cast through (semi) transparent things?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/131709/is-the-particle-up-redundant-in-phrases-like-to-pick-up-berries" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is the particle 'up' redundant in phrases like 'to pick *up* berries'?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-latin" title="Latin Language Stack Exchange"></div><a href="https://latin.stackexchange.com/questions/4516/why-does-%e1%bf%a4%ce%ac%cf%81%ce%bf%cf%82-have-a-smooth-breathing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:644 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does "ῤάρος" have a smooth breathing?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="https://crypto.stackexchange.com/questions/48054/creating-your-own-encryption-and-decryption-algorithm" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Creating your own encryption and decryption algorithm
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/94824/should-i-fabricate-additional-support-document-after-uk-v-4-2-a-c-refusal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I Fabricate Additional Support Document after UK V 4.2 (a) +(c) refusal
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/19591/why-is-the-death-sentence-considered-to-be-an-unacceptable-punishment-in-the-cou" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is the death sentence considered to be an 
+unacceptable punishment in the Council of Europe, while life 
+imprisonment is not?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/271608/17-camels-trick" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    17 camels trick
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/161254/old-scifi-movie-where-aliens-disguise-as-humans" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Old scifi movie where aliens disguise as humans
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-bioinformatics" title="Bioinformatics Stack Exchange"></div><a href="https://bioinformatics.stackexchange.com/questions/578/how-to-convert-species-names-into-common-names" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:676 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to convert species names into common names?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/338113/why-does-the-earth-cool-at-night-time" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does the Earth cool at night time?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/369958/can-not-erase-file-in-home" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can not erase file in $HOME
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/309568/using-cpu-heat-to-generate-electricity" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Using CPU heat to generate electricity
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="https://stats.stackexchange.com/questions/284096/correlation-does-not-imply-causation-not-always" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Correlation does not imply causation? Not always
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/13715811" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/13715811/ivc/a2c2');});
+</script>
+<noscript>
+    <div><img src="/posts/13715811/ivc/a2c2" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-java</div></div>
+
+
+        </div>
+    </div><script async="" src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/clc.js"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:1 })" href="https://stackoverflow.com/company/about">about us</a>
+                        <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:2 })" href="https://stackoverflow.com/tour">tour</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:3 })" href="https://stackoverflow.com/help">help</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:5 })" href="https://chat.stackoverflow.com/">chat</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:6 })" href="https://data.stackexchange.com/">data</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:7 })" href="https://stackexchange.com/legal">legal</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:8 })" href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:9 })" href="https://stackoverflow.com/company/work-here">work here</a>
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:10 })" href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:11 })" href="https://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:12 })" onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:13 })" href="https://stackoverflow.com/contact">contact us</a></b>
+                        <b><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link:14 })" href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="https://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="https://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="https://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="https://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="https://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="https://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="https://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="https://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="https://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                        <li><a href="https://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="https://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="https://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="https://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="https://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="https://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="https://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="https://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="https://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="https://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="https://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="https://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="https://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="https://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="https://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="https://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="https://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="https://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="https://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="https://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="https://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="https://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="https://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="https://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="https://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="https://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="https://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="https://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="https://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="https://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="https://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="https://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="https://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="https://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="https://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="https://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="https://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="https://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="https://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="https://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="https://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="https://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="https://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="https://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="https://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="https://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="https://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.6.8.26169
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled
+            <img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno">
+        </div>
+    </noscript>
+<script>var 
+z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var
+ 
+s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('java,spring,spring-mvc');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || 
+function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new
+ Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = 
+g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 
+'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', 
+sampleRate: 5 });
+                ga('set', 'dimension2', '|java|spring|spring-mvc|');
+                ga('pageData.set', 'dimension2', 
+'|java|spring|spring-mvc|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + 
+'.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + 
+'.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = 
+newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i)
+ || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') 
+service =  2;
+                                    else if (service === 'Place') 
+service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', 
+function() {
+                                        
+StackExchange.gps.track('google_maps_places_api.call', { service: 
+service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+<img src="java%20-%20@RequestParam%20vs%20@PathVariable%20-%20Stack%20Overflow_files/timeout.gif" style="display: none;"></body></html>

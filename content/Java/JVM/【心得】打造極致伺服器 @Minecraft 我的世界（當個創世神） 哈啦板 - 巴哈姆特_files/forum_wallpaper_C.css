@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/* 藍綠漸層 */
+
+/* ■■■ 共 通 ■■■ */
+/* -------------子板標籤------------- */
+.FM-tags a{ color:#464646; background:url(https://i2.bahamut.com.tw/forum/main_btnbg2.gif) repeat-x 0 -978px;}
+.FM-tags a:hover{ background-position:0 -1003px; color:#FFFFFF;}
+#FM-tagsnow{ background-position:0 -1003px; color:#FFFFFF;}
+/* ■■■ B 頁 ■■■ */
+/* 文章列表頭 */
+.FM-blist1{ background:url(https://i2.bahamut.com.tw/forum/main_btnbg2.gif) repeat-x 0 -782px;}
+/* -------------個人資訊區------------- */
+.FM-cbox2{ background:url(https://i2.bahamut.com.tw/forum/main_btnbg2.gif) repeat-x 0 -785px;}
+/* 標題*/
+.FM-cbox3{ background:url(https://i2.bahamut.com.tw/forum/main_btnbg2.gif) repeat-x 0 -782px;}
+.FM-cbox3 a{ color:#333333;}/* BP*/

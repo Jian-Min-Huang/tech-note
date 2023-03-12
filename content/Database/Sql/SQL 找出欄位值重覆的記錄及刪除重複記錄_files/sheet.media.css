@@ -1,0 +1,154 @@
+﻿@media(min-width:1180px){
+div.textually div.totem-large{max-width:850px;margin:0 auto}
+div.textually p{max-width:740px}
+}
+@media(min-width:1051px){
+div.domintro ul.articles li a{background:url(../images/topic.png) no-repeat 5px center}
+div.domintro ul.articles li a:hover:after{right:70px}
+div.domintro ul.articles li a:before{content:"";width:1px;height:1px;display:block;bottom:0;right:0;position:absolute;border-top:1px solid transparent;border-right:1px solid transparent;transition:border .3s ease}
+div.domintro ul.articles li a:hover:before{border-top:60px solid transparent;border-right:60px solid #f0f3f9;background-color:#fff}
+div.domintro ul.articles li a:hover{padding-left:95px}
+div.contents div.categories{width:270px}
+div.related-topic ul li a{padding:15px 0 15px 85px;background:url(../images/topic.png) no-repeat 3px center}
+div.related-topic ul li a:hover{padding-left:90px}
+div.related-topic ul li a:before{content:"";width:1px;height:1px;display:block;position:absolute;bottom:0;right:0;border-top:1px solid transparent;border-right:1px solid transparent;transition:border .3s ease}
+div.related-topic ul li a:hover:before{border-top:60px solid transparent;border-right:60px solid #f0f3f9;background-color:#fff}
+div.domintro div.categorization a{padding:0 25px;background:url(../images/ga-arrow.png) no-repeat 0 6px}
+div.domintro div.categorization span{padding:0 0 0 22px;background:url(../images/ga-arrow.png) no-repeat 0 6px}
+div.domintro div.categorization a:hover{background-position:8px 6px}
+div.textually-search div.search-result ul li a{padding:15px 0 15px 85px;background:url(../images/topic.png) no-repeat 3px center}
+div.textually-search div.search-result ul li a:hover{padding-left:95px}
+div.textually-search div.search-result ul li a:before{content:"";width:1px;height:1px;display:block;bottom:0;right:0;position:absolute;border-top:1px solid transparent;border-right:1px solid transparent;transition:border .3s ease}
+div.textually-search div.search-result ul li a:hover:before{border-top:60px solid transparent;border-right:60px solid #f0f3f9;background-color:#fff}
+div.frame-footer div.links a.touch{display:none}
+}
+@media(min-width:960px){
+div.contents div.categories div ul li:hover:before{font-size:15px;color:#fe9;bottom:10px}
+div.contents div.categories div ul li a.cm:hover{padding-left:20px;color:#f3f6f9;background-color:#508555;box-shadow:inset 0 0 24px 0 rgba(0,0,0,0.3)}
+}
+@media(min-width:1051px) and (max-width:1200px){
+div.frame-matrix{width:1000px;max-width:1000px}
+div.contents div.domintro{width:730px}
+div.business{max-width:680px;margin-left:10px}
+.shCode{max-width:720px}
+}
+@media(min-width:960px) and (max-width:1050px){
+div.frame-matrix{width:920px;max-width:920px}
+div.contents div.sponsor-top{display:none}
+div.domintro div.billboard{margin:15px 0 0}
+div.contents div.domintro{width:650px}
+div.domintro ul.articles li a{padding:15px 0 15px 15px}
+div.domintro ul.articles li a:hover{padding-left:20px}
+.shCode{max-width:650px}
+div.textually-search div.search-form{padding:25px 30px 0}
+div.textually-search div.search-result{margin:0 30px}
+div.textually{max-width:620px}
+div.business{max-width:620px;margin-left:10px}
+div.fluid-icon{max-width:620px}
+}
+@media(min-width:768px){
+div.domintro ul.articles li a:after{content:attr(data-dates);font-size:11px;color:#c3c6c9;right:5px;bottom:5px;position:absolute;transition:all .15s linear}
+div.domintro ul.billboard{border-spacing:1px}
+div.domintro ul.billboard li{width:25%}
+div.across-nav a{padding:0 20px;background:url(../images/ga-arrow.png) no-repeat left center}
+}
+@media(min-width:768px) and (max-width:959px){
+div.frame-matrix{width:728px;max-width:728px}
+div.contents div.categories{width:100%;margin:0 auto;background-color:transparent;display:block}
+div.contents div.categories div ul li:before{font-size:14px;top:10px;right:5px}
+div.frame-header div.nav ul.n > li > span.categories{display:inline-block}
+div.contents div.categories div.sidebar{padding:0 0 80px;overflow:auto}
+div.contents div.categories div.sidebar ul{width:60%;margin:0;float:left}
+div.contents div.categories div.sidebar ul.graphics{margin:20px 0 0}
+div.contents div.categories div ul.domain li:after{content:"";width:24px;height:24px;top:9px;left:15px;position:absolute;display:block;background:url(../images/storage.png) no-repeat center}
+div.contents div.categories div ul.categorization li:after{content:"";width:24px;height:24px;top:9px;left:15px;position:absolute;display:block;background:url(../images/tag.png) no-repeat center}
+div.contents div.categories div ul li a{padding-left:45px}
+div.contents div.categories div ul li a.cm:hover{padding-left:50px}
+div.contents div.categories div ul li a{font-size:16px}
+div.contents div.categories div.sidebar div{width:35%;max-width:250px;margin:0 0 40px;float:right}
+div.contents div.categories div.sidebar div.search{display:none}
+div.contents div.categories div.sidebar div.tower{display:none}
+div.contents div.sponsor-top{display:table}
+div.contents div.domintro{width:728px;display:block}
+.shCode{max-width:700px}
+div.contents div.categories div.sidebar{margin:20px 0}
+div.domintro ul.articles li a{padding:15px 0 15px 15px}
+div.frame-header div.nav ul.n li > a{padding:0 10px}
+div.frame-footer div ol{width:100%}
+div.frame-footer div ol li.row-c{padding:0;width:28%}
+div.frame-footer div ol li.row-t{padding:0;width:36%}
+div.frame-footer div ol li.logo{display:none}
+div.frame-footer div ol li.links a{font-size:15px;line-height:30px}
+div.business{margin:0 10px 200px}
+div.textually{margin:0 10px}
+}
+@media(max-width:767px){
+div.contents div.domintro{min-height:0}
+div.contents div.categories div.sidebar div.search{display:none}
+div.contents div.categories div.sidebar{margin:20px 0 0;padding:0;overflow:auto}
+div.domintro div.billboard{border-spacing:0}
+div.domintro ul.billboard li{width:33.33%}
+div.domintro ul.billboard li div{padding:5px 10px 30px;font-size:15px}
+div.domintro ul.articles li a{color:#0095dd}
+div.domintro ul.articles li a:hover{padding-left:15px}
+div.categories div.colored-pencils{display:none}
+div.frame-matrix{width:100%;max-width:none;display:block}
+div.contents div.categories{width:100%;display:block;border-top:1px solid #fff}
+div.contents div.categories div ul li:before{font-size:13px;color:#fff;font-weight:700;top:10px;right:8px;line-height:22px;height:22px;width:28px;background-color:#965C5D;border-radius:15px}
+div.contents div.categories div ul li a{padding:10px 0 10px 20px;font-size:16px}
+div.contents div.categories div ul li a.cm:hover{background-color:#f6f9fc}
+div.contents div.categories div ul.domain{display:none}
+div.categories div.mediums{display:none}
+div.categories div.tower{padding:30px 0;text-align:center;}
+div.contents div.sponsor-top{display:none}
+div.contents div.domintro{padding:0;width:100%;display:block;box-sizing:border-box}
+.shCode{max-width:98%}
+div.contents div.post-topic{display:none}
+div.domintro p.create-date{display:none}
+div.frame-header div.nav ul.n > li > span.categories{display:inline-block}
+div.frame-header div.nav ul.n > li > a{padding:0 10px}
+div.frame-header div.nav ul.n li.desktop{display:none}
+div.frame-header div.across a.en{display:none}
+div.frame-footer div ol li.row-t{display:none}
+div.frame-footer div ol{padding:0}
+div.textually-search form input[type="text"]{width:75%}
+div.textually-search form span{width:25%;letter-spacing:0}
+div.business{margin:0 auto 60px;width:95%}
+div.business p{margin:10px}
+div.domintro ul.articles li a{padding:10px 5px 10px 15px;height:auto}
+div.domintro ul.articles li a strong{font-size:16px;line-height:24px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+div.domintro ul.articles li a span{display:none}
+div.domintro div.categorization span{display:none}
+div.related-topic ul li a{padding:10px 5px 10px 15px}
+div.related-topic ul li a:hover{padding-left:18px}
+div.related-topic ul li a strong{font-size:16px;line-height:24px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+div.related-topic ul li a span{display:none}
+div.textually-search div.search-result ul li a strong{font-size:16px;line-height:24px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+div.textually-search div.search-result ul li a span{display:none}
+div.domintro div.category-bottom{display:none}
+div.domintro div.categorization{padding:20px 30px 20px 5px;background-color:#f0f3f9;overflow-x:hidden;overflow-y:hidden;white-space:nowrap}
+div.domintro div.pages ul li a,div.domintro div.pages ul li b{height:38px;line-height:40px}
+div.textually-search form{margin:30px 20px 1px}
+div.textually-search div.popular-keyword{margin:0 20px}
+div.frame-footer div ol{width:100%}
+div.frame-footer div ol li.logo{width:50%}
+div.frame-footer div ol li.logo a{width:180px;height:180px;background:url(../images/apple-touch-144x144.png) no-repeat center transparent}
+div.frame-footer div ol li.row-c{width:50%}
+div.frame-footer div ol li.row-c a{font-size:16px;line-height:34px}
+}
+@media(max-width:480px){
+div.domintro ul.billboard li{width:50%}
+div.domintro div.billboard{display:none}
+div.frame-header div.nav ul.n > li.m{display:inline}
+div.frame-header div.nav ul.n > li:not(.m){display:none}
+div.frame-footer div ol li{padding:0 0 0 10px}
+div.frame-footer div ol li.logo a{width:140px;height:150px;background:url(../images/apple-touch-114x114.png) no-repeat center transparent}
+div.frame-footer div p.contentinfo a.return-bug{display:none}
+div.textually-search form input[type="text"]{width:70%}
+div.textually-search form span{width:30%;letter-spacing:0}
+div.frame-footer div ol li{padding:0 5px}
+}
+@media(max-width:320px){
+div.frame-header div.across a{padding:1px 8px}
+div.frame-footer div p.contentinfo span.author{display:none}
+}

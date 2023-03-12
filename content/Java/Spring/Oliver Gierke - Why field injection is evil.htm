@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://olivergierke.de/2013/11/why-field-injection-is-evil/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us" class="wf-inactive"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <title>Oliver Gierke - Why field injection is evil</title>
+   <meta name="author" content="Oliver Gierke">
+   <meta name="google-site-verification" content="jK1GPyjzTp269nR-GMzfjkdcdR0Y-b3gHHWUIgebv8M">
+   <link href="http://olivergierke.de/atom.xml" rel="alternate" title="Blog Atom Feed" type="application/atom+xml">
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="./Oliver Gierke - Why field injection is evil_files/syntax.css" type="text/css">
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="./Oliver Gierke - Why field injection is evil_files/screen.css" type="text/css" media="screen, projection">
+
+   <link rel="stylesheet" href="./Oliver Gierke - Why field injection is evil_files/css" type="text/css">
+
+   <!-- Typekit -->
+   <script type="text/javascript" src="./Oliver Gierke - Why field injection is evil_files/jpd0pfm.js"></script>
+   <style type="text/css">.tk-inconsolata,code{font-family:"inconsolata-1","inconsolata-2","Monaco","Courier New",monospace;}</style><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" async="" src="./Oliver Gierke - Why field injection is evil_files/embed.js"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.4e10b9b49da3a68b43b56b9d6392cfaa.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.5c2c79222b3102b8568ff61fb846a843.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.ed3cc201d441bbb05a66330e355a8904.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"></head>
+<body>
+
+  <div class="site">
+    <div class="title">
+      <a href="http://olivergierke.de/">Oliver Gierke</a>
+
+      <a class="extra" href="http://olivergierke.de/archive">Archive</a>
+      <a class="extra" href="http://olivergierke.de/about">About</a>
+      <a class="extra" href="http://olivergierke.de/tags">Tags</a>
+    </div>
+
+    
+<div id="post">
+  <h1>Why field injection is evil</h1>
+  <p class="meta">
+    22 November 2013 
+    
+  </p>
+  
+<p>I’m quite frequently getting pulled into discussions on Twitter about the different flavors of <a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a>. Also, I’ve repeatedly expressed my <a href="https://twitter.com/olivergierke/status/314704198908403713">distaste for field injection</a> but as Twitter is not the right communication channel to give an in-depth rational about my opinion. So here we go.</p>
+
+<p>Let’s discuss this stuff with a bit of (quite generic) context: we want to code a component that has a collaborator. As we know, Dependency Injection is the means to connect the two the apparently easiest way to achieve this is the following:</p>
+
+<pre><code>class MyComponent {
+ 
+  @Inject MyCollaborator collaborator;
+  
+  public void myBusinessMethod() {
+    collaborator.doSomething();
+  }
+}
+</code></pre>
+
+<p>So what’s wrong with this code? </p>
+
+<h2 id="its-nullpointerexceptions-begging-to-happen">It’s NullpointerExceptions begging to happen</h2>
+
+<p>Well, first of all it’s broken by default. What’s the API you get to create instances of this class which you will need in your unit test?</p>
+
+<pre><code>MyComponent component = new MyComponent();
+component.myBusinessMethod(); // -&gt; NullPointerException
+</code></pre>
+
+<p>The core of the problem here is that code you’ve written allows clients to create instances of the class in an invalid state. The whole purpose of a type is clients being able to rely on the invariants it enforces. It’s one of the reasons you use an <code>EmailAddress</code> type over a plain <code>String</code> to represent email adresses in your code: clients can be sure the instance they get is a valid email address as the value object enforces this constraint during construction. A <code>String</code> can potentially be anything, validated or not - how do you know?</p>
+
+<p>So you can probably guess what this is heading to: constructor injection. Let’s rewrite the code shown before in a way it actually enforces the traits I just outlined:</p>
+
+<pre><code>class MyComponent {
+ 
+  private final MyCollaborator collaborator;
+  
+  @Inject
+  public MyComponent(MyCollaborator collaborator) {
+    Assert.notNull(collaborator, "MyCollaborator must not be null!");
+    this.collaborator = collaborator;
+  }
+
+  public void myBusinessMethod() {
+    collaborator.doSomething();
+  }
+}
+</code></pre>
+
+<p>“Ohh boy!”, I can hear you say, “So much boilerplate code!”. Let me get back to this argument in a bit and just recap, what we’ve achieved:</p>
+
+<ol>
+  <li><em>You can only create instances of <code>MyComponent</code> by providing a <code>MyCollaborator</code></em>. You <em>force</em> clients to provide mandatory dependencies, making sure every object created is in a valid state after construction.</li>
+  <li><em>You communicate mandatory dependencies publicly.</em> Remember when we bashed service locators for hiding dependencies in the implementations? Field injections is just lipstick on the pig in that regard. You still don’t know about the dependencies just looking at the public interface of the type (e.g. while skimming the JavaDoc). Especially if you share code amongst projects field injection based types become a “run-and-wait-for-the-NPE-to-happen,-declare-missing-beans-and-repeat” kind of approach.</li>
+  <li><em>Final fields also add to the immutable nature application components get.</em> You can clearly distinguish between mandatory dependencies (<code>final</code>) and optional ones (non-<code>final</code>) usually injected through setter injection.</li>
+</ol>
+
+<p>An often faced argument I get is: “Constructors just get too verbose if I have 6 or 7 dependencies. With fields only, this is fine”. Awesome, you’ve effectively worked around a clear indicator that the code you write is doing way too much. An increase in the number of dependencies a type has <em>should</em>  hurt, as it makes you think about whether you should split up the component into multiple ones. You want to really cure the pain, not blindly apply pain killers to it, don’t you?</p>
+
+<h1 id="testability">Testability</h1>
+
+<p>Coming back to the amount of code to be written for the constructor injection based variant. Assuming we sticked to the field injection variant, we would have much less code to write, right? Well, I guess you’re writing tests for your code, right? So how do you actually inject a dependency into your component while testing?</p>
+
+<pre><code>MyCollaborator collaborator = … // mock dependency
+MyComponent component = new MyComponent();
+// Inject dependency by some reflection magic
+component.myBusinessMethod();
+</code></pre>
+
+<p>Reflection is the answer here, fine. No matter how comfortable you make this by using a helper method or the like, it’s still a messy workaround isn’t it? Especially if the alternative to that is a simple:</p>
+
+<pre><code>MyCollaborator collaborator = … // mock dependency
+MyComponent component = new MyComponent(collaborator);
+component.myBusinessMethod();
+</code></pre>
+
+<p>You get code completion on the constructor call and when you add a dependency to the type under test, refactoring applies, no unset dependencies etc.</p>
+
+<h1 id="boilerplate-buster-lombok">Boilerplate buster Lombok</h1>
+
+<p>Admittedly I’ve been turned off by the amount of code to be written for constructor injection in the first place as well. This is clearly a shortcoming of Java as a languages. Unfortunately a lot of good OO practices like value objects, favoring delegation over inheritance and constructor DI are significantly easier to implement in languages like Scala.</p>
+
+<p>However, <a href="http://projectlombok.org/">Project Lombok</a> is a really awesome helper to reduce the amount of boilerplate you have to write to do “the right things” (™). There’s a ton of helpful features in Lombok but I want to concentrate on the one related to the discussion here. With Lombok the constructor DI based variant of my component up there would look something like this:</p>
+
+<pre><code>@RequiredArgsConstructor(onConstructor = @__(@Inject))
+class MyComponent {
+    
+  private final @NonNull MyCollaborator collaborator;
+
+  public void myBusinessMethod() {
+    collaborator.doSomething();
+  }
+}
+</code></pre>
+
+<p>The <code>@RequiredArgsAnnotation</code> will cause a constructor being added during the compilation process taking all final fields as parameters. The additional <code>@NonNull</code> annotation will cause the parameter be checked for <code>null</code> as well. The weird looking <code>onConstructor</code> is Lombok’s way of letting you add annotations to the constructor generated. So with an additional annotation you effectively get the API we’re looking for.</p>
+
+<p>To summarize, here are the results of the comparison that I get to:</p>
+
+<h3 id="field-injection">Field injection:</h3>
+
+<pre><code>++ less code to write
+-- unsafe code
+ - more complicated to test
+</code></pre>
+
+<h3 id="constructor-injection">Constructor injection:</h3>
+
+<pre><code>++ safe code
+ - more code to write (see the hint to Lombok)
+ + easy to test
+</code></pre>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>09 Oct 2016</span> » <a href="http://olivergierke.de/2016/10/evolving-distributed-systems/">Evolving Distributed Systems</a></li>
+    
+      <li><span>29 Apr 2016</span> » <a href="http://olivergierke.de/2016/04/benefits-of-hypermedia/">The Benefits of Hypermedia APIs</a></li>
+    
+      <li><span>20 Sep 2013</span> » <a href="http://olivergierke.de/2013/09/666-hell-not-found/">666 - Hell not found</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+  <div id="disqus_thread"><iframe id="dsq-app6184" name="dsq-app6184" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Oliver Gierke - Why field injection is evil_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 9395px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'olivergierke'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+
+
+
+
+
+
+
+    <div class="footer">
+      <div class="contact">
+        <p>
+          Oliver Gierke<br>
+          Soul Power!<br>
+        </p>
+      </div>
+      <div class="contact">
+        <p>
+          <a href="http://github.com/olivergierke/">github.com/olivergierke</a><br>
+          <a href="http://twitter.com/olivergierke/">twitter.com/olivergierke</a><br>
+          <a href="mailto:info@olivergierke.de">info@olivergierke.de</a>
+        </p>
+      </div>
+      <div class="rss">
+        <a href="http://olivergierke.de/atom.xml">
+          <img src="./Oliver Gierke - Why field injection is evil_files/rss.png" alt="Subscribe to Atom Feed">
+        </a>
+      </div>
+    </div>
+  </div>
+  <a href="http://github.com/olivergierke"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./Oliver Gierke - Why field injection is evil_files/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+  
+
+
+
+<iframe style="display: none;" src="./Oliver Gierke - Why field injection is evil_files/saved_resource(2).html"></iframe></body></html>

@@ -1,0 +1,147 @@
+(function () {
+    if (window['$$ee']) {
+        //已戴入過; 
+        return;
+    }
+
+    var $$eeArg = {
+
+        TrackingId: null,
+
+        InitTime: null,
+
+        LogGuid: null,
+
+        EVUrl: 'https://wrl.eagleeye.com.tw/ea/ev?json=',
+
+        //fn: function (action, arg1, arg2, arg3) {
+        fn: function (arTemp) {
+            
+            var action = arTemp[0] || null;
+            var arg1 = arTemp[1] || null;
+            var arg2 = arTemp[2] || null;
+            var arg3 = arTemp[3] || null;            
+
+            if (action == "create") {
+                $$eeArg.TrackingId = arg1;
+            }
+
+            if (action == "send") {
+                var postData = {
+                    Id: $$eeArg.TrackingId,
+                    Type: arg1,
+                    rf: document.referrer,
+                    pt: document.title,
+                    pu: document.location.href,
+                    Data: arg2
+                };
+                var json = encodeURIComponent(JSON.stringify(postData));
+                var tag = document.createElement('script');
+                tag.src = $$eeArg.EVUrl + json + "&d=" + (new Date()).getTime();
+                tag.defer = true;
+
+                var head = document.body || document.getElementsByTagName("body")[0];
+                head.appendChild(tag);
+            }
+
+            if (action == "send_P") {
+                var postData = {
+                    Id: arg2,
+                    Type: arg1,
+                    rf: document.referrer,
+                    pt: document.title,
+                    pu: document.location.href,
+                    Data: arg3
+                };
+                var json = encodeURIComponent(JSON.stringify(postData));
+                var tag = document.createElement('script');
+                tag.src = $$eeArg.EVUrl + json;
+
+                var head = document.body || document.getElementsByTagName("body")[0];
+                head.appendChild(tag);
+            }
+
+            if (action == "track") {
+                var dNow = new Date().getTime();
+
+                var postData = {
+                    G: $$eeArg.LogGuid,
+                    Id: $$eeArg.TrackingId,
+                    Type: arg1.TrackType,
+                    Value: arg1.Value,
+                    Catalog: arg1.Catalog,
+                    Label: arg1.Label,
+                    TS: (dNow - $$eeArg.InitTime),
+                    rf: document.referrer,
+                    pu: document.location.href,
+                    Action: action
+                }
+
+                var json = encodeURIComponent(JSON.stringify(postData));
+                var tag = document.createElement('script');
+                tag.src = "https://wrl.eagleeye.com.tw/ea/tr?json=" + json;                
+
+                var head = document.head || document.getElementsByTagName("head")[0];
+                head.appendChild(tag);
+            }
+        },
+
+        as: function (jsSrc, jsOnloadfn) {
+            var jsTagTemp = document.createElement('script');
+            if (jsOnloadfn) {
+                jsTagTemp.addEventListener("load", function () {
+                    jsOnloadfn();
+                });
+            }
+            jsTagTemp.src = jsSrc;
+            document.getElementsByTagName('body')[0].appendChild(jsTagTemp);
+        },
+
+        ai: function (src) {
+            var tag = document.createElement('img');
+            tag.src = src;
+        },
+
+        guid: function () {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                  .toString(16)
+                  .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+              s4() + '-' + s4() + s4() + s4();
+        }
+    };
+
+    $$eeArg.InitTime = new Date().getTime();
+    $$eeArg.LogGuid = $$eeArg.guid();
+    //window.$$eeInner = $$eeArg.fn;
+    window.$$eeas = $$eeArg.as;
+    window.$$eeai = $$eeArg.ai;
+
+    var objName = window['eagleeyeObject'];
+    var obj = window[objName];
+    if (obj) {
+        if (obj.q && Array.isArray(obj.q)) {         
+            for (var idx = 0; idx < obj.q.length ; idx++) {
+                var item = obj.q[idx];
+                var arArgTemp = [];
+                for (var j = 0; j < item.length ; j++) {
+                    arArgTemp.push(item[j]);
+                }
+                $$eeArg.fn(arArgTemp);
+            }
+        }
+    }
+
+    obj = function () {
+        var arArg = [];
+        for (var idx = 0; idx < arguments.length; idx++) {
+            arArg.push(arguments[idx]);
+        }    
+        $$eeArg.fn(arArg);
+    };
+       
+    window[objName] = obj;
+    window.$$ee = obj;    
+})();/*2017-06-20 16:44:50*/

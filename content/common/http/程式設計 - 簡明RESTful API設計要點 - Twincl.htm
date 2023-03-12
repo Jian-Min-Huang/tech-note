@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/base.css">
+<script id="facebook-jssdk" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/sdk.js"></script><script async="" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/analytics.js"></script><script src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/lib.js" defer="defer"></script>
+<script src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/app-tw.js" defer="defer"></script>
+<title>程式設計 - 簡明RESTful API設計要點 - Twincl</title>
+<meta property="og:url" content="https://tw.twincl.com/programming/*641y">
+<meta property="og:type" content="article">
+<meta property="og:title" content="簡明RESTful API設計要點">
+<meta property="og:image" content="https://farm3.staticflickr.com/2099/3544229880_5f51d356ee_z_d.jpg">
+<meta property="og:description" content="遵循REST原則設計web服務的API，已逐漸成為業界主流。去年我還在Yahoo的時候，負責工作之一是制定亞太工程部門的REST API標準；雖說是亞太地區，但也被不少美國總部的同事review...">
+<meta property="og:site_name" content="Twincl">
+<meta property="fb:app_id" content="1677625792475783">
+<meta property="google:client_id" content="998645872989-cj82v79srq0cf4u1f76645534dji32j3.apps.googleusercontent.com">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:25px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:15px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:19px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:13px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:13px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:17px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body>
+<div id="app"><div data-reactroot=""><header class="header"><div class="wrap nav"><nav class="header-hub-nav"><div class="header-logo"><a href="https://tw.twincl.com/"><img src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/logo.svg"></a></div><ul><li><a href="https://tw.twincl.com/computers"><!-- react-text: 11 -->電腦<!-- /react-text --></a></li><li><a href="https://tw.twincl.com/programming"><!-- react-text: 14 -->程式設計<!-- /react-text --></a></li></ul></nav><nav class="header-user-nav"><ul><li><img class="header-user-pic" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/guest.png"></li><li class="login-link"><a href="#">登入</a></li></ul></nav></div><div class="message"></div></header><div class="card"><main class="post wrap"><div class="buttons"><a href="#" data-action="bookmark" data-row="1">收藏</a><a href="#" title="推薦" data-action="upvote" data-row="1">+</a><a href="#" title="不推薦" data-action="downvote" data-row="1">-</a></div><div class="post-score-box"><span class="post-scale"><span class="dim0" title="2"><span class="post-collected"> </span><span class="ssize3">❀</span></span></span><span class="post-scale-value">2-0</span></div><div class="post-author-box"><div><img class="post-author-pic" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/6b00fc29b103bcf6ae1de072a50ea301.jpg"></div><div><a class="post-author" href="https://tw.twincl.com/@arthurtw">Arthur Liao</a><br><span title="2016/4/7 下午12:50" class="age age6">1年前</span><span class="post-updated"><!-- react-text: 42 -->&nbsp;<!-- /react-text --><span title="(2016/4/7 下午7:43)" class="age age6">(更新)</span></span></div></div><h1 class="post-type-box"><div><span class="posttype-blogpost"></span></div></h1><h1 class="post-title" data-hint="標題">簡明RESTful API設計要點</h1><article class="text"><div><p>遵循<a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST原則</a>設
+計web服務的API，已逐漸成為業界主流。去年我還在Yahoo的時候，負責工作之一是制定亞太工程部門的REST 
+API標準；雖說是亞太地區，但也被不少美國總部的同事review過，所以也不算閉門造車了。這篇文章，是結合我之前對REST 
+API的了解，加上創業以來實做web API的心得，所整理出的一些要點，希望對大家有幫助。</p>
+<p>文章中的許多內容，帶有我個人主觀偏好。雖然我有這樣主張的理由，但仍請大家自行斟酌，不需照單全收。</p>
+<p><img src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/3544229880_5f51d356ee_z_d.jpg" alt=""><br><em>RESTful (Photo credit: <a href="https://www.flickr.com/photos/caitlinstewart/3544229880">Cait Stewart @flickr</a> CC BY-SA 2.0)</em></p>
+<h3>（一）HTTP動詞</h3>
+<p>RESTful API設計的第一步，是充份了解常用的HTTP動詞。一些API設計的選擇容或見人見智，用錯HTTP動詞就不好了。</p>
+<ul>
+<li><strong>GET</strong>: 讀取資源 (safe &amp; idempotent)</li>
+<li><strong>PUT</strong>: 替換資源 (idempotent)</li>
+<li><strong>DELETE</strong>: 刪除資源 (idempotent)</li>
+<li><strong>POST</strong>: 新增資源；也作為萬用動詞，處理其它要求</li>
+<li><strong>PATCH</strong>: 更新資源部份內容</li>
+<li><strong>HEAD</strong>: 類似GET，但只回傳HTTP header (safe &amp; idempotent)</li>
+<li>其它還有一些較少用到的，可參考Wikipedia: <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">Hypertext Transfer Protocol</a></li>
+</ul>
+<p>以上「safe」是指該操作不會改變伺服器端的資源狀態（而且結果可以被cache）；「idempotent」是指該操作不管做1遍或做n遍，都
+會得到同樣的資源狀態結果（但不一定得到同樣的回傳值，例如第2次DELETE請求可能回傳404），因此client端可以放心retry。</p>
+<p>PUT、POST和PATCH容易混淆，補充說明如下：</p>
+<ol>
+<li><strong>PUT</strong>通常是用來替換單一資源或資源集合 (resource collection) 的內容。</li>
+<li><strong>POST</strong>除了用來新增資源，也作為catch-all用途，例如用在utility API。（Utility API是不同於一般資源讀寫操作的要求類型，例如檢查某個促銷活動碼是否有效。）</li>
+<li><strong>PATCH</strong>用來更新資源部份內容。前幾年有人會用POST代替PATCH，現在應該沒這必要了；建議除非infrastructure有限制，否則直接用PATCH即可。</li>
+</ol>
+<h3>（二）URI名詞</h3>
+<p>相對於HTTP動詞，URI就是名詞了。URI由prefix + API endpoint組成。Prefix的部份可有可無，例如<code>/api</code>或<code>/api/v1</code>。API endpoint的設計，幾個重要原則如下：</p>
+<ul>
+<li>一般資源用<strong>複數名詞</strong>，例如<code>/books</code>或<code>/books/123</code>。
+<ul>
+<li>有些人認為用單數比較好，因為<code>/book/123</code>看似比<code>/books/123</code>合理；但想想檔案系統的目錄命名（例如<code>/Users</code>或<code>/Documents</code>），其實用複數也沒問題。複數可以保持API endpoint的一致性，所以一般資源建議用複數。</li>
+</ul>
+</li>
+<li>唯一資源（亦即對client而言只有一份的資源）用<strong>單數名詞</strong>。例如<a href="https://developer.github.com/v3/activity/watching/#list-repositories-being-watched">GitHub watching API</a>中的<code>GET /user/subscriptions</code>，其中<code>user</code>是指目前驗證的使用者，所以用單數。</li>
+<li>資源的層級架構，可以適當反應在API endpoint設計上，例如<code>/books/123/chapters/2</code>。</li>
+<li>Utility API與resource API性質不同，它的endpoint設計只要合理即可，例如<code>/search?q={keywords}</code>。</li>
+<li>建議URI components都用<strong>小寫</strong>，兩個字之間用減號<code>-</code>或底線<code>_</code>隔開皆可，但應保持一致。（我個人偏好用<code>-</code>）</li>
+</ul>
+<h3>（三）HTTP回傳狀態碼</h3>
+<p>API回傳的結果，應使用適當的HTTP狀態碼，所以API設計者必須了解它們。以下是一些常用的狀態碼，完整列表請參考<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">Wikipedia</a>。</p>
+<ul>
+<li><strong>2xx: 成功</strong>
+<ul>
+<li>200 OK: 通用狀態碼</li>
+<li>201 Created: 資源新增成功</li>
+<li>202 Accepted: 請求已接受，但尚在處理中</li>
+<li>204 No Content: 請求成功，但未回傳任何內容</li>
+</ul>
+</li>
+<li><strong>3xx: 重新導向</strong>
+<ul>
+<li>301 Moved Permanently: 資源已移至它處</li>
+<li>303 See Other: 回傳的內容可在它處取得（例如在用戶端發送了一個POST請求之後）</li>
+<li>304 Not Modified: 請求的資源並未修改（通常是用戶端發送了帶有If-Modified-Since或If-None-Match表頭的請求）</li>
+</ul>
+</li>
+<li><strong>4xx: 用戶端錯誤</strong>（用戶端不應retry原始請求）
+<ul>
+<li>400 Bad Request: 通用狀態碼</li>
+<li>401 Unauthorized: 用戶端尚未驗證*</li>
+<li>403 Forbidden: 用戶端被禁止此請求*</li>
+<li>404 Not Found: 請求的資源不存在</li>
+<li>405 Method Not Allowed: 不支援請求的HTTP方法</li>
+<li>406 Not Acceptable: 不支援請求所<strong>要求</strong>的內容類型*（Accept表頭）</li>
+<li>415 Unsupported Media Type: 不支援請求所<strong>用</strong>的內容類型*（Content-Type表頭）</li>
+</ul>
+</li>
+<li><strong>5xx: 伺服器錯誤</strong>（用戶端可合理retry）
+<ul>
+<li>500 Internal Server Error: 工程師要找bug了</li>
+<li>501 Not Implemented: 用戶端的請求目前未支援（也就是將來有可能支援）</li>
+<li>502 Bad Gateway: 上游的伺服器未回傳正確結果，一般是gateway或proxy server才會回傳此狀態碼</li>
+<li>503 Service Unavailable: 暫停服務（也就是過不久就會恢復服務──如果一切順利的話）</li>
+<li>504 Gateway Timeout: 上游的伺服器逾時，一般是gateway或proxy server才會回傳此狀態碼</li>
+</ul>
+</li>
+</ul>
+<p>* 關於幾個容易混淆的狀態碼，補充說明如下：</p>
+<ol>
+<li>401、403: 401是指用戶端尚未驗證，也就是unauthenticated（HTTP spec裡用unauthorized有些誤導）；403是指用戶端目前的身份不被允許此項請求（通常是用戶端已驗證過了），或是所有使用者都不被允許此項請求。</li>
+<li>406、415: 
+406是指用戶端要求「回傳」的Content-Type（也就是用戶端在Accept表頭裡所要求的），伺服器不支援；415是指用戶端送出的「請
+求」，其Content-Type（也就是用戶端HTTP request body的內容類型），伺服器不支援。</li>
+</ol>
+<p>另外要注意，這些回傳的狀態碼，是代表API這一層的執行狀態，而<strong>不是商業邏輯</strong>這一層的狀態。例如當<code>/search?q=xyz</code>搜尋結果是空的，API結果仍應回傳200，而非404；因為從API角度來看，<code>/search</code>這個「資源」存在，而且API執行成功。</p>
+<h3>（四）HTTP Header</h3>
+<p>用戶端送出API請求時，可能會帶一些HTTP header，例如：</p>
+<ul>
+<li>Accept: 能夠接受的回應內容類型 (Content-Type)，屬於內容協商的一環</li>
+<li>Authorization: 認證資訊</li>
+</ul>
+<p>至於API回傳結果的HTTP header，沒甚麼特別之處，按照一般原則處理即可（例如Content-Type、Content-Length、ETag、Cache-Control…）。</p>
+<h3>（五）HTTP Body: JSON或XML格式</h3>
+<p>現在JSON已被普遍支援，加上JSON處理上較簡潔，所以越來越多人採用JSON作為API的HTTP body格式。但要採用JSON或XML（或同時支援兩種格式），仍應視專案的實際需求而定。</p>
+<h3>（六）其它原則</h3>
+<ol>
+<li>與HTTP一樣，API應該是stateless，也就是一項工作單元不應由二個或二個以上API組成。（這也引申出一個有趣的問題：REST API如何支援transaction？這個問題超出本篇文章的範圍，以後有機會再談。）</li>
+<li>REST API所呈現的資源，是從應用面及client角度來思考，並不需要和後端的資源儲存形式（例如資料庫schema）維持一對一的關係。</li>
+<li><a href="https://en.wikipedia.org/wiki/Representational_state_transfer#Uniform_interface">HATEOAS</a>&nbsp;(Hypermedia as the engine of application state) 雖然是REST原始定義裡的一環，但我認為不一定需要。</li>
+<li>Query parameter的部份，只要風格保持一致即可，REST對此並無特殊規範。</li>
+</ol>
+<h3>結語</h3>
+<p>RESTful API是一種設計風格，這種風格使API設計具有整體一致性，易於維護、擴展，並且充份利用HTTP協定的特點。這篇文章列出一些我認為較重要的部份，希望能幫助不熟REST API的人，在最短時間對它有個初步了解。</p>
+<p><em>May your API REST.</em>&nbsp;(誤)</p>
+</div></article><div class="buttons"><a href="#" data-action="bookmark" data-row="2">收藏</a><a href="#" title="推薦" data-action="upvote" data-row="2">+</a><a href="#" title="不推薦" data-action="downvote" data-row="2">-</a></div><div class="fb-like fb_iframe_widget" data-href="https://tw.twincl.com/programming/*641y" data-size="small" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=recommend&amp;app_id=1677625792475783&amp;container_width=0&amp;href=https%3A%2F%2Ftw.twincl.com%2Fprogramming%2F*641y&amp;layout=button_count&amp;locale=zh_TW&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;size=small"><span style="vertical-align: bottom; width: 119px; height: 20px;"><iframe name="f3387c5af0fe582" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 119px; height: 20px;" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/like.htm" class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div></main></div><div class="card gray"><section class="comments wrap"><div class="comments-count"><a name="c0"></a><span class="count">1筆討論</span><span class="buttons"><!-- react-text: 61 --> <!-- /react-text --><a href="#" data-action="reply">回應文章</a></span></div><div><div data-comment-id="1"><div class="commenter-box clearfix" data-action="collapse"><div><a name="c1" href="https://tw.twincl.com/@arthurtw">Arthur Liao</a><span title="2016/11/4 下午4:29" class="age age5">6個月</span><span title="(2016/11/5 下午4:25)" class="age age5">(更新)</span><span class="comment-scale"></span></div><div class="comment-menu"><a href="#" data-action="collapse"></a></div></div><article class="text"><div><p>英文版本：<a href="https://twincl.com/programming/*6af/rest-api-design">A Concise RESTful API Design Guide</a></p>
+</div></article><div></div></div></div></section></div></div></div>
+<footer class="footer"><div><ul class="footer-menu"><li><a href="https://tw.twincl.com/company/terms">使用條款</a></li><li><a href="https://tw.twincl.com/company/privacy">隱私政策</a></li><li><a href="https://tw.twincl.com/company/about">關於我們</a></li></ul><br><div>網站版權 © 2017 途聞國際有限公司</div></div><div><div><img class="cc-by-icon" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/cc-by.svg"></div><div class="cc-by-notes">除另有註明，由網站使用者建立之內容<br>皆採用<a href="http://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用CC BY 4.0</a>授權條款</div></div></footer><form><input id="_pst" name="_pst" value="" type="hidden"></form>
+<script id="setup" type="application/json">
+{"page":{"type":"post","time":1495115824,"url":"/programming/*641y","pageSize":50},
+ "header":{"logo":"/assets/img/logo.5c1.svg"},
+ "user":{"uid":"","name":"Guest","picture":"/assets/img/guest.5c1.png"},
+ "hub":{"hid":"programming","readonly":false,"leaf":false,"name":"程式設計","names":["程式設計"],"links":["/computers 電腦","/programming 程式設計"],"children":[{"hid":"cpp","name":"C/C++","readonly":null,"leaf":true,"skips":null},{"hid":"css-html","name":"CSS & HTML","readonly":null,"leaf":true,"skips":null},{"hid":"java","name":"Java","readonly":null,"leaf":true,"skips":null},{"hid":"javascript","name":"JavaScript","readonly":null,"leaf":false,"skips":null},{"hid":"dotnet","name":".NET","readonly":null,"leaf":true,"skips":null},{"hid":"php","name":"PHP","readonly":null,"leaf":true,"skips":null},{"hid":"python","name":"Python","readonly":null,"leaf":true,"skips":null},{"hid":"mobile-app","name":"行動App","readonly":null,"leaf":false,"skips":null},{"hid":"database","name":"資料庫","readonly":null,"leaf":true,"skips":null},{"hid":"devprocess","name":"開發流程","readonly":null,"leaf":true,"skips":null}],"blocks":{"right":["Twincl程式園地\n\n*<font color=\"silver\">─</font> 程式人寫給程式人的交流園地*\n\n**還在用臉書社團討論程式設計嗎？**陽春的討論功能，沒有標題、爬文不方便，不能貼程式碼……\n\n**找不到好的討論區嗎？**以前常去的網站功能有點舊了，不支援行動裝置、不能投票、還在蓋大樓……\n\n歡迎來到Twincl程式交流園地！\n\n### 這裡有…\n\n<font color=\"#3a3\">✓</font> 現代化的討論區功能\\\n<font color=\"#3a3\">✓</font> 方便討論程式的Markdown格式\\\n<font color=\"#3a3\">✓</font> 採用RWD（自適應網站設計）\\\n<font color=\"#3a3\">✓</font> 多種發文類型，滿足不同需求\\\n<font color=\"#3a3\">✓</font> 適合討論，也適合發表完整文章\n\n歡迎各路高手、新手，在此切磋交流，大家共同提升！\n\nP.S. 如有開新版（子版）的需求，請隨時提出。\n\n### 註冊方法\n\n免註冊，直接以Google或Facebook帳號登入即可使用。\n\n### 臉書專頁\n\n[Twincl程式園地臉書專頁](https://www.facebook.com/tw.twincl.programming/)"]},"selectable":true},
+ "actions":{"read":1},
+ "posts":[{"pid":"641y","hub":"programming","kind":"BlogPost","date":1460004628,"by":"Arthur Liao @arthurtw","title":"簡明RESTful API設計要點","summary":"遵循REST原則設計web服務的API，已逐漸成為業界主流。去年我還在Yahoo的時候，負責工作之一是制定亞太工程部門的REST API標準；雖說是亞太地區，但也被不少美國總部的同事review...","tags":"","thumbnail":"https://farm3.staticflickr.com/2099/3544229880_5f51d356ee_m_d.jpg","upvote":2,"downvote":0,"commentCount":1,"commentDate":1478248147,"collectDate":1460433280,"picture":"6b00fc29b103bcf6ae1de072a50ea301","content":"遵循[REST原則](https://en.wikipedia.org/wiki/Representational_state_transfer)設計web服務的API，已逐漸成為業界主流。去年我還在Yahoo的時候，負責工作之一是制定亞太工程部門的REST API標準；雖說是亞太地區，但也被不少美國總部的同事review過，所以也不算閉門造車了。這篇文章，是結合我之前對REST API的了解，加上創業以來實做web API的心得，所整理出的一些要點，希望對大家有幫助。\n\n文章中的許多內容，帶有我個人主觀偏好。雖然我有這樣主張的理由，但仍請大家自行斟酌，不需照單全收。\n\n![](https://farm3.staticflickr.com/2099/3544229880_5f51d356ee_z_d.jpg)<br>*RESTful (Photo credit: [Cait Stewart @flickr](https://www.flickr.com/photos/caitlinstewart/3544229880) CC BY-SA 2.0)*\n\n### （一）HTTP動詞\n\nRESTful API設計的第一步，是充份了解常用的HTTP動詞。一些API設計的選擇容或見人見智，用錯HTTP動詞就不好了。\n\n- **GET**: 讀取資源 (safe & idempotent)\n- **PUT**: 替換資源 (idempotent)\n- **DELETE**: 刪除資源 (idempotent)\n- **POST**: 新增資源；也作為萬用動詞，處理其它要求\n- **PATCH**: 更新資源部份內容\n- **HEAD**: 類似GET，但只回傳HTTP header (safe & idempotent)\n- 其它還有一些較少用到的，可參考Wikipedia: [Hypertext Transfer Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)\n\n以上「safe」是指該操作不會改變伺服器端的資源狀態（而且結果可以被cache）；「idempotent」是指該操作不管做1遍或做n遍，都會得到同樣的資源狀態結果（但不一定得到同樣的回傳值，例如第2次DELETE請求可能回傳404），因此client端可以放心retry。\n\nPUT、POST和PATCH容易混淆，補充說明如下：\n\n1. **PUT**通常是用來替換單一資源或資源集合 (resource collection) 的內容。\n1. **POST**除了用來新增資源，也作為catch-all用途，例如用在utility API。（Utility API是不同於一般資源讀寫操作的要求類型，例如檢查某個促銷活動碼是否有效。）\n1. **PATCH**用來更新資源部份內容。前幾年有人會用POST代替PATCH，現在應該沒這必要了；建議除非infrastructure有限制，否則直接用PATCH即可。\n\n### （二）URI名詞\n\n相對於HTTP動詞，URI就是名詞了。URI由prefix + API endpoint組成。Prefix的部份可有可無，例如`/api`或`/api/v1`。API endpoint的設計，幾個重要原則如下：\n\n- 一般資源用**複數名詞**，例如`/books`或`/books/123`。\n  - 有些人認為用單數比較好，因為`/book/123`看似比`/books/123`合理；但想想檔案系統的目錄命名（例如`/Users`或`/Documents`），其實用複數也沒問題。複數可以保持API endpoint的一致性，所以一般資源建議用複數。\n- 唯一資源（亦即對client而言只有一份的資源）用**單數名詞**。例如[GitHub watching API](https://developer.github.com/v3/activity/watching/#list-repositories-being-watched)中的`GET /user/subscriptions`，其中`user`是指目前驗證的使用者，所以用單數。\n- 資源的層級架構，可以適當反應在API endpoint設計上，例如`/books/123/chapters/2`。\n- Utility API與resource API性質不同，它的endpoint設計只要合理即可，例如`/search?q={keywords}`。\n- 建議URI components都用**小寫**，兩個字之間用減號`-`或底線`_`隔開皆可，但應保持一致。（我個人偏好用`-`）\n\n### （三）HTTP回傳狀態碼\n\nAPI回傳的結果，應使用適當的HTTP狀態碼，所以API設計者必須了解它們。以下是一些常用的狀態碼，完整列表請參考[Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)。\n\n- **2xx: 成功**\n  - 200 OK: 通用狀態碼\n  - 201 Created: 資源新增成功\n  - 202 Accepted: 請求已接受，但尚在處理中\n  - 204 No Content: 請求成功，但未回傳任何內容\n- **3xx: 重新導向**\n  - 301 Moved Permanently: 資源已移至它處\n  - 303 See Other: 回傳的內容可在它處取得（例如在用戶端發送了一個POST請求之後）\n  - 304 Not Modified: 請求的資源並未修改（通常是用戶端發送了帶有If-Modified-Since或If-None-Match表頭的請求）\n- **4xx: 用戶端錯誤**（用戶端不應retry原始請求）\n  - 400 Bad Request: 通用狀態碼\n  - 401 Unauthorized: 用戶端尚未驗證\\*\n  - 403 Forbidden: 用戶端被禁止此請求\\*\n  - 404 Not Found: 請求的資源不存在\n  - 405 Method Not Allowed: 不支援請求的HTTP方法\n  - 406 Not Acceptable: 不支援請求所**要求**的內容類型\\*（Accept表頭）\n  - 415 Unsupported Media Type: 不支援請求所**用**的內容類型\\*（Content-Type表頭）\n- **5xx: 伺服器錯誤**（用戶端可合理retry）\n  - 500 Internal Server Error: 工程師要找bug了\n  - 501 Not Implemented: 用戶端的請求目前未支援（也就是將來有可能支援）\n  - 502 Bad Gateway: 上游的伺服器未回傳正確結果，一般是gateway或proxy server才會回傳此狀態碼\n  - 503 Service Unavailable: 暫停服務（也就是過不久就會恢復服務──如果一切順利的話）\n  - 504 Gateway Timeout: 上游的伺服器逾時，一般是gateway或proxy server才會回傳此狀態碼\n\n\\* 關於幾個容易混淆的狀態碼，補充說明如下：\n\n1. 401、403: 401是指用戶端尚未驗證，也就是unauthenticated（HTTP spec裡用unauthorized有些誤導）；403是指用戶端目前的身份不被允許此項請求（通常是用戶端已驗證過了），或是所有使用者都不被允許此項請求。\n1. 406、415: 406是指用戶端要求「回傳」的Content-Type（也就是用戶端在Accept表頭裡所要求的），伺服器不支援；415是指用戶端送出的「請求」，其Content-Type（也就是用戶端HTTP request body的內容類型），伺服器不支援。\n\n另外要注意，這些回傳的狀態碼，是代表API這一層的執行狀態，而**不是商業邏輯**這一層的狀態。例如當`/search?q=xyz`搜尋結果是空的，API結果仍應回傳200，而非404；因為從API角度來看，`/search`這個「資源」存在，而且API執行成功。\n\n### （四）HTTP Header\n\n用戶端送出API請求時，可能會帶一些HTTP header，例如：\n\n- Accept: 能夠接受的回應內容類型 (Content-Type)，屬於內容協商的一環\n- Authorization: 認證資訊\n\n至於API回傳結果的HTTP header，沒甚麼特別之處，按照一般原則處理即可（例如Content-Type、Content-Length、ETag、Cache-Control…）。\n\n### （五）HTTP Body: JSON或XML格式\n\n現在JSON已被普遍支援，加上JSON處理上較簡潔，所以越來越多人採用JSON作為API的HTTP body格式。但要採用JSON或XML（或同時支援兩種格式），仍應視專案的實際需求而定。\n\n### （六）其它原則\n\n1. 與HTTP一樣，API應該是stateless，也就是一項工作單元不應由二個或二個以上API組成。（這也引申出一個有趣的問題：REST API如何支援transaction？這個問題超出本篇文章的範圍，以後有機會再談。）\n1. REST API所呈現的資源，是從應用面及client角度來思考，並不需要和後端的資源儲存形式（例如資料庫schema）維持一對一的關係。\n1. [HATEOAS](https://en.wikipedia.org/wiki/Representational_state_transfer#Uniform_interface) (Hypermedia as the engine of application state) 雖然是REST原始定義裡的一環，但我認為不一定需要。\n1. Query parameter的部份，只要風格保持一致即可，REST對此並無特殊規範。\n\n### 結語\n\nRESTful API是一種設計風格，這種風格使API設計具有整體一致性，易於維護、擴展，並且充份利用HTTP協定的特點。這篇文章列出一些我認為較重要的部份，希望能幫助不熟REST API的人，在最短時間對它有個初步了解。\n\n*May your API REST.* (誤)","remarks":[],"replies":[1],"comments":[null,{"cid":1,"date":1478248147,"update":1478334327,"by":"Arthur Liao @arthurtw","content":"英文版本：[A Concise RESTful API Design Guide](https://twincl.com/programming/*6af/rest-api-design)","upvote":0,"downvote":0,"parent":0,"replies":[]}],"update":1460029437}],
+ "votes":[{}]}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-75873285-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<noscript>JavaScript support is required for full experience of the site. <a href="/programming/*641y?ssr=1">Click here for a server-rendered page.</a></noscript>
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%20-%20%E7%B0%A1%E6%98%8ERESTful%20API%E8%A8%AD%E8%A8%88%E8%A6%81%E9%BB%9E%20-%20Twincl_files/0F7S7QWJ0Ac.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div></body></html>

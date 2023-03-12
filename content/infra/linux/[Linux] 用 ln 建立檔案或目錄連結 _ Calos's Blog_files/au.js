@@ -1,0 +1,1 @@
+!function(e){"use strict";var t=function(){};!function(e,t){var n=document.getElementsByTagName("head")[0],a=document.createElement("script");a.type="text/javascript",a.src=e,a.onreadystatechange=t,a.onload=t,n.appendChild(a)}("//a.breaktime.com.tw/js/au-ac.js",t)}(window);

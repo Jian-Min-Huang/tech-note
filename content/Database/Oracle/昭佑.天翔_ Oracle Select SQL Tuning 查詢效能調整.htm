@@ -1,0 +1,2747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0066)http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/3332739511-widget_css_bundle.css" rel="stylesheet" type="text/css">
+
+<meta content="blogger" name="generator">
+<link href="http://tomkuo139.blogspot.tw/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="昭佑.天翔 - Atom" href="http://tomkuo139.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="昭佑.天翔 - RSS" href="http://tomkuo139.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="昭佑.天翔 - Atom" href="https://www.blogger.com/feeds/7065255949366990244/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="昭佑.天翔 - Atom" href="http://tomkuo139.blogspot.com/feeds/6647090461060107882/comments/default">
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/001.jpg" rel="image_src">
+<link href="https://plus.google.com/110446559769219557883" rel="publisher">
+<meta content="http://tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html" property="og:url">
+<meta content="Oracle Select SQL Tuning 查詢效能調整" property="og:title">
+<meta content="前提: 以下的幾種檢查方式， 都是我的經驗談 ， 但不管哪一種檢查方式 ， 都是為了 &quot;減少資料筆數的讀取 ， 以加快查詢速度&quot; 。    檢查 1: 建立 Index Key    大多數的查詢速度慢，利用新增 Index Key，效率上大都會有一定地提升。   曾經有查詢 1..." property="og:description">
+<meta content="http://3.bp.blogspot.com/-OlGQMLi0R3w/UwroG6xMJwI/AAAAAAAAuto/SgANrOOKnj4/w1200-h630-p-k-no-nu/001.jpg" property="og:image">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>昭佑.天翔: Oracle Select SQL Tuning 查詢效能調整</title>
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Stretch Denim
+Designer: Darren Delaye
+URL:      www.DarrenDelaye.com
+Date:     11 Jul 2006
+-----------------------------------------------
+*/
+/* Variable definitions
+====================
+<Variable name="bgColor" description="Page Background Color"
+type="color" default="#efefef">
+<Variable name="textColor" description="Text Color"
+type="color" default="#333333">
+<Variable name="linkColor" description="Link Color"
+type="color" default="#336699">
+<Variable name="headerBgColor" description="Page Header Background Color"
+type="color" default="#336699">
+<Variable name="headerTextColor" description="Page Header Text Color"
+type="color" default="#ffffff">
+<Variable name="headerCornersColor" description="Page Header Corners Color"
+type="color" default="#528bc5">
+<Variable name="mainBgColor" description="Main Background Color"
+type="color" default="#ffffff">
+<Variable name="borderColor" description="Border Color"
+type="color" default="#cccccc">
+<Variable name="dateHeaderColor" description="Date Header Color"
+type="color" default="#999999">
+<Variable name="sidebarTitleBgColor" description="Sidebar Title Background Color"
+type="color" default="#ffd595">
+<Variable name="sidebarTitleTextColor" description="Sidebar Title Text Color"
+type="color" default="#333333">
+<Variable name="bodyFont" description="Text Font"
+type="font" default="normal normal 100% Verdana, Arial, Sans-serif;">
+<Variable name="headerFont" description="Page Header Font"
+type="font" default="normal normal 210% Verdana, Arial, Sans-serif;">
+<Variable name="startSide" description="Start side in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="End side in blog language"
+type="automatic" default="right">
+*/
+body {
+background: #ffffff;
+margin: 0;
+padding: 0px;
+font: x-small Verdana, Arial;
+text-align: center;
+color: #333333;
+font-size/* */:/**/small;
+font-size: /**/small;
+}
+a:link {
+color: #336699;
+}
+a:visited {
+color: #336699;
+}
+a img {
+border-width: 0;
+}
+#outer-wrapper {
+font: normal normal 100% Verdana, Arial, Sans-serif;;
+}
+/* Header
+----------------------------------------------- */
+#header-wrapper {
+margin:0;
+padding: 0;
+background-color: #528bc5;
+text-align: left;
+}
+#header {
+margin: 0 2%;
+background-color: #336699;
+color: #ffffff;
+padding: 0;
+font: normal normal 210% Verdana, Arial, Sans-serif;;
+position: relative;
+}
+h1.title {
+padding-top: 38px;
+margin: 0 1% .1em;
+line-height: 1.2em;
+font-size: 100%;
+}
+h1.title a, h1.title a:visited {
+color: #ffffff;
+text-decoration: none;
+}
+#header .description {
+display: block;
+margin: 0 1%;
+padding: 0 0 40px;
+line-height: 1.4em;
+font-size: 50%;
+}
+/* Content
+----------------------------------------------- */
+.clear {
+clear: both;
+}
+#content-wrapper {
+margin: 0 1%;
+padding: 0 0 15px;
+text-align: left;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+border-top: 0;
+}
+/* main for My Style */
+#main-wrapper {
+margin-left: 2%;
+width: 73%;
+float: left;
+background-color: #ffffff;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+/* sidebar for My Style */
+#sidebar-wrapper {
+margin-right: 18%;
+width: 20%;
+float: right;
+background-color: #ffffff;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+#right-sidebar-wrapper {
+position: absolute;
+top: 90px;
+left: 75%;
+width: 23%;
+float: right;
+background-color: #ffffff;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+/* Headings
+----------------------------------------------- */
+h2, h3 {
+margin: 0;
+}
+/* Posts
+----------------------------------------------- */
+.date-header {
+margin: 1.5em 0 0;
+font-weight: normal;
+color: #999999;
+font-size: 100%;
+}
+.post {
+margin: 0 0 1.5em;
+padding-bottom: 1.5em;
+}
+.post-title {
+margin: 0;
+padding: 0;
+font-size: 22px;
+font-weight: bold;
+line-height: 0.6em;
+}
+.post-title a, .post-title a:visited, .post-title strong {
+text-decoration: none;
+color: #333333;
+font-weight: bold;
+}
+.post div {
+margin: 0 0 .75em;
+line-height: 1.3em;
+}
+.post-footer {
+margin: -.25em 0 0;
+color: #333333;
+font-size: 87%;
+}
+.post-footer .span {
+margin-right: .3em;
+}
+.post img {
+padding: 4px;
+border: 1px solid #cccccc;
+}
+.post blockquote {
+margin: 1em 20px;
+}
+.post blockquote p {
+margin: .75em 0;
+}
+/* Comments
+----------------------------------------------- */
+#comments h4 {
+margin: 1em 0;
+color: #999999;
+}
+#comments h4 strong {
+font-size: 110%;
+}
+#comments-block {
+margin: 1em 0 1.5em;
+line-height: 1.3em;
+}
+#comments-block dt {
+margin: .5em 0;
+}
+#comments-block dd {
+margin: .25em 0 0;
+}
+#comments-block dd.comment-footer {
+margin: -.25em 0 2em;
+line-height: 1.4em;
+font-size: 78%;
+}
+#comments-block dd p {
+margin: 0 0 .75em;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+}
+#blog-pager-newer-link {
+float: left;
+}
+#blog-pager-older-link {
+float: right;
+}
+#blog-pager {
+text-align: center;
+}
+/* Sidebar Content
+----------------------------------------------- */
+.sidebar h2 {
+margin: 1.6em 0 .5em;
+padding: 4px 5px;
+background-color: #9595ff;
+font-size: 100%;
+color: #333333;
+}
+.sidebar ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.sidebar li {
+margin: 0;
+padding-top: 0;
+padding-right: 0;
+padding-bottom: .5em;
+padding-left: 15px;
+text-indent: -15px;
+line-height: 1.5em;
+}
+.sidebar {
+color: #333333;
+line-height:1.3em;
+}
+.sidebar .widget {
+margin-bottom: 1em;
+}
+.sidebar .widget-content {
+margin: 0 5px;
+}
+/* Profile
+----------------------------------------------- */
+.profile-img {
+float: left;
+margin-top: 0;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 0;
+padding: 4px;
+border: 1px solid #cccccc;
+}
+.profile-data {
+margin:0;
+text-transform:uppercase;
+letter-spacing:.1em;
+font-weight: bold;
+line-height: 1.6em;
+font-size: 78%;
+}
+.profile-datablock {
+margin:.5em 0 .5em;
+}
+.profile-textblock {
+margin: 0.5em 0;
+line-height: 1.6em;
+}
+/* Footer
+----------------------------------------------- */
+#footer {
+clear: both;
+text-align: center;
+color: #333333;
+}
+#footer .widget {
+margin:.5em;
+padding-top: 20px;
+font-size: 85%;
+line-height: 1.5em;
+text-align: left;
+}
+/** Page structure tweaks for layout editor wireframe */
+body#layout #header {
+width: 750px;
+}
+/* -----------------------------------------------
+My Style
+----------------------------------------------- */
+/* 我的導覽列 */
+#myNavigatorDIV {
+position: absolute;
+left:1053px;
+top:66px;
+}
+/* 隱藏的版權宣告 */
+.hiddenCopyRight {
+visibility:hidden;
+display:none;
+}
+/* 隱藏標題 */
+.Navbar, #HTML3 h2, #HTML5 h2, #HTML6 h2, #HTML7 h2, #HTML14 h2{
+visibility:hidden;
+display:none;
+}
+/* Sidebar 標題 */
+#sidebar h2, #sidebar2 h2{
+background: url("http://3.bp.blogspot.com/_ouwa341YxHs/SWCQU4eZQ4I/AAAAAAAABIc/R1_G4GZBlHY/s400/Blog07_small.jpg");
+-webkit-box-shadow:4px 4px 6px #333;
+-moz-box-shadow:4px 4px 6px #333;
+text-shadow:2px 2px 4px #aaa;
+}
+/* 區塊顯示框線 */
+#sidebar-wrapper, #right-sidebar-wrapper{
+border-left:1px;
+border-left-style:dotted;
+border-color:#AAAAFF;
+}
+/* 年度標題 */
+#HTML8{
+height: 70px;
+margin-top: 6px;
+padding-top: 4px;
+padding-left: 4px;
+text-shadow:2px 2px 4px #aaa;
+}
+/* 文章標題 */
+.post-title{
+height: 30px;
+background-repeat: no-repeat;
+background-image: url("http://lh6.ggpht.com/_ouwa341YxHs/SYqjmTvyr9I/AAAAAAAABzs/tDga-47S8bk/Blog05_small.jpg");
+margin-top: 30px;
+padding-top: 4px;
+padding-left: 4px;
+text-shadow:2px 2px 4px #aaa;
+}
+/* 文章內容 */
+.post-body {
+font-size: 15px;
+}
+/* 首頁, 較新文章, 較舊文章 */
+.home-link, #blog-pager-newer-link, #blog-pager-older-link {
+border-style:solid;
+border-width:2px;
+border-color:#dddddd #000000 #000000 #dddddd;
+padding:5px;
+background: url("http://3.bp.blogspot.com/_ouwa341YxHs/SWCQU4eZQ4I/AAAAAAAABIc/R1_G4GZBlHY/s400/Blog07_small.jpg");
+}
+/* 首頁, 較新文章, 較舊文章 - 滑鼠移過 */
+.home-link:hover, #blog-pager-newer-link:hover, #blog-pager-older-link:hover {
+border-color:#000000 #dddddd #dddddd #000000;
+}
+/* 閱讀全文 */
+.continueRead {
+font-size:16px;
+text-decoration:none;
+}
+/* 相關文章(標題) */
+#relatedPostID span {
+color:#999999;
+font-size:18px;
+font-weight:bold;
+}
+/* 相關文章(項目) */
+#relatedPostID li {
+font-size:12px;
+}
+/* 標籤雲 */
+span.label-size.label-size-5, span.label-size.label-size-5 a {
+color:#FF0000;
+}
+span.label-size.label-size-4, span.label-size.label-size-4 a {
+color:#FF5500;
+}
+/* 最新文章與回應, 好站推薦, 相關文章(項目) */
+.lastest-li, #LinkList1 li, #LinkList2 li, #LinkList3 li, #LinkList4 li, #LinkList5 li, #LinkList6 li, #relatedPostID li {
+line-height: 1.5em;
+border-style:dashed;
+border-width:0px 0px 1px 0px;
+border-color:#bbbbbb;
+padding-top:6px;
+padding-bottom:6px;
+}
+/* 最新文章與回應(項目) - 圖示 */
+.lastest-li {
+list-style-type: disc;
+list-style-position: inside;
+}
+/* 最新文章與回應, 好站推薦, 相關文章(項目) - 滑鼠移過 */
+.lastest-li:hover, #LinkList1 li:hover, #LinkList2 li:hover, #LinkList3 li:hover, #LinkList4 li:hover, #LinkList5 li:hover, #LinkList6 li:hover, #relatedPostID li:hover {
+background:#DDFFFF;
+}
+/* 最新文章與回應, 好站推薦, 相關文章(項目) - 鏈結 */
+.lastest-li a, #LinkList1 li a, #LinkList2 li a, #LinkList3 li a, #LinkList4 li a, #LinkList5 li a, #LinkList6 li a, #relatedPostID li a {
+text-decoration:none;
+}
+/* 文章日曆 */
+.CAL {
+background-image: url('http://2.bp.blogspot.com/_ouwa341YxHs/SWa8SLddefI/AAAAAAAABWQ/UGPNRmY34EI/s400/bluecalend.png');
+background-repeat: no-repeat;
+width: 44px;
+height: 48px;
+float: left;
+margin: 2px 5px 0px 0px;
+}
+.MONTH {
+margin: 4px 0px 0px 6px;
+text-align: center;
+font-family: "Arial Narrow";
+font-size: 11px;
+color: #FFFFFF;
+}
+.DAY {
+margin-top: 0px 3px 0px 20px;
+font-family: "Courier New";
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+}
+/* iFrame 框架 */
+.myIframe {
+border-style: dotted;
+border-width: 2px;
+border-color: #AAAAAA;
+width: 99%;
+height: 400px;
+}
+/* 粉紅說明框架 */
+.codeBlock {
+border-style: dotted;
+border-width: 2px;
+border-color: #FF00FF;
+background: #FFEEFF;
+overflow: auto;
+width: 98.8%;
+padding: 0px;
+-webkit-box-shadow:3px 3px 5px #777;
+-moz-box-shadow:3px 3px 5px #777;
+}
+.codeBlock .codeBlockHeader {
+color: #000000;
+background: #FFCCFF;
+font-size: 15px;
+width: 100%;
+padding: 5px 0px 5px 0px;
+border-bottom: #FF00FF;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+}
+.codeBlock pre {
+background: #FFEEFF;
+font-family: "Courier New", Arial;
+font-size: 15px;
+margin: 0px;
+padding: 0px 5px 5px 5px;
+}
+/* 藍色說明框架 */
+.noteBlock {
+border-style: dotted;
+border-width: 2px;
+border-color: #0000FF;
+background: #EEEEFF;
+overflow: auto;
+width: 98.8%;
+padding: 0px;
+-webkit-box-shadow:3px 3px 5px #777;
+-moz-box-shadow:3px 3px 5px #777;
+}
+.noteBlock .noteBlockHeader {
+color: #000000;
+background: #CCCCFF;
+font-size: 15px;
+width: 100%;
+padding: 5px 0px 5px 0px;
+border-bottom: #0000FF;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+}
+.noteBlock pre {
+background: #EEEEFF;
+font-family: "Courier New", Arial;
+font-size: 15px;
+margin: 0px;
+padding: 0px 5px 5px 5px;
+}
+/* 樹狀結構 */
+.dtree {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #666;
+white-space: nowrap;
+}
+.dtree img {
+border: 0px;
+vertical-align: middle;
+}
+.dtree a {
+color: #333;
+text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+white-space: nowrap;
+padding: 1px 2px 1px 2px;
+}
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+color: #333;
+text-decoration: underline;
+}
+.dtree a.nodeSel {
+background-color: #c0d2ec;
+}
+.dtree .clip {
+overflow: hidden;
+}
+/* Android App */
+.appIconSize {
+width:82px;
+height:82px;
+}
+
+--></style>
+<!-- 相關文章 Start -->
+<!-- <script type='text/javascript'> //<![CDATA[ var relatedPostsNum = 0; var relatedTitles = new Array(); var relatedUrls = new Array(); var relatedDates = new Array(); function RelatedLabels(json) { var regex1=/</g, regex2=/>/g; for (var i = 0; i < json.feed.entry.length; i++) { var entry = json.feed.entry[i]; relatedTitles[relatedPostsNum] = (entry.title.$t.replace(regex1, '&lt;')).replace(regex2, '&gt;'); relatedDates[relatedPostsNum] = entry.published.$t.substr(0,10); for (var j = 0; j < entry.link.length; j++) { if (entry.link[j].rel == 'alternate') { relatedUrls[relatedPostsNum] = entry.link[j].href; relatedPostsNum++; break; } } } } function RemoveDuplicatedPosts(PostUrl) { var tmpUrls = new Array(0); var tmpTitles = new Array(0); var tmpDates = new Array(0); function contains(a, e) { for(var j = 0; j < a.length; j++) if (a[j]==e) return true; return false; } for(var i = 0; i < relatedUrls.length; i++) { if(!contains(tmpUrls, relatedUrls[i]) && PostUrl != relatedUrls[i]) { tmpUrls.length += 1; tmpUrls[tmpUrls.length - 1] = relatedUrls[i]; tmpTitles.length += 1; tmpTitles[tmpTitles.length - 1] = relatedTitles[i]; tmpDates.length += 1; tmpDates[tmpDates.length - 1] = relatedDates[i]; } } relatedTitles = tmpTitles; relatedUrls = tmpUrls; relatedDates = tmpDates; } function ShowRelatedPosts(PostUrl) { RemoveDuplicatedPosts(PostUrl); var r = Math.floor((relatedTitles.length - 1) * Math.random()); var i = 0; if (relatedTitles.length > 0) { document.write('<br/><br/><div id="relatedPostID" style="border-style:solid;border-width:1px;border-color:#336699;padding:8px;"><span>相 關 文 章 :</span><ul>'); while (i < relatedTitles.length && i < 6) { document.write('<li><a href="' + relatedUrls[r] + '">' + relatedTitles[r] + '</a> - ' + relatedDates[r] + '</li>'); if (r < relatedTitles.length - 1) r++; else r = 0; i++; } document.write('</ul></div>'); } } //]]> </script> -->
+<!-- 相關文章 End -->
+<!-- 文章日曆 Start -->
+<!-- <script language='javascript' type='text/javascript'> //<![CDATA[ function makeCal(id,ymd) { var postDate = new Date(Date.parse(ymd)); var panel = document.getElementById("divCal_"+id); panel.innerHTML = "<div class='CAL'><div class='MONTH'>"+postDate.getFullYear()+"-"+(postDate.getMonth()+1)+"</div><div class='DAY'>"+postDate.getDate()+"</div></div>"; } //]]> </script> -->
+<!-- 文章日曆 End -->
+<!-- 文章分類 Treeview Start -->
+<script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/ca-pub-3944597473153263.js"></script><script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/cb=gapi.loaded_1" async=""></script><script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/cb=gapi.loaded_0" async=""></script><script language="javascript" type="text/javascript">
+//<![CDATA[
+// Node object
+function Node(id, pid, name, url, title, target, icon, iconOpen, open) {
+	this.id = id;
+	this.pid = pid;
+	this.name = name;
+	this.url = url;
+	this.title = title;
+	this.target = target;
+	this.icon = icon;
+	this.iconOpen = iconOpen;
+	this._io = open || false;
+	this._is = false;
+	this._ls = false;
+	this._hc = false;
+	this._ai = 0;
+	this._p;
+};
+
+// Tree object
+function dTree(objName) {
+	this.config = {
+		target : null,
+		folderLinks : true,
+		useSelection : true,
+		useCookies : true,
+		useLines : true,
+		useIcons : true,
+		useStatusText : false,
+		closeSameLevel : false,
+		inOrder : false
+	}
+
+	this.icon = {
+		root : 'http://blogoholic.info/files/dtree/base.gif',
+		folder : 'http://3.bp.blogspot.com/_ouwa341YxHs/SaSd1Wurn7I/AAAAAAAAB6k/Ynexn8GGo-c/s400/ftv2folderclosed.gif',
+		folderOpen : 'http://4.bp.blogspot.com/_ouwa341YxHs/SaSd1Hudh1I/AAAAAAAAB6c/2rfxssVgV10/s400/ftv2folderopen.gif',
+		node : 'http://3.bp.blogspot.com/_ouwa341YxHs/SaSf6jJC2AI/AAAAAAAAB7M/LNaIVFIfM6w/s400/ftv2doc.gif',
+		empty : 'http://4.bp.blogspot.com/_ouwa341YxHs/SaSgLBMlfwI/AAAAAAAAB7U/FKw5mCH4Njg/s400/ftv2blank.gif',
+		line : 'http://3.bp.blogspot.com/_ouwa341YxHs/SaSgVYpT2wI/AAAAAAAAB7c/niPxfc_6T_4/s400/ftv2vertline.gif',
+		join : 'http://1.bp.blogspot.com/_ouwa341YxHs/SaSg8b_tPEI/AAAAAAAAB7k/hFkxPLEkuYI/s400/ftv2node.gif',
+		joinBottom : 'http://3.bp.blogspot.com/_ouwa341YxHs/SaShH329CWI/AAAAAAAAB70/D5XVeduogZE/s400/ftv2lastnode.gif',
+		plus : 'http://3.bp.blogspot.com/_ouwa341YxHs/SaSez-RVU1I/AAAAAAAAB60/QvrNUFlLUn0/s400/ftv2pnode.gif',
+		plusBottom : 'http://3.bp.blogspot.com/_ouwa341YxHs/SaSezzT98OI/AAAAAAAAB6s/_z6JsvsUscI/s400/ftv2plastnode.gif',
+		minus : 'http://1.bp.blogspot.com/_ouwa341YxHs/SaSfc2FfPwI/AAAAAAAAB7E/P2XhUO8c6Pg/s400/ftv2mnode.gif',
+		minusBottom : 'http://4.bp.blogspot.com/_ouwa341YxHs/SaSfc5rSDyI/AAAAAAAAB68/ATNMdZsELpY/s400/ftv2mlastnode.gif',
+		nlPlus : 'http://blogoholic.info/files/dtree/nolines_plus.gif',
+		nlMinus : 'http://blogoholic.info/files/dtree/nolines_minus.gif'
+	};
+
+	this.obj = objName;
+	this.aNodes = [];
+	this.aIndent = [];
+	this.root = new Node(-1);
+	this.selectedNode = null;
+	this.selectedFound = false;
+	this.completed = false;
+};
+
+// Adds a new node to the node array
+dTree.prototype.add = function(id, pid, name, url, title, target, icon, iconOpen, open) {
+	this.aNodes[this.aNodes.length] = new Node(id, pid, name, url, title, target, icon, iconOpen, open);
+};
+
+// Open/close all nodes
+dTree.prototype.openAll = function() {
+	this.oAll(true);
+};
+
+dTree.prototype.closeAll = function() {
+	this.oAll(false);
+};
+
+// Outputs the tree to the page
+dTree.prototype.toString = function() {
+	var str = '<div class="dtree">\n';
+	if (document.getElementById) {
+		if (this.config.useCookies) this.selectedNode = this.getSelected();
+		str += this.addNode(this.root);
+	} else str += 'Browser not supported.';
+	str += '</div>';
+	if (!this.selectedFound) this.selectedNode = null;
+	this.completed = true;
+
+	return str;
+};
+
+// Creates the tree structure
+dTree.prototype.addNode = function(pNode) {
+	var str = '';
+	var n=0;
+	if (this.config.inOrder) n = pNode._ai;
+	for (n; n<this.aNodes.length; n++) {
+		if (this.aNodes[n].pid == pNode.id) {
+			var cn = this.aNodes[n];
+			cn._p = pNode;
+			cn._ai = n;
+			this.setCS(cn);
+			if (!cn.target && this.config.target) cn.target = this.config.target;
+			if (cn._hc && !cn._io && this.config.useCookies) cn._io = this.isOpen(cn.id);
+			if (!this.config.folderLinks && cn._hc) cn.url = null;
+			if (this.config.useSelection && cn.id == this.selectedNode && !this.selectedFound) {
+					cn._is = true;
+					this.selectedNode = n;
+					this.selectedFound = true;
+			}
+			str += this.node(cn, n);
+			if (cn._ls) break;
+		}
+	}
+
+	return str;
+};
+
+// Creates the node icon, url and text
+dTree.prototype.node = function(node, nodeId) {
+	var str = '<div class="dTreeNode">' + this.indent(node, nodeId);
+	if (this.config.useIcons) {
+		if (!node.icon) node.icon = (this.root.id == node.pid) ? this.icon.root : ((node._hc) ? this.icon.folder : this.icon.node);
+		if (!node.iconOpen) node.iconOpen = (node._hc) ? this.icon.folderOpen : this.icon.node;
+		if (this.root.id == node.pid) {
+			node.icon = this.icon.root;
+			node.iconOpen = this.icon.root;
+		}
+
+		str += '<img id="i' + this.obj + nodeId + '" src="' + ((node._io) ? node.iconOpen : node.icon) + '" alt="" />';
+	}
+
+	if (node.url) {
+		str += '<a id="s' + this.obj + nodeId + '" class="' + ((this.config.useSelection) ? ((node._is ? 'nodeSel' : 'node')) : 'node') + '" href="' + node.url + '"';
+
+		if (node.title) str += ' title="' + node.title + '"';
+		if (node.target) str += ' target="' + node.target + '"';
+		if (this.config.useStatusText) str += ' onmouseover="window.status=\'' + node.name + '\';return true;" onmouseout="window.status=\'\';return true;" ';
+		if (this.config.useSelection && ((node._hc && this.config.folderLinks) || !node._hc))
+			str += ' onclick="javascript: ' + this.obj + '.s(' + nodeId + ');"';
+		str += '>';
+	}
+	else if ((!this.config.folderLinks || !node.url) && node._hc && node.pid != this.root.id)
+		str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" class="node">';
+	str += node.name;
+	if (node.url || ((!this.config.folderLinks || !node.url) && node._hc)) str += '</a>';
+
+	str += '</div>';
+	if (node._hc) {
+		str += '<div id="d' + this.obj + nodeId + '" class="clip" style="display:' + ((this.root.id == node.pid || node._io) ? 'block' : 'none') + ';">';
+		str += this.addNode(node);
+		str += '</div>';
+	}
+
+	this.aIndent.pop();
+	return str;
+};
+
+// Adds the empty and line icons
+dTree.prototype.indent = function(node, nodeId) {
+	var str = '';
+	if (this.root.id != node.pid) {
+		for (var n=0; n<this.aIndent.length; n++)
+			str += '<img src="' + ( (this.aIndent[n] == 1 && this.config.useLines) ? this.icon.line : this.icon.empty ) + '" alt="" />';
+		(node._ls) ? this.aIndent.push(0) : this.aIndent.push(1);
+		if (node._hc) {
+			str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');"><img id="j' + this.obj + nodeId + '" src="';
+
+			if (!this.config.useLines) str += (node._io) ? this.icon.nlMinus : this.icon.nlPlus;
+
+			else str += ( (node._io) ? ((node._ls && this.config.useLines) ? this.icon.minusBottom : this.icon.minus) : ((node._ls && this.config.useLines) ? this.icon.plusBottom : this.icon.plus ) );
+
+			str += '" alt="" /></a>';
+
+		} else str += '<img src="' + ( (this.config.useLines) ? ((node._ls) ? this.icon.joinBottom : this.icon.join ) : this.icon.empty) + '" alt="" />';
+
+	}
+
+	return str;
+
+};
+
+// Checks if a node has any children and if it is the last sibling
+dTree.prototype.setCS = function(node) {
+
+	var lastId;
+
+	for (var n=0; n<this.aNodes.length; n++) {
+
+		if (this.aNodes[n].pid == node.id) node._hc = true;
+
+		if (this.aNodes[n].pid == node.pid) lastId = this.aNodes[n].id;
+
+	}
+
+	if (lastId==node.id) node._ls = true;
+
+};
+
+// Returns the selected node
+dTree.prototype.getSelected = function() {
+
+	var sn = this.getCookie('cs' + this.obj);
+
+	return (sn) ? sn : null;
+
+};
+
+// Highlights the selected node
+dTree.prototype.s = function(id) {
+
+	if (!this.config.useSelection) return;
+
+	var cn = this.aNodes[id];
+
+	if (cn._hc && !this.config.folderLinks) return;
+
+	if (this.selectedNode != id) {
+
+		if (this.selectedNode || this.selectedNode==0) {
+
+			eOld = document.getElementById("s" + this.obj + this.selectedNode);
+
+			eOld.className = "node";
+
+		}
+
+		eNew = document.getElementById("s" + this.obj + id);
+
+		eNew.className = "nodeSel";
+
+		this.selectedNode = id;
+
+		if (this.config.useCookies) this.setCookie('cs' + this.obj, cn.id);
+
+	}
+
+};
+
+// Toggle Open or close
+dTree.prototype.o = function(id) {
+
+	var cn = this.aNodes[id];
+
+	this.nodeStatus(!cn._io, id, cn._ls);
+
+	cn._io = !cn._io;
+
+	if (this.config.closeSameLevel) this.closeLevel(cn);
+
+	if (this.config.useCookies) this.updateCookie();
+
+};
+
+// Open or close all nodes
+dTree.prototype.oAll = function(status) {
+
+	for (var n=0; n<this.aNodes.length; n++) {
+
+		if (this.aNodes[n]._hc && this.aNodes[n].pid != this.root.id) {
+
+			this.nodeStatus(status, n, this.aNodes[n]._ls)
+
+			this.aNodes[n]._io = status;
+
+		}
+
+	}
+
+	if (this.config.useCookies) this.updateCookie();
+
+};
+
+// Opens the tree to a specific node
+dTree.prototype.openTo = function(nId, bSelect, bFirst) {
+
+	if (!bFirst) {
+
+		for (var n=0; n<this.aNodes.length; n++) {
+
+			if (this.aNodes[n].id == nId) {
+
+				nId=n;
+
+				break;
+
+			}
+
+		}
+
+	}
+
+	var cn=this.aNodes[nId];
+
+	if (cn.pid==this.root.id || !cn._p) return;
+
+	cn._io = true;
+
+	cn._is = bSelect;
+
+	if (this.completed && cn._hc) this.nodeStatus(true, cn._ai, cn._ls);
+
+	if (this.completed && bSelect) this.s(cn._ai);
+
+	else if (bSelect) this._sn=cn._ai;
+
+	this.openTo(cn._p._ai, false, true);
+
+};
+
+// Closes all nodes on the same level as certain node
+dTree.prototype.closeLevel = function(node) {
+
+	for (var n=0; n<this.aNodes.length; n++) {
+
+		if (this.aNodes[n].pid == node.pid && this.aNodes[n].id != node.id && this.aNodes[n]._hc) {
+
+			this.nodeStatus(false, n, this.aNodes[n]._ls);
+
+			this.aNodes[n]._io = false;
+
+			this.closeAllChildren(this.aNodes[n]);
+
+		}
+
+	}
+
+}
+
+// Closes all children of a node
+dTree.prototype.closeAllChildren = function(node) {
+
+	for (var n=0; n<this.aNodes.length; n++) {
+
+		if (this.aNodes[n].pid == node.id && this.aNodes[n]._hc) {
+
+			if (this.aNodes[n]._io) this.nodeStatus(false, n, this.aNodes[n]._ls);
+
+			this.aNodes[n]._io = false;
+
+			this.closeAllChildren(this.aNodes[n]);		
+
+		}
+
+	}
+
+}
+
+// Change the status of a node(open or closed)
+dTree.prototype.nodeStatus = function(status, id, bottom) {
+
+	eDiv	= document.getElementById('d' + this.obj + id);
+
+	eJoin	= document.getElementById('j' + this.obj + id);
+
+	if (this.config.useIcons) {
+
+		eIcon	= document.getElementById('i' + this.obj + id);
+
+		eIcon.src = (status) ? this.aNodes[id].iconOpen : this.aNodes[id].icon;
+
+	}
+
+	eJoin.src = (this.config.useLines)?
+
+	((status)?((bottom)?this.icon.minusBottom:this.icon.minus):((bottom)?this.icon.plusBottom:this.icon.plus)):
+
+	((status)?this.icon.nlMinus:this.icon.nlPlus);
+
+	eDiv.style.display = (status) ? 'block': 'none';
+
+};
+
+
+// [Cookie] Clears a cookie
+dTree.prototype.clearCookie = function() {
+
+	var now = new Date();
+
+	var yesterday = new Date(now.getTime() - 1000 * 60 * 60 * 24);
+
+	this.setCookie('co'+this.obj, 'cookieValue', yesterday);
+
+	this.setCookie('cs'+this.obj, 'cookieValue', yesterday);
+
+};
+
+// [Cookie] Sets value in a cookie
+dTree.prototype.setCookie = function(cookieName, cookieValue, expires, path, domain, secure) {
+
+	document.cookie =
+
+		escape(cookieName) + '=' + escape(cookieValue)
+
+		+ (expires ? '; expires=' + expires.toGMTString() : '')
+
+		+ (path ? '; path=' + path : '')
+
+		+ (domain ? '; domain=' + domain : '')
+
+		+ (secure ? '; secure' : '');
+
+};
+
+// [Cookie] Gets a value from a cookie
+dTree.prototype.getCookie = function(cookieName) {
+
+	var cookieValue = '';
+
+	var posName = document.cookie.indexOf(escape(cookieName) + '=');
+
+	if (posName != -1) {
+
+		var posValue = posName + (escape(cookieName) + '=').length;
+
+		var endPos = document.cookie.indexOf(';', posValue);
+
+		if (endPos != -1) cookieValue = unescape(document.cookie.substring(posValue, endPos));
+
+		else cookieValue = unescape(document.cookie.substring(posValue));
+
+	}
+
+	return (cookieValue);
+
+};
+
+// [Cookie] Returns ids of open nodes as a string
+dTree.prototype.updateCookie = function() {
+
+	var str = '';
+
+	for (var n=0; n<this.aNodes.length; n++) {
+
+		if (this.aNodes[n]._io && this.aNodes[n].pid != this.root.id) {
+
+			if (str) str += '.';
+
+			str += this.aNodes[n].id;
+
+		}
+
+	}
+
+	this.setCookie('co' + this.obj, str);
+
+};
+
+// [Cookie] Checks if a node id is in a cookie
+dTree.prototype.isOpen = function(id) {
+
+	var aOpen = this.getCookie('co' + this.obj).split('.');
+
+	for (var n=0; n<aOpen.length; n++)
+
+		if (aOpen[n] == id) return true;
+
+	return false;
+
+};
+
+// If Push and pop is not implemented by the browser
+if (!Array.prototype.push) {
+
+	Array.prototype.push = function array_push() {
+
+		for(var i=0;i<arguments.length;i++)
+
+			this[this.length]=arguments[i];
+
+		return this.length;
+
+	}
+
+};
+
+if (!Array.prototype.pop) {
+
+	Array.prototype.pop = function array_pop() {
+
+		lastElement = this[this.length-1];
+
+		this.length = Math.max(this.length-1,0);
+
+		return lastElement;
+
+	}
+
+};
+//]]>
+</script>
+<!-- 文章分類 Treeview End -->
+<link href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/authorization.css" media="all" onload="if(media!=&#39;all&#39;)media=&#39;all&#39;" rel="stylesheet"><noscript>&lt;link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=7065255949366990244&amp;amp;zx=73804780-f5a0-432d-a58d-f780b7a02262' rel='stylesheet'/&gt;</noscript>
+<script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/google_top_exp.js"></script><link rel="preload" href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/integrator.js" as="script"><script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/integrator.js"></script><link rel="preload" href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/integrator(1).js" as="script"><script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/integrator(1).js"></script><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style><script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/get_custom_js"></script><script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/snowstorm.js"></script><script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/show_widget"></script></head>
+<body>
+<div class="navbar section" id="navbar"><div class="widget Navbar" data-version="1" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" width="100%" id="navbar-iframe" name="navbar-iframe" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/navbar.html"></iframe></div>
+<script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d7065255949366990244\x26blogName\x3d%E6%98%AD%E4%BD%91.%E5%A4%A9%E7%BF%94\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dLIGHT\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttp://tomkuo139.blogspot.com/search\x26blogLocale\x3dzh_TW\x26v\x3d2\x26homepageUrl\x3dhttp://tomkuo139.blogspot.com/\x26targetPostID\x3d6647090461060107882\x26blogPostOrPageUrl\x3dhttp://tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html\x26vt\x3d-5380109794365989217',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id="outer-wrapper"><div id="wrap2">
+<!-- skip links for text browsers -->
+<span id="skiplinks" style="display:none;">
+<a href="http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html#main">skip to main </a> |
+      <a href="http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html#sidebar">skip to sidebar</a>
+</span>
+<div id="header-wrapper">
+<div class="header section" id="header"><div class="widget Header" data-version="1" id="Header1">
+<div id="header-inner">
+<a href="http://tomkuo139.blogspot.tw/" style="display: block">
+<img alt="昭佑.天翔" height="90px; " id="Header1_headerimg" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/Blog03_1200.jpg" style="display: block" width="1200px; ">
+</a>
+</div>
+</div></div>
+</div>
+<div id="content-wrapper">
+<div id="crosscol-wrapper" style="text-align:center">
+<div class="crosscol no-items section" id="crosscol"></div>
+</div>
+<div id="main-wrapper">
+<div class="main section" id="main"><div class="widget HTML" data-version="1" id="HTML1">
+<div class="widget-content">
+<!-- 扇形動畫選單 -->
+<style>
+.menuHolder {width:100px; height:100px; margin:0px 0 5px 0px; position:relative;z-index:100;}
+.menuHolder ul {padding:0; margin:0; list-style:none; position:absolute; left:0; top:0; width:0; height:0;}
+.menuHolder ul li {border-radius:0 0 300px 0; width:0; height:0;}
+.menuHolder ul li a {color:#000; text-decoration:none; font:bold 13px/30px arial, sans-serif; text-align:center; box-shadow:-5px 5px 5px rgba(0,0,0,0.4);
+-webkit-transform-origin:0 0;
+-moz-transform-origin:0 0;
+-ms-transform-origin:0 0;
+-o-transform-origin:0 0;
+transform-origin:0 0;
+}
+.menuHolder ul.p1 li {position:absolute; left:0; top:0;}
+.menuHolder ul.p2 {z-index:-1;}
+.menuHolder ul.p3 {z-index:-1;}
+.menuHolder li.s1 > a {position:absolute; display:block; width:100px; height:100px; background:#88F; border-radius:0 0 100px 0;}
+.menuHolder li.s2 > a {position:absolute; display:block; width:100px; padding-left:100px; height:200px; background:#FFC; border-radius:0 0 200px 0;}
+.menuHolder li.s3 > a {position:absolute; display:block; width:100px; padding-left:100px; height:200px; background:#FFC; border-radius:0 0 200px 0;}
+.menuHolder li.s4 > a {position:absolute; display:block; width:100px; padding-left:100px; height:200px; background:#FFC; border-radius:0 0 200px 0;}
+.menuHolder li.s5 > a {position:absolute; display:block; width:100px; padding-left:100px; height:200px; background:#FFC; border-radius:0 0 200px 0;}
+.menuHolder li.s6 > a {position:absolute; display:block; width:100px; padding-left:100px; height:200px; background:#FFC; border-radius:0 0 200px 0;}
+.menuHolder ul.p3 li a {position:absolute; display:block; width:100px; padding-left:200px; height:300px; background:#DFD; border-radius:0 0 300px 0;}
+.menuHolder ul ul {
+-webkit-transform-origin:0 0;
+-moz-transform-origin:0 0;
+-ms-transform-origin:0 0;
+-o-transform-origin:0 0;
+transform-origin:0 0;
+-webkit-transform:rotate(90deg);
+-moz-transform:rotateZ(90deg);
+-ms-transform:rotate(90deg);
+-o-transform:rotate(90deg);
+transform:rotate(90deg);
+-webkit-transition:1s;
+-moz-transition:1s;
+-ms-transition:1s;
+-o-transition:1s;
+transition:1s;
+}
+
+/* 第一層 */
+.menuHolder li.s6:nth-of-type(6) > a {background:#FF0;
+-webkit-transform:rotate(75deg);
+-moz-transform:rotateZ(75deg);
+-ms-transform:rotate(75deg);
+-o-transform:rotate(75deg);
+transform:rotate(75deg);
+}
+.menuHolder li.s6:nth-of-type(5) > a {background:#FF3;
+-webkit-transform:rotate(60deg);
+-moz-transform:rotateZ(60deg);
+-ms-transform:rotate(60deg);
+-o-transform:rotate(60deg);
+transform:rotate(60deg);
+}
+.menuHolder li.s6:nth-of-type(4) > a {background:#FF5;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.menuHolder li.s6:nth-of-type(3) > a {background:#FF8;
+-webkit-transform:rotate(30deg);
+-moz-transform:rotateZ(30deg);
+-ms-transform:rotate(30deg);
+-o-transform:rotate(30deg);
+transform:rotate(30deg);
+}
+.menuHolder li.s6:nth-of-type(2) > a {background:#FFA;
+-webkit-transform:rotate(15deg);
+-moz-transform:rotateZ(15deg);
+-ms-transform:rotate(15deg);
+-o-transform:rotate(15deg);
+transform:rotate(15deg);
+}
+
+
+.menuHolder li.s5:nth-of-type(5) > a {background:#FF0;
+-webkit-transform:rotate(72deg);
+-moz-transform:rotateZ(72deg);
+-ms-transform:rotate(72deg);
+-o-transform:rotate(72deg);
+transform:rotate(72deg);
+}
+.menuHolder li.s5:nth-of-type(4) > a {background:#FF3;
+-webkit-transform:rotate(54deg);
+-moz-transform:rotateZ(54deg);
+-ms-transform:rotate(54deg);
+-o-transform:rotate(54deg);
+transform:rotate(54deg);
+}
+.menuHolder li.s5:nth-of-type(3) > a {background:#FF6;
+-webkit-transform:rotate(36deg);
+-moz-transform:rotateZ(36deg);
+-ms-transform:rotate(36deg);
+-o-transform:rotate(36deg);
+transform:rotate(36deg);
+}
+.menuHolder li.s5:nth-of-type(2) > a {background:#FF9;
+-webkit-transform:rotate(18deg);
+-moz-transform:rotateZ(18deg);
+-ms-transform:rotate(18deg);
+-o-transform:rotate(18deg);
+transform:rotate(18deg);
+}
+
+
+.menuHolder li.s4:nth-of-type(4) > a {background:#FF0;
+-webkit-transform:rotate(67.5deg);
+-moz-transform:rotateZ(67.5deg);
+-ms-transform:rotate(67.5deg);
+-o-transform:rotate(67.5deg);
+transform:rotate(67.5deg);
+}
+.menuHolder li.s4:nth-of-type(3) > a {background:#FF4;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.menuHolder li.s4:nth-of-type(2) > a {background:#FF8;
+-webkit-transform:rotate(22.5deg);
+-moz-transform:rotateZ(22.5deg);
+-ms-transform:rotate(22.5deg);
+-o-transform:rotate(22.5deg);
+transform:rotate(22.5deg);
+}
+
+
+.menuHolder li.s3:nth-of-type(3) > a {background:#FF0;
+-webkit-transform:rotate(60deg);
+-moz-transform:rotateZ(60deg);
+-ms-transform:rotate(60deg);
+-o-transform:rotate(60deg);
+transform:rotate(60deg);
+}
+.menuHolder li.s3:nth-of-type(2) > a {background:#FF6;
+-webkit-transform:rotate(30deg);
+-moz-transform:rotateZ(30deg);
+-ms-transform:rotate(30deg);
+-o-transform:rotate(30deg);
+transform:rotate(30deg);
+}
+
+
+.menuHolder li.s2:nth-of-type(2) > a {background:#FF0;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+
+
+/* 第二層 */
+.menuHolder .a6 li:nth-of-type(6) > a {background:#0F0;
+-webkit-transform:rotate(75deg);
+-moz-transform:rotateZ(75deg);
+-ms-transform:rotate(75deg);
+-o-transform:rotate(75deg);
+transform:rotate(75deg);
+}
+.menuHolder .a6 li:nth-of-type(5) > a {background:#3F3;
+-webkit-transform:rotate(60deg);
+-moz-transform:rotateZ(60deg);
+-ms-transform:rotate(60deg);
+-o-transform:rotate(60deg);
+transform:rotate(60deg);
+}
+.menuHolder .a6 li:nth-of-type(4) > a {background:#6F6;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.menuHolder .a6 li:nth-of-type(3) > a {background:#9F9;
+-webkit-transform:rotate(30deg);
+-moz-transform:rotateZ(30deg);
+-ms-transform:rotate(30deg);
+-o-transform:rotate(30deg);
+transform:rotate(30deg);
+}
+.menuHolder .a6 li:nth-of-type(2) > a {background:#BFB;
+-webkit-transform:rotate(15deg);
+-moz-transform:rotateZ(15deg);
+-ms-transform:rotate(15deg);
+-o-transform:rotate(15deg);
+transform:rotate(15deg);
+}
+
+
+.menuHolder .a5 li:nth-of-type(5) > a {background:#3F3;
+-webkit-transform:rotate(72deg);
+-moz-transform:rotateZ(72deg);
+-ms-transform:rotate(72deg);
+-o-transform:rotate(72deg);
+transform:rotate(72deg);
+}
+.menuHolder .a5 li:nth-of-type(4) > a {background:#6F6;
+-webkit-transform:rotate(54deg);
+-moz-transform:rotateZ(54deg);
+-ms-transform:rotate(54deg);
+-o-transform:rotate(54deg);
+transform:rotate(54deg);
+}
+.menuHolder .a5 li:nth-of-type(3) > a {background:#9F9;
+-webkit-transform:rotate(36deg);
+-moz-transform:rotateZ(36deg);
+-ms-transform:rotate(36deg);
+-o-transform:rotate(36deg);
+transform:rotate(36deg);
+}
+.menuHolder .a5 li:nth-of-type(2) > a {background:#BFB;
+-webkit-transform:rotate(18deg);
+-moz-transform:rotateZ(18deg);
+-ms-transform:rotate(18deg);
+-o-transform:rotate(18deg);
+transform:rotate(18deg);
+}
+
+
+.menuHolder .a4 li:nth-of-type(4) > a {background:#6F6;
+-webkit-transform:rotate(67.5deg);
+-moz-transform:rotateZ(67.5deg);
+-ms-transform:rotate(67.5deg);
+-o-transform:rotate(67.5deg);
+transform:rotate(67.5deg);
+}
+.menuHolder .a4 li:nth-of-type(3) > a {background:#9F9;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.menuHolder .a4 li:nth-of-type(2) > a {background:#BFB;
+-webkit-transform:rotate(22.5deg);
+-moz-transform:rotateZ(22.5deg);
+-ms-transform:rotate(22.5deg);
+-o-transform:rotate(22.5deg);
+transform:rotate(22.5deg);
+}
+
+
+.menuHolder .a3 li:nth-of-type(3) > a {background:#9F9;
+-webkit-transform:rotate(60deg);
+-moz-transform:rotateZ(60deg);
+-ms-transform:rotate(60deg);
+-o-transform:rotate(60deg);
+transform:rotate(60deg);
+}
+.menuHolder .a3 li:nth-of-type(2) > a {background:#BFB;
+-webkit-transform:rotate(30deg);
+-moz-transform:rotateZ(30deg);
+-ms-transform:rotate(30deg);
+-o-transform:rotate(30deg);
+transform:rotate(30deg);
+}
+
+
+.menuHolder .a2 li:nth-of-type(2) > a {background:#BFB;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+
+
+.menuHolder li.s1:hover ul.p2 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotateZ(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.menuHolder li.s2:hover ul.p3 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotateZ(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.menuHolder li.s3:hover ul.p3 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotateZ(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.menuHolder li.s4:hover ul.p3 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotateZ(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.menuHolder li.s5:hover ul.p3 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotateZ(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.menuHolder li.s6:hover ul.p3 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotateZ(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.menuHolder ul li:hover > a {background:#F00; color:#fff;}
+.menuHolder li.s2:hover > a {background:#E00; color:#fff;}
+.menuHolder li.s3:hover > a {background:#E00; color:#fff;}
+.menuHolder li.s4:hover > a {background:#E00; color:#fff;}
+.menuHolder li.s5:hover > a {background:#E00; color:#fff;}
+.menuHolder li.s6:hover > a {background:#E00; color:#fff;}
+.menuHolder .a6 li:hover > a {background:#D00; color:#fff;}
+.menuHolder .a5 li:hover > a {background:#D00; color:#fff;}
+.menuHolder .a4 li:hover > a {background:#D00; color:#fff;}
+.menuHolder .a3 li:hover > a {background:#D00; color:#fff;}
+.menuHolder .a2 li:hover > a {background:#D00; color:#fff;}
+
+.menuWindow {width:110px; height:110px; overflow:hidden; position:absolute; left:0; top:0; z-index:100;
+-webkit-transition:0s 1s;
+-moz-transition:0s 1s;
+-ms-transition:0s 1s;
+-o-transition:0s 1s;
+transition:0s 1s;
+}
+.menuHolder:hover .menuWindow {width:310px; height:310px;
+-webkit-transition:0s 0s;
+-moz-transition:0s 0s;
+-ms-transition:0s 0s;
+-o-transition:0s 0s;
+transition:0s 0s;
+}
+.menuHolder span {display:block; 
+-webkit-transform:rotate(5deg);
+-moz-transform:rotateZ(5deg);
+-ms-transform:rotate(5deg);
+-o-transform:rotate(5deg);
+transform:rotate(5deg);
+}
+.menuHolder ~ img.close {width:0; height:0; position:fixed; z-index:-1; left:0; top:0;}
+.menuHolder:hover ~ img.close {width:100%; height:100%;}
+
+/* 下拉項目的字體: 特別項目 */
+.menuWindow li img {
+	width:20px;
+	height:20px;
+}
+
+</style>
+
+<div class="menuHolder">
+	<div class="menuWindow">
+		<ul class="p1">
+			<li class="s1"><a href="https://play.google.com/store/apps/developer?id=ling%20app" target="_blank">昭佑.天翔<br>App</a>
+				<ul class="p2">
+   					<li class="s4"><a href="javascript:"><span>益智</span></a>
+						<ul class="p3 a5">
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iKnowlegeAnswer.free" target="_blank">知識達人<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iKnowlegeMan.free" target="_blank">聰明達人<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iFastMemory.free" target="_blank">速記達人<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iGussNumber.free" target="_blank">猜數字囉<br>1A2B</a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iSudoku.free" target="_blank">數獨</a></li>
+						</ul>
+					</li>
+					<li class="s4"><a href="javascript:"><span>撲克系列 1</span></a>
+						<ul class="p3 a6">
+							<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerBigTwo.free" target="_blank">大老二<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerChineseRummy.free" target="_blank">撿紅點<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerSeven.free" target="_blank">排七<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerThirteen.free" target="_blank">十三支<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerTurtle.free" target="_blank">抽鬼牌<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerCow.free" target="_blank">吹牛<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+ 						</ul>
+					</li>
+					<li class="s4"><a href="javascript:"><span>撲克系列 2</span></a>
+						<ul class="p3 a6">
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerNine.free" target="_blank">九九<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerHeart.free" target="_blank">心臟要強<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerPig.free" target="_blank">拱豬<br><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerFish.free" target="_blank">釣魚</a></li>
+                            <!--<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerTenHalf.free" target="_blank">十點半</a></li>-->
+                            <!--<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerBlackJack.free" target="_blank">二十一點</a></li>-->
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerStudShowHand4.free" target="_blank">梭哈</a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerSolitaire.free" target="_blank">傳統接龍</a></li>
+						</ul>
+					</li>
+					<li class="s4"><a href="javascript:"><span>娛樂</span></a>
+						<ul class="p3 a1">
+							<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iChildStudyCard.free" target="_blank">幼兒學習圖卡</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML1&amp;action=editWidget&amp;sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML1&quot;));" target="configHTML1" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget AdSense" data-version="1" id="AdSense1">
+<div class="widget-content">
+<script type="text/javascript">
+    google_ad_client = "ca-pub-3944597473153263";
+    google_ad_host = "ca-host-pub-1556223355139109";
+    google_ad_host_channel = "L0004";
+    google_ad_slot = "1674749270";
+    google_ad_width = 728;
+    google_ad_height = 90;
+</script>
+<!-- tomkuo139_main_AdSense1_728x90_as -->
+<script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:728px;height:90px;" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/saved_resource.html"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=AdSense&amp;widgetId=AdSense1&amp;action=editWidget&amp;sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense1&quot;));" target="configAdSense1" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Blog" data-version="1" id="Blog1">
+<div class="blog-posts hfeed">
+<!--Can't find substitution for tag [adStart]-->
+<div id="divCal_6647090461060107882"><script type="text/javascript">makeCal('6647090461060107882','2009/08/12');</script></div>
+<div class="post hentry">
+<a name="6647090461060107882"></a>
+<h3 class="post-title entry-title">
+<a href="http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html">Oracle Select SQL Tuning 查詢效能調整</a>
+</h3>
+<div class="post-header-line-1"></div>
+<div class="post-body entry-content">
+<span style="color: red;">前提: 以下的幾種檢查方式，</span><span style="color: red;">都是我的經驗談</span><span style="color: red;">，</span><span style="color: red;">但不管哪一種檢查方式</span><span style="color: red;">，</span><span style="color: red;">都是為了 "減少資料筆數的讀取</span><span style="color: red;">，</span><span style="color: red;">以加快查詢速度"</span><span style="color: red;">。</span><br>
+<br>
+<hr>
+檢查 1: <span style="color: #3333ff;"><b>建立 Index Key</b></span><br>
+<hr>
+<br>
+大多數的查詢速度慢，利用新增 Index Key，效率上大都會有一定地提升。<br>
+<br>
+曾經有查詢 <span style="color: red;">1 個多小時</span>，在 Order By 所需的欄位上建立 Index，之後查詢<span style="color: red;">不到 10 秒鐘</span> (差很大)。<br>
+<br>
+若建立的 Index 為 ( key1, key2, key3 )，而 where 條件是 (<span style="color: red;">key1</span>)，則此 Index <span style="color: red;">會</span>有作用。<br>
+<br>
+若建立的 Index 為 ( key1, key2, key3 )，而 where 條件是 (<span style="color: red;">key2, key3</span>)，則 <span style="color: red;">10g 以後</span>此 Index <span style="color: red;">會</span>作用；但 <span style="color: red;">10g 以前</span>此 Index <span style="color: red;">不會</span>作用，需另建 (key2, key3) Index 才可。<br>
+<br>
+<hr>
+檢查 2: <span style="color: #3333ff;"><b>Where 條件中，</b></span><b style="color: #3333ff;">是否用函數</b><br>
+<hr>
+<br>
+Where 條件的欄位若使用函數，會讓建立在欄位的 Index Key 無法使用，如: nvl, decode, trunc, to_char, ... 等，儘量避免在欄位上使用，如 nvl( col, 'Y' ) = 'Y' 可改用 (col = 'Y' or col is null)。<br>
+<br>
+<hr>
+檢查 3:&nbsp;<span style="color: #3333ff;"><b>Where 條件用 計算公式，會使建立在欄位的 Index Key 無法使用</b></span><br>
+<hr>
+<br>
+較慢範例: where (qty*10) &gt; 1200<br>
+<br>
+較快範例: where qty &gt; (1200 / 10)<br>
+<br>
+<hr>
+檢查 4: <span style="color: #3333ff;"><b>Where 條件中，</b></span><b style="color: #3333ff;">是否使用 In / Not In / Exists</b><br>
+<hr>
+<br>
+使用 In / Not In / Exists，有可能會使查詢所需的 Cost 增加，若真要使用，這三種方式可用 explain 進行偵測，看目前 SQL 在哪一種方式較好。<br>
+<br>
+<hr>
+檢查 5: <span style="color: #3333ff;"><b>Where 條件中，</b></span><b style="color: #3333ff;">是否使用 Outer Join</b><br>
+<hr>
+<br>
+使用 Outer Join，會導致查詢所需的 Cost 增加，解決方式: 分成兩個 SELECT，一個 SELECT 用 Join，一個 SELECT 用 IS NOT NULL，然後用 Union or Union All 加起來。<br>
+(曾經有查詢 <span style="color: red;">3 分多鐘</span>，在改成 Union All 之後，查詢<span style="color: red;">不到 10 秒鐘</span>)<br>
+<br>
+另一種方式，就是將 Outer Join 的 Table，做為 Subquery 當作 Columns 使用。<br>
+<span style="color: red;">(這方式有時效能反而更差，需與 Outer Join 方式，</span><span style="color: red;">測試比較看看)</span><br>
+<br>
+<hr>
+檢查 6: <span style="color: #3333ff;"><b>Where 條件中，</b></span><b style="color: #3333ff;">是否比較不同的資料型態</b><br>
+<hr>
+<br>
+這個有可能在速度上會差異很多，如: charCol = numCol 改用 charCol = to_char(numCol) <br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/001.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/001.jpg"></a></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/002.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/002.jpg"></a></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+檢查 7: <span style="color: #3333ff;"><b>Where 條件中，</b></span><b style="color: #3333ff;">若使用變數</b><span style="color: #3333ff;"><b>，</b></span><b style="color: #3333ff;">可能讓建立在欄位的 Index Key 無法使用</b><br>
+<hr>
+<br>
+一般來說，是不會發生這種情形，但萬一遇到了，解決方式為: 接收到實際值後，將變數轉換成實際值，然後再執行之。<br>
+<br>
+詳細資訊，請見 Oracle Metalink <a href="http://metalink.oracle.com/metalink/plsql/tar_main.this_tar?tar_num=5363227.993&amp;p_ctryCode=840" target="_blank">http://metalink.oracle.com/metalink/plsql/tar_main.this_tar?tar_num=5363227.993&amp;p_ctryCode=840</a>.<br>
+<br>
+<hr>
+檢查 8: <span style="color: #3333ff;"><b>是否使用 Distinct / Order By</b></span><br>
+<hr>
+<br>
+使用 Distinct / Order By 會使查詢所需的 Cost 增加，若可以不用，盡量少用之。<br>
+<br>
+<hr>
+檢查 9: <span style="color: #3333ff;"><b>是否使用 View 有些情況可能會影響速度</b></span><br>
+<hr>
+<br>
+如 View 關聯了 <span style="color: red;">7 個 Table</span>，但實際需求只要關聯 <span style="color: red;">2 個 Table</span> 的欄位資料，多餘的 5 個 Table 關聯，只會影響查詢速度。<br>
+<br>
+<hr>
+檢查 10: <span style="color: #3333ff;"><b>一個 Select 的效能 &gt; 多個 Select 的效能</b></span><br>
+<hr>
+<br>
+解決方式: 將多個 Select 改用 Union or Union All or Subquery。<br>
+(曾經有查詢 <span style="color: red;">5 分多鐘</span>，在改成 Subquery 之後，查詢<span style="color: red;">不到 10 秒鐘</span>)<br>
+<br>
+<hr>
+檢查 11: <span style="color: #3333ff;"><b>多個 TABLE 同時關聯</b></span><br>
+<hr>
+<br>
+多個 TABLE 同時關聯，造成查詢速度太慢，解決方式: 可以先將一個過濾資料 Table 作成 Subquery，然後再將 Subquery 與其他 Table 關聯。<br>
+(曾經有查詢 <span style="color: red;">6 分多鐘</span>，在改成 Subquery 之後，查詢<span style="color: red;">不到 1 分鐘</span>)<br>
+<br>
+<hr>
+檢查 12: <span style="color: #3333ff;"><b>查詢條件的增加 or 取回資料的範圍縮小</b></span><br>
+<hr>
+<br>
+用意當然在於減少取回的資料量，減少 Database Buffer 的使用量。<br>
+<br>
+<hr>
+檢查 13: <span style="color: #3333ff;"><b>資料量的增加，</b></span><b style="color: #3333ff;">會使所需的 Cost 增加</b><br>
+<hr>
+<br>
+這個我想，每個人都知道的，資料量一直不斷地增加，導致查詢速度越來越慢。<br>
+<br>
+解決方式: 減少資料量的取回 or 將資料搬到歷史檔 or 擴充硬體設備。<br>
+<br>
+<hr>
+檢查 14: <span style="color: #3333ff;"><b>將常查詢但很費時的資料，</b></span><b style="color: #3333ff;">建立 Materialized View or Summary Table</b><br>
+<hr>
+<br>
+利用晚上較沒人使用的時間，將查詢要很久時間的資料，收集起來，就可快速查詢。<br>
+<br>
+<hr>
+檢查 15: <span style="color: #3333ff;"><b>查詢來源是否有用到 DB Link</b></span><br>
+<hr>
+<br>
+資料量不多，有時查詢很快 (不用 1 秒鐘)，有時查詢很久 (幾十分鐘)，看看同一個 Select SQL 是否有用到 DB Link，<br>
+<br>
+將這個 DB Link 資料來源，在一開始先寫入到同一個 DB 的 Temp Table，再由這個 Temp Table 來查詢。<br>
+<br>
+<hr>
+檢查 16: <span style="color: #3333ff;"><b>將不常用的 Inactive Data，</b></span><b style="color: #3333ff;">放在其他 Tablespace or Database 中</b><br>
+<hr>
+<br>
+這種做法，目的就是減少空間，增加存取效能。<br>
+<br>
+<hr>
+檢查 17: <span style="color: #3333ff;"><b>建立 Partition Table</b></span><br>
+<hr>
+<br>
+這種做法，就是區隔資料，把它想像成 Index 就容易理解了。<br>
+<br>
+<hr>
+檢查 18: <span style="color: #3333ff;"><b>若 Select 是採用 Rule Base，</b></span><b style="color: #3333ff;">考慮 From Table 順序 / Where 條件順序</b><br>
+<hr>
+<br>
+Oracle 查詢方式有兩種：<br>
+<br>
+<ul>
+<li><span style="color: blue;"><b>Rule Base</b></span>：擺放在 from、where 的位置，<span style="color: blue;"><b>會</b></span>影響查詢速度。</li>
+<li><span style="color: blue;"><b>Choose Base</b></span>：擺放在 from、where 的位置，<span style="color: blue;"><b>不會</b></span>影響查詢速度。</li>
+</ul>
+若 Select 是採用 Rule Base，則擺放在 from / where 的位置，就會影響查詢速度。<br>
+<br>
+<hr>
+檢查 19: <span style="color: #3333ff;"><b>在 Select 之後 /*+ ... */</b></span><br>
+<hr>
+<br>
+有時 Oracle 分析 Select 語句後，判斷有誤而採用錯誤的方式，如該用 Index 卻沒使用，這時就自力自強吧, 而常用的有 :<br>
+/*+ INDEX (tableName indexName) */<br>
+/*+ RULE */<br>
+/*+ CHOOSE */<br>
+/*+ FIRST_ROWS */<br>
+/*+ ALL_ROWS */<br>
+<br>
+如: Select /*+ RULE */ colName1, colName2, ... from ...<br>
+<br>
+其中<br>
+1) /* 與 + 之間無空格，否則只能視為備註，而非提高效能方式。<br>
+2) 若 Table 有用 Alias Name，則也請用 Alias Name，否則無法強制使用 Index。<br>
+<br>
+<hr>
+檢查 20: <span style="color: #3333ff;"><b>Explain Plan</b></span><br>
+<hr>
+<br>
+參考 Oracle 提供的 Explain Plan 分析 SQL 的執行路徑，看哪種 SQL 寫法 Cost 時間較少。<br>
+<br>
+<span style="color: red;">注意: 有時 Cost 少不代表實際查詢速度快喔。</span><br>
+<br>
+<hr>
+檢查 21: <span style="color: #3333ff;"><b>資料被 Locked</b></span><br>
+<hr>
+<br>
+不用懷疑，有時資料的 Locked，可能造成查詢速度變慢。<br>
+<br>
+<hr>
+檢查 22: <span style="color: #3333ff;"><b>資料量不多，</b></span><b style="color: #3333ff;">但卻查詢要很久的時間</b><br>
+<hr>
+<br>
+曾經遇過<span style="color: red;">查詢 6 筆</span>卻要<span style="color: red;">查詢 3 分鐘</span>之久，原因很簡單，此 Table 常做新增 / 刪除動作，導致雖然資料量不多，但資料分散太大。<br>
+<br>
+解決方式: 重建 Table。<br>
+<br>
+<hr>
+檢查 23: <span style="color: #3333ff;"><b>找 DBA 協助</b></span><br>
+<hr>
+<br>
+若上述方式都用過了，查詢速度仍然很慢，找 DBA 吧 !!<br>
+<br>
+<hr>
+檢查 24: <span style="color: #3333ff;"><b>改變程式邏輯或系統架構</b></span><br>
+<hr>
+<br>
+最後，連找 DBA 也沒辦法的話，若就請思考其他方式，更改程式邏輯或修改系統架構吧。
+<br>
+<div class="hiddenCopyRight"><a href="http://tomkuo139.blogspot.com/">昭佑.天翔</a></div>
+<div style="clear: both;"></div>
+<div id="lws_0"><div class="linkwithin_outer" style="margin: 0; border: 0; padding: 0; clear: both; ">
+<div id="linkwithin_inner" class="linkwithin_inner" style="
+    margin: 0;
+    border: 0;
+    padding: 0;
+    
+    
+    ">
+    <div class="linkwithin_text" id="linkwithin_text_0" style="
+        margin: 0;
+        border: 0;
+        padding: 20px 0 5px;
+        text-align: left;
+        font-weight: bold;
+        ">
+        您或許對這些文章有興趣:
+    </div>
+
+    <div class="linkwithin_posts" id="linkwithin_posts_0" style="margin: 0; border: 0; padding: 0">
+        
+    <ul class="linkwithin_textlist" style="padding: 0; margin: 0 0 0 15px;">
+
+<li style="list-style: disc outside none; line-height: 1.2em; background: none; padding: 0; margin: 0; text-align: left;">
+<a href="http://tomkuo139.blogspot.com/2015/04/oracle-plsql-array.html" onmousedown="this.href=&#39;http://widget6.linkwithin.com/redirect?url=http%3A//tomkuo139.blogspot.com/2015/04/oracle-plsql-array.html&amp;rtype=&amp;vars=%5B%22http%3A//tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html%22%2C%20108347%2C%200%2C%20%22http%3A//tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html%22%2C%2016307546%2C%200%2C%20405223551%5D&amp;ts=&#39; + (new Date()).getTime(); return true;">Oracle PL/SQL 的 Array 陣列</a>
+</li>
+
+
+<li style="list-style: disc outside none; line-height: 1.2em; background: none; padding: 0; margin: 0; text-align: left;">
+<a href="http://tomkuo139.blogspot.com/2015/12/android-speech-input.html" onmousedown="this.href=&#39;http://widget6.linkwithin.com/redirect?url=http%3A//tomkuo139.blogspot.com/2015/12/android-speech-input.html&amp;rtype=&amp;vars=%5B%22http%3A//tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html%22%2C%20108347%2C%200%2C%20%22http%3A//tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html%22%2C%2016307546%2C%201%2C%20417619569%5D&amp;ts=&#39; + (new Date()).getTime(); return true;">Android Speech Input 語音辨識</a>
+</li>
+
+
+<li style="list-style: disc outside none; line-height: 1.2em; background: none; padding: 0; margin: 0; text-align: left;">
+<a href="http://tomkuo139.blogspot.com/2017/12/android-studio-base-on-intellij-idea.html" onmousedown="this.href=&#39;http://widget6.linkwithin.com/redirect?url=http%3A//tomkuo139.blogspot.com/2017/12/android-studio-base-on-intellij-idea.html&amp;rtype=&amp;vars=%5B%22http%3A//tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html%22%2C%20108347%2C%200%2C%20%22http%3A//tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html%22%2C%2016307546%2C%202%2C%20458948982%5D&amp;ts=&#39; + (new Date()).getTime(); return true;">Android Studio (base on IntelliJ IDEA) 自訂程式風格</a>
+</li>
+
+
+<li style="list-style: disc outside none; line-height: 1.2em; background: none; padding: 0; margin: 0; text-align: left;">
+<a href="http://tomkuo139.blogspot.com/2015/10/oracle-plsql-dynamic-sql-1.html" onmousedown="this.href=&#39;http://widget6.linkwithin.com/redirect?url=http%3A//tomkuo139.blogspot.com/2015/10/oracle-plsql-dynamic-sql-1.html&amp;rtype=&amp;vars=%5B%22http%3A//tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html%22%2C%20108347%2C%200%2C%20%22http%3A//tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html%22%2C%2016307546%2C%203%2C%20414625375%5D&amp;ts=&#39; + (new Date()).getTime(); return true;">Oracle PL/SQL Dynamic SQL 動態語法 1</a>
+</li>
+
+
+<li style="list-style: disc outside none; line-height: 1.2em; background: none; padding: 0; margin: 0; text-align: left;">
+<a href="http://tomkuo139.blogspot.com/2015/11/moto-360.html" onmousedown="this.href=&#39;http://widget6.linkwithin.com/redirect?url=http%3A//tomkuo139.blogspot.com/2015/11/moto-360.html&amp;rtype=&amp;vars=%5B%22http%3A//tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html%22%2C%20108347%2C%200%2C%20%22http%3A//tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html%22%2C%2016307546%2C%204%2C%20414913165%5D&amp;ts=&#39; + (new Date()).getTime(); return true;">Moto 360 使用簡介</a>
+</li>
+
+
+</ul>
+
+    </div>
+
+    <div id="linkwithin_logo_0" style="
+        clear: both;
+        margin: 0 0 20px 0;
+        border: 0;
+        padding: 5px 6px 0 0;
+        text-align: right;
+        ">
+        <a id="linkwithin_logolink_0" href="http://www.linkwithin.com/learn?ref=widget" style="
+            font: 10px arial;
+            color: #bbb;
+            text-decoration: none;
+            border-bottom: none;
+            " onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;" target="_blank">Linkwithin</a>
+    </div>
+</div>
+</div></div></div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-author vcard">
+</span>
+<span class="post-timestamp">
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1087480210">
+<a href="https://www.blogger.com/post-edit.g?blogID=7065255949366990244&amp;postID=6647090461060107882&amp;from=pencil" title="編輯文章">
+<img alt="" class="icon-action" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span class="post-labels">
+標籤：
+<a href="http://tomkuo139.blogspot.tw/search/label/Oracle%20DB" rel="tag">Oracle DB</a>
+<script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/Oracle DB" type="text/javascript"></script>
+<script type="text/javascript">
+                ShowRelatedPosts('http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html');
+              </script>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+<!--Can't find substitution for tag [adEnd]-->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://tomkuo139.blogspot.tw/2009/08/android-values.html" id="Blog1_blog-pager-newer-link" title="較新的文章">較新的文章</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://tomkuo139.blogspot.tw/2009/08/android-layout-mainxml-ui.html" id="Blog1_blog-pager-older-link" title="較舊的文章">較舊的文章</a>
+</span>
+<a class="home-link" href="http://tomkuo139.blogspot.tw/">首頁</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+</div>
+</div><div class="widget HTML" data-version="1" id="HTML3">
+<div class="widget-content">
+<!-- 二層級多欄位下拉選單 -->
+<style>
+body, ul, li {
+	font-size:14px; 
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:21px;
+	text-align:left;
+}
+
+#menu {
+	/* Menu 整體的樣式與位置 */
+	list-style:none;
+	width:360px;
+	margin:0px auto 0px auto;
+	height:43px;
+	padding:0px 0px 0px 0px;
+	position:absolute;
+	top:52px;
+	left:900px;
+	z-index:100;
+
+	/* Rounded Corners */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+	/* Background color and gradients */
+	/* background: #014464;
+	background: -moz-linear-gradient(top, #0272a7, #013953);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0272a7), to(#013953)); */
+	
+	/* Borders */
+	border: 0px solid #002232;
+	
+	/* Borders Color */
+	/*-moz-box-shadow:inset 0px 0px 1px #edf9ff;
+	-webkit-box-shadow:inset 0px 0px 1px #edf9ff;
+	box-shadow:inset 0px 0px 1px #edf9ff;*/
+}
+
+#menu li {  /* 頁籤 */
+	float:left;
+	display:block;
+	text-align:center;
+	position:relative;
+	padding: 4px 10px 4px 10px;
+	margin-right:30px;
+	margin-top:7px;
+	border:none;
+}
+
+#menu li:hover {  /* 頁籤: Mouse Over */
+	border: 1px solid #777777;
+	padding: 4px 9px 4px 9px;
+	
+	/* Background color and gradients */
+	
+	background: #F4F4F4;
+	background: -moz-linear-gradient(top, #F4F4F4, #EEEEEE);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F4F4F4), to(#EEEEEE));
+	
+	/* Rounded corners */
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+}
+
+#menu li a {  /* 頁籤字型 */
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px; 
+	color: #0000FF;
+	display:block;
+	outline:0;
+	text-decoration:none;
+	text-shadow: 1px 1px 1px #BBBBFF;
+}
+
+#menu li:hover a {  /* 頁籤字型: Mouse Over */
+	color:#161616;
+	text-shadow: 1px 1px 1px #ffffff;
+}
+
+#menu li:hover a .arrow {  /* 頁籤箭頭: Mouse Over */
+	visibility:hidden;
+}
+
+#menu li .drop {
+	padding-right:0px;
+}
+
+/* 下拉 */
+.dropdown_1column, 
+.dropdown_2columns, 
+.dropdown_3columns, 
+.dropdown_4columns,
+.dropdown_5columns {
+	margin:4px auto;
+	float:left;
+	position:absolute;
+	left:-999em; /* Hides the drop down */
+	text-align:left;
+	padding:10px 5px 10px 5px;
+	border:1px solid #777777;
+	border-top:none;
+	
+	/* Gradient background */
+	background:#F4F4F4;
+	background: -moz-linear-gradient(top, #EEEEEE, #DDDDFF);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EEEEEE), to(#DDDDFF));
+
+	/* Rounded Corners */
+	-moz-border-radius: 0px 5px 5px 5px;
+	-webkit-border-radius: 0px 5px 5px 5px;
+	border-radius: 0px 5px 5px 5px;
+}
+
+.dropdown_1column {width: 160px;}
+.dropdown_2columns {width: 310px;}
+.dropdown_3columns {width: 460px;}
+.dropdown_4columns {width: 610px;}
+.dropdown_5columns {width: 760px;}
+
+#menu li:hover .dropdown_1column, 
+#menu li:hover .dropdown_2columns, 
+#menu li:hover .dropdown_3columns,
+#menu li:hover .dropdown_4columns,
+#menu li:hover .dropdown_5columns {
+	left:-1px;
+	top:auto;
+}
+
+/* 下拉欄位 */
+.col_1,
+.col_2,
+.col_3,
+.col_4,
+.col_5 {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.col_1 {width:140px;}
+.col_2 {width:290px;}
+.col_3 {width:440px;}
+.col_4 {width:590px;}
+.col_5 {width:740px;}
+
+#menu .menu_right {
+	float:right;
+	margin-right:0px;
+}
+#menu li .align_right {
+	/* Rounded Corners */
+	-moz-border-radius: 5px 0px 5px 5px;
+	-webkit-border-radius: 5px 0px 5px 5px;
+	border-radius: 5px 0px 5px 5px;
+}
+
+#menu li:hover .align_right {
+	left:auto;
+	right:-1px;
+	top:auto;
+}
+
+#menu p, #menu h2, #menu h3, #menu ul li {
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:21px;
+	font-size:12px;
+	text-align:left;
+	text-shadow: 1px 1px 1px #FFFFFF;
+}
+#menu h2 {
+	font-size:21px;
+	font-weight:400;
+	letter-spacing:-1px;
+	margin:7px 0 14px 0;
+	padding-bottom:14px;
+	border-bottom:1px solid #666666;
+}
+#menu h3 {
+	font-size:14px;
+	margin:7px 0 14px 0;
+	padding-bottom:7px;
+	border-bottom:1px solid #888888;
+}
+#menu p {
+	line-height:18px;
+	margin:0 0 10px 0;
+}
+
+/* 下拉項目的字體 */
+#menu li:hover div a {
+	font-size:13px;
+	color:#595959;
+}
+
+/* 下拉項目的字體: 特別項目 */
+#menu li div img {
+	width:16px;
+	height:16px;
+}
+
+/* 下拉項目的字體: 較大字體 */
+#menu li:hover div .bigfont {
+	font-size:15px;
+	color:#595959;
+	text-align:center;
+}
+
+/* 下拉項目的字體: Mouse Over */
+#menu li:hover div a:hover {
+	color:#0000FF;
+}
+
+.strong {
+	font-weight:bold;
+}
+.italic {
+	font-style:italic;
+}
+
+.imgshadow { /* Better style on light background */
+	background:#FFFFFF;
+	padding:4px;
+	border:1px solid #777777;
+	margin-top:5px;
+	-moz-box-shadow:0px 0px 5px #666666;
+	-webkit-box-shadow:0px 0px 5px #666666;
+	box-shadow:0px 0px 5px #666666;
+}
+.img_left { /* Image sticks to the left */
+	width:auto;
+	float:left;
+	margin:5px 15px 5px 5px;
+}
+
+#menu li .black_box {
+	background-color:#333333;
+	color: #eeeeee;
+	text-shadow: 1px 1px 1px #000;
+	padding:4px 6px 4px 6px;
+
+	/* Rounded Corners */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+	/* Shadow */
+	-webkit-box-shadow:inset 0 0 3px #000000;
+	-moz-box-shadow:inset 0 0 3px #000000;
+	box-shadow:inset 0 0 3px #000000;
+}
+
+#menu li ul {
+	list-style:none;
+	padding:0;
+	margin:0 0 12px 0;
+}
+#menu li ul li {
+	font-size:12px;
+	line-height:24px;
+	position:relative;
+	text-shadow: 1px 1px 1px #ffffff;
+	padding:0;
+	margin:0;
+	float:none;
+	text-align:left;
+	width:130px;
+}
+#menu li ul li:hover {
+	background:none;
+	border:none;
+	padding:0;
+	margin:0;
+}
+
+#menu li .greybox li {
+	background:#F4F4F4;
+	border:1px solid #bbbbbb;
+	margin:0px 0px 4px 0px;
+	padding:4px 6px 4px 6px;
+	width:116px;
+
+	/* Rounded Corners */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+#menu li .greybox li:hover {
+	background:#ffffff;
+	border:1px solid #aaaaaa;
+	padding:4px 6px 4px 6px;
+	margin:0px 0px 4px 0px;
+}
+</style>
+
+<ul id="menu">
+
+	<li><a href="javascript:" class="drop">Android <span class="arrow"><small><small>▼</small></small></span></a>
+		<div class="dropdown_4columns align_right">
+			<!--
+			<div class="col_2">
+                <a href="https://tomkuo139.blogspot.com/search/label/Android%20Wear" class="bigfont">Wear 分享 (5)</a>
+			</div>
+            -->
+            <div class="col_4">
+                <a href="https://tomkuo139.blogspot.com/search/label/Android" class="bigfont">Android 技術分享 (158)</a>
+			</div>
+            
+            <div class="col_4">
+                <a href="javascript:">&nbsp;</a>
+			</div>
+			
+			<div class="col_1">
+				<h3>撲克牌</h3>
+				<ul>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerBigTwo.free" target="_blank">大老二 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerChineseRummy.free" target="_blank">撿紅點 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerSeven.free" target="_blank">接龍●排七 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerAK.free" target="_blank">接龍●排七 AK 版</a></li>
+   					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerThirteen.free" target="_blank">十三支 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+   					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerTurtle.free" target="_blank">抽鬼牌 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerNine.free" target="_blank">九九 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerCow.free" target="_blank">吹牛 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerPig.free" target="_blank">拱豬 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerFish.free" target="_blank">釣魚 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerHeart.free" target="_blank">心臟要強 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerBlackJack.free" target="_blank">二十一點</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerTenHalf.free" target="_blank">十點半</a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerStudShowHand4.free" target="_blank">梭哈</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iPokerSolitaire.free" target="_blank">傳統接龍</a></li>
+				</ul>
+			</div>
+	
+   			<div class="col_1">
+				<h3>益智</h3>
+				<ul>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iKnowlegeMan.free" target="_blank">聰明達人 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iKnowlegeAnswer.free" target="_blank">知識達人 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iFastMemory.free" target="_blank">速記達人 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/star.png"></a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iGussNumber.free" target="_blank">猜數字囉 1A2B</a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iSudoku.free" target="_blank">數獨</a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iBarGame.free" target="_blank">麻仔台 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/2015/02/android-ia-math-arithmetic.html" target="_blank">加減乘除 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+				</ul>
+			</div>
+    
+			<div class="col_1">
+				<h3>拼圖</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/2015/02/android-ia-my-pictures-jigsaw.html" target="_blank">圖片拼圖 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+					<li><a href="https://tomkuo139.blogspot.com/2015/02/android-ia-my-pictures-slide-puzzle.html" target="_blank">圖片滑塊拼圖 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/2015/02/android-ia-triple-slide-puzzle.html" target="_blank">三合一滑塊拼圖 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+				</ul>
+			</div>
+            
+            <div class="col_1">
+				<h3>消消樂</h3>
+				<ul>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iHappyClearChess.free" target="_blank">象棋●大吃小 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+					<li><a href="https://tomkuo139.blogspot.com/2016/01/android.html" target="_blank">積木●消消樂 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+				</ul>
+			</div>
+    
+			<div class="col_2">
+				<h3>綜合不分類</h3>
+				<ul>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iChildStudyCard.free" target="_blank">幼兒學習圖卡</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=studio.tom.iDraw.free" target="_blank">簡易繪圖 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iUniformInvoice.free" target="_blank">台灣發票對獎 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iSolar.free" target="_blank">太陽系 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+   					<li><a href="https://play.google.com/store/apps/details?id=studio.tom.iMathFractal.free" target="_blank">數學碎形之美 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+   					<li><a href="https://tomkuo139.blogspot.com/2015/02/android-ia-file-manager.html" target="_blank">簡易檔案管理 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/2015/02/android-youtube-search-classify-folder.html" target="_blank">YouTube 搜尋分類 <img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/not_upload.png"></a></li>
+				</ul>
+			</div>
+			
+		</div><!-- End 4 columns container -->
+	</li><!-- End 4 columns Item -->
+
+	<li><a href="javascript:" class="drop">Oracle <span class="arrow"><small><small>▼</small></small></span></a>
+		<div class="dropdown_4columns align_right">
+		
+			<div class="col_1">
+				<h3>Oracle DB</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20DB">Oracle DB (163)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20DBA">Oracle DBA (15)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/My%20Oracle%20DB%20Package">My DB Package (9)</a></li>
+				</ul>
+			</div>
+	
+			<div class="col_1">
+				<h3>Oracle ERP</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Alert">Alert (20)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Flexfield">Flexfield (15)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Form">Form (28)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Interface">Interface (8)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Report">Report (3)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20SSWA">SSWA (2)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20System%20Profile">System Profile (3)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Workflow">Workflow (15)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20SQL%20%E8%AA%9E%E6%B3%95">ERP SQL 語法 (20)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/Oracle%20ERP%20Package%20%E5%A5%97%E4%BB%B6">ERP 套件 (1)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20%E5%95%8F%E9%A1%8C%E8%99%95%E7%90%86">ERP 問題處理 (25)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20%E5%B0%88%E6%A1%88%E8%88%87%E5%AE%A2%E5%88%B6%E5%8C%96">ERP 專案客制化 (61)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20ERP%20Information">ERP 相關資訊 (10)</a></li>
+				</ul>
+			</div>
+	
+			<div class="col_1">
+				<h3>Oracle EPM</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/EPMA">EPMA (2)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/HFM">HFM (5)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Hyperion">Hyperion (20)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Smart%20View">Smart View (4)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Web%20Analysis">Web Analysis (5)</a></li>
+				</ul>
+			</div>
+	
+			<div class="col_1">
+				<h3>Oracle BI</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20BI">Oracle BI (3)</a></li>
+				</ul>
+			</div>
+			
+			<div class="col_1">
+				<h3>綜合不分類</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20Data%20Modeler">Data Modeler (1)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Oracle%20Information">Oracle 相關資訊 (9)</a></li>
+				</ul>
+			</div>
+			
+		</div><!-- End 4 columns container -->
+	</li><!-- End 4 columns Item -->
+	
+		<li><a href="javascript:" class="drop">其他 <span class="arrow"><small><small>▼</small></small></span></a>
+		<div class="dropdown_4columns align_right">
+		
+			<div class="col_1">
+				<h3>Java</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Java%20%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB">Java 技術分享 (44)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Java%20%E5%A4%96%E6%8E%9B%E5%85%83%E4%BB%B6">Java Plugin (7)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Java%20%E5%B0%88%E6%A1%88">Java 專案 (9)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/JSP%20%E5%95%8F%E9%A1%8C%E8%99%95%E7%90%86">JSP (11)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/resteasy">Resteasy (2)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/restful">Restful (2)</a></li>
+				</ul>
+			</div>
+	
+			<div class="col_1">
+				<h3>Web</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Apache">Apache (3)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Java%20Script">Java Script (5)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/jQuery">jQuery (4)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/JSON">JSON (1)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/JSP%20%E5%95%8F%E9%A1%8C%E8%99%95%E7%90%86">JSP (11)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/Node.js">Node.js (4)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/PHP">PHP (17)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/restful">Restful (2)</a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/search/label/tomcat">Tomcat (6)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/zk">ZK (6)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Web%20%E5%95%8F%E9%A1%8C%E8%99%95%E7%90%86">Web 問題處理 (15)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/%E7%B6%B2%E7%AB%99%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97">網站使用心得 (36)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BF%83%E5%BE%97">部落格心得 (37)</a></li>
+				</ul>
+			</div>
+	
+			<div class="col_1">
+				<h3>OS</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Linux">Linux (69)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Windows">Windows (22)</a></li>
+				</ul>
+			</div>
+	
+			<div class="col_1">
+				<h3>綜合不分類</h3>
+				<ul>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Data%20Integration">Data Integration (10)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Eclipse">Eclipse (69)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Firefox">Firefox (18)</a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/search/label/Game%20Engine">Game Engine (4)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Google%20Cardboard">Google Cardboard (10)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Google%20Glass">Google Glass (4)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/Kettle%20ETL">Kettle ETL (10)</a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/search/label/Moto360">Moto 360 (1)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/MS%20Office">MS Office (9)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/MySQL">MySQL (3)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/openoffice">OpenOffice (14)</a></li>
+					<li><a href="https://tomkuo139.blogspot.tw/search/label/PowerDesigner">PowerDesigner (32)</a></li>
+                    <li><a href="https://tomkuo139.blogspot.tw/search/label/Python">Python (6)</a></li>
+                    <li><a href="https://tomkuo139.blogspot.com/search/label/Smart%20Watch">Smart Watch (1)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/SVN">SVN 版本管控 (5)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/Thunderbird">Thunderbird (14)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/VR">3D VR 虛擬實境 (10)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/%E5%85%B6%E4%BB%96%E8%87%AA%E7%94%B1%E8%BB%9F%E9%AB%94">自由軟體 (25)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/%E8%BB%9F%E9%AB%94%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97">軟體使用心得 (77)</a></li>
+                    <li><a href="https://tomkuo139.blogspot.tw/search/label/%E6%87%89%E7%94%A8%E8%B3%87%E8%A8%8A">應用資訊 (8)</a></li>
+					<li><a href="https://tomkuo139.blogspot.com/search/label/%E4%BD%91%E9%81%8A%E8%A8%98">佑遊記 (23)</a></li>
+				</ul>
+			</div>
+			
+		</div><!-- End 4 columns container -->
+	</li><!-- End 4 columns Item -->
+
+</ul>
+
+<!--
+<div style="position:absolute; left:180px; top:95px; font-size:16px; color:#000000; text-shadow : 2px 2px 4px #aaa;">
+天聖經&#65306;神的心不僅在神的聖言當中&#65292;也在神所創造的萬物之中&#65292;天涯海角每一處都有神的心
+</div>
+-->
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML3&amp;action=editWidget&amp;sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML3&quot;));" target="configHTML3" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" data-version="1" id="HTML2">
+<div class="widget-content">
+<!-- 晨曦 HTML5 -->
+<script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/runtime.js"></script>
+    <script>
+      swiffyobject = {"as3":false,"frameRate":12,"frameCount":60,"backgroundColor":-16777216,"frameSize":{"ymin":0,"xmin":0,"ymax":7500,"xmax":10000},"fileSize":5071,"v":"7.4.0","internedStrings":["::::::3N:","::::294C174C","8028b::8028b881e347c","595f::595f877c528c","3489C::3489C998d586c","::::::6Y:","8355G::2717E754g17u","::::694c591d","::::394C394C"],"version":5,"tags":[{"paths":[{"data":[":40m95fbG74b9R56db2R2r56D9rb74BG56D9Rb2R2R9R56Dbg74B9r56Db2r2R56d9Rb74bg56d9rb2r2r9r56d"],"line":0}],"flat":true,"bounds":"::90m90m","linestyles":[{"color":-1,"width":100}],"id":1,"type":1},{"paths":[{"data":[":09d:b4Qd89B0lb6K5k0L89bbd4q0l90bb5k5k89b9kb4qD90b9Kb5k6K9k90BbD4Q9K89Bb6K6K90B0Lc"],"fill":0}],"flat":true,"bounds":"::18h18h","fillstyles":[{"color":-1,"type":1}],"id":2,"type":1},{"frameCount":1,"id":3,"type":7,"tags":[{"depth":1,"id":1,"colortransform":"#0","type":3,"matrix":"::::45E10G"},{"depth":2,"id":2,"colortransform":"::::::9O:","type":3,"matrix":"394w::394w95G50D"},{"type":2}]},{"depth":5,"id":3,"type":3,"matrix":"#2"},{"paths":[{"data":[":749b99mbD77c5R81fb0R04c84D84db04C0r81F5rb77CE81F5Rb04C0R84D84Db0R04C4R81Fbd77C4r81Fb0r04C84d84Db04c0R81f4Rb77cd81f4rb04c0r84d84db0r04c5r81f"],"line":0}],"flat":true,"bounds":"::799b799b","linestyles":[{"color":-1,"width":100}],"id":4,"type":1},{"paths":[{"data":[":16k25db84B84b11G95bb27DK10G95Bb83B83B94B10Gbk27D94b10Gb84b83B10g94Bb27dk10g94bb84b84b95b10gbK27d94B10g"],"line":0}],"flat":true,"bounds":"09F99L29t29t","linestyles":[{"color":-1,"width":20}],"id":5,"type":1},{"frameCount":1,"id":6,"type":7,"tags":[{"depth":1,"id":4,"colortransform":"#0","type":3,"matrix":"::::59N99M"},{"depth":2,"id":5,"type":3,"matrix":0},{"type":2}]},{"depth":8,"id":6,"type":3,"matrix":"#4"},{"paths":[{"data":[":282f06qb46d54g56d88pbJ34i56D88pb46D54g00L00lb54G46d88P56db34IJ88P56Db53G46D99K00Lb46D54G57D88Pbk34I57d88Pb46d53G99k99Kb54g46D88p57Db34ik88p57db54g46d00l99k"],"line":0}],"flat":true,"bounds":"::788f788f","linestyles":[{"color":-1,"width":100}],"id":7,"type":1},{"paths":[{"data":[":074f22pb34d33g44d42pbJ09i44D43pb34D33g67K67kb34G34d43P44db09IJ42P44Db34G34D68K67Kb34D34G44D43Pbj09I44d42Pb34d34G68k68Kb33g34D42p44Db09ij43p44db33g34d67k68k"],"line":0}],"flat":true,"bounds":"::528f528f","linestyles":[{"color":-1,"width":20}],"id":8,"type":1},{"frameCount":1,"id":9,"type":7,"tags":[{"depth":1,"id":7,"colortransform":"#0","type":3,"matrix":"#8"},{"depth":2,"id":8,"colortransform":"#0","type":3,"matrix":"#1"},{"type":2}]},{"depth":11,"id":9,"type":3,"matrix":"#7"},{"paths":[{"data":[":330e59db64K:87S23hb23H23h23H87sb:64k23h87sb23h23h87s23hb64k:87s23Hb23h23H23h87Sb:64K23H87Sb23H23H87S23Hc"],"fill":0}],"flat":true,"bounds":"20y59d620e620e","fillstyles":[{"transform":"4208E::4208E330e269c","gradient":{"stops":[{"color":-1,"offset":0},{"color":16777215,"offset":255}]},"type":3}],"id":10,"type":1},{"depth":14,"id":10,"type":3,"matrix":0},{"type":2},{"depth":5,"replace":true,"type":3,"matrix":"7027b::7027b883e318c"},{"depth":8,"replace":true,"type":3,"matrix":"1814C::1814C949d601c"},{"depth":11,"replace":true,"type":3,"matrix":"29e::29e655c587d"},{"type":2},{"frameCount":1,"id":11,"type":7,"tags":[{"depth":1,"id":2,"colortransform":"::::::5I:","type":3,"matrix":"::::09D09D"},{"type":2}]},{"depth":1,"id":11,"type":3,"matrix":"::::434g17y","ratio":2},{"depth":3,"id":11,"type":3,"matrix":"#6","ratio":2},{"depth":5,"replace":true,"type":3,"matrix":"028z::028z886e288c"},{"depth":8,"replace":true,"type":3,"matrix":"0140C::0140C899d615c"},{"depth":11,"replace":true,"type":3,"matrix":"58j::58j617c582d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::454g02y"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E792g00u"},{"depth":5,"replace":true,"type":3,"matrix":"027y::027y888e260c"},{"depth":8,"replace":true,"type":3,"matrix":"8465B::8465B850d630c"},{"depth":11,"replace":true,"type":3,"matrix":"88o::88o578c578d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::473g87x"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E830g83t"},{"depth":5,"replace":true,"type":3,"matrix":"026x::026x891e231c"},{"depth":8,"replace":true,"type":3,"matrix":"791Z::791Z800d645c"},{"depth":11,"replace":true,"type":3,"matrix":"17u::17u540c573d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::493g72x"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E868g66t"},{"depth":5,"replace":true,"type":3,"matrix":"027w::027w894e201c"},{"depth":8,"replace":true,"type":3,"matrix":"116Y::116Y751d660c"},{"depth":11,"replace":true,"type":3,"matrix":"46z::46z501c569d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::512g58x"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E906g50t"},{"depth":5,"replace":true,"type":3,"matrix":"027v::027v896e171c"},{"depth":8,"replace":true,"type":3,"matrix":"442W::442W702d674c"},{"depth":11,"replace":true,"type":3,"matrix":"175c::175c462c565d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::532g43x"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E943g33t"},{"depth":5,"replace":true,"type":3,"matrix":"027u::027u898e143c"},{"depth":8,"replace":true,"type":3,"matrix":"768U::768U652d690c"},{"depth":11,"replace":true,"type":3,"matrix":"704c::704c424c560d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::551g28x"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E981g16t"},{"depth":5,"replace":true,"type":3,"matrix":"026t::026t900e114c"},{"depth":8,"replace":true,"type":3,"matrix":"093T::093T603d704c"},{"depth":11,"replace":true,"type":3,"matrix":"234d::234d385c556d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::571g13x"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E019h99s"},{"depth":5,"replace":true,"type":3,"matrix":"027s::027s903e084c"},{"depth":8,"replace":true,"type":3,"matrix":"419R::419R553d718c"},{"depth":11,"replace":true,"type":3,"matrix":"763d::763d347c551d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::590g98w"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E057h82s"},{"depth":5,"replace":true,"type":3,"matrix":"026r::026r905e054c"},{"depth":8,"replace":true,"type":3,"matrix":"744P::744P504d733c"},{"depth":11,"replace":true,"type":3,"matrix":"292e::292e308c547d"},{"type":2},{"depth":1,"type":4},{"depth":3,"type":4},{"depth":5,"type":4},{"depth":8,"type":4},{"depth":11,"type":4},{"type":2},{"depth":1,"id":11,"type":3,"matrix":"::::668g39w","ratio":12},{"depth":3,"id":11,"type":3,"matrix":"8355G::2717E208h15s","ratio":12},{"depth":5,"id":3,"type":3,"matrix":"598p::598p857d433c","ratio":12},{"frameCount":1,"id":12,"type":7,"tags":[{"depth":1,"id":7,"colortransform":"#0","type":3,"matrix":"#8"},{"depth":2,"id":8,"colortransform":"#0","type":3,"matrix":"#1"},{"type":2}]},{"depth":8,"id":12,"type":3,"matrix":"8380B::8380B792e728b","ratio":12},{"type":2},{"depth":8,"type":4},{"depth":1,"replace":true,"type":3,"matrix":"::::691g22w"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E252h95r"},{"depth":5,"replace":true,"type":3,"matrix":"072p::072p811d437c"},{"depth":8,"id":6,"type":3,"matrix":"911q::911q592c964c","ratio":13},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::713g04w"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E296h76r"},{"depth":5,"replace":true,"type":3,"matrix":"545o::545o764d441c"},{"depth":8,"replace":true,"type":3,"matrix":"870q::870q533c980c"},{"depth":11,"id":9,"type":3,"matrix":"047f::047f92s751d","ratio":14},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::736g87v"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E340h56r"},{"depth":5,"replace":true,"type":3,"matrix":"019o::019o717d445c"},{"depth":8,"replace":true,"type":3,"matrix":"831q::831q475c995c"},{"depth":11,"replace":true,"type":3,"matrix":"299f::299f21s758d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::759g70v"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E385h37r"},{"depth":5,"replace":true,"type":3,"matrix":"491n::491n668d449c"},{"depth":8,"replace":true,"type":3,"matrix":"791q::791q416c011d"},{"depth":11,"replace":true,"type":3,"matrix":"552f::552f50r763d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::781g53v"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E429h17r"},{"depth":5,"replace":true,"type":3,"matrix":"966m::966m621d452c"},{"depth":8,"replace":true,"type":3,"matrix":"752q::752q358c027d"},{"depth":11,"replace":true,"type":3,"matrix":"803f::803f79q770d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::804g35v"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E473h98q"},{"depth":5,"replace":true,"type":3,"matrix":"439m::439m574d456c"},{"depth":8,"replace":true,"type":3,"matrix":"712q::712q299c043d"},{"depth":11,"replace":true,"type":3,"matrix":"055g::055g08q778d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::827g18v"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E517h78q"},{"depth":5,"replace":true,"type":3,"matrix":"912l::912l527d460c"},{"depth":8,"replace":true,"type":3,"matrix":"673q::673q241c059d"},{"depth":11,"replace":true,"type":3,"matrix":"307g::307g37p784d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::849g01v"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E561h58q"},{"depth":5,"replace":true,"type":3,"matrix":"386l::386l481d464c"},{"depth":8,"replace":true,"type":3,"matrix":"632q::632q182c074d"},{"depth":11,"replace":true,"type":3,"matrix":"559g::559g66o790d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::872g83u"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E605h39q"},{"depth":5,"replace":true,"type":3,"matrix":"859k::859k434d468c"},{"depth":8,"replace":true,"type":3,"matrix":"594q::594q124c089d"},{"depth":11,"replace":true,"type":3,"matrix":"811g::811g95n798d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::895g66u"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E649h19q"},{"depth":5,"replace":true,"type":3,"matrix":"333k::333k386d472c"},{"depth":8,"replace":true,"type":3,"matrix":"553q::553q065c105d"},{"depth":11,"replace":true,"type":3,"matrix":"063h::063h24n804d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::917g49u"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E693h00q"},{"depth":5,"replace":true,"type":3,"matrix":"807j::807j339d476c"},{"depth":8,"replace":true,"type":3,"matrix":"514q::514q006c121d"},{"depth":11,"replace":true,"type":3,"matrix":"316h::316h53m811d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::940g32u"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E738h80p"},{"depth":5,"replace":true,"type":3,"matrix":"280j::280j291d480c"},{"depth":8,"replace":true,"type":3,"matrix":"474q::474q948b136d"},{"depth":11,"replace":true,"type":3,"matrix":"567h::567h82l817d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::963g14u"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E782h60p"},{"depth":5,"replace":true,"type":3,"matrix":"754i::754i244d484c"},{"depth":8,"replace":true,"type":3,"matrix":"435q::435q890b152d"},{"depth":11,"replace":true,"type":3,"matrix":"819h::819h11l824d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::985g97t"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E826h41p"},{"depth":5,"replace":true,"type":3,"matrix":"226i::226i197d488c"},{"depth":8,"replace":true,"type":3,"matrix":"394q::394q831b168d"},{"depth":11,"replace":true,"type":3,"matrix":"071i::071i40k831d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::008h80t"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E870h21p"},{"depth":5,"replace":true,"type":3,"matrix":"701h::701h151d491c"},{"depth":8,"replace":true,"type":3,"matrix":"356q::356q772b184d"},{"depth":11,"replace":true,"type":3,"matrix":"323i::323i69j837d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::031h62t"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E914h02p"},{"depth":5,"replace":true,"type":3,"matrix":"174h::174h103d495c"},{"depth":8,"replace":true,"type":3,"matrix":"315q::315q714b199d"},{"depth":11,"replace":true,"type":3,"matrix":"575i::575i98i843d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::053h45t"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E958h82o"},{"depth":5,"replace":true,"type":3,"matrix":"647g::647g056d499c"},{"depth":8,"replace":true,"type":3,"matrix":"276q::276q55z215d"},{"depth":11,"replace":true,"type":3,"matrix":"827i::827i26i851d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::076h28t"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E002i62o"},{"depth":5,"replace":true,"type":3,"matrix":"121g::121g009d503c"},{"depth":8,"replace":true,"type":3,"matrix":"236q::236q97y230d"},{"depth":11,"replace":true,"type":3,"matrix":"080j::080j55h858d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::099h10t"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E046i43o"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f961c507c"},{"depth":8,"replace":true,"type":3,"matrix":"197q::197q38y246d"},{"depth":11,"replace":true,"type":3,"matrix":"331j::331j84g863d"},{"type":2},{"depth":5,"type":4},{"depth":1,"replace":true,"type":3,"matrix":"::::121h93s"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E090i23o"},{"depth":8,"replace":true,"type":3,"matrix":"309q::309q10y259d"},{"depth":11,"replace":true,"type":3,"matrix":"583j::583j14g871d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::144h76s"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E135i04o"},{"depth":5,"id":3,"type":3,"matrix":"595f::595f940c513c","ratio":33},{"depth":8,"replace":true,"type":3,"matrix":"420q::420q84x269d"},{"depth":11,"replace":true,"type":3,"matrix":"703j::703j75f890d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::167h59s"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E179i84n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f935c514c"},{"depth":8,"replace":true,"type":3,"matrix":"533q::533q55x280d"},{"depth":11,"replace":true,"type":3,"matrix":"821j::821j36f909d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::189h41s"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E223i65n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f930c516c"},{"depth":8,"replace":true,"type":3,"matrix":"645q::645q29x293d"},{"depth":11,"replace":true,"type":3,"matrix":"942j::942j97e929d"},{"type":2},{"depth":1,"replace":true,"type":3,"matrix":"::::212h24s"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E267i45n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f924c517c"},{"depth":8,"replace":true,"type":3,"matrix":"756q::756q00x304d"},{"depth":11,"replace":true,"type":3,"matrix":"062k::062k58e948d"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::C:","type":3,"matrix":"::::224h12s"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E282i34n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f919c518c"},{"depth":8,"replace":true,"type":3,"matrix":"867q::867q73w315d"},{"depth":11,"replace":true,"type":3,"matrix":"180k::180k20e967d"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::G:","type":3,"matrix":"::::237h99r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E298i24n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f912c520c"},{"depth":8,"replace":true,"type":3,"matrix":"980q::980q46w326d"},{"depth":11,"replace":true,"type":3,"matrix":"301k::301k82d987d"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::J:","type":3,"matrix":"::::249h87r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E313i13n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f905c522c"},{"depth":8,"replace":true,"type":3,"matrix":"092r::092r17w339d"},{"depth":11,"replace":true,"type":3,"matrix":"419k::419k43d007e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::N:","type":3,"matrix":"::::261h75r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E328i02n"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f898c523c"},{"depth":8,"replace":true,"type":3,"matrix":"203r::203r91v350d"},{"depth":11,"replace":true,"type":3,"matrix":"540k::540k04d025e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::Q:","type":3,"matrix":"::::273h63r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E344i91m"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f891c525c"},{"depth":8,"replace":true,"type":3,"matrix":"314r::314r62v361d"},{"depth":11,"replace":true,"type":3,"matrix":"660k::660k65c045e"},{"type":2},{"depth":5,"type":4},{"depth":1,"replace":true,"colortransform":"::::::T:","type":3,"matrix":"::::286h50r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E359i81m"},{"depth":8,"replace":true,"type":3,"matrix":"427r::427r35v372d"},{"depth":11,"replace":true,"type":3,"matrix":"778k::778k26c064e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::X:","type":3,"matrix":"::::298h38r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E374i70m"},{"depth":8,"replace":true,"type":3,"matrix":"538r::538r07v385d"},{"depth":11,"replace":true,"type":3,"matrix":"899k::899k87b084e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::7B:","type":3,"matrix":"::::310h26r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E390i59m"},{"depth":5,"id":3,"type":3,"matrix":"#3","ratio":44},{"depth":8,"replace":true,"type":3,"matrix":"650r::650r80u396d"},{"depth":11,"replace":true,"type":3,"matrix":"019l::019l8x103e"},{"type":2},{"depth":5,"type":4},{"depth":1,"replace":true,"colortransform":"::::::1C:","type":3,"matrix":"::::322h14r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E405i48m"},{"depth":8,"replace":true,"type":3,"matrix":"761r::761r53u407d"},{"depth":11,"replace":true,"type":3,"matrix":"137l::137l0u122e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::4C:","type":3,"matrix":"::::335h01r"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E420i38m"},{"depth":5,"id":3,"type":3,"matrix":"#3","ratio":46},{"depth":8,"replace":true,"type":3,"matrix":"873r::873r24u419d"},{"depth":11,"replace":true,"type":3,"matrix":"258l::258l2q142e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::7C:","type":3,"matrix":"::::347h89q"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E436i27m"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f864c531c"},{"depth":8,"replace":true,"type":3,"matrix":"985r::985r97t431d"},{"depth":11,"replace":true,"type":3,"matrix":"376l::376l3m162e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::1D:","type":3,"matrix":"::::359h77q"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E451i16m"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f852c534c"},{"depth":8,"replace":true,"type":3,"matrix":"097s::097s69t443d"},{"depth":11,"replace":true,"type":3,"matrix":"496l::496l4i180e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::4D:","type":3,"matrix":"::::371h65q"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E466i05m"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f841c537c"},{"depth":8,"replace":true,"type":3,"matrix":"209s::209s42t453d"},{"depth":11,"replace":true,"type":3,"matrix":"617l::617l5e200e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::8D:","type":3,"matrix":"::::384h52q"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E482i95l"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f809c545c"},{"depth":8,"replace":true,"type":3,"matrix":"319s::319s14t466d"},{"depth":11,"replace":true,"type":3,"matrix":"735l::735lp220e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::1E:","type":3,"matrix":"::::396h40q"},{"depth":3,"replace":true,"type":3,"matrix":"8355G::2717E497i84l"},{"depth":5,"replace":true,"type":3,"matrix":"595f::595f777c553c"},{"depth":8,"replace":true,"type":3,"matrix":"431s::431s86s476d"},{"depth":11,"replace":true,"type":3,"matrix":"856l::856lV239e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::9K:","type":3},{"depth":3,"replace":true,"colortransform":"::::::3D:","type":3,"matrix":"8355G::2717E206i23n"},{"depth":5,"replace":true,"type":3,"matrix":"274i::274i039d527c"},{"depth":8,"replace":true,"type":3,"matrix":"816l::816l62w366d"},{"depth":11,"replace":true,"type":3,"matrix":"248k::248k42d158e"},{"type":2},{"depth":1,"replace":true,"colortransform":"::::::8R:","type":3},{"depth":3,"replace":true,"colortransform":"::::::5H:","type":3,"matrix":"8355G::2717E916h62o"},{"depth":5,"replace":true,"type":3,"matrix":"953k::953k303d502c"},{"depth":8,"replace":true,"type":3,"matrix":"202f::202f739b254d"},{"depth":11,"replace":true,"type":3,"matrix":"642i::642i07i077e"},{"type":2},{"depth":1,"replace":true,"colortransform":"#5","type":3},{"depth":3,"replace":true,"colortransform":"::::::8L:","type":3,"matrix":"8355G::2717E625h01q"},{"depth":5,"replace":true,"type":3,"matrix":"632n::632n566d476c"},{"depth":8,"replace":true,"type":3,"matrix":"13D::13D116c143d"},{"depth":11,"replace":true,"type":3,"matrix":"034h::034h71m996d"},{"type":2},{"depth":1,"type":4},{"depth":3,"replace":true,"colortransform":"::::::1Q:","type":3,"matrix":"8355G::2717E335h39r"},{"depth":5,"replace":true,"type":3,"matrix":"312q::312q828d450c"},{"depth":8,"replace":true,"type":3,"matrix":"029G::029G492c031d"},{"depth":11,"replace":true,"type":3,"matrix":"428f::428f36r914d"},{"type":2},{"depth":3,"replace":true,"colortransform":"::::::3U:","type":3,"matrix":"8355G::2717E045h78s"},{"depth":5,"replace":true,"type":3,"matrix":"991s::991s091e424c"},{"depth":8,"replace":true,"type":3,"matrix":"644M::644M869c921c"},{"depth":11,"replace":true,"type":3,"matrix":"820d::820d99v834d"},{"type":2},{"depth":3,"replace":true,"colortransform":"#5","type":3,"matrix":"#6"},{"depth":5,"replace":true,"type":3,"matrix":"670v::670v355e399c"},{"depth":8,"replace":true,"type":3,"matrix":"259T::259T245d809c"},{"depth":11,"replace":true,"type":3,"matrix":"214c::214c765b753d"},{"type":2},{"depth":3,"type":4},{"depth":5,"replace":true,"type":3,"matrix":"349y::349y618e373c"},{"depth":8,"replace":true,"type":3,"matrix":"873Z::873Z622d698c"},{"depth":11,"replace":true,"type":3,"matrix":"06p::06p229c672d"},{"type":2},{"depth":5,"replace":true,"type":3,"matrix":"#2"},{"depth":8,"replace":true,"type":3,"matrix":"#4"},{"depth":11,"replace":true,"type":3,"matrix":"#7"},{"type":2}]};
+    </script>
+
+<div id="swiffycontainer" style="position:absolute; left:2%; top:1px; width: 160px; height: 120px">
+<div style="position: relative; width: 100%; height: 100%; overflow: hidden; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none; cursor: default;"><canvas width="320" height="240" style="width: 160px; height: 120px; position: absolute; left: 0px; top: 0px;"></canvas></div></div>
+<script>
+  
+  var stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
+      swiffyobject, {});
+  
+  // 透明背景
+  stage.setBackground(null);
+  
+  stage.start();
+</script>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML2&amp;action=editWidget&amp;sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML2&quot;));" target="configHTML2" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" data-version="1" id="HTML9"><script>
+var linkwithin_site_id = 108347;
+</script>
+<script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/widget.js"></script>
+<a href="http://www.linkwithin.com/"><img src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/pixel.png" alt="Related Posts Plugin for WordPress, Blogger..." style="border: 0"></a></div></div>
+</div>
+<div id="sidebar-wrapper">
+<div class="sidebar no-items section" id="sidebar"></div>
+</div>
+<div id="right-sidebar-wrapper">
+<div class="sidebar section" id="sidebar2"><div class="widget BlogSearch" data-version="1" id="BlogSearch1">
+<h2 class="title">站內搜尋</h2>
+<div class="widget-content">
+<div id="BlogSearch1_form">
+<form action="http://tomkuo139.blogspot.tw/search" class="gsc-search-box" target="_top">
+<table cellpadding="0" cellspacing="0" class="gsc-search-box">
+<tbody>
+<tr>
+<td class="gsc-input">
+<input autocomplete="off" class="gsc-input" name="q" size="10" title="search" type="text" value="">
+</td>
+<td class="gsc-search-button">
+<input class="gsc-search-button" title="search" type="submit" value="搜尋">
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=BlogSearch&amp;widgetId=BlogSearch1&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;BlogSearch1&quot;));" target="configBlogSearch1" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" data-version="1" id="HTML6">
+<h2 class="title">站內搜尋 2</h2>
+<div class="widget-content">
+<!--
+<form style="margin-top:3px;margin-bottom:3px" method="get" name="searchform" action="http://www.google.com/search" target="_blank">
+<font color="#A0A0A0" size="-1">(上述搜尋無結果&#65292;請用下方搜尋框)</font><br/>
+<font color="#FF0000"><input type="hidden" name="sitesearch" value="http://tomkuo139.blogspot.com" /></font><font size="2"><input alt="search" type="text" style="width:226px" name="as_q" size="20" />&nbsp;<input style="width:45px;cursor:pointer;" type="submit" value="搜尋"/>
+-->
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML6&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML6&quot;));" target="configHTML6" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Stats" data-version="1" id="Stats1">
+<h2>總瀏覽量</h2>
+<div class="widget-content">
+<div id="Stats1_content" style="">
+<span class="counter-wrapper graph-counter-wrapper" id="Stats1_totalCount">
+<span class="digit stage-0"><strong>1</strong><span class="blind-plate"></span></span><span class="digit stage-0"><strong>8</strong><span class="blind-plate"></span></span><span class="digit stage-0"><strong>6</strong><span class="blind-plate"></span></span><span class="digit stage-0"><strong>2</strong><span class="blind-plate"></span></span><span class="digit stage-0"><strong>3</strong><span class="blind-plate"></span></span><span class="digit stage-0"><strong>6</strong><span class="blind-plate"></span></span><span class="digit stage-0"><strong>2</strong><span class="blind-plate"></span></span></span>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=Stats&amp;widgetId=Stats1&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Stats1&quot;));" target="configStats1" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div>
+</div><div class="widget HTML" data-version="1" id="HTML16">
+<h2 class="title">欣賞</h2>
+<div class="widget-content">
+<div align="center">
+One Family under God<br>
+<object width="175" height="138"><param value="http://www.youtube.com/v/TRCGe19NOTc&amp;color1=0x3a3a3a&amp;color2=0x999999&amp;hl=zh_TW&amp;feature=player_embedded&amp;fs=1" name="movie"><param value="true" name="allowFullScreen"><param value="always" name="allowScriptAccess"><embed allowscriptaccess="always" width="175" src="http://www.youtube.com/v/TRCGe19NOTc&amp;color1=0x3a3a3a&amp;color2=0x999999&amp;hl=zh_TW&amp;feature=player_embedded&amp;fs=1" allowfullscreen="true" height="138" type="application/x-shockwave-flash"></object>
+</div>
+
+<div align="center">
+主我敬拜你<br>
+<object width="175" height="138"><param value="http://www.youtube.com/v/2ayco-SR1MQ&amp;hl=zh_TW&amp;fs=1&amp;" name="movie"><param value="true" name="allowFullScreen"><param value="always" name="allowscriptaccess"><embed allowscriptaccess="always" width="175" src="http://www.youtube.com/v/2ayco-SR1MQ&amp;hl=zh_TW&amp;fs=1&amp;" allowfullscreen="true" height="138" type="application/x-shockwave-flash">
+</object>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML16&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML16&quot;));" target="configHTML16" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget AdSense" data-version="1" id="AdSense2">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3944597473153263";
+google_ad_host = "ca-host-pub-1556223355139109";
+/* tomkuo139_sidebar2_AdSense2_ */
+google_ad_slot = "6426224879";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/show_ads.js">
+</script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent;"><iframe width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:160px;height:600px;" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/saved_resource(3).html"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=AdSense&amp;widgetId=AdSense2&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense2&quot;));" target="configAdSense2" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget HTML" data-version="1" id="HTML13">
+<div class="widget-content">
+<!-- 文章分類 -->
+<!-- Treeview 樹狀選單 -->
+<!--
+<div class="dtree">
+<script type="text/javascript">
+d = new dTree('d');
+d.add(0,-1,'我的部落格');
+
+d.add( 2, 0,'Mobile' );
+  d.add(203,2,'手機與 PDA (32)', 'http://tomkuo139.blogspot.com/search/label/%E6%89%8B%E6%A9%9F%E8%88%87PDA');
+
+d.add( 9, 0, '其他資訊' );
+  d.add(901,9,'應用資訊 (7)', 'http://tomkuo139.blogspot.com/search/label/%E6%87%89%E7%94%A8%E8%B3%87%E8%A8%8A');
+  d.add(903,9,'網站使用心得 (35)', 'http://tomkuo139.blogspot.com/search/label/%E7%B6%B2%E7%AB%99%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97');
+  d.add(904,9,'部落格心得 (37)', 'http://tomkuo139.blogspot.com/search/label/%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BF%83%E5%BE%97');
+
+document.write(d);
+</script>
+</div>
+-->
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML13&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML13&quot;));" target="configHTML13" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" data-version="1" id="HTML10">
+<div class="widget-content">
+<!-- 12月聖誕雪花 -->
+<script language="javascript">
+    var today=new Date();
+    if( today.getMonth() == 11 && today.getDate() >= 1 && today.getDate() <= 25 ) {
+        var fileref = document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+        fileref.setAttribute("src", "http://phonedevelop.googlecode.com/files/snowstorm.js");
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+    }
+</script>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=HTML&amp;widgetId=HTML10&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML10&quot;));" target="configHTML10" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget LinkList" data-version="1" id="LinkList6">
+<h2>好站推薦-心靈糧食</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://www.youtube.com/results?search_type=&amp;search_query=%E8%AE%9A%E7%BE%8E%E4%B9%8B%E6%B3%89&amp;aq=0&amp;oq=%E8%AE%9A%E7%BE%8E">心靈音樂 - 讚美之泉</a></li>
+<li><a href="http://www.blessingu.com/tc/bible/">聖經讀經網</a></li>
+<li><a href="http://www.rbcintl.org/odb/b5-odbtxt.php">靈命日糧</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=LinkList&amp;widgetId=LinkList6&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;LinkList6&quot;));" target="configLinkList6" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget LinkList" data-version="1" id="LinkList2">
+<h2>好站推薦-無分類</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://www.mobile01.com/">Mobile01</a></li>
+<li><a href="http://stackoverflow.com/">Stack Overflow</a></li>
+<li><a href="http://www.javaworld.com.tw/jute/tag/android">JavaWorld - Android</a></li>
+<li><a href="http://www.oracle.com/technology/index.html">Oracle Technology Network</a></li>
+<li><a href="http://www.oracle.com.cn/">Oracle 中國論壇</a></li>
+<li><a href="http://forum.xda-developers.com/">xda developer forum</a></li>
+<li><a href="http://somebabytina.pixnet.net/blog/">湘 Oracle ERP Blog</a></li>
+<li><a href="http://blog.yam.com/losunlichih">羅傑農場 ~ 自然農法</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=7065255949366990244&amp;widgetType=LinkList&amp;widgetId=LinkList2&amp;action=editWidget&amp;sectionId=sidebar2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;LinkList2&quot;));" target="configLinkList2" title="編輯">
+<img alt="" height="18" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</div>
+<!-- spacer for skins that want sidebar and main to be the same height-->
+<div class="clear">&nbsp;</div>
+</div>
+<!-- end content-wrapper -->
+<div id="footer-wrapper">
+<div class="footer no-items section" id="footer"></div>
+</div>
+</div></div>
+<!-- end outer-wrapper -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5965335-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/plusone.js" type="text/javascript" gapi_processed="true"></script>
+
+<script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/4187781524-widgets.js"></script>
+<script type="text/javascript">
+window['__wavt'] = 'AOuZoY7PRXEPjVD1Ai5V4MOYkRLjpKTptA:1514006043962';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d7065255949366990244','//tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html','7065255949366990244');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '7065255949366990244', 'title': '昭佑.天翔', 'url': 'http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html', 'canonicalUrl': 'http://tomkuo139.blogspot.com/2009/08/oracle-select-sql-tuning.html', 'homepageUrl': 'http://tomkuo139.blogspot.tw/', 'searchUrl': 'http://tomkuo139.blogspot.tw/search', 'canonicalHomepageUrl': 'http://tomkuo139.blogspot.com/', 'blogspotFaviconUrl': 'http://tomkuo139.blogspot.tw/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'zh-TW', 'localeUnderscoreDelimited': 'zh_tw', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22昭佑.天翔 - Atom\x22 href\x3d\x22http://tomkuo139.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22昭佑.天翔 - RSS\x22 href\x3d\x22http://tomkuo139.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22昭佑.天翔 - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/7065255949366990244/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22昭佑.天翔 - Atom\x22 href\x3d\x22http://tomkuo139.blogspot.com/feeds/6647090461060107882/comments/default\x22 /\x3e\n', 'meTag': '', 'openIdOpTag': '', 'googleProfileUrl': 'https://plus.google.com/110446559769219557883', 'adsenseClientId': 'ca-pub-3944597473153263', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': true, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/0dd3924c44dde034', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': '取得連結', 'key': 'link', 'shareMessage': '取得連結', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': '分享到 Facebook', 'target': 'facebook'}, {'name': 'BlogThis&#65281;', 'key': 'blogThis', 'shareMessage': 'BlogThis&#65281;', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': '分享到 Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': '分享到 Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': '分享到 Google+', 'target': 'googleplus'}, {'name': '以電子郵件傳送', 'key': 'email', 'shareMessage': '以電子郵件傳送', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27zh_TW\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': true, 'jumpLinkMessage': '閱讀全文 &#187;', 'pageType': 'item', 'postId': '6647090461060107882', 'postImageThumbnailUrl': 'http://3.bp.blogspot.com/-OlGQMLi0R3w/UwroG6xMJwI/AAAAAAAAuto/SgANrOOKnj4/s72-c/001.jpg', 'postImageUrl': 'http://3.bp.blogspot.com/-OlGQMLi0R3w/UwroG6xMJwI/AAAAAAAAuto/SgANrOOKnj4/s1600/001.jpg', 'pageName': 'Oracle Select SQL Tuning 查詢效能調整', 'pageTitle': '昭佑.天翔: Oracle Select SQL Tuning 查詢效能調整'}}, {'name': 'features', 'data': {'lazy_images': 'false', 'unsupported_browser_message': 'false', 'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': '編輯', 'linkCopiedToClipboard': '已將連結複製到剪貼簿&#65281;', 'ok': '確定', 'postLink': '文章連結'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': '自訂', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Oracle Select SQL Tuning 查詢效能調整', 'description': '前提: 以下的幾種檢查方式&#65292; 都是我的經驗談 &#65292; 但不管哪一種檢查方式 &#65292; 都是為了 \x22減少資料筆數的讀取 &#65292; 以加快查詢速度\x22 &#12290;    檢查 1: 建立 Index Key    大多數的查詢速度慢&#65292;利用新增 Index Key&#65292;效率上大都會有一定地提升&#12290;   曾經有查詢 1...', 'featuredImage': 'http://3.bp.blogspot.com/-OlGQMLi0R3w/UwroG6xMJwI/AAAAAAAAuto/SgANrOOKnj4/s1600/001.jpg', 'url': 'http://tomkuo139.blogspot.tw/2009/08/oracle-select-sql-tuning.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 6647090461060107882}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'main', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'main', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'useNgc': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/613567837-lbx__zh_tw.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'main', null, document.getElementById('HTML3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'main', null, document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML9', 'main', null, document.getElementById('HTML9'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'sidebar2', null, document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML6', 'sidebar2', null, document.getElementById('HTML6'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_StatsView', new _WidgetInfo('Stats1', 'sidebar2', null, document.getElementById('Stats1'), {'title': '總瀏覽量', 'showGraphicalCounter': true, 'showAnimatedCounter': true, 'showSparkline': false, 'statsUrl': '//tomkuo139.blogspot.tw/b/stats?style\x3dBLACK_TRANSPARENT\x26timeRange\x3dALL_TIME\x26token\x3dPFGCg2ABAAA.55YvOh8rZ-S-bvf7r9TnuNoUJy9IfDbs7wiaPHN_qao.u-6mxYUxBn4l-tJg2d9wQQ'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML16', 'sidebar2', null, document.getElementById('HTML16'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense2', 'sidebar2', null, document.getElementById('AdSense2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML13', 'sidebar2', null, document.getElementById('HTML13'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML10', 'sidebar2', null, document.getElementById('HTML10'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList6', 'sidebar2', null, document.getElementById('LinkList6'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList2', 'sidebar2', null, document.getElementById('LinkList2'), {}, 'displayModeFull'));
+</script>
+
+<link type="text/css" rel="stylesheet" href="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/368954415-lightbox_bundle.css"><script type="text/javascript" src="./昭佑.天翔_ Oracle Select SQL Tuning 查詢效能調整_files/613567837-lbx__zh_tw.js"></script></body></html>

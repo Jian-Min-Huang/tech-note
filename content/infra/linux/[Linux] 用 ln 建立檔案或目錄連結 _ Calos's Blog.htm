@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<!-- saved from url=(0122)https://caloskao.org/freebsd-%E7%94%A8ln%E5%BB%BA%E7%AB%8B%E6%AA%94%E6%A1%88%E6%88%96%E7%9B%AE%E9%8C%84%E9%80%A3%E7%B5%90/ -->
+<html lang="zh-TW"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f.txt"></script>
+
+<meta name="viewport" content="width=device-width">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://caloskao.org/xmlrpc.php">
+<title>[Linux] 用 ln 建立檔案或目錄連結 | Calos's Blog</title>
+
+<!-- All in One SEO Pack 2.6.1 by Michael Torbert of Semper Fi Web Design[337,392] -->
+<meta name="description" content="使用方式為 ln EX: 在 /var/www 下建立一個名為 wpmu 的 Synbolic Link，來源端為 /home/wordpress 這裡只說明參數 -h 與 -s 的差異，詳細請見 官方文件 -h 為 Hard Link，讀取方式為一層一層取得檔案相關的關聯資料，再到對應的 inode">
+
+<meta name="keywords" content="freebsd,linux,ubuntu">
+
+<link rel="canonical" href="https://caloskao.org/freebsd-%E7%94%A8ln%E5%BB%BA%E7%AB%8B%E6%AA%94%E6%A1%88%E6%88%96%E7%9B%AE%E9%8C%84%E9%80%A3%E7%B5%90/">
+			<script src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/ca-pub-6762145381463539.js"></script><script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/analytics.js"></script><script type="text/javascript" async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/linkid.js"></script><script type="text/javascript" async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/ec.js"></script><script type="text/javascript">
+				window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-78421790-1', { 'cookieDomain': 'caloskao.org' } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');
+			</script>
+			<script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/analytics.js"></script>
+			<script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/autotrack.js"></script>
+<!-- /all in one seo pack -->
+<link rel="amphtml" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/amp/"><link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="訂閱 Calos&#39;s Blog »" href="https://caloskao.org/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱 Calos&#39;s Blog » 迴響" href="https://caloskao.org/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱 Calos&#39;s Blog » [Linux] 用 ln 建立檔案或目錄連結 迴響" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/caloskao.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.6"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/wp-emoji-release.min(1).js" type="text/javascript" defer=""></script>
+		<!-- managing ads with Advanced Ads --><script>
+					advanced_ads_ready=function(){var fns=[],listener,doc=typeof document==="object"&&document,hack=doc&&doc.documentElement.doScroll,domContentLoaded="DOMContentLoaded",loaded=doc&&(hack?/^loaded|^c/:/^loaded|^i|^c/).test(doc.readyState);if(!loaded&&doc){listener=function(){doc.removeEventListener(domContentLoaded,listener);window.removeEventListener("load",listener);loaded=1;while(listener=fns.shift())listener()};doc.addEventListener(domContentLoaded,listener);window.addEventListener("load",listener)}return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}}();
+			</script><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	  <style type="text/css">
+	  .wp-pagenavi{margin-left:auto !important; margin-right:auto; !important}
+
+	  .wp-pagenavi a,.wp-pagenavi a:link,.wp-pagenavi a:visited,.wp-pagenavi a:active,.wp-pagenavi span.extend { background:#transparent !important; border:1px solid #009688 !important; color:#009688 !important; }
+	  .wp-pagenavi a:hover,.wp-pagenavi span.current
+	  {
+		  background:#009688 !important; border:1px solid #009688 !important; color:#ffffff !important; 
+	  }
+	  .wp-pagenavi span.pages { color:#009688 !important; }
+	  </style>
+	  <link rel="stylesheet" id="crayon-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-sublime-text-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/sublime-text.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-consolas-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/consolas.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="menu-icons-extra-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/extra.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" id="nisarg-style-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/style(1).css" type="text/css" media="all">
+<style id="nisarg-style-inline-css" type="text/css">
+	/* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.main-navigation .primary-menu > li > a:hover, .main-navigation .primary-menu > li > a:focus {
+		color: #009688;
+	}
+	
+	.main-navigation .primary-menu .sub-menu .current_page_item > a,
+	.main-navigation .primary-menu .sub-menu .current-menu-item > a {
+		color: #009688;
+	}
+	.main-navigation .primary-menu .sub-menu .current_page_item > a:hover,
+	.main-navigation .primary-menu .sub-menu .current_page_item > a:focus,
+	.main-navigation .primary-menu .sub-menu .current-menu-item > a:hover,
+	.main-navigation .primary-menu .sub-menu .current-menu-item > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+	.dropdown-toggle:hover,
+	.dropdown-toggle:focus {
+		color: #009688;
+	}
+
+	@media (min-width: 768px){
+		.main-navigation .primary-menu > .current_page_item > a,
+		.main-navigation .primary-menu > .current_page_item > a:hover,
+		.main-navigation .primary-menu > .current_page_item > a:focus,
+		.main-navigation .primary-menu > .current-menu-item > a,
+		.main-navigation .primary-menu > .current-menu-item > a:hover,
+		.main-navigation .primary-menu > .current-menu-item > a:focus,
+		.main-navigation .primary-menu > .current_page_ancestor > a,
+		.main-navigation .primary-menu > .current_page_ancestor > a:hover,
+		.main-navigation .primary-menu > .current_page_ancestor > a:focus,
+		.main-navigation .primary-menu > .current-menu-ancestor > a,
+		.main-navigation .primary-menu > .current-menu-ancestor > a:hover,
+		.main-navigation .primary-menu > .current-menu-ancestor > a:focus {
+			border-top: 4px solid #009688;
+		}
+		.main-navigation ul ul a:hover,
+		.main-navigation ul ul a.focus {
+			color: #fff;
+			background-color: #009688;
+		}
+	}
+
+	.main-navigation .primary-menu > .open > a, .main-navigation .primary-menu > .open > a:hover, .main-navigation .primary-menu > .open > a:focus {
+		color: #009688;
+	}
+
+	.main-navigation .primary-menu > li > .sub-menu  li > a:hover,
+	.main-navigation .primary-menu > li > .sub-menu  li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.main-navigation .primary-menu .open .sub-menu > li > a:hover {
+			color: #fff;
+			background-color: #009688;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 50px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}	
+
+</style>
+<link rel="stylesheet" id="nisarggooglefonts-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack-widget-social-icons-styles-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/social-icons.css" type="text/css" media="all">
+<link rel="stylesheet" id="bfa-font-awesome-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/font-awesome.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/social-logos.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-style-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/default.css" type="text/css" media="all">
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/related-posts.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/caloskao.org\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/crayon.min.js"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://caloskao.org/wp-content/themes/nisarg/js/html5shiv.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/postmessage.min.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/jquery.jetpack-resize.min.js"></script>
+<link rel="https://api.w.org/" href="https://caloskao.org/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://caloskao.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://caloskao.org/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="[WordPress] 解決不支援utf-8環境下中文檔名異常問題" href="https://caloskao.org/wordpress-%e8%a7%a3%e6%b1%ba%e4%b8%8d%e6%94%af%e6%8f%b4utf-8%e7%92%b0%e5%a2%83%e4%b8%8b%e4%b8%ad%e6%96%87%e6%aa%94%e5%90%8d%e7%95%b0%e5%b8%b8%e5%95%8f%e9%a1%8c/">
+<link rel="next" title="[WordPress] 在單一站台架設多個網誌 (WordPress Multi-Site)" href="https://caloskao.org/wordpress-%e5%9c%a8%e5%96%ae%e4%b8%80%e7%ab%99%e5%8f%b0%e6%9e%b6%e8%a8%ad%e5%a4%9a%e5%80%8b%e7%b6%b2%e8%aa%8c-wordpress-multi-site/">
+<meta name="generator" content="WordPress 4.9.6">
+<link rel="shortlink" href="https://wp.me/p9Re77-H">
+<link rel="alternate" type="application/json+oembed" href="https://caloskao.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcaloskao.org%2Ffreebsd-%25e7%2594%25a8ln%25e5%25bb%25ba%25e7%25ab%258b%25e6%25aa%2594%25e6%25a1%2588%25e6%2588%2596%25e7%259b%25ae%25e9%258c%2584%25e9%2580%25a3%25e7%25b5%2590%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://caloskao.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcaloskao.org%2Ffreebsd-%25e7%2594%25a8ln%25e5%25bb%25ba%25e7%25ab%258b%25e6%25aa%2594%25e6%25a1%2588%25e6%2588%2596%25e7%259b%25ae%25e9%258c%2584%25e9%2580%25a3%25e7%25b5%2590%2F&amp;format=xml">
+<script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(1).txt"></script>
+<script>
+/*
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6762145381463539",
+          enable_page_level_ads: true
+     });
+*/
+</script>
+<script async="" type="text/javascript" charset="utf-8" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/au.js"></script>	<style type="text/css">
+	 .wp-pagenavi
+	{
+		font-size:20px !important;
+	}
+	</style>
+	
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style>
+<style type="text/css">
+        .site-header { background: #549fc4; }
+</style>
+
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+				<style type="text/css" id="nisarg-header-css">
+					.site-header {
+				background: url(https://caloskao.org/wp-content/uploads/2016/05/cropped-green_nature_dual_monitor-other-1.jpg) no-repeat scroll top;
+				background-size: cover;
+			}
+			@media (min-width: 320px) and (max-width: 359px ) {
+				.site-header {
+					height: 100px;
+				}
+			}
+			@media (min-width: 360px) and (max-width: 767px ) {
+				.site-header {
+					height: 112px;
+				}
+			}
+			@media (min-width: 768px) and (max-width: 979px ) {
+				.site-header {
+					height: 240px;
+				}
+			}
+			@media (min-width: 980px) and (max-width: 1279px ){
+				.site-header {
+					height: 307px;
+				}
+			}
+			@media (min-width: 1280px) and (max-width: 1365px ){
+				.site-header {
+					height: 401px;
+				}
+			}
+			@media (min-width: 1366px) and (max-width: 1439px ){
+				.site-header {
+					height: 428px;
+				}
+			}
+			@media (min-width: 1440px) and (max-width: 1599px ) {
+				.site-header {
+					height: 451px;
+				}
+			}
+			@media (min-width: 1600px) and (max-width: 1919px ) {
+				.site-header {
+					height: 501px;
+				}
+			}
+			@media (min-width: 1920px) and (max-width: 2559px ) {
+				.site-header {
+					height: 602px;
+				}
+			}
+			@media (min-width: 2560px)  and (max-width: 2879px ) {
+				.site-header {
+					height: 803px;
+				}
+			}
+			@media (min-width: 2880px) {
+				.site-header {
+					height: 903px;
+				}
+			}
+			.site-header{
+				-webkit-box-shadow: 0px 0px 2px 1px rgba(182,182,182,0.3);
+		    	-moz-box-shadow: 0px 0px 2px 1px rgba(182,182,182,0.3);
+		    	-o-box-shadow: 0px 0px 2px 1px rgba(182,182,182,0.3);
+		    	box-shadow: 0px 0px 2px 1px rgba(182,182,182,0.3);
+			}
+					.site-title,
+			.site-description {
+				color: #ffffff;
+			}
+			.site-title::after{
+				background: #ffffff;
+				content:"";
+			}
+				</style>
+		<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f4f8ff; }
+</style>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Linux] 用 ln 建立檔案或目錄連結">
+<meta property="og:url" content="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/">
+<meta property="og:description" content="使用方式為 ln [-hs] [來源] [目標] EX: 在 /var/www 下建立一個名為 wpmu 的 …">
+<meta property="article:published_time" content="2013-11-14T01:35:20+00:00">
+<meta property="article:modified_time" content="2018-06-13T15:37:45+00:00">
+<meta property="og:site_name" content="Calos&#39;s Blog">
+<meta property="og:image" content="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/cropped-logo_300x300.jpg?fit=512%2C512&amp;ssl=1">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:text:title" content="[Linux] 用 ln 建立檔案或目錄連結">
+<meta name="twitter:image" content="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/cropped-logo_300x300.jpg?fit=240%2C240&amp;ssl=1">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/cropped-logo_300x300.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/cropped-logo_300x300.jpg?fit=192%2C192&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/cropped-logo_300x300.jpg?fit=180%2C180&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/cropped-logo_300x300.jpg?fit=270%2C270&amp;ssl=1">
+
+<!-- BEGIN ExactMetrics v5.3.5 Universal Analytics - https://exactmetrics.com/ -->
+<link rel="preload" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(2).txt" as="script"><script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(2).txt"></script><link rel="preload" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(3).txt" as="script"><script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(3).txt"></script><script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/au-ac.js"></script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-78421790-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END ExactMetrics Universal Analytics -->
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/hovercard(1).css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/services(1).css"><style type="text/css">@keyframes zimedia-loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}</style></head>
+<body class="post-template-default single single-post postid-43 single-format-standard custom-background">
+<div id="page" class="hfeed site">
+<header id="masthead" role="banner">
+	<nav id="site-navigation" class="main-navigation navbar-fixed-top navbar-left" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="container" id="navigation_menu">
+			<div class="navbar-header">
+									<button type="button" class="menu-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+									<a class="navbar-brand" href="https://caloskao.org/">Calos's Blog</a>
+			</div><!-- .navbar-header -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-nav" class="primary-menu nav-menu" aria-expanded="false"><li id="menu-item-701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-701"><a target="_blank" href="http://feeds.feedburner.com/caloskao"><i class="_mi fa fa-rss-square" aria-hidden="true" style="font-size:2em;"></i><span class="visuallyhidden">RSS Feeds</span></a></li>
+<li id="menu-item-689" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-689"><a target="_blank" href="https://github.com/calos3257"><i class="_mi fa fa-github" aria-hidden="true" style="font-size:2em;"></i><span class="visuallyhidden">Github</span></a></li>
+<li id="menu-item-702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-702"><a target="_blank" href="mailto:calos3257@gmail.com"><i class="_mi fa fa-envelope" aria-hidden="true" style="font-size:2em;"></i><span class="visuallyhidden">Contact Me</span></a></li>
+</ul></div>		</div><!--#container-->
+	</nav>
+    <div id="cc_spacer" style="height: 50px;"></div><!-- used to clear fixed navigation by the themes js -->
+        <div id="header-ad" style="margin: 1em 0; text-align: center;">
+        <script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(1).txt"></script>
+        <!-- Header-2 -->
+        <ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6762145381463539" data-ad-slot="5305392374" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:1200px;height:90px;" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/saved_resource(3).html"></iframe></ins></ins></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+</header>
+<div id="content" class="site-content">
+
+	<div class="container">
+		<div class="row">
+			<div id="primary" class="col-md-9 content-area">
+				<main id="main" role="main">
+
+									
+<article id="post-43" class="post-content post-43 post type-post status-publish format-standard hentry category-freebsd category-linux category-ubuntu tag-freebsd tag-linux">
+
+	
+	
+	<header class="entry-header">
+		<span class="screen-reader-text">[Linux] 用 ln 建立檔案或目錄連結</span>
+					<h1 class="entry-title">[Linux] 用 ln 建立檔案或目錄連結</h1>
+		
+				<div class="entry-meta">
+			<h5 class="entry-date"><i class="fa fa-calendar-o"></i> <a href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/" title="09:35:20" rel="bookmark"><time class="entry-date" datetime="2013-11-14T09:35:20+00:00" pubdate="">2013-11-14 </time></a><span class="byline"><span class="sep"></span><i class="fa fa-user"></i>
+<span class="author vcard"><a class="url fn n" href="https://caloskao.org/author/calos3257/" title="View all posts by Calos" rel="author">Calos</a></span></span> <i class="fa fa-comments-o"></i><span class="screen-reader-text">Comments </span> <a href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/#respond" class="comments-link">0 Comment</a></h5>
+		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+			<div class="entry-content">
+				<p>使用方式為 <code>ln [-hs] [來源] [目標]</code></p>
+<p>EX: 在 <code>/var/www</code> 下建立一個名為 <code>wpmu</code> 的 Synbolic Link，來源端為&nbsp;<code>/home/wordpress</code></p>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b234b2e12bad474334946" class="crayon-syntax crayon-theme-sublime-text crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 15px !important; line-height: 18px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 15px !important;height: 22.5px !important; line-height: 22.5px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 15px !important;height: 22.5px !important; line-height: 22.5px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon" style="background-size: 48px 128px; background-image: url(&quot;https://caloskao.org/wp-content/plugins/crayon-syntax-highlighter/css/images/toolbar/buttons@2x.png&quot;);"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon" style="background-size: 48px 128px; background-image: url(&quot;https://caloskao.org/wp-content/plugins/crayon-syntax-highlighter/css/images/toolbar/buttons@2x.png&quot;);"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon" style="background-size: 48px 128px; background-image: url(&quot;https://caloskao.org/wp-content/plugins/crayon-syntax-highlighter/css/images/toolbar/buttons@2x.png&quot;);"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon" style="background-size: 48px 128px; background-image: url(&quot;https://caloskao.org/wp-content/plugins/crayon-syntax-highlighter/css/images/toolbar/buttons@2x.png&quot;);"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon" style="background-size: 48px 128px; background-image: url(&quot;https://caloskao.org/wp-content/plugins/crayon-syntax-highlighter/css/images/toolbar/buttons@2x.png&quot;);"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon" style="background-size: 48px 128px; background-image: url(&quot;https://caloskao.org/wp-content/plugins/crayon-syntax-highlighter/css/images/toolbar/buttons@2x.png&quot;);"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 21px !important; line-height: 21px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 15px !important; line-height: 18px !important; z-index: 0; opacity: 0; overflow: hidden;">ln -s /home/wordpress /var/www/wpmu</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 15px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-5b234b2e12bad474334946-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 15px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b234b2e12bad474334946-1"><span class="crayon-v">ln</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">s</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">home</span><span class="crayon-o">/</span><span class="crayon-v">wordpress</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-t">var</span><span class="crayon-o">/</span><span class="crayon-v">www</span><span class="crayon-o">/</span><span class="crayon-v">wpmu</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+<p>&nbsp;</p>
+<p>這裡只說明參數&nbsp;<code>-h</code> 與 <code>-s</code> 的差異，詳細請見 <a href="http://www.freebsd.org/cgi/man.cgi?query=ln&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+Ports+9.0-RELEASE&amp;arch=default&amp;format=html">官方文件 <i class="fa fa-external-link fa- "></i></a></p>
+<p>&nbsp;</p>
+<p><code>-h</code> 為 Hard Link，讀取方式為一層一層取得檔案相關的關聯資料，再到對應的 inode 取得檔案的屬性，以及檔案內容資料所在的 block ，&nbsp;最後到 block area 取得檔案的資料。</p>
+<p>不管在哪個目錄底下叫出檔案並修改，因為 Hard Link 只是在目錄下建立一個檔案關聯紀錄，因此修改檔案時皆會修改到同一個檔案，而刪除檔案時只是刪除一個檔案關聯紀錄，並不是刪除檔案本身，因此不會變動到檔案本身的 inode 與 block area，好處為較安全。</p>
+<p>由於 Hard Link 是在同一個 partition 上建立檔案關聯，因此 Hard Link 有兩項限制：</p>
+<ol>
+<li>不能跨 File System</li>
+<li>不能對目錄做 link</li>
+</ol>
+<p>詳細原因見 <a href="http://tw.myblog.yahoo.com/up-station/article?mid=-2&amp;next=123&amp;l=f&amp;fid=24">宅男的電腦筆記 <i class="fa fa-external-link fa- "></i></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>而參數 <code>-s</code> 為 Synbolic Link，這就好理解多了，Synbolic Link 會建立一個新檔案，指向 link 到的檔案或目錄，所以<span style="text-decoration: underline;"><strong><span style="color: #ff6600; text-decoration: underline;">原檔案或目錄被砍掉時，這個 link 就會失效</span></strong></span>。而因為 link 的建立方式是建立新檔案，因此會有獨立的 inode 與 block 佔用磁碟空間 (建立及運作方式雷同 Windows 的捷徑)。</p>
+<p>&nbsp;</p>
+<p>文章參考：<a href="http://tw.myblog.yahoo.com/up-station/article?mid=-2&amp;next=123&amp;l=f&amp;fid=24">宅男的電腦筆記 <i class="fa fa-external-link fa- "></i></a></p>
+<div class="hatom-extra" style="display:none;visibility:hidden;"><span class="entry-title">[Linux] 用 ln 建立檔案或目錄連結</span> was last modified: <span class="updated"> 2018-06-13</span> by <span class="author vcard"><span class="fn">Calos</span></span></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">分享這篇文章</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-43" class="share-facebook sd-button share-icon no-text" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/?share=facebook&amp;nb=1" target="_blank" title="按一下以分享至 Facebook"><span></span><span class="sharing-screen-reader-text">按一下以分享至 Facebook(在新視窗中開啟)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-43" class="share-google-plus-1 sd-button share-icon no-text" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/?share=google-plus-1&amp;nb=1" target="_blank" title="按一下以分享到 Google+"><span></span><span class="sharing-screen-reader-text">按一下以分享到 Google+(在新視窗中開啟)</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-43" class="share-twitter sd-button share-icon no-text" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/?share=twitter&amp;nb=1" target="_blank" title="分享到 Twitter"><span></span><span class="sharing-screen-reader-text">分享到 Twitter(在新視窗中開啟)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-43" class="share-linkedin sd-button share-icon no-text" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/?share=linkedin&amp;nb=1" target="_blank" title="分享到 LinkedIn"><span></span><span class="sharing-screen-reader-text">分享到 LinkedIn(在新視窗中開啟)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/?share=reddit&amp;nb=1" target="_blank" title="分享到 Reddit"><span></span><span class="sharing-screen-reader-text">分享到 Reddit(在新視窗中開啟)</span></a></li><li class="share-pocket"><a rel="nofollow" data-shared="" class="share-pocket sd-button share-icon no-text" href="https://caloskao.org/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90/?share=pocket&amp;nb=1" target="_blank" title="分享到 Pocket"><span></span><span class="sharing-screen-reader-text">分享到 Pocket(在新視窗中開啟)</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>延伸閱讀</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-nothumbs" data-post-id="11" data-post-format="false"><a class="jp-relatedposts-post-a jp-relatedposts-post-aoverlay" href="https://caloskao.org/git-basic-command/" title="[Git] Basic Command
+
+# 設定個人資訊 (這些資訊會顯示在commit log上) git config --global…" rel="nofollow" data-origin="43" data-position="0"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://caloskao.org/git-basic-command/" title="[Git] Basic Command
+
+# 設定個人資訊 (這些資訊會顯示在commit log上) git config --global…" rel="nofollow" data-origin="43" data-position="0">[Git] Basic Command</a></h4><p class="jp-relatedposts-post-excerpt" style="max-height: 7.14286em;"># 設定個人資訊 (這些資訊會顯示在commit log上) git config --global…</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="63" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://caloskao.org/freebsd-%e6%aa%94%e6%a1%88%e7%b3%bb%e7%b5%b1%e6%9e%b6%e6%a7%8b/" title="[FreeBSD] 檔案系統架構
+
+做個筆記 解說一下幾個比較常用到的地方，裡面放了哪些東西 /bin &amp; /usr/bin :…" rel="nofollow" data-origin="43" data-position="1"><img class="jp-relatedposts-post-img" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/1407302518-928700446.png" width="219" alt="[FreeBSD] 檔案系統架構" height="125" srcset="https://i1.wp.com/apps.csie.stu.edu.tw/wpsi/calos/wp-content/uploads/2014/08/1407302518-928700446.png?zoom=2&amp;resize=219%2C125" src-orig="https://i1.wp.com/apps.csie.stu.edu.tw/wpsi/calos/wp-content/uploads/2014/08/1407302518-928700446.png?resize=350%2C200" scale="2"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://caloskao.org/freebsd-%e6%aa%94%e6%a1%88%e7%b3%bb%e7%b5%b1%e6%9e%b6%e6%a7%8b/" title="[FreeBSD] 檔案系統架構
+
+做個筆記 解說一下幾個比較常用到的地方，裡面放了哪些東西 /bin &amp; /usr/bin :…" rel="nofollow" data-origin="43" data-position="1">[FreeBSD] 檔案系統架構</a></h4><p class="jp-relatedposts-post-excerpt">做個筆記 解說一下幾個比較常用到的地方，裡面放了哪些東西 /bin &amp; /usr/bin :…</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-nothumbs" data-post-id="223" data-post-format="false"><a class="jp-relatedposts-post-a jp-relatedposts-post-aoverlay" href="https://caloskao.org/cloc-%e5%bf%ab%e9%80%9f%e8%a8%88%e7%ae%97%e7%a8%8b%e5%bc%8f%e7%a2%bc%e8%a1%8c%e6%95%b8/" title="Cloc - 快速計算程式碼行數
+
+最近剛好一個閒來無事 想看看專案規模成長到多大 雖然以程式碼行數來去看是不太準 但起碼依然是指標的一…" rel="nofollow" data-origin="43" data-position="2"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://caloskao.org/cloc-%e5%bf%ab%e9%80%9f%e8%a8%88%e7%ae%97%e7%a8%8b%e5%bc%8f%e7%a2%bc%e8%a1%8c%e6%95%b8/" title="Cloc - 快速計算程式碼行數
+
+最近剛好一個閒來無事 想看看專案規模成長到多大 雖然以程式碼行數來去看是不太準 但起碼依然是指標的一…" rel="nofollow" data-origin="43" data-position="2">Cloc - 快速計算程式碼行數</a></h4><p class="jp-relatedposts-post-excerpt" style="max-height: 7.14286em;">最近剛好一個閒來無事 想看看專案規模成長到多大 雖然以程式碼行數來去看是不太準 但起碼依然是指標的一…</p></div></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<hr><div class="row"><div class="col-md-6 cattegories"><span class="cat-links"><i class="fa fa-folder-open"></i>
+		 <a href="https://caloskao.org/category/linux/freebsd/" rel="category tag">FreeBSD</a>, <a href="https://caloskao.org/category/linux/" rel="category tag">Linux</a>, <a href="https://caloskao.org/category/linux/ubuntu/" rel="category tag">Ubuntu</a></span></div><div class="col-md-6 tags"><span class="tags-links"><i class="fa fa-tags"></i> <a href="https://caloskao.org/tag/freebsd/" rel="tag">freebsd</a>, <a href="https://caloskao.org/tag/linux/" rel="tag">linux</a></span></div></div><hr><div class="row">
+                <ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6762145381463539" data-ad-slot="4519457146" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:734px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:734px;background-color:transparent;"><iframe width="734" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:734px;height:90px;" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/saved_resource(4).html"></iframe></ins></ins></ins>
+                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+            </div>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				</main><!-- #main -->
+				<div class="post-navigation">
+									</div>
+				<div class="post-comments">
+					
+<div id="comments" class="comments-area">
+
+		
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">留言					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://caloskao.org/freebsd-%E7%94%A8ln%E5%BB%BA%E7%AB%8B%E6%AA%94%E6%A1%88%E6%88%96%E7%9B%AE%E9%8C%84%E9%80%A3%E7%B5%90/#respond" style="display:none;">取消回覆</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="留言表單" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/saved_resource(5).html" style="width: 100%; height: 62px; border: 0px;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" scrolling="no"></iframe>
+				<!--[if !IE]><!-->
+				<script>
+					document.addEventListener('DOMContentLoaded', function () {
+						var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+						for (var i = 0; i < commentForms.length; i++) {
+							commentForms[i].allowTransparency = false;
+							commentForms[i].scrolling = 'no';
+						}
+					});
+				</script>
+				<!--<![endif]-->
+			</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		</div><!-- #comments -->
+				</div>
+				<div class="code-block code-block-2" style="margin: 8px auto; text-align: center; clear: both;">
+<script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(1).txt"></script>
+<!-- End of post -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6762145381463539" data-ad-slot="4519457146" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:848px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:848px;background-color:transparent;"><iframe width="848" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:848px;height:90px;" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/saved_resource(6).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+			</div><!-- #primary -->
+			<div id="secondary" class="col-md-3 sidebar widget-area" role="complementary">
+		<aside id="text-3" class="widget widget_text"><h4 class="widget-title">About Me</h4>			<div class="textwidget"><div style="text-align: center;"><a href="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/logo_300x300.jpg?ssl=1" target="_blank" rel="noopener"><img class="lazy alignnone size-full wp-image-619 lazy-loaded lazy-loaded" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/logo_300x300.jpg" data-lazy-type="image" data-lazy-src="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/logo_300x300.jpg?resize=300%2C300&amp;ssl=1" alt="" width="215" height="215" srcset="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/logo_300x300.jpg?zoom=2&amp;resize=215%2C215&amp;ssl=1" src-orig="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/logo_300x300.jpg?resize=300%2C300&amp;ssl=1" scale="2"><noscript><img class="alignnone size-full wp-image-619" src="https://i1.wp.com/caloskao.org/wp-content/uploads/2016/12/logo_300x300.jpg?resize=300%2C300&#038;ssl=1" alt="" width="300" height="300" data-recalc-dims="1" /></noscript></a><p></p>
+<p>技術手札 x 二輪機研</p>
+<p><a style="margin: auto 0.5em;" href="http://feeds.feedburner.com/caloskao" target="_blank" rel="noopener"><i class="fa fa-rss-square fa-3x "></i></a><a style="margin: auto 0.5em;" href="https://github.com/calos3257" target="_blank" rel="noopener"><i class="fa fa-github fa-3x "></i></a><a style="margin: auto 0.5em;" href="mailto:calos3257@gmail.com" target="_blank" rel="noopener"><i class="fa fa-envelope fa-3x "></i></a></p>
+</div>
+</div>
+		</aside><aside id="text-2" class="widget widget_text"><h4 class="widget-title">廣告</h4>			<div class="textwidget"><p><script async="" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/f(1).txt"></script><br>
+<!-- Block Ads --><br>
+<ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-6762145381463539" data-ad-slot="9789338964" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:215px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:215px;background-color:transparent;"><iframe width="215" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:215px;height:600px;" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/saved_resource(7).html"></iframe></ins></ins></ins><br>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</aside><aside id="search-2" class="widget widget_search"><h4 class="widget-title">全站搜尋</h4>
+<form role="search" method="get" class="search-form" action="https://caloskao.org/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</aside><aside id="categories-2" class="widget widget_categories"><h4 class="widget-title">分類</h4>		<ul>
+	<li class="cat-item cat-item-128"><a href="https://caloskao.org/category/biker/">Biker</a> (7)
+</li>
+	<li class="cat-item cat-item-50"><a href="https://caloskao.org/category/database/">Database</a> (8)
+<ul class="children">
+	<li class="cat-item cat-item-4"><a href="https://caloskao.org/category/database/mysql-mariadb/">MySQL / MariaDB</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-35"><a href="https://caloskao.org/category/development/">Development</a> (33)
+<ul class="children">
+	<li class="cat-item cat-item-7"><a href="https://caloskao.org/category/development/git/">Git</a> (8)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://caloskao.org/category/development/web/">Web</a> (24)
+	<ul class="children">
+	<li class="cat-item cat-item-18"><a href="https://caloskao.org/category/development/web/css/">CSS</a> (3)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://caloskao.org/category/development/web/html/">HTML</a> (1)
+</li>
+	<li class="cat-item cat-item-124"><a href="https://caloskao.org/category/development/web/javascript/">Javascript</a> (4)
+		<ul class="children">
+	<li class="cat-item cat-item-10"><a href="https://caloskao.org/category/development/web/javascript/jquery/">jQuery</a> (4)
+</li>
+		</ul>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://caloskao.org/category/development/web/php/">PHP</a> (17)
+		<ul class="children">
+	<li class="cat-item cat-item-20"><a href="https://caloskao.org/category/development/web/php/laravel/">Laravel</a> (1)
+</li>
+	<li class="cat-item cat-item-13"><a href="https://caloskao.org/category/development/web/php/wordpress/">WordPress</a> (5)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://caloskao.org/category/development/web/php/zendframework/">ZendFramework</a> (2)
+</li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-24"><a href="https://caloskao.org/category/linux/">Linux</a> (32)
+<ul class="children">
+	<li class="cat-item cat-item-11"><a href="https://caloskao.org/category/linux/apache/">Apache</a> (4)
+</li>
+	<li class="cat-item cat-item-155"><a href="https://caloskao.org/category/linux/centos/">CentOS</a> (1)
+</li>
+	<li class="cat-item cat-item-148"><a href="https://caloskao.org/category/linux/cygwin/">Cygwin</a> (1)
+</li>
+	<li class="cat-item cat-item-149"><a href="https://caloskao.org/category/linux/debian/">Debian</a> (10)
+</li>
+	<li class="cat-item cat-item-2"><a href="https://caloskao.org/category/linux/freebsd/">FreeBSD</a> (8)
+</li>
+	<li class="cat-item cat-item-30"><a href="https://caloskao.org/category/linux/nginx/">Nginx</a> (2)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://caloskao.org/category/linux/ubuntu/">Ubuntu</a> (19)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-22"><a href="https://caloskao.org/category/network/">Network</a> (4)
+<ul class="children">
+	<li class="cat-item cat-item-14"><a href="https://caloskao.org/category/network/cisco/">Cisco</a> (1)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://caloskao.org/category/network/juniper/">Juniper</a> (2)
+</li>
+	<li class="cat-item cat-item-116"><a href="https://caloskao.org/category/network/netflow/">Netflow</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-34"><a href="https://caloskao.org/category/tools-softwares/">Tools &amp; Softwares</a> (5)
+<ul class="children">
+	<li class="cat-item cat-item-39"><a href="https://caloskao.org/category/tools-softwares/editor/">Editor</a> (3)
+	<ul class="children">
+	<li class="cat-item cat-item-40"><a href="https://caloskao.org/category/tools-softwares/editor/sublime-text/">Sublime Text</a> (1)
+</li>
+	<li class="cat-item cat-item-9"><a href="https://caloskao.org/category/tools-softwares/editor/vim/">VIM</a> (2)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-44"><a href="https://caloskao.org/category/tools-softwares/google-chrome/">Google Chrome</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://caloskao.org/category/twiki/">TWiki</a> (1)
+</li>
+		</ul>
+</aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h4 class="widget-title">標籤</h4><div class="tagcloud"><a href="https://caloskao.org/tag/apache/" class="tag-cloud-link tag-link-91 tag-link-position-1" style="font-size: 12.705882352941pt;" aria-label="apache (4 個項目)">apache</a>
+<a href="https://caloskao.org/tag/apt/" class="tag-cloud-link tag-link-96 tag-link-position-2" style="font-size: 10.117647058824pt;" aria-label="apt (2 個項目)">apt</a>
+<a href="https://caloskao.org/tag/biker/" class="tag-cloud-link tag-link-142 tag-link-position-3" style="font-size: 15.058823529412pt;" aria-label="biker (7 個項目)">biker</a>
+<a href="https://caloskao.org/tag/browser/" class="tag-cloud-link tag-link-83 tag-link-position-4" style="font-size: 10.117647058824pt;" aria-label="browser (2 個項目)">browser</a>
+<a href="https://caloskao.org/tag/centos/" class="tag-cloud-link tag-link-151 tag-link-position-5" style="font-size: 10.117647058824pt;" aria-label="centos (2 個項目)">centos</a>
+<a href="https://caloskao.org/tag/chrome/" class="tag-cloud-link tag-link-45 tag-link-position-6" style="font-size: 8pt;" aria-label="chrome (1 個項目)">chrome</a>
+<a href="https://caloskao.org/tag/css/" class="tag-cloud-link tag-link-62 tag-link-position-7" style="font-size: 10.117647058824pt;" aria-label="css (2 個項目)">css</a>
+<a href="https://caloskao.org/tag/database/" class="tag-cloud-link tag-link-144 tag-link-position-8" style="font-size: 15.647058823529pt;" aria-label="database (8 個項目)">database</a>
+<a href="https://caloskao.org/tag/debian/" class="tag-cloud-link tag-link-150 tag-link-position-9" style="font-size: 16.235294117647pt;" aria-label="debian (9 個項目)">debian</a>
+<a href="https://caloskao.org/tag/editor/" class="tag-cloud-link tag-link-41 tag-link-position-10" style="font-size: 10.117647058824pt;" aria-label="editor (2 個項目)">editor</a>
+<a href="https://caloskao.org/tag/fedora/" class="tag-cloud-link tag-link-153 tag-link-position-11" style="font-size: 10.117647058824pt;" aria-label="fedora (2 個項目)">fedora</a>
+<a href="https://caloskao.org/tag/flush/" class="tag-cloud-link tag-link-32 tag-link-position-12" style="font-size: 8pt;" aria-label="flush (1 個項目)">flush</a>
+<a href="https://caloskao.org/tag/force/" class="tag-cloud-link tag-link-136 tag-link-position-13" style="font-size: 15.058823529412pt;" aria-label="force (7 個項目)">force</a>
+<a href="https://caloskao.org/tag/framework/" class="tag-cloud-link tag-link-106 tag-link-position-14" style="font-size: 10.117647058824pt;" aria-label="framework (2 個項目)">framework</a>
+<a href="https://caloskao.org/tag/freebsd/" class="tag-cloud-link tag-link-84 tag-link-position-15" style="font-size: 16.235294117647pt;" aria-label="freebsd (9 個項目)">freebsd</a>
+<a href="https://caloskao.org/tag/git/" class="tag-cloud-link tag-link-38 tag-link-position-16" style="font-size: 15.647058823529pt;" aria-label="git (8 個項目)">git</a>
+<a href="https://caloskao.org/tag/html/" class="tag-cloud-link tag-link-77 tag-link-position-17" style="font-size: 10.117647058824pt;" aria-label="html (2 個項目)">html</a>
+<a href="https://caloskao.org/tag/http/" class="tag-cloud-link tag-link-92 tag-link-position-18" style="font-size: 11.529411764706pt;" aria-label="http (3 個項目)">http</a>
+<a href="https://caloskao.org/tag/iptables/" class="tag-cloud-link tag-link-29 tag-link-position-19" style="font-size: 8pt;" aria-label="iptables (1 個項目)">iptables</a>
+<a href="https://caloskao.org/tag/jquery/" class="tag-cloud-link tag-link-58 tag-link-position-20" style="font-size: 12.705882352941pt;" aria-label="jquery (4 個項目)">jquery</a>
+<a href="https://caloskao.org/tag/json/" class="tag-cloud-link tag-link-104 tag-link-position-21" style="font-size: 10.117647058824pt;" aria-label="json (2 個項目)">json</a>
+<a href="https://caloskao.org/tag/juniper/" class="tag-cloud-link tag-link-65 tag-link-position-22" style="font-size: 10.117647058824pt;" aria-label="juniper (2 個項目)">juniper</a>
+<a href="https://caloskao.org/tag/linux/" class="tag-cloud-link tag-link-28 tag-link-position-23" style="font-size: 22pt;" aria-label="linux (30 個項目)">linux</a>
+<a href="https://caloskao.org/tag/mac/" class="tag-cloud-link tag-link-66 tag-link-position-24" style="font-size: 10.117647058824pt;" aria-label="mac (2 個項目)">mac</a>
+<a href="https://caloskao.org/tag/mariadb/" class="tag-cloud-link tag-link-89 tag-link-position-25" style="font-size: 16.235294117647pt;" aria-label="mariadb (9 個項目)">mariadb</a>
+<a href="https://caloskao.org/tag/mysql/" class="tag-cloud-link tag-link-55 tag-link-position-26" style="font-size: 16.235294117647pt;" aria-label="mysql (9 個項目)">mysql</a>
+<a href="https://caloskao.org/tag/nginx/" class="tag-cloud-link tag-link-33 tag-link-position-27" style="font-size: 10.117647058824pt;" aria-label="nginx (2 個項目)">nginx</a>
+<a href="https://caloskao.org/tag/php/" class="tag-cloud-link tag-link-31 tag-link-position-28" style="font-size: 19.294117647059pt;" aria-label="php (17 個項目)">php</a>
+<a href="https://caloskao.org/tag/plugin/" class="tag-cloud-link tag-link-110 tag-link-position-29" style="font-size: 10.117647058824pt;" aria-label="plugin (2 個項目)">plugin</a>
+<a href="https://caloskao.org/tag/redhat/" class="tag-cloud-link tag-link-152 tag-link-position-30" style="font-size: 10.117647058824pt;" aria-label="redhat (2 個項目)">redhat</a>
+<a href="https://caloskao.org/tag/rivision-control/" class="tag-cloud-link tag-link-100 tag-link-position-31" style="font-size: 15.647058823529pt;" aria-label="rivision-control (8 個項目)">rivision-control</a>
+<a href="https://caloskao.org/tag/session/" class="tag-cloud-link tag-link-49 tag-link-position-32" style="font-size: 10.117647058824pt;" aria-label="session (2 個項目)">session</a>
+<a href="https://caloskao.org/tag/smax/" class="tag-cloud-link tag-link-170 tag-link-position-33" style="font-size: 15.058823529412pt;" aria-label="smax (7 個項目)">smax</a>
+<a href="https://caloskao.org/tag/software/" class="tag-cloud-link tag-link-37 tag-link-position-34" style="font-size: 8pt;" aria-label="software (1 個項目)">software</a>
+<a href="https://caloskao.org/tag/sublime/" class="tag-cloud-link tag-link-43 tag-link-position-35" style="font-size: 8pt;" aria-label="sublime (1 個項目)">sublime</a>
+<a href="https://caloskao.org/tag/sublime-text/" class="tag-cloud-link tag-link-42 tag-link-position-36" style="font-size: 8pt;" aria-label="sublime text (1 個項目)">sublime text</a>
+<a href="https://caloskao.org/tag/tool/" class="tag-cloud-link tag-link-36 tag-link-position-37" style="font-size: 8pt;" aria-label="tool (1 個項目)">tool</a>
+<a href="https://caloskao.org/tag/ubuntu/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 19.294117647059pt;" aria-label="ubuntu (17 個項目)">ubuntu</a>
+<a href="https://caloskao.org/tag/vim/" class="tag-cloud-link tag-link-56 tag-link-position-39" style="font-size: 11.529411764706pt;" aria-label="vim (3 個項目)">vim</a>
+<a href="https://caloskao.org/tag/virtualbox/" class="tag-cloud-link tag-link-26 tag-link-position-40" style="font-size: 8pt;" aria-label="virtualbox (1 個項目)">virtualbox</a>
+<a href="https://caloskao.org/tag/web/" class="tag-cloud-link tag-link-82 tag-link-position-41" style="font-size: 15.058823529412pt;" aria-label="web (7 個項目)">web</a>
+<a href="https://caloskao.org/tag/wordpress/" class="tag-cloud-link tag-link-108 tag-link-position-42" style="font-size: 13.647058823529pt;" aria-label="wordpress (5 個項目)">wordpress</a>
+<a href="https://caloskao.org/tag/yamaha/" class="tag-cloud-link tag-link-135 tag-link-position-43" style="font-size: 15.058823529412pt;" aria-label="yamaha (7 個項目)">yamaha</a>
+<a href="https://caloskao.org/tag/zend/" class="tag-cloud-link tag-link-105 tag-link-position-44" style="font-size: 10.117647058824pt;" aria-label="zend (2 個項目)">zend</a>
+<a href="https://caloskao.org/tag/%e7%a9%ba%e6%bf%be/" class="tag-cloud-link tag-link-171 tag-link-position-45" style="font-size: 10.117647058824pt;" aria-label="空濾 (2 個項目)">空濾</a></div>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widget-title">近期文章</h4>		<ul>
+											<li>
+					<a href="https://caloskao.org/mariadb-mysql-create-account-and-grant-access-in-cli/">[MariaDB/MySQL] 建立連線帳號與指派權限</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/linux-make-tab-auto-completion-case-insensitive-in-the-terminal/">[Linux] 在 Bash 的自動完成中忽略英文字母大小寫</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/mariadb-mysql-use-limit-syntax-in-update-sub-query/">[MariaDB/MySQL] 在 Update 子查詢中使用 Limit 限制影響範圍</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/ubuntu-disable-gui/">[Ubuntu] 關閉圖形化介面</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/ubuntu-the-nic-is-normal-but-can-not-show-on-gui/">[Ubuntu] 網路卡功能正常，但是在圖形介面上無法顯示</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/linux-show-zip-archive-files-in-cli/">[Linux] 在指令模式下查看ZIP壓縮檔內的檔案</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/ubuntu-%e9%a1%af%e7%a4%ba-welcome-message/">[Ubuntu] 顯示 Welcome Message</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/ubuntu-show-dns-server-list/">[Ubuntu] 顯示使用中的 DNS Server 列表</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/centos-add-third-party-package-repositories/">[CentOS] 加入第三方套件庫</a>
+									</li>
+											<li>
+					<a href="https://caloskao.org/ubuntu-dpkg-warning-files-list-file-for-package-missing-assuming-package-has-no-files-currently-installed/">[Ubuntu] dpkg: warning: files list file for package * missing; assuming package has no files currently installed</a>
+									</li>
+					</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h4 class="widget-title">最新回應</h4><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="https://caloskao.org/" rel="external nofollow" class="url">Calos</a></span> 在 <a href="https://caloskao.org/bootstrap-modal-%e8%87%aa%e5%8b%95%e8%a8%ad%e5%ae%9a%e6%9c%80%e5%a4%a7%e9%ab%98%e5%ba%a6/comment-page-1/#comment-43">[Bootstrap] Modal 自動設定最大高度</a></li><li class="recentcomments"><span class="comment-author-link">冰鎮星誠</span> 在 <a href="https://caloskao.org/apache-apache-2-2%e5%8d%87%e7%b4%9a%e8%87%b32-4%e7%89%88conf%e4%bf%ae%e5%be%a9/comment-page-1/#comment-42">[Apache] Apache 2.2升級至2.4版conf修復</a></li><li class="recentcomments"><span class="comment-author-link">周靖峰</span> 在 <a href="https://caloskao.org/bootstrap-modal-%e8%87%aa%e5%8b%95%e8%a8%ad%e5%ae%9a%e6%9c%80%e5%a4%a7%e9%ab%98%e5%ba%a6/comment-page-1/#comment-41">[Bootstrap] Modal 自動設定最大高度</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://cces1004406andy.pixnet.net/blog" rel="external nofollow" class="url">cces1004406andy</a></span> 在 <a href="https://caloskao.org/mysql-%e9%96%8b%e6%94%be%e5%a4%96%e9%83%a8%e9%80%a3%e7%b7%9a/comment-page-1/#comment-3">[MySQL] 開放外部連線</a></li><li class="recentcomments"><span class="comment-author-link">Frank</span> 在 <a href="https://caloskao.org/php-php-5-4-%e7%9a%84-session-%e5%af%ab%e6%b3%95%e8%ae%8a%e9%9d%a9/comment-page-1/#comment-2">[PHP] PHP 5.4 的 session 寫法變革</a></li></ul></aside></div><!-- #secondary .widget-area -->
+
+
+		</div> <!--.row-->
+	</div><!--.container-->
+		</div><!-- #content -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="row site-info">
+			© 2018			<span class="sep"> | </span>
+			Proudly Powered by 			<a href="https://wordpress.org/">WordPress</a>
+			<span class="sep"> | </span>
+			Theme: <a href="https://wordpress.org/themes/nisarg/" rel="designer">Nisarg</a>			<span class="sep"> | </span>
+			<a href="https://caloskao.org/privacy-policy/" rel="designer">隱私權政策</a>		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+<script>
+		var advanced_ads_ga_UID = 'UA-78421790-1';
+		var advanced_ads_ga_anonymIP = true;
+advanced_ads_check_adblocker=function(t){function e(t){(window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||function(t){return setTimeout(t,16)}).call(window,t)}var n=[],a=null;return e(function(){var t=document.createElement("div");t.innerHTML="&nbsp;",t.setAttribute("class","ad_unit ad-unit text-ad text_ad pub_300x250"),t.setAttribute("style","width: 1px !important; height: 1px !important; position: absolute !important; left: 0px !important; top: 0px !important; overflow: hidden !important;"),document.body.appendChild(t),e(function(){var e=window.getComputedStyle&&window.getComputedStyle(t),o=e&&e.getPropertyValue("-moz-binding");a=e&&"none"===e.getPropertyValue("display")||"string"==typeof o&&-1!==o.indexOf("about:");for(var i=0;i<n.length;i++)n[i](a);n=[]})}),function(t){if(null===a)return void n.push(t);t(a)}}(),function(){var t=function(t,e){this.name=t,this.UID=e,this.analyticsObject=null;var n=this,a={hitType:"event",eventCategory:"Advanced Ads",eventAction:"AdBlock",eventLabel:"Yes",nonInteraction:!0,transport:"beacon"};this.analyticsObject="string"==typeof GoogleAnalyticsObject&&"function"==typeof window[GoogleAnalyticsObject]&&window[GoogleAnalyticsObject],!1===this.analyticsObject?(!function(t,e,n,a,o,i,d){t.GoogleAnalyticsObject=o,t[o]=t[o]||function(){(t[o].q=t[o].q||[]).push(arguments)},t[o].l=1*new Date,i=e.createElement(n),d=e.getElementsByTagName(n)[0],i.async=1,i.src="https://www.google-analytics.com/analytics.js",d.parentNode.insertBefore(i,d)}(window,document,"script",0,"_advads_ga"),_advads_ga("create",n.UID,"auto",this.name),advanced_ads_ga_anonymIP&&_advads_ga("set","anonymizeIp",!0),_advads_ga(n.name+".send",a)):(window.console&&window.console.log("Advanced Ads Analytics >> using other's variable named `"+GoogleAnalyticsObject+"`"),window[GoogleAnalyticsObject]("create",n.UID,"auto",this.name),window[GoogleAnalyticsObject]("set","anonymizeIp",!0),window[GoogleAnalyticsObject](n.name+".send",a))};advanced_ads_check_adblocker(function(e){e&&"string"==typeof advanced_ads_ga_UID&&advanced_ads_ga_UID&&new t("advadsTracker",advanced_ads_ga_UID)})}();		
+		</script>	<div style="display:none">
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/caloskao.org\/freebsd-%e7%94%a8ln%e5%bb%ba%e7%ab%8b%e6%aa%94%e6%a1%88%e6%88%96%e7%9b%ae%e9%8c%84%e9%80%a3%e7%b5%90\/":43};
+	</script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/photon.min.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/gprofiles(1).js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/wpgroho(1).js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/bootstrap.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/navigation.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/skip-link-focus-fix.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/nisarg.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/queuehandler.min.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/bj-lazy-load.min.js"></script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/wp-embed.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/sharing.min.js"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-pocket', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcompocket', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+</script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=145672665&postid=43&comment_registration=0&require_name_email=0&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=%E7%95%99%E8%A8%80&greeting_reply=%E5%B0%8D+%25s+%E7%99%BC%E8%A1%A8%E8%BF%B4%E9%9F%BF&color_scheme=light&lang=zh_TW&jetpack_version=6.2.1&sig=881106ba74c540b611d56e3c1d621559ded37766#parent=https%3A%2F%2Fcaloskao.org%2Ffreebsd-%25E7%2594%25A8ln%25E5%25BB%25BA%25E7%25AB%258B%25E6%25AA%2594%25E6%25A1%2588%25E6%2588%2596%25E7%259B%25AE%25E9%258C%2584%25E9%2580%25A3%25E7%25B5%2590%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=145672665&postid=43&comment_registration=0&require_name_email=0&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=%E7%95%99%E8%A8%80&greeting_reply=%E5%B0%8D+%25s+%E7%99%BC%E8%A1%A8%E8%BF%B4%E9%9F%BF&color_scheme=light&lang=zh_TW&jetpack_version=6.2.1&sig=881106ba74c540b611d56e3c1d621559ded37766#parent=https%3A%2F%2Fcaloskao.org%2Ffreebsd-%25E7%2594%25A8ln%25E5%25BB%25BA%25E7%25AB%258B%25E6%25AA%2594%25E6%25A1%2588%25E6%2588%2596%25E7%259B%25AE%25E9%258C%2584%25E9%2580%25A3%25E7%25B5%2590%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/e-201824.js" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:6.2.1',blog:'145672665',post:'43',tz:'8',srv:'caloskao.org'} ]);
+	_stq.push([ 'clickTrackerInit', '145672665', '43' ]);
+</script>
+
+
+<div class="ad_unit ad-unit text-ad text_ad pub_300x250" style="width: 1px !important; height: 1px !important; position: absolute !important; left: 0px !important; top: 0px !important; overflow: hidden !important;">&nbsp;</div><img src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/g.gif" alt=":)" width="6" height="5" id="wpstats" scale="0"><iframe id="google_osd_static_frame_8358621112679" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./[Linux] 用 ln 建立檔案或目錄連結 _ Calos&#39;s Blog_files/saved_resource(8).html"></iframe></body></html>
