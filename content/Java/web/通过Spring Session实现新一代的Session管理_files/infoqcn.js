@@ -1,6 +1,0 @@
-if(Math.random() < 0.33333333333333){$(".text_info .related").before('<div style=margin-bottom:5px"><a href="http://s.geekbang.org?utm_source=infoq" target="_blank"><img  style="width: 100%;" src="http://static.geekbang.org/infoq/597e8747b4bbb.png?imageView2/0/w/1228" /></a></div>')
-console.log("请关注InfoQ微信帐号:infoqchina");}
-else if(Math.random() >= 0.33333333333333&&Math.random() < 0.66666666666667){$(".text_info .related").before('<div style=margin-bottom:5px"><a href="http://www.cnutcon.com/?utm_source=workshop&utm_medium=banner#workshop" target="_blank"><img  style="width: 100%;" src="http://static.geekbang.org/infoq/597eddf185def.png?imageView2/0/w/1228" /></a></div>')
-console.log("请关注InfoQ微信帐号:infoqchina");}
-else{$(".text_info .related").before('<div style=margin-bottom:5px"><a href="http://www.cnutcon.com/?utm_source=infoq&utm_medium=wenzhangdibu" target="_blank"><img  style="width: 100%;" src="http://static.geekbang.org/infoq/5965ea441a1fc.png" /></a></div>')
-console.log("请关注InfoQ微信帐号:infoqchina");}

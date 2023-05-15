@@ -1,1 +1,0 @@
-document.write("    <a href=\"/account/login\">登入</a>\n");

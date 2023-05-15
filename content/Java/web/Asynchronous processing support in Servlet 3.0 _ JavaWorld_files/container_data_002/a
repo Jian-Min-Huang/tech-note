@@ -1,19 +1,0 @@
-
-var ftGUID_2505986="3214DF97E6CB4C";
-var ftConfID_2505986="0";
-var ftParams_2505986="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_ifb=1&ft_domain=www.javaworld.com&ft_agentEnv=0&ft_referrer=http%3A%2F%2Fwww.javaworld.com%2Farticle%2F2077995%2Fjava-concurrency%2Fjava-concurrency-asynchronous-processing-support-in-servlet-3-0.html&cachebuster=476341.86075992393";
-var ftKeyword_2505986="";
-var ftCustom_2505986="";
-var ftSection_2505986="";
-var ftSegment_2505986="";
-var ftSegmentList_2505986=[];
-var ftRuleMatch_2505986="0";
-var ftTimestamp_2505986="1495544020";
-var ftImp2505986 = {};
-ftImp2505986.privacy = "x";
-ftImp2505986.guidAge = "216";
-ftImp2505986.impID = "3430D4A3876543";
-
-
-document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/250/2505986/1806273/js/j-2505986-1806273.js" id="ftscript_m2505986" name="ftscript_m2505986"></scr'+'ipt>');
-                    

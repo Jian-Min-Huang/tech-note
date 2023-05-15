@@ -1,1 +1,0 @@
-LW.lws2(function(){return null}, function(){return null}, "", "", "", "", {})

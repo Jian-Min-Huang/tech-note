@@ -1,1 +1,0 @@
-crtg_content = ''; (function(){document.cookie = 'crtg_rta=' + escape(crtg_content) + '; path=/; expires=Thu, 14 Apr 2016 14:06:43 GMT; domain=pixnet.net';})();

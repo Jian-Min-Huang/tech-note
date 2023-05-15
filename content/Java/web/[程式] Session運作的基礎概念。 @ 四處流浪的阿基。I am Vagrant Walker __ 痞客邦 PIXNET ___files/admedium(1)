@@ -1,1 +1,0 @@
-if(typeof sociomantic === 'object' && typeof sociomantic.sonar === 'object' && typeof sociomantic.sonar.response === 'function') sociomantic.sonar.response({cid:'8852',gid:'18363',aaid:'17499609911517664927',size:1,type:1,ao:[{id:'111823',fsize:1,type:1,url:'http://fetnet.tw/j4Wq8i013K',currency:'AED',price:'0.00',sprice:'0.00',createtime:1496221864}]},'r0004429703333162838');

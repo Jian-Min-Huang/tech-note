@@ -1,1 +1,0 @@
-function aeMousedown(e){var e=e||window.event;dataLayer.push({event:"my.mouseDown","gtm.element":e.target,"gtm.elementClasses":e.target.className,"gtm.elementId":e.target.id,"gtm.elementTarget":e.target.target})}document.addEventListener("mousedown",aeMousedown,false);

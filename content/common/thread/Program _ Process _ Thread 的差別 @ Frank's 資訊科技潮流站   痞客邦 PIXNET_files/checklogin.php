@@ -1,1 +1,0 @@
-pix.panel_login_name = "10341a7fc22c2890536702bf3ad6048e";pix.toolbar_close = 0;

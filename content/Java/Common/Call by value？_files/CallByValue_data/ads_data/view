@@ -1,1 +1,0 @@
-if (typeof sociomantic === 'object' && typeof sociomantic.sonar === 'object' && typeof sociomantic.sonar.response === 'function') sociomantic.sonar.response('152211182406810556','r04336087769661804');
